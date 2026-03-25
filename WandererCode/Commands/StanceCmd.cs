@@ -17,8 +17,20 @@ public static class StanceCmd
 {
     public static event Func<Creature, Stance, Task>? Shifted;
 
+    public static bool JodanEnabled = false;
+
+    public static bool WakiEnabled = false;
+
     public static async Task Shift(Creature creature, Stance stance)
     {
+        // Remove all existing stance powers
+        await PowerCmd.Remove<ChudanPower>(creature);
+        await PowerCmd.Remove<HassoPower>(creature);
+        await PowerCmd.Remove<GedanPower>(creature);
+        await PowerCmd.Remove<JodanPower>(creature);
+        await PowerCmd.Remove<WakiPower>(creature);
+
+        // Apply the new stance
         switch (stance)
         {
             case Stance.Chudan:
@@ -29,6 +41,14 @@ public static class StanceCmd
                 break;
             case Stance.Gedan:
                 await PowerCmd.Apply<GedanPower>(creature, 1, creature, null);
+                break;
+            case Stance.Jodan:
+                await PowerCmd.Apply<JodanPower>(creature, 1, creature, null);
+                JodanEnabled = true;
+                break;
+            case Stance.Waki:
+                await PowerCmd.Apply<WakiPower>(creature, 1, creature, null);
+                WakiEnabled = true;
                 break;
         }
 

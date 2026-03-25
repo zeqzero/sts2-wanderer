@@ -27,6 +27,8 @@ public class ShiftingStrike : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
+
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
@@ -36,7 +38,7 @@ public class ShiftingStrike : CustomCardModel
             return;
 
         // Search draw, discard, and exhaust for an existing Shift
-        CardModel shift = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
+        CardModel? shift = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
             ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
             ?? PileType.Exhaust.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift);
 

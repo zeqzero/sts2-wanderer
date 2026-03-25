@@ -19,5 +19,12 @@
     "WANDERER-FLOW_POWER.smartDescription": "Whenever you enter a stance, gain {Amount} block.",
     "WANDERER-TORRENT_POWER.title": "Torrent",
     "WANDERER-TORRENT_POWER.description": "Whenever you enter a stance, deal {Amount} damage to ALL enemies.",
-    "WANDERER-TORRENT_POWER.smartDescription": "Whenever you enter a stance, deal {Amount} damage to ALL enemies."
+    "WANDERER-TORRENT_POWER.smartDescription": "Whenever you enter a stance, deal {Amount} damage to ALL enemies.",
+    "WANDERER-JODAN_POWER.title": "Jodan",
+    "WANDERER-JODAN_POWER.description": "Attacks deal double damage. At the end of your turn, gain 1 Vulnerable.",
+    "WANDERER-JODAN_POWER.smartDescription": "Attacks deal double damage. At the end of your turn, gain 1 Vulnerable.",
+    "WANDERER-WAKI_POWER.title": "Waki",
+    "WANDERER-WAKI_POWER.description": "At the start of your turn, add Sly to a card in hand this turn.",
+    "WANDERER-WAKI_POWER.smartDescription": "At the start of your turn, add Sly to a card in hand this turn.",
+    "WANDERER-WAKI_POWER.selectionScreenPrompt": "Select a card to add Sly to for this turn."
 }

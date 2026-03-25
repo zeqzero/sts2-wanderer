@@ -19,19 +19,19 @@ public class Wanderer : PlaceholderCharacterModel
     public override CharacterGender Gender => CharacterGender.Neutral;
     public override int StartingHp => 70;
     
-    //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Shift>());
-    public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<DualStrike>(),
-        ModelDb.Card<DualStrike>(),
-        ModelDb.Card<DualStrike>(),
-        ModelDb.Card<Tsuki>(),
-        ModelDb.Card<Tsuki>(),
-        ModelDb.Card<Tsuki>(),
-        ModelDb.Card<Shift>()
-    ];
+    public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Plunge>());
+    // public override IEnumerable<CardModel> StartingDeck => [
+    //     ModelDb.Card<Jodan>(),
+    //     ModelDb.Card<Waki>(),
+    //     ModelDb.Card<Weave>(),
+    //     ModelDb.Card<Weave>(),
+    //     ModelDb.Card<Thrust>(),
+    //     ModelDb.Card<Thrust>(),
+    //     ModelDb.Card<Dishonor>(),
+    //     ModelDb.Card<Dishonor>(),
+    //     ModelDb.Card<Dishonor>(),
+    //     ModelDb.Card<Shift>()
+    // ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [

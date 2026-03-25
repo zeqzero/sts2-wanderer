@@ -25,7 +25,7 @@ public class Feint : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardModel cardModel = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), context: choiceContext, player: base.Owner, filter: c => c.Type == CardType.Attack, source: this)).FirstOrDefault();
+        CardModel? cardModel = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), context: choiceContext, player: base.Owner, filter: c => c.Type == CardType.Attack, source: this)).FirstOrDefault();
         if (cardModel != null)
         {
             var cardDamage = cardModel.DynamicVars.Damage.BaseValue;

@@ -30,7 +30,7 @@ public class Yield : CustomCardModel
             return;
 
         // Search draw, discard, and exhaust for an existing Shift
-        CardModel shift = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
+        CardModel? shift = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
             ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
             ?? PileType.Exhaust.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift);
 

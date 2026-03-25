@@ -25,8 +25,6 @@ public class ShiftGedan : CustomCardModel, IShiftStance
 
     public async Task OnShift(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Remove<ChudanPower>(Owner.Creature);
-        await PowerCmd.Remove<HassoPower>(Owner.Creature);
         await StanceCmd.Shift(Owner.Creature, Stance.Gedan);
     }
 }

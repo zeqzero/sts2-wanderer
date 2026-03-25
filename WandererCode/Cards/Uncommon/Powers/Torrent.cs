@@ -11,28 +11,26 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Flow : CustomCardModel
+public class Torrent : CustomCardModel
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<FlowPower>(3) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<TorrentPower>(3) ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [ 
-        HoverTipFactory.Static(StaticHoverTip.Block), 
-        HoverTipFactory.FromPower<FlowPower>()
+    [
     ];
 
-    public Flow() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    public Torrent() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<FlowPower>(Owner.Creature, DynamicVars["FlowPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<TorrentPower>(Owner.Creature, DynamicVars["TorrentPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["FlowPower"].UpgradeValueBy(2m);
+        DynamicVars["TorrentPower"].UpgradeValueBy(2m);
     }
 }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
@@ -36,7 +37,7 @@ public class Shift : CustomCardModel
 
         if (cards.Count == 0) return;
 
-        CardModel chosenCard = await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, base.Owner, canSkip: false);
+        CardModel? chosenCard = await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, Owner, canSkip: false);
         if (chosenCard is IShiftStance shiftStance)
         {
             await shiftStance.OnShift(choiceContext, cardPlay);

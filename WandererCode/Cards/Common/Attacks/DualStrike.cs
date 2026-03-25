@@ -24,6 +24,7 @@ public class DualStrike : CustomCardModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        ArgumentNullException.ThrowIfNull(CombatState, "CombatState");
         await DamageCmd
             .Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(2)
