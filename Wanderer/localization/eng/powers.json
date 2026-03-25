@@ -1,3 +1,23 @@
 {
-  
+    "WANDERER-CHUDAN_POWER.title": "Chudan Stance",
+    "WANDERER-CHUDAN_POWER.description": "Whenever you play an attack, gain 2 strength this turn.",
+    "WANDERER-CHUDAN_POWER.smartDescription": "Whenever you play an attack, gain 2 strength this turn.",
+    "WANDERER-HASSO_POWER.title": "Hasso Stance",
+    "WANDERER-HASSO_POWER.description": "At the start of your turn, draw 1 additional card.",
+    "WANDERER-HASSO_POWER.smartDescription": "At the start of your turn, draw 1 additional card.",
+    "WANDERER-GEDAN_POWER.title": "Gedan Stance",
+    "WANDERER-GEDAN_POWER.description": "Whenever you fully block an attack, apply 2 weak and 2 vulnerable.",
+    "WANDERER-GEDAN_POWER.smartDescription": "Whenever you fully block an attack, apply 2 weak and 2 vulnerable.",
+    "WANDERER-WANDERER_NEXT_TURN_ENERGY_POWER.title": "Next Turn Energy",
+    "WANDERER-WANDERER_NEXT_TURN_ENERGY_POWER.description": "Next turn, gain {Amount} energy.",
+    "WANDERER-WANDERER_NEXT_TURN_ENERGY_POWER.smartDescription": "Next turn, gain {Amount} energy.",
+    "WANDERER-WANDERER_NEXT_TURN_DRAW_POWER.title": "Next Turn Draw",
+    "WANDERER-WANDERER_NEXT_TURN_DRAW_POWER.description": "Next turn, draw {Amount} cards.",
+    "WANDERER-WANDERER_NEXT_TURN_DRAW_POWER.smartDescription": "Next turn, draw {Amount} cards.",
+    "WANDERER-FLOW_POWER.title": "Flow",
+    "WANDERER-FLOW_POWER.description": "Whenever you enter a stance, gain {Amount} block.",
+    "WANDERER-FLOW_POWER.smartDescription": "Whenever you enter a stance, gain {Amount} block.",
+    "WANDERER-TORRENT_POWER.title": "Torrent",
+    "WANDERER-TORRENT_POWER.description": "Whenever you enter a stance, deal {Amount} damage to ALL enemies.",
+    "WANDERER-TORRENT_POWER.smartDescription": "Whenever you enter a stance, deal {Amount} damage to ALL enemies."
 }

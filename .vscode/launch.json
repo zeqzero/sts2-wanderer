@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Slay the Spire 2",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Slay the Spire 2\\SlayTheSpire2.exe",
+            "args": [],
+            "cwd": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Slay the Spire 2",
+            "stopAtEntry": false,
+            "preLaunchTask": "publish-mod"
+        }
+    ]
+}

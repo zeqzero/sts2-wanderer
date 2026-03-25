@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
+using Wanderer.WandererCode.Cards;
 
 namespace Wanderer.WandererCode.Character;
 
@@ -18,17 +19,18 @@ public class Wanderer : PlaceholderCharacterModel
     public override CharacterGender Gender => CharacterGender.Neutral;
     public override int StartingHp => 70;
     
+    //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Shift>());
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>()
+        ModelDb.Card<Dishonor>(),
+        ModelDb.Card<Dishonor>(),
+        ModelDb.Card<Dishonor>(),
+        ModelDb.Card<DualStrike>(),
+        ModelDb.Card<DualStrike>(),
+        ModelDb.Card<DualStrike>(),
+        ModelDb.Card<Tsuki>(),
+        ModelDb.Card<Tsuki>(),
+        ModelDb.Card<Tsuki>(),
+        ModelDb.Card<Shift>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

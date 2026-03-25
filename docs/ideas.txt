@@ -1,0 +1,46 @@
+new mechanics:
+stances
+    three starting, two more available via power cards
+        Chudan, Hasso, Gedan starting
+        Jodan, Waki available as powers
+    Switch Stance starter card costs 0 and returns to hand each turn
+    entering a stance provides a buff, leaving a stance removes it
+        having multiple stance buffs would be cool- maybe an idea to revisit later
+parry
+    full block stuns enemies
+    stacking does what?
+    maybe it's available solely from gedan and we don't worry about stacking
+    this is supremely overpowered, so for now it actually just applies weak/vuln
+resurrection
+    on death gain ghost form
+        ghost form has separate hp pool with low max like 5
+        gain intangible on turn end
+        cards transform to free exhaust, dishonor to free remove (but probably is visually identical)
+            on the turn you die you'll know which cards are which if you can remember, afterward you won't know
+            so to benefit from intangible you must lose the exhaust benefit
+        resurrect at previous hp, or at 1 if previous was 0
+    seppuku is a starter card that just puts you in ghost form
+dishonor
+    powerful cards add dishonor curses to deck
+    all dishonor can be removed at rest sites with Waterfall Meditation
+
+design issues:
+what does seppuku do? in shigatari it ends your run early for bonus metaprogression, but basically no one does it so maybe it's not a good design to copy
+in sts2 it could give you ANYONE DIES triggers perhaps, but how does it like narratively make sense that you're dying?
+    perhaps the PC is actually the whole lineage and when you die you get replaced a la the robot fight in act 3?
+        how would you gain stacks of "number of replacements"?
+
+
+starting deck:
+4x strike
+4x defend
+1x change stance
+1x seppuku (probably a fucking horrible idea) - exhaust and remove all dishonor curses
+
+stances:
+judan- simultaneous death something something, and/or single big fast attack that leaves you vulnerable
+chudan- offensive with lots of attacks
+hasso- balanced offense/defense, flexible
+gedan- defensive with parry stuns
+waki- benefit from curses, exhaust them to power up or something
+
