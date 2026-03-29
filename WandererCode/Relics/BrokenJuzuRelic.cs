@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
-using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Relics;
 
@@ -14,7 +13,7 @@ public class BrokenJuzuRelic : WandererRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Ofuda>(), HoverTipFactory.FromPower<ShinigamiPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Ofuda>(), ShinigamiCmd.CanonicalPowerHoverTip ];
 
     public override async Task BeforeCombatStart()
     {

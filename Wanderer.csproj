@@ -104,6 +104,11 @@
       <Folder Include="Wanderer\images\powers\big\" />
       <Folder Include="Wanderer\images\relics\big\" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove=".decompiled/sts2/**" />
+      <None Include=".decompiled/sts2/**" />
+    </ItemGroup>
     
     <Target Name="CheckDependencyPaths" >
         <Error

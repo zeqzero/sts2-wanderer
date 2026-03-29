@@ -3,6 +3,8 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using Wanderer.WandererCode.Cards;
@@ -17,6 +19,16 @@ public static class ShinigamiCmd
     private static readonly Color ShinigamiTint = new(Colors.White, 0.3f);
 
     public static bool InShinigamiForm { get; private set; } = false;
+
+    public static HoverTip CanonicalPowerHoverTip
+    {
+        get
+        {
+            var desc = new LocString("powers", "WANDERER-SHINIGAMI_POWER.description");
+            desc.Add("Amount", ExhaustThreshold);
+            return new HoverTip(ModelDb.Power<ShinigamiPower>(), desc.GetFormattedText(), false);
+        }
+    }
 
     /// <summary>
     /// HP to restore when exiting shinigami form.
