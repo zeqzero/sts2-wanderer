@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Draw cards and gain temporary strength, gain dishonor curse
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class DiePeriod : CustomCardModel
+public class DiePeriod : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
 

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Jodan : CustomCardModel
+public class Jodan : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Innate ];
 

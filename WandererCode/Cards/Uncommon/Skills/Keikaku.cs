@@ -11,7 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Double all Next Turn power amounts
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Keikaku : CustomCardModel
+public class Keikaku : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
 

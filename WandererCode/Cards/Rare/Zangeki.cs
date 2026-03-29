@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Zangeki : CustomCardModel
+public class Zangeki : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [ 

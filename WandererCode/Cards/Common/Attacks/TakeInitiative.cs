@@ -15,7 +15,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Damage and apply vuln
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class TakeInitiative : CustomCardModel
+public class TakeInitiative : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(7m, ValueProp.Move), new PowerVar<VulnerablePower>(1m) ];
 

@@ -106,8 +106,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove=".decompiled/sts2/**" />
-      <None Include=".decompiled/sts2/**" />
+      <Compile Remove="decompiled/sts2/**" />
+      <None Include="decompiled/sts2/**" />
     </ItemGroup>
     
     <Target Name="CheckDependencyPaths" >

@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Flow : CustomCardModel
+public class Flow : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<FlowPower>(3) ];
 

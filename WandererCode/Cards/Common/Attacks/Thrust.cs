@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 /// common "fast" attack - do damage, gain energy next turn
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Thrust : CustomCardModel
+public class Thrust : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(6m, ValueProp.Move), new EnergyVar(1) ];
 

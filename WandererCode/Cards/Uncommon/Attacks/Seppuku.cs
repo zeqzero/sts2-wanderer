@@ -18,7 +18,7 @@ public class Seppuku : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // Store current HP so ghost mode can restore it on exit
-        ShinigamiCmd.StoredHp = Owner.Creature.CurrentHp;
+        ShinigamiCmd.SetStoredHp(Owner.Creature, Owner.Creature.CurrentHp);
         await CreatureCmd.Kill(Owner.Creature);
     }
 }

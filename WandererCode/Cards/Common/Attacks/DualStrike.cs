@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class DualStrike : CustomCardModel
+public class DualStrike : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Sly ];
 

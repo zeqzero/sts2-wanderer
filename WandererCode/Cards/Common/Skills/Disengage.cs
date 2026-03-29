@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Gain block, next turn lose energy
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Disengage : CustomCardModel
+public class Disengage : WandererCard
 {
     public override bool GainsBlock => true;
 

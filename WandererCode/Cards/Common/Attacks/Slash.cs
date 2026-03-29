@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Deal aoe damage
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Slash : CustomCardModel
+public class Slash : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(13m, ValueProp.Move) ];
     

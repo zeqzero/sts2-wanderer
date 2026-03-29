@@ -13,7 +13,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class ShiftingStrike : CustomCardModel
+public class ShiftingStrike : WandererCard
 {
     protected override HashSet<CardTag> CanonicalTags => [ CardTag.Strike ];
 

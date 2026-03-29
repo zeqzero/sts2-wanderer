@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(CurseCardPool))]
-public class Dishonor : CustomCardModel
+public class Dishonor : WandererCard
 {
     public override int MaxUpgradeLevel => 0;
 

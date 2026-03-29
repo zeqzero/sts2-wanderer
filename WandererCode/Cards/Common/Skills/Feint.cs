@@ -13,7 +13,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Feint : CustomCardModel
+public class Feint : WandererCard
 {
     public override bool GainsBlock => true;
 

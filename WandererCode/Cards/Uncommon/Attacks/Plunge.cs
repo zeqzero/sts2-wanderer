@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 /// big single target attack
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Plunge : CustomCardModel
+public class Plunge : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(15m, ValueProp.Move), new CardsVar(2) ];
 

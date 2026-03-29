@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Yield : CustomCardModel
+public class Yield : WandererCard
 {
     public override bool GainsBlock => true;
 

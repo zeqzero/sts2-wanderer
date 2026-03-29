@@ -17,7 +17,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Deals damage, hits an additional time for each other time you've attacked this turn.
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Tsuki : CustomCardModel
+public class Tsuki : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

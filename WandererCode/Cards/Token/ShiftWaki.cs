@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(TokenCardPool))]
-public class ShiftWaki : CustomCardModel, IShiftStance
+public class ShiftWaki : WandererCard, IShiftStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 

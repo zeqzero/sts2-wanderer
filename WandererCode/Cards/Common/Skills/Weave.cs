@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Gain defense and draw cards next turn
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Weave : CustomCardModel
+public class Weave : WandererCard
 {
     public override bool GainsBlock => true;
 

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 [Pool(typeof(WandererCardPool))]
-public class Flick : CustomCardModel
+public class Flick : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

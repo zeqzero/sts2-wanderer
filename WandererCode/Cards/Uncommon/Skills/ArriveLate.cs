@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Innate, Exhaust, Apply weak and vulnerable to all enemies
 /// </summary>
 [Pool(typeof(TokenCardPool))]
-public class ArriveLate : CustomCardModel
+public class ArriveLate : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [

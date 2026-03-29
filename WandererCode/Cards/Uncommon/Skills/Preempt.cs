@@ -10,7 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Apply all Next Turn powers immediately.
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class Preempt : CustomCardModel
+public class Preempt : WandererCard
 {
     public Preempt() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
