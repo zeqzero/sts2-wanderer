@@ -18,8 +18,6 @@ public static class ShinigamiCmd
     private const int ExhaustThreshold = 5;
     private static readonly Color ShinigamiTint = new(Colors.White, 0.3f);
 
-    public static bool InShinigamiForm { get; private set; } = false;
-
     public static HoverTip CanonicalPowerHoverTip
     {
         get
@@ -31,22 +29,48 @@ public static class ShinigamiCmd
     }
 
     /// <summary>
-    /// HP to restore when exiting shinigami form.
-    /// Set by intentional death cards (Seppuku) before killing.
-    /// Null means unintentional death — restore to 1 HP.
+    /// Per-creature state for shinigami form. Tracks HP, max HP,
+    /// tint, and player reference independently for each creature.
     /// </summary>
-    public static decimal? StoredHp { get; set; } = null;
+    private class ShinigamiState
+    {
+        public bool Active;
+        public decimal? StoredHp;
+        public int PreShinigamiMaxHp;
+        public decimal ShinigamiCurrentHp = ShinigamiMaxHp;
+        public Color? OriginalModulate;
+        public Player? Player;
+    }
 
-    private static int _preShinigamiMaxHp;
-    private static Color? _originalModulate;
-    private static Player? _player;
+    private static readonly Dictionary<Creature, ShinigamiState> _states = new();
 
     /// <summary>
     /// Maps Ofuda → backup clone of the original card it replaced.
     /// Backups are created via CloneCard before transforming, so they remain
     /// properly registered in CombatState and can be transformed back cleanly.
+    /// Shared across all players since ofuda instances are unique keys.
     /// </summary>
     private static readonly Dictionary<CardModel, CardModel> _transformedCards = new();
+
+    private static ShinigamiState GetOrCreateState(Creature creature)
+    {
+        if (!_states.TryGetValue(creature, out var state))
+        {
+            state = new ShinigamiState();
+            _states[creature] = state;
+        }
+        return state;
+    }
+
+    public static bool InShinigamiForm(Creature creature)
+    {
+        return _states.TryGetValue(creature, out var state) && state.Active;
+    }
+
+    public static void SetStoredHp(Creature creature, decimal hp)
+    {
+        GetOrCreateState(creature).StoredHp = hp;
+    }
 
     public static CardModel? GetOriginalCard(CardModel ofudaCard)
     {
@@ -73,40 +97,42 @@ public static class ShinigamiCmd
 
     public static async Task EnterShinigamiForm(Creature creature, Player player)
     {
-        if (InShinigamiForm) return;
+        var state = GetOrCreateState(creature);
+        if (state.Active) return;
 
-        _preShinigamiMaxHp = creature.MaxHp;
-        _player = player;
-        InShinigamiForm = true;
+        state.PreShinigamiMaxHp = creature.MaxHp;
+        state.Player = player;
+        state.Active = true;
 
         creature.SetMaxHpInternal(ShinigamiMaxHp);
-        await CreatureCmd.Heal(creature, ShinigamiMaxHp);
+        await CreatureCmd.Heal(creature, state.ShinigamiCurrentHp);
 
         await PowerCmd.Apply<ShinigamiPower>(creature, ExhaustThreshold, creature, null);
 
         await TransformAllCards(player);
 
-        ApplyShinigamiTint(creature);
+        ApplyShinigamiTint(creature, state);
     }
 
     public static async Task ExitShinigamiForm(Creature creature)
     {
-        if (!InShinigamiForm) return;
+        if (!_states.TryGetValue(creature, out var state) || !state.Active) return;
 
-        InShinigamiForm = false;
+        state.Active = false;
+        state.ShinigamiCurrentHp = creature.CurrentHp;
 
-        await RestoreAllCards();
+        await RestoreAllCards(state.Player);
 
-        creature.SetMaxHpInternal(_preShinigamiMaxHp);
+        creature.SetMaxHpInternal(state.PreShinigamiMaxHp);
 
-        decimal healTo = StoredHp ?? 1m;
+        decimal healTo = state.StoredHp ?? 1m;
         await CreatureCmd.Heal(creature, healTo);
 
-        StoredHp = null;
+        state.StoredHp = null;
 
         await PowerCmd.Remove<ShinigamiPower>(creature);
 
-        ResetShinigamiTint(creature);
+        ResetShinigamiTint(creature, state);
     }
 
     private static async Task TransformAllCards(Player player)
@@ -122,43 +148,43 @@ public static class ShinigamiCmd
         }
     }
 
-    private static async Task RestoreAllCards()
+    private static async Task RestoreAllCards(Player? player)
     {
-        if (_player == null || _transformedCards.Count == 0)
-        {
-            _transformedCards.Clear();
-            return;
-        }
+        if (player == null) return;
 
-        var firstOfuda = _transformedCards.Keys.First();
-        var combatState = firstOfuda.CombatState;
+        // Collect only the ofuda belonging to this player
+        var toRestore = _transformedCards
+            .Where(kvp => kvp.Key.Owner == player)
+            .ToList();
 
-        foreach (var (ofuda, backup) in _transformedCards.ToList())
+        if (toRestore.Count == 0) return;
+
+        foreach (var (ofuda, backup) in toRestore)
         {
             await CardCmd.Transform(ofuda, backup);
+            _transformedCards.Remove(ofuda);
         }
-        _transformedCards.Clear();
     }
 
-    private static void ApplyShinigamiTint(Creature creature)
+    private static void ApplyShinigamiTint(Creature creature, ShinigamiState state)
     {
         var creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);
         if (creatureNode == null) return;
 
         var body = creatureNode.Body;
-        _originalModulate ??= body.Modulate;
+        state.OriginalModulate ??= body.Modulate;
         body.Modulate = ShinigamiTint;
     }
 
-    private static void ResetShinigamiTint(Creature creature)
+    private static void ResetShinigamiTint(Creature creature, ShinigamiState state)
     {
-        if (_originalModulate == null) return;
+        if (state.OriginalModulate == null) return;
 
         var creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);
         if (creatureNode == null) return;
 
-        creatureNode.Body.Modulate = _originalModulate.Value;
-        _originalModulate = null;
+        creatureNode.Body.Modulate = state.OriginalModulate.Value;
+        state.OriginalModulate = null;
     }
 
     /// <summary>
@@ -166,11 +192,7 @@ public static class ShinigamiCmd
     /// </summary>
     public static void Reset()
     {
-        InShinigamiForm = false;
-        StoredHp = null;
-        _preShinigamiMaxHp = 0;
-        _originalModulate = null;
-        _player = null;
+        _states.Clear();
         _transformedCards.Clear();
     }
 }

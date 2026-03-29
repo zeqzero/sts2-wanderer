@@ -43,10 +43,9 @@ public class ShinigamiPower : WandererPower
         return Math.Min(1m, amount);
     }
 
-    public override Task AfterModifyingHpLostAfterOsty()
+    public override async Task AfterModifyingHpLostAfterOsty()
     {
         Flash();
-        return Task.CompletedTask;
     }
 
     public override decimal ModifyDamageCap(Creature? target, ValueProp props, Creature? dealer, CardModel? cardSource)
@@ -59,10 +58,9 @@ public class ShinigamiPower : WandererPower
         return 1m;
     }
 
-    public override Task AfterModifyingDamageAmount(CardModel? cardSource)
+    public override async Task AfterModifyingDamageAmount(CardModel? cardSource)
     {
         Flash();
-        return Task.CompletedTask;
     }
 
     // --- Track exhausts and exit shinigami form ---
@@ -92,10 +90,7 @@ public class ShinigamiPower : WandererPower
     {
         // Catch cards that were in the Play pile during EnterShinigamiForm
         // (e.g. Seppuku landed in discard after transforms already happened)
-        if (oldPileType == PileType.Play
-            && card.Owner?.Creature == Owner
-            && card is not Ofuda
-            && ShinigamiCmd.GetOriginalCard(card) == null)
+        if (oldPileType == PileType.Play && card.Owner?.Creature == Owner && card is not Ofuda && ShinigamiCmd.GetOriginalCard(card) == null)
         {
             await ShinigamiCmd.TransformCard(card);
         }

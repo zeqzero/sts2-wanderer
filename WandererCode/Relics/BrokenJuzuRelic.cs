@@ -25,7 +25,7 @@ public class BrokenJuzuRelic : WandererRelic
         if (creature != Owner.Creature)
             return true;
 
-        if (ShinigamiCmd.InShinigamiForm)
+        if (ShinigamiCmd.InShinigamiForm(creature))
             return true; // In shinigami form, die for real
 
         return false; // Prevent death, enter shinigami form
