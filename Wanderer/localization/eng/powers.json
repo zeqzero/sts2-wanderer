@@ -26,5 +26,8 @@
     "WANDERER-WAKI_POWER.title": "Waki",
     "WANDERER-WAKI_POWER.description": "At the start of your turn, add Sly to a card in hand this turn.",
     "WANDERER-WAKI_POWER.smartDescription": "At the start of your turn, add Sly to a card in hand this turn.",
-    "WANDERER-WAKI_POWER.selectionScreenPrompt": "Select a card to add Sly to for this turn."
+    "WANDERER-WAKI_POWER.selectionScreenPrompt": "Select a card to add Sly to for this turn.",
+    "WANDERER-SHINIGAMI_POWER.title": "Shinigami",
+    "WANDERER-SHINIGAMI_POWER.description": "Reduce damage taken and hp loss to 1. Exhaust {Amount} cards to ressurect.",
+    "WANDERER-SHINIGAMI_POWER.smartDescription": "Reduce damage taken and hp loss to 1. Exhaust {Amount} cards to ressurect."
 }

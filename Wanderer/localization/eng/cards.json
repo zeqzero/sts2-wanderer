@@ -60,5 +60,9 @@
     "WANDERER-WAKI.title": "Waki",
     "WANDERER-WAKI.description": "Shift to Waki stance.",
     "WANDERER-PLUNGE.title": "Plunge",
-    "WANDERER-PLUNGE.description": "Deal {Damage:diff()} damage.\nNext turn, draw {Cards:diff()} cards."
+    "WANDERER-PLUNGE.description": "Deal {Damage:diff()} damage.\nNext turn, draw {Cards:diff()} cards.",
+    "WANDERER-SEPPUKU.title": "Seppuku",
+    "WANDERER-SEPPUKU.description": "You die.",
+    "WANDERER-OFUDA.title": "Ofuda",
+    "WANDERER-OFUDA.description": ""
 }

@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 /// Gain 1 energy, draw 1 card, plays automatically whenever anyone dies
 /// </summary>
 [Pool(typeof(WandererCardPool))]
-public class DeathPoem : CustomCardModel
+public class DeathPoem : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(1), new EnergyVar(1) ];
 
@@ -30,6 +30,9 @@ public class DeathPoem : CustomCardModel
 
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
+        if (Owner.Creature.IsDead)
+            return;
+
         await CardCmd.AutoPlay(choiceContext, this, null);
     }
 
