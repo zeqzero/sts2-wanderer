@@ -22,6 +22,18 @@ public static class StanceCmd
 
     public static bool WakiEnabled = false;
 
+    private static readonly Dictionary<Creature, int> _shiftCounts = new();
+
+    public static int GetShiftCount(Creature creature) =>
+        _shiftCounts.TryGetValue(creature, out var count) ? count : 0;
+
+    public static void Reset()
+    {
+        _shiftCounts.Clear();
+        JodanEnabled = false;
+        WakiEnabled = false;
+    }
+
     public static async Task Shift(Creature creature, Stance stance)
     {
         // Remove all existing stance powers
@@ -52,6 +64,8 @@ public static class StanceCmd
                 WakiEnabled = true;
                 break;
         }
+
+        _shiftCounts[creature] = GetShiftCount(creature) + 1;
 
         WandererVisuals.SetStance(creature, stance.ToString().ToLowerInvariant());
 

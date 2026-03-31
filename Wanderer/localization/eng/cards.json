@@ -38,9 +38,9 @@
     "WANDERER-YIELD.title": "Yield",
     "WANDERER-YIELD.description": "Gain {Block:diff()} block.\nPut Shift in to your hand.",
     "WANDERER-FLOW.title": "Flow",
-    "WANDERER-FLOW.description": "Whenever you enter a stance, gain {FlowPower:diff()} block.",
+    "WANDERER-FLOW.description": "Whenever you shift stances, gain {FlowPower:diff()} block.",
     "WANDERER-TORRENT.title": "Torrent",
-    "WANDERER-TORRENT.description": "Whenever you enter a stance, deal {TorrentPower:diff()} damage to ALL enemies.",
+    "WANDERER-TORRENT.description": "Whenever you shift stances, deal {TorrentPower:diff()} damage to ALL enemies.",
     "WANDERER-KEIKAKU.title": "Keikaku",
     "WANDERER-KEIKAKU.description": "Double all Next Turn powers.",
     "WANDERER-PREEMPT.title": "Preempt",
@@ -66,5 +66,9 @@
     "WANDERER-OFUDA.title": "Ofuda",
     "WANDERER-OFUDA.description": "Transforms back when you lose Shinigami.",
     "WANDERER-SEVER_KI.title": "Sever Ki",
-    "WANDERER-SEVER_KI.description": "Deal {Damage:diff()} damage.\nEnemy loses 1 Strength.\nHits X times."
+    "WANDERER-SEVER_KI.description": "Deal {Damage:diff()} damage.\nEnemy loses 1 Strength.\nHits X times.",
+    "WANDERER-FLOURISH.title": "Flourish",
+    "WANDERER-FLOURISH.description": "Deal {Damage:diff()} to ALL enemies.\nRepeat for each time you shifted stances this combat.",
+    "WANDERER-MUSHIN.title": "Mushin",
+    "WANDERER-MUSHIN.description": "Gain {Block:diff()} block for each enemy.\nBlocked attack damage is reflected this turn."
 }

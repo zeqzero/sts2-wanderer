@@ -18,6 +18,7 @@ public class BrokenJuzuRelic : WandererRelic
     public override async Task BeforeCombatStart()
     {
         ShinigamiCmd.Reset();
+        StanceCmd.Reset(); // maybe move elsewhere?
     }
 
     public override bool ShouldDieLate(Creature creature)

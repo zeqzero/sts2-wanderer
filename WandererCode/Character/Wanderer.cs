@@ -21,16 +21,16 @@ public class Wanderer : PlaceholderCharacterModel
     
     //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Seppuku>());
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<SeverKi>(),
-        ModelDb.Card<Production>(),
-        ModelDb.Card<Production>(),
-        ModelDb.Card<Production>()
+        ModelDb.Card<Mushin>(),
+        ModelDb.Card<Mushin>(),
+        ModelDb.Card<Mushin>(),
+        ModelDb.Card<Mushin>(),
+        ModelDb.Card<Mushin>(),
+        ModelDb.Card<Shift>(),
+        ModelDb.Card<Shift>(),
+        ModelDb.Card<Shift>(),
+        ModelDb.Card<Shift>(),
+        ModelDb.Card<Shift>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
