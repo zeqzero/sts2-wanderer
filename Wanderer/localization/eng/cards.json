@@ -64,5 +64,7 @@
     "WANDERER-SEPPUKU.title": "Seppuku",
     "WANDERER-SEPPUKU.description": "You die.",
     "WANDERER-OFUDA.title": "Ofuda",
-    "WANDERER-OFUDA.description": "Transforms back when you lose Shinigami."
+    "WANDERER-OFUDA.description": "Transforms back when you lose Shinigami.",
+    "WANDERER-SEVER_KI.title": "Sever Ki",
+    "WANDERER-SEVER_KI.description": "Deal {Damage:diff()} damage.\nEnemy loses 1 Strength.\nHits X times."
 }

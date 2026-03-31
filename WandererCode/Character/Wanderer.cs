@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Relics;
+using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace Wanderer.WandererCode.Character;
 
@@ -20,16 +21,16 @@ public class Wanderer : PlaceholderCharacterModel
     
     //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Seppuku>());
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<Shift>(),
-        ModelDb.Card<ShiftingStrike>(),
-        ModelDb.Card<ShiftingStrike>(),
-        ModelDb.Card<Yield>(),
-        ModelDb.Card<Yield>(),
-        ModelDb.Card<StrikeWanderer>(),
-        ModelDb.Card<DefendWanderer>(),
-        ModelDb.Card<Jodan>(),
-        ModelDb.Card<Waki>(),
-        ModelDb.Card<Flow>()
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<SeverKi>(),
+        ModelDb.Card<Production>(),
+        ModelDb.Card<Production>(),
+        ModelDb.Card<Production>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
