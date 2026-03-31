@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgeplsx6rijt1"]
+
+[ext_resource type="Texture2D" uid="uid://n3pa15ovk5k6" path="res://Wanderer/images/wanderer/chudan.png" id="1_tex"]
+
+[node name="Wanderer" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -1.9999999)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite" type="Sprite2D" parent="Visuals"]
+position = Vector2(26, -510)
+texture = ExtResource("1_tex")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -104.0
+offset_top = -422.0
+offset_right = 116.0
+offset_bottom = -42.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -190)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -400)

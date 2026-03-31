@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using Wanderer.WandererCode.Nodes;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Commands;
@@ -51,6 +52,8 @@ public static class StanceCmd
                 WakiEnabled = true;
                 break;
         }
+
+        WandererVisuals.SetStance(creature, stance.ToString().ToLowerInvariant());
 
         if (Shifted != null)
         {

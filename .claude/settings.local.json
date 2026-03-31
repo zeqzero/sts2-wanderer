@@ -6,19 +6,9 @@
       "WebFetch(domain:api.github.com)",
       "WebFetch(domain:alchyr.github.io)",
       "WebSearch",
-      "WebFetch(domain:sts2.untapped.gg)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7313000 count=500)",
-      "Bash(tr -d 000 echo --- dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7486000 count=500)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7601900 count=600)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=8800000 count=800)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=8802450 count=1000)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7209400 count=300)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7289500 count=400)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7399400 count=400)",
-      "Bash(dd 'if=/c/Program Files \\(x86\\)/Steam/steamapps/common/Slay the Spire 2/data_sts2_windows_x86_64/sts2.dll' bs=1 skip=7069750 count=300)",
-      "Bash(find C:Userswillisourcerepossts2-moddingWanderer/packages/alchyr.sts2.baselib/0.2.0 -type f -name *.dll -o -name *.cs)",
       "Bash(dotnet build:*)",
-      "Bash(dotnet clean:*)"
+      "Bash(dotnet clean:*)",
+      "Bash(xargs grep:*)"
     ]
   }
 }

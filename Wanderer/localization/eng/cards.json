@@ -26,7 +26,7 @@
     "WANDERER-DIE_PERIOD.title": "Die.",
     "WANDERER-DIE_PERIOD.description": "This turn, attacks deal double damage.\nDraw {Cards:diff()} cards.\nAdd Dishonor to your deck.",
     "WANDERER-DEATH_POEM.title": "Death Poem",
-    "WANDERER-DEATH_POEM.description": "Gain {Energy:diff()} energy.\nDraw {Cards:diff()} cards.\nWhenever anyone dies, put this in to your hand.",
+    "WANDERER-DEATH_POEM.description": "Gain {Energy:diff()} energy.\nDraw {Cards:diff()} cards.\nPlays automatically whenever ANYONE else dies.",
     "WANDERER-DISHONOR.title": "Dishonor",
     "WANDERER-DISHONOR.description": "Discard 1 card.",
     "WANDERER-TAKE_INITIATIVE.title": "Take Initiative",
