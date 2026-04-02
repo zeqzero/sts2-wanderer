@@ -125,8 +125,8 @@ public static class ShinigamiCmd
 
         creature.SetMaxHpInternal(state.PreShinigamiMaxHp);
 
-        decimal healTo = state.StoredHp ?? 1m;
-        await CreatureCmd.Heal(creature, healTo);
+        decimal targetHp = state.StoredHp ?? 1m;
+        await CreatureCmd.SetCurrentHp(creature, targetHp);
 
         state.StoredHp = null;
 
