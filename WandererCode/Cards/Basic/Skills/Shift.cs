@@ -11,6 +11,8 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Shift : WandererCard
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Innate ];
+
     public Shift() : base(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
     {
     }
@@ -18,7 +20,7 @@ public class Shift : WandererCard
     private CardModel CreateChoiceCard<T>() where T : CardModel, new()
     {
         var card = (CardModel)ModelDb.Card<T>().MutableClone();
-        card.Owner = base.Owner;
+        card.Owner = Owner;
         return card;
     }
 
@@ -45,5 +47,6 @@ public class Shift : WandererCard
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Retain);
     }
 }

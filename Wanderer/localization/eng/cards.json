@@ -70,5 +70,7 @@
     "WANDERER-FLOURISH.title": "Flourish",
     "WANDERER-FLOURISH.description": "Deal {Damage:diff()} to ALL enemies.\nRepeat for each time you shifted stances this combat.",
     "WANDERER-MUSHIN.title": "Mushin",
-    "WANDERER-MUSHIN.description": "Gain {Block:diff()} block for each enemy.\nBlocked attack damage is reflected this turn."
+    "WANDERER-MUSHIN.description": "Gain {Block:diff()} block for each enemy.\nBlocked attack damage is reflected this turn.",
+    "WANDERER-RONIN_FORM.title": "Ronin Form",
+    "WANDERER-RONIN_FORM.description": "Next turn, apply {RoninFormPower:diff()} Ronin Form."
 }

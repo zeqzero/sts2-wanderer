@@ -29,5 +29,11 @@
     "WANDERER-WAKI_POWER.selectionScreenPrompt": "Select a card to add Sly to for this turn.",
     "WANDERER-SHINIGAMI_POWER.title": "Shinigami",
     "WANDERER-SHINIGAMI_POWER.description": "Reduce damage taken and hp loss to 1. Exhaust {Amount} cards to resurrect.",
-    "WANDERER-SHINIGAMI_POWER.smartDescription": "Reduce damage taken and hp loss to 1. Exhaust {Amount} cards to resurrect."
+    "WANDERER-SHINIGAMI_POWER.smartDescription": "Reduce damage taken and hp loss to 1. Exhaust {Amount} cards to resurrect.",
+    "WANDERER-RONIN_FORM_POWER.title": "Ronin Form",
+    "WANDERER-RONIN_FORM_POWER.description": "At the end of your turn,\nyour last card played gains Replay {Amount}, Exhaust, and is played.",
+    "WANDERER-RONIN_FORM_POWER.smartDescription": "At the end of your turn,\nyour last card played gains Replay {Amount}, Exhaust, and is played.",
+    "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.title": "Next Turn Ronin Form",
+    "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.description": "Next turn, apply {Amount} {Power}.",
+    "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.smartDescription": "Next turn, apply {Amount} {Power}."
 }

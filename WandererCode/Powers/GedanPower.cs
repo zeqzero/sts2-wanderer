@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -11,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Wanderer.WandererCode.Powers;
 
 // Whenever you fully block an attack, apply 2 weak and 2 vulnerable
-public class GedanPower : CustomPowerModel
+public class GedanPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
 

@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -14,7 +13,7 @@ namespace Wanderer.WandererCode.Powers;
 /// <summary>
 /// Attacks deal double damage. Gain vulnerable at the end of your turn.
 /// </summary>
-public class JodanPower : CustomPowerModel
+public class JodanPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
 

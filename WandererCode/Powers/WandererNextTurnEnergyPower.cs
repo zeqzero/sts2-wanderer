@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -10,7 +9,7 @@ namespace Wanderer.WandererCode.Powers;
 /// <summary>
 /// Gain/lose energy next turn
 /// </summary>
-public sealed class WandererNextTurnEnergyPower : CustomPowerModel, IWandererNextTurnPower
+public sealed class WandererNextTurnEnergyPower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;
 

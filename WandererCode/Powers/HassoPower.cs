@@ -1,11 +1,10 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace Wanderer.WandererCode.Powers;
 
 // At the start of your turn, draw 1 additional card
-public class HassoPower : CustomPowerModel
+public class HassoPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;

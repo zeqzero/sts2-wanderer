@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -14,7 +13,7 @@ namespace Wanderer.WandererCode.Powers;
 /// <summary>
 /// Whenever you play an attack, gain 2 strength this turn
 /// </summary>
-public class ChudanPower : CustomPowerModel
+public class ChudanPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
