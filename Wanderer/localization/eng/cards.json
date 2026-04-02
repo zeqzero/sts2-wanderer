@@ -72,5 +72,7 @@
     "WANDERER-MUSHIN.title": "Mushin",
     "WANDERER-MUSHIN.description": "Gain {Block:diff()} block for each enemy.\nBlocked attack damage is reflected this turn.",
     "WANDERER-RONIN_FORM.title": "Ronin Form",
-    "WANDERER-RONIN_FORM.description": "Next turn, apply {RoninFormPower:diff()} Ronin Form."
+    "WANDERER-RONIN_FORM.description": "Next turn, apply {RoninFormPower:diff()} Ronin Form.",
+    "WANDERER-BARREL_ROLL.title": "Barrel Roll",
+    "WANDERER-BARREL_ROLL.description": "Gain {Block:diff()} block.\nTransform 1 card{IfUpgraded:show:| at random}."
 }
