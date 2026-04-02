@@ -74,5 +74,7 @@
     "WANDERER-RONIN_FORM.title": "Ronin Form",
     "WANDERER-RONIN_FORM.description": "Next turn, apply {RoninFormPower:diff()} Ronin Form.",
     "WANDERER-BARREL_ROLL.title": "Barrel Roll",
-    "WANDERER-BARREL_ROLL.description": "Gain {Block:diff()} block.\nTransform 1 card{IfUpgraded:show:| at random}."
+    "WANDERER-BARREL_ROLL.description": "Gain {Block:diff()} block.\nTransform 1 card{IfUpgraded:show:| at random}.",
+    "WANDERER-STOLEN_PEACH.title": "Stolen Peach",
+    "WANDERER-STOLEN_PEACH.description": "Enemy loses {StrengthLoss:diff()} Strength this turn.\nTransform this card."
 }
