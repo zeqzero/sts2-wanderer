@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags></tags>
+/// <tags>enfeeble, flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class SeverKi : WandererCard
 {
