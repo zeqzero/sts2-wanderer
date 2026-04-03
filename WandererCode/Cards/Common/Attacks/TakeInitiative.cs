@@ -14,9 +14,9 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class TakeInitiative : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(7m, ValueProp.Move), new PowerVar<VulnerablePower>(1m) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7m, ValueProp.Move), new PowerVar<VulnerablePower>(1m)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<VulnerablePower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
 
     public TakeInitiative() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

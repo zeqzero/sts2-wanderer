@@ -15,7 +15,7 @@ public class ShiftWaki : WandererCard, IShiftStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<WakiPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WakiPower>()];
 
     public ShiftWaki() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

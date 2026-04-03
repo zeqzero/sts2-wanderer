@@ -11,36 +11,36 @@ namespace Wanderer.WandererCode.Character;
 public class Wanderer : PlaceholderCharacterModel
 {
     public const string CharacterId = "Wanderer";
-    
+
     public static readonly Color Color = new("ffffff");
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Neutral;
     public override int StartingHp => 70;
-    
+
     //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Seppuku>());
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<BarrelRoll>(),
-        ModelDb.Card<BarrelRoll>(),
-        ModelDb.Card<BarrelRoll>(),
-        ModelDb.Card<BarrelRoll>(),
-        ModelDb.Card<BarrelRoll>(),
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<Dishonor>(),
-        ModelDb.Card<Dishonor>()
+        ModelDb.Card<StrikeWanderer>(),
+        ModelDb.Card<StrikeWanderer>(),
+        ModelDb.Card<StrikeWanderer>(),
+        ModelDb.Card<StrikeWanderer>(),
+        ModelDb.Card<StrikeWanderer>(),
+        ModelDb.Card<DefendWanderer>(),
+        ModelDb.Card<DefendWanderer>(),
+        ModelDb.Card<DefendWanderer>(),
+        ModelDb.Card<DefendWanderer>(),
+        ModelDb.Card<Shift>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
         ModelDb.Relic<BrokenJuzuRelic>()
     ];
-    
+
     public override CardPoolModel CardPool => ModelDb.CardPool<WandererCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<WandererRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<WandererPotionPool>();
-    
+
     /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
         override all the other methods that define those assets. 
         These are just some of the simplest assets, given some placeholders to differentiate your character with. 

@@ -15,7 +15,7 @@ public class Yield : WandererCard
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new BlockVar(5m, ValueProp.Move), new CardsVar(1) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5m, ValueProp.Move), new CardsVar(1)];
 
     public Yield() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

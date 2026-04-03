@@ -12,7 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Shift : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Innate ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
     public Shift() : base(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
     {

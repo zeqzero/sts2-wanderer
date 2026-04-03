@@ -16,7 +16,7 @@ public class Dishonor : WandererCard
 
     public override CardPoolModel Pool => ModelDb.CardPool<CurseCardPool>();
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public Dishonor() : base(1, CardType.Curse, CardRarity.Curse, TargetType.None, false, false)
     {

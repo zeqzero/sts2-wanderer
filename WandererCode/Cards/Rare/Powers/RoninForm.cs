@@ -15,7 +15,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class RoninForm : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<RoninFormPower>(1m) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<RoninFormPower>(1m)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {

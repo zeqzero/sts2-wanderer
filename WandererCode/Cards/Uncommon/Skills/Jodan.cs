@@ -12,9 +12,9 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Jodan : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Innate ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<JodanPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<JodanPower>()];
 
     public Jodan() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

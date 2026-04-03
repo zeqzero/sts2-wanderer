@@ -13,10 +13,10 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Flow : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<FlowPower>(3) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlowPower>(3)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [ 
+    [
         HoverTipFactory.Static(StaticHoverTip.Block)
     ];
 

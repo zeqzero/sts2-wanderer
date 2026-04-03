@@ -12,9 +12,9 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class DiePeriod : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(2) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
     public DiePeriod() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

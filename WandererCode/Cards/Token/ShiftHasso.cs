@@ -15,7 +15,7 @@ public class ShiftHasso : WandererCard, IShiftStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<HassoPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HassoPower>()];
 
     public ShiftHasso() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

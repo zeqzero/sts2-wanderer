@@ -15,7 +15,7 @@ public class Preempt : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        foreach(var power in Owner.Creature.Powers.ToList())
+        foreach (var power in Owner.Creature.Powers.ToList())
         {
             if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
             {

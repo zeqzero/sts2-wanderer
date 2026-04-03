@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Plunge : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(15m, ValueProp.Move), new CardsVar(2) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15m, ValueProp.Move), new CardsVar(2)];
 
     public Plunge() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {

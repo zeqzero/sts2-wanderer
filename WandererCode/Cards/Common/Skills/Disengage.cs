@@ -15,7 +15,7 @@ public class Disengage : WandererCard
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new BlockVar(13m, ValueProp.Move), new EnergyVar(1) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(13m, ValueProp.Move), new EnergyVar(1)];
 
     public Disengage() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

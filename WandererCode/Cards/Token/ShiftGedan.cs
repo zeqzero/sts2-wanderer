@@ -15,7 +15,7 @@ public class ShiftGedan : WandererCard, IShiftStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<GedanPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<GedanPower>()];
 
     public ShiftGedan() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

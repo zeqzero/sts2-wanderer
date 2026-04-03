@@ -12,7 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class DeathPoem : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(1), new EnergyVar(1) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new EnergyVar(1)];
 
     public DeathPoem() : base(2, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

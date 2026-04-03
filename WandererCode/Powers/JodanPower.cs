@@ -40,10 +40,10 @@ public class JodanPower : WandererPower
     }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
-{
-    if (side == Owner.Side)
     {
-        await PowerCmd.Apply<VulnerablePower>(Owner, 1, Owner, null);
+        if (side == Owner.Side)
+        {
+            await PowerCmd.Apply<VulnerablePower>(Owner, 1, Owner, null);
+        }
     }
-}
 }

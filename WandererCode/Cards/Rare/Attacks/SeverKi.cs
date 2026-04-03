@@ -18,11 +18,11 @@ public class SeverKi : WandererCard
 {
     protected override bool HasEnergyCostX => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(7m, ValueProp.Move) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7m, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<StrengthPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public SeverKi() : base(0, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
@@ -38,7 +38,7 @@ public class SeverKi : WandererCard
             .Targeting(cardPlay.Target)
             .WithHitVfxNode((Creature t) => NStabVfx.Create(t, facingEnemies: true, VfxColor.Gold))
             .Execute(choiceContext);
-        
+
         await PowerCmd.Apply<StrengthPower>(cardPlay.Target, -hitCount, Owner.Creature, this);
     }
 

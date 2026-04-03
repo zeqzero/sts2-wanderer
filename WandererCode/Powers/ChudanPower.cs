@@ -18,8 +18,8 @@ public class ChudanPower : WandererPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<StrengthPower>() ];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DynamicVar("StrengthApplied", 0m) ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("StrengthApplied", 0m)];
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
@@ -32,7 +32,7 @@ public class ChudanPower : WandererPower
         if (cardPlay.Card.Owner == base.Owner.Player && cardPlay.Card.Type == CardType.Attack)
         {
             Flash();
-            await PowerCmd.Apply<StrengthPower>(base.Owner, 2, base. Owner, null, silent: true);
+            await PowerCmd.Apply<StrengthPower>(base.Owner, 2, base.Owner, null, silent: true);
             base.DynamicVars["StrengthApplied"].BaseValue += 2;
             InvokeDisplayAmountChanged();
         }

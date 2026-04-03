@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Torrent : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<TorrentPower>(3) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TorrentPower>(3)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [

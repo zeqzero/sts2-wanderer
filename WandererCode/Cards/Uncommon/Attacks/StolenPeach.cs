@@ -20,7 +20,7 @@ public class StolenPeach : WandererCard
     [
     ];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("StrengthLoss", 8m)
     ];

@@ -12,9 +12,9 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Waki : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Innate ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<WakiPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WakiPower>()];
 
     public Waki() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

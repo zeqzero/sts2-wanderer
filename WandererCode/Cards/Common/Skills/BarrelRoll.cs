@@ -16,7 +16,7 @@ public class BarrelRoll : WandererCard
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new BlockVar(8, ValueProp.Move) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, ValueProp.Move)];
 
     public BarrelRoll() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

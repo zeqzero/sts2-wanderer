@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Thrust : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(6m, ValueProp.Move), new EnergyVar(1) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6m, ValueProp.Move), new EnergyVar(1)];
 
     public Thrust() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

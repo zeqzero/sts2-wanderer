@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Swig : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(1), new DynamicVar("Transform", 1) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DynamicVar("Transform", 1)];
 
     public Swig() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

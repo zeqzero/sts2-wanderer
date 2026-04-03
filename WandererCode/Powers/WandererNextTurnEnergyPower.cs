@@ -17,7 +17,7 @@ public sealed class WandererNextTurnEnergyPower : WandererPower, IWandererNextTu
 
     public override bool AllowNegative => true;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.ForEnergy(this) ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
 
     public override async Task AfterEnergyResetLate(Player player)
     {

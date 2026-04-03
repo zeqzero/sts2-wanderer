@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Mushin : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new BlockVar(7m, ValueProp.Move) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7m, ValueProp.Move)];
 
     public Mushin() : base(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {

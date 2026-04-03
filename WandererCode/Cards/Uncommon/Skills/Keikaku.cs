@@ -10,7 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Keikaku : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public Keikaku() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

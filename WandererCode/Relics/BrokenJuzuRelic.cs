@@ -13,7 +13,7 @@ public class BrokenJuzuRelic : WandererRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Ofuda>(), ShinigamiCmd.CanonicalPowerHoverTip ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), ShinigamiCmd.CanonicalPowerHoverTip];
 
     public override async Task BeforeCombatStart()
     {

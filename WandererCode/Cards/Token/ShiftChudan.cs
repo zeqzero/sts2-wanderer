@@ -15,7 +15,7 @@ public class ShiftChudan : WandererCard, IShiftStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<ChudanPower>() ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ChudanPower>()];
 
     public ShiftChudan() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

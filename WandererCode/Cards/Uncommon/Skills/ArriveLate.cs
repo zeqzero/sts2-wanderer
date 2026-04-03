@@ -16,19 +16,19 @@ public class ArriveLate : WandererCard
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Innate,
-        CardKeyword.Exhaust  
+        CardKeyword.Exhaust
     ];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<WeakPower>(1m),
         new PowerVar<VulnerablePower>(1m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
-    [ 
-        HoverTipFactory.FromPower<WeakPower>(), 
-        HoverTipFactory.FromPower<VulnerablePower>() 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<WeakPower>(),
+        HoverTipFactory.FromPower<VulnerablePower>()
     ];
 
     public ArriveLate() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)

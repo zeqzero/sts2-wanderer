@@ -16,8 +16,8 @@ public class DefendWanderer : WandererCard
 
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Defend };
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new BlockVar(5m, ValueProp.Move) ];
-    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5m, ValueProp.Move)];
+
     public DefendWanderer() : base(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
     {
     }

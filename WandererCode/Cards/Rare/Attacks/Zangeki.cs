@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 public class Zangeki : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [ 
+    [
         new DamageVar(24m, ValueProp.Move),
         new EnergyVar(1)
     ];

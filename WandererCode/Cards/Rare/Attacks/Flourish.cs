@@ -16,7 +16,7 @@ namespace Wanderer.WandererCode.Cards;
 public class Flourish : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [ 
+    [
         new DamageVar(5m, ValueProp.Move)
     ];
 

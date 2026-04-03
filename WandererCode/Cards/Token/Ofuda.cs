@@ -11,7 +11,7 @@ public class Ofuda : WandererCard
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public Ofuda() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self)
     {

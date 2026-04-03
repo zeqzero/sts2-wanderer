@@ -7,7 +7,7 @@ public static class StringExtensions
     {
         return Path.Join(MainFile.ModId, "images", path);
     }
-    
+
     public static string CardImagePath(this string path)
     {
         return Path.Join(MainFile.ModId, "images", "card_portraits", path);
