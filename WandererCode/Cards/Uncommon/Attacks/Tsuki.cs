@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
@@ -13,9 +12,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// Deals damage, hits an additional time for each other time you've attacked this turn.
-/// </summary>
+/// <tags>flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class Tsuki : WandererCard
 {

@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>transform</tags>
 [Pool(typeof(WandererCardPool))]
 public class BarrelRoll : WandererCard
 {
@@ -23,7 +24,6 @@ public class BarrelRoll : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // gain block, transform a card randomly
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         if (IsUpgraded)
         {

@@ -1,6 +1,4 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
-using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,6 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>stance</tags>
 [Pool(typeof(WandererCardPool))]
 public class ShiftingStrike : WandererCard
 {

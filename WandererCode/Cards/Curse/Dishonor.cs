@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -9,6 +8,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>discard, exhaust</tags>
 [Pool(typeof(CurseCardPool))]
 public class Dishonor : WandererCard
 {

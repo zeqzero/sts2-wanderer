@@ -8,6 +8,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>stance</tags>
 [Pool(typeof(WandererCardPool))]
 public class Shift : WandererCard
 {

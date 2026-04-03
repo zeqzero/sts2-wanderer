@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-// gain block for each enemy, reflect damage this turn
+/// <tags>aoe</tags>
 [Pool(typeof(WandererCardPool))]
 public class Mushin : WandererCard
 {

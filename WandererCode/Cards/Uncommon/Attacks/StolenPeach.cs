@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>enfeeble, transform</tags>
 [Pool(typeof(WandererCardPool))]
 public class StolenPeach : WandererCard
 {

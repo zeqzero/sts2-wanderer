@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,9 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// Gain block, next turn lose energy
-/// </summary>
+/// <tags>nextturn</tags>
 [Pool(typeof(WandererCardPool))]
 public class Disengage : WandererCard
 {

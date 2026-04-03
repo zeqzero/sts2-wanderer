@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,9 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// common "fast" attack - do damage, gain energy next turn
-/// </summary>
+/// <tags>nextturn, energy</tags>
 [Pool(typeof(WandererCardPool))]
 public class Thrust : WandererCard
 {

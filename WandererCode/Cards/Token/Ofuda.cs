@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
@@ -6,10 +5,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// An ofuda card that hides the original card's identity.
-/// When played, exhausts. The original card is restored in the exhaust pile.
-/// </summary>
+/// <tags>transform, exhaust</tags>
 [Pool(typeof(TokenCardPool))]
 public class Ofuda : WandererCard
 {

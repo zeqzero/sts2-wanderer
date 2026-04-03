@@ -9,6 +9,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>draw, transform</tags>
 [Pool(typeof(WandererCardPool))]
 public class Swig : WandererCard
 {

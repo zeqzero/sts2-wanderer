@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,9 +8,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// Draw cards and gain temporary strength, gain dishonor curse
-/// </summary>
+/// <tags>dishonor, draw, scale</tags>
 [Pool(typeof(WandererCardPool))]
 public class DiePeriod : WandererCard
 {

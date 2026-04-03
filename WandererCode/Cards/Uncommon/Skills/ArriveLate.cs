@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,9 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// Innate, Exhaust, Apply weak and vulnerable to all enemies
-/// </summary>
+/// <tags>aoe, weak, vuln</tags>
 [Pool(typeof(TokenCardPool))]
 public class ArriveLate : WandererCard
 {

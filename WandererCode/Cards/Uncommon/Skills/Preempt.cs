@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,9 +5,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// Apply all Next Turn powers immediately.
-/// </summary>
+/// <tags>nextturn</tags>
 [Pool(typeof(WandererCardPool))]
 public class Preempt : WandererCard
 {

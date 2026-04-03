@@ -1,17 +1,15 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>draw</tags>
 [Pool(typeof(TokenCardPool))]
 public class ShiftHasso : WandererCard, IShiftStance
 {

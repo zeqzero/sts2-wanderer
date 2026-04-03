@@ -1,4 +1,3 @@
-using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,9 +8,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <summary>
-/// Gain 1 energy, draw 1 card, plays automatically whenever anyone dies
-/// </summary>
+/// <tags>death, draw, energy</tags>
 [Pool(typeof(WandererCardPool))]
 public class DeathPoem : WandererCard
 {
@@ -38,6 +35,6 @@ public class DeathPoem : WandererCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Cards.UpgradeValueBy(1m);
+        DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }
