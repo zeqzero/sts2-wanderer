@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Rooms;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
@@ -18,7 +19,14 @@ public class BrokenJuzuRelic : WandererRelic
     public override async Task BeforeCombatStart()
     {
         WandererCmd.Reset();
-        StanceCmd.Reset(); // maybe move elsewhere?
+    }
+
+    public override async Task AfterCombatVictory(CombatRoom room)
+    {
+        if (WandererCmd.InShinigamiForm(Owner.Creature))
+        {
+            await WandererCmd.ExitShinigamiForm(Owner.Creature);
+        }
     }
 
     public override bool ShouldDieLate(Creature creature)

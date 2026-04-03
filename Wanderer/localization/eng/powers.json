@@ -35,5 +35,8 @@
     "WANDERER-RONIN_FORM_POWER.smartDescription": "At the end of your turn,\nyour last card played gains Replay {Amount}, Exhaust, and is played.",
     "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.title": "Next Turn Ronin Form",
     "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.description": "Next turn, apply {Amount} {Power}.",
-    "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.smartDescription": "Next turn, apply {Amount} {Power}."
+    "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.smartDescription": "Next turn, apply {Amount} {Power}.",
+    "WANDERER-HOLY_SMOKE_POWER.title": "Holy Smoke",
+    "WANDERER-HOLY_SMOKE_POWER.description": "Whenever you Exhaust a card, deal {Amount} damage to a random enemy.",
+    "WANDERER-HOLY_SMOKE_POWER.smartDescription": "Whenever you Exhaust a card, deal {Amount} damage to a random enemy."
 }

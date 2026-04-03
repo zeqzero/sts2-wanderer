@@ -196,6 +196,8 @@ public static class WandererCmd
     {
         _shinigamiStates.Clear();
         _ofudaTransformedCards.Clear();
+
+        StanceCmd.Reset();
     }
 
     public static async Task RitualDeath(Creature creature)

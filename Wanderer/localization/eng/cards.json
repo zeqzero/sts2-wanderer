@@ -78,5 +78,7 @@
     "WANDERER-STOLEN_PEACH.title": "Stolen Peach",
     "WANDERER-STOLEN_PEACH.description": "Enemy loses {StrengthLoss:diff()} Strength this turn.\nTransform this card.",
     "WANDERER-SWIG.title": "Swig",
-    "WANDERER-SWIG.description": "Draw {Cards:diff()} card{IfUpgraded:show:s|}.\nTransform {Transform:diff()} card."
+    "WANDERER-SWIG.description": "Draw {Cards:diff()} card{IfUpgraded:show:s|}.\nTransform {Transform:diff()} card.",
+    "WANDERER-HOLY_SMOKE.title": "Holy Smoke",
+    "WANDERER-HOLY_SMOKE.description": "Whenever you Exhaust a card, deal {HolySmokePower:diff()} damage to a random enemy."
 }
