@@ -13,11 +13,11 @@ public class BrokenJuzuRelic : WandererRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), ShinigamiCmd.CanonicalPowerHoverTip];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), WandererCmd.ShinigamiPowerCanonicalHoverTip];
 
     public override async Task BeforeCombatStart()
     {
-        ShinigamiCmd.Reset();
+        WandererCmd.Reset();
         StanceCmd.Reset(); // maybe move elsewhere?
     }
 
@@ -26,7 +26,7 @@ public class BrokenJuzuRelic : WandererRelic
         if (creature != Owner.Creature)
             return true;
 
-        if (ShinigamiCmd.InShinigamiForm(creature))
+        if (WandererCmd.InShinigamiForm(creature))
             return true; // In shinigami form, die for real
 
         return false; // Prevent death, enter shinigami form
@@ -35,6 +35,6 @@ public class BrokenJuzuRelic : WandererRelic
     public override async Task AfterPreventingDeath(Creature creature)
     {
         Flash();
-        await ShinigamiCmd.EnterShinigamiForm(creature, Owner);
+        await WandererCmd.EnterShinigami(Owner);
     }
 }

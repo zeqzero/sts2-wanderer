@@ -2,10 +2,12 @@
 using BaseLib.Extensions;
 using Wanderer.WandererCode.Extensions;
 using Godot;
+using Wanderer.WandererCode.Interfaces;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 
 namespace Wanderer.WandererCode.Powers;
 
-public abstract class WandererPower : CustomPowerModel
+public abstract class WandererPower : CustomPowerModel, IWandererEventListener
 {
     //Loads from Wanderer/images/powers/your_power.png
     public override string CustomPackedIconPath
@@ -24,5 +26,13 @@ public abstract class WandererPower : CustomPowerModel
             var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
             return ResourceLoader.Exists(path) ? path : "power.png".BigPowerImagePath();
         }
+    }
+
+    public virtual async Task AfterEnteredShinigami(Creature creature)
+    {
+    }
+
+    public virtual async Task BeforeRitualDeath(Creature creature)
+    {
     }
 }

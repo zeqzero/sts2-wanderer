@@ -70,18 +70,18 @@ public class ShinigamiPower : WandererPower
         {
             // Untransform ofuda so the original card shows in the exhaust pile.
             // The backup clone was pre-registered in CombatState during TransformAllCards.
-            var backup = ShinigamiCmd.GetOriginalCard(card);
+            var backup = WandererCmd.GetOriginalCard(card);
             if (backup != null)
             {
                 await CardCmd.Transform(card, backup);
-                ShinigamiCmd.RemoveTransformEntry(card);
+                WandererCmd.RemoveTransformEntry(card);
             }
 
             Amount--;
 
             if (Amount <= 0)
             {
-                await ShinigamiCmd.ExitShinigamiForm(Owner);
+                await WandererCmd.ExitShinigamiForm(Owner);
             }
         }
     }
@@ -90,9 +90,9 @@ public class ShinigamiPower : WandererPower
     {
         // Catch cards that were in the Play pile during EnterShinigamiForm
         // (e.g. Seppuku landed in discard after transforms already happened)
-        if (oldPileType == PileType.Play && card.Owner?.Creature == Owner && card is not Ofuda && ShinigamiCmd.GetOriginalCard(card) == null)
+        if (oldPileType == PileType.Play && card.Owner?.Creature == Owner && card is not Ofuda && WandererCmd.GetOriginalCard(card) == null)
         {
-            await ShinigamiCmd.TransformCard(card);
+            await WandererCmd.TransformToOfuda(card);
         }
     }
 
@@ -100,7 +100,7 @@ public class ShinigamiPower : WandererPower
     {
         if (card.Owner.Creature == Owner && !addedByPlayer)
         {
-            await ShinigamiCmd.TransformCard(card);
+            await WandererCmd.TransformToOfuda(card);
         }
     }
 }

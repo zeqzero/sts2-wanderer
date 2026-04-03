@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Wanderer.WandererCode.Character;
@@ -17,8 +16,6 @@ public class Seppuku : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // Store current HP so ghost mode can restore it on exit
-        ShinigamiCmd.SetStoredHp(Owner.Creature, Owner.Creature.CurrentHp);
-        await CreatureCmd.Kill(Owner.Creature);
+        await WandererCmd.RitualDeath(Owner.Creature);
     }
 }
