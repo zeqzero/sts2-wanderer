@@ -76,5 +76,7 @@
     "WANDERER-BARREL_ROLL.title": "Barrel Roll",
     "WANDERER-BARREL_ROLL.description": "Gain {Block:diff()} block.\nTransform 1 card{IfUpgraded:show:| at random}.",
     "WANDERER-STOLEN_PEACH.title": "Stolen Peach",
-    "WANDERER-STOLEN_PEACH.description": "Enemy loses {StrengthLoss:diff()} Strength this turn.\nTransform this card."
+    "WANDERER-STOLEN_PEACH.description": "Enemy loses {StrengthLoss:diff()} Strength this turn.\nTransform this card.",
+    "WANDERER-SWIG.title": "Swig",
+    "WANDERER-SWIG.description": "Draw {Cards:diff()} card{IfUpgraded:show:s|}.\nTransform {Transform:diff()} card."
 }
