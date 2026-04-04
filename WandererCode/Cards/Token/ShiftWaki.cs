@@ -23,6 +23,6 @@ public class ShiftWaki : WandererCard, IShiftStance
 
     public async Task OnShift(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StanceCmd.Shift(Owner.Creature, Stance.Waki);
+        await WandererCmd.Shift(Owner.Creature, Stance.Waki);
     }
 }

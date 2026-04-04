@@ -22,7 +22,7 @@ public class Jodan : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StanceCmd.Shift(Owner.Creature, Stance.Jodan);
+        await WandererCmd.Shift(Owner.Creature, Stance.Jodan);
     }
 
     protected override void OnUpgrade()

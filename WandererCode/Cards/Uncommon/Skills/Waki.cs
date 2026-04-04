@@ -22,7 +22,7 @@ public class Waki : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StanceCmd.Shift(Owner.Creature, Stance.Waki);
+        await WandererCmd.Shift(Owner.Creature, Stance.Waki);
     }
 
     protected override void OnUpgrade()

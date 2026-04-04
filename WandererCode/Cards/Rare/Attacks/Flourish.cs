@@ -27,7 +27,7 @@ public class Flourish : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(CombatState);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(StanceCmd.GetShiftCount(Owner.Creature)).FromCard(this)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(WandererCmd.GetShiftCount(Owner.Creature)).FromCard(this)
             .TargetingAllOpponents(CombatState)
             .WithHitVfxNode((Creature t) => NStabVfx.Create(t, facingEnemies: true, VfxColor.Gold))
             .SpawningHitVfxOnEachCreature()

@@ -1,8 +1,6 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Commands;
 
@@ -14,30 +12,10 @@ public class FlowPower : WandererPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await base.AfterApplied(applier, cardSource);
-        StanceCmd.Shifted += OnShifted;
-    }
-
-    public override async Task AfterRemoved(Creature oldOwner)
-    {
-        await base.AfterRemoved(oldOwner);
-        StanceCmd.Shifted -= OnShifted;
-    }
-
-    public override async Task AfterCombatEnd(CombatRoom room)
-    {
-        await base.AfterCombatEnd(room);
-        StanceCmd.Shifted -= OnShifted;
-    }
-
-    private async Task OnShifted(Creature creature, Stance stance)
+    public override async Task AfterShifted(Creature creature, Stance stance)
     {
         if (creature != Owner)
-        {
             return;
-        }
 
         await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
     }

@@ -2,10 +2,13 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Relics;
 
@@ -14,7 +17,17 @@ public class BrokenJuzuRelic : WandererRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), WandererCmd.ShinigamiPowerCanonicalHoverTip];
+    public static HoverTip ShinigamiPowerCanonicalHoverTip
+    {
+        get
+        {
+            var desc = new LocString("powers", "WANDERER-SHINIGAMI_POWER.description");
+            desc.Add("Amount", WandererCmd.ShinigamiExhaustThreshold);
+            return new HoverTip(ModelDb.Power<ShinigamiPower>(), desc.GetFormattedText(), false);
+        }
+    }
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), ShinigamiPowerCanonicalHoverTip];
 
     public override async Task BeforeCombatStart()
     {

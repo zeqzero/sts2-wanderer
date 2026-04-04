@@ -2,6 +2,7 @@
 using BaseLib.Extensions;
 using Wanderer.WandererCode.Extensions;
 using Godot;
+using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 
@@ -33,6 +34,10 @@ public abstract class WandererPower : CustomPowerModel, IWandererEventListener
     }
 
     public virtual async Task BeforeRitualDeath(Creature creature)
+    {
+    }
+
+    public virtual async Task AfterShifted(Creature creature, Stance stance)
     {
     }
 }

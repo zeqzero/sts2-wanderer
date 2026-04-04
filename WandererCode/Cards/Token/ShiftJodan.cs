@@ -23,6 +23,6 @@ public class ShiftJodan : WandererCard, IShiftStance
 
     public async Task OnShift(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StanceCmd.Shift(Owner.Creature, Stance.Jodan);
+        await WandererCmd.Shift(Owner.Creature, Stance.Jodan);
     }
 }

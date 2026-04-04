@@ -2,6 +2,7 @@ using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using Wanderer.WandererCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 
@@ -28,6 +29,10 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
     }
 
     public virtual async Task BeforeRitualDeath(Creature creature)
+    {
+    }
+
+    public virtual async Task AfterShifted(Creature creature, Stance stance)
     {
     }
 }
