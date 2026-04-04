@@ -1,10 +1,20 @@
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Multiplayer.Game;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
+using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Saves;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Interfaces;
 using Wanderer.WandererCode.Nodes;
@@ -36,8 +46,8 @@ public static class WandererCmd
     // stance vars
     public static bool JodanEnabled = false;
     public static bool WakiEnabled = false;
-    private static readonly Dictionary<Creature, int> _shiftCounts = new();
-    public static int GetShiftCount(Creature creature) => _shiftCounts.TryGetValue(creature, out var count) ? count : 0;
+    private static readonly Dictionary<Creature, int> _enteredStanceCounts = new();
+    public static int GetEnteredStanceCounts(Creature creature) => _enteredStanceCounts.TryGetValue(creature, out var count) ? count : 0;
 
     private class ShinigamiState
     {
@@ -60,9 +70,9 @@ public static class WandererCmd
 
     /// <summary>
     /// Removes the current stance power and applies a new one.
-    /// Fires AfterShifted on all IWandererEventListener cards/powers after the new stance is active.
+    /// Fires AfterStanceEntered on all IWandererEventListener cards/powers after the new stance is active.
     /// </summary>
-    public static async Task Shift(Creature creature, Stance stance)
+    public static async Task EnterStance(Creature creature, Stance stance)
     {
         await PowerCmd.Remove<ChudanPower>(creature);
         await PowerCmd.Remove<HassoPower>(creature);
@@ -91,18 +101,18 @@ public static class WandererCmd
                 break;
         }
 
-        _shiftCounts[creature] = GetShiftCount(creature) + 1;
+        _enteredStanceCounts[creature] = GetEnteredStanceCounts(creature) + 1;
 
         WandererVisuals.SetStance(creature, stance.ToString().ToLowerInvariant());
 
-        await AfterShifted(creature, stance);
+        await AfterStanceEntered(creature, stance);
     }
 
-    private static async Task AfterShifted(Creature creature, Stance stance)
+    private static async Task AfterStanceEntered(Creature creature, Stance stance)
     {
         foreach (var listener in GetListeners<IWandererEventListener>(creature))
         {
-            await listener.AfterShifted(creature, stance);
+            await listener.AfterStanceEntered(creature, stance);
         }
     }
 
@@ -324,7 +334,7 @@ public static class WandererCmd
         _shinigamiStates.Clear();
         _ofudaTransformedCards.Clear();
 
-        _shiftCounts.Clear();
+        _enteredStanceCounts.Clear();
         JodanEnabled = false;
         WakiEnabled = false;
     }
@@ -338,5 +348,52 @@ public static class WandererCmd
         var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
         var transformation = new CardTransformation(card, options);
         await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+    }
+
+    /// <summary>
+    /// Presents cards on the ChooseACard screen and returns the player's selection.
+    /// Equivalent to CardSelectCmd.FromChooseACardScreen but without the 3-card limit.
+    /// Handles multiplayer sync, test selectors, and mark-as-seen bookkeeping.
+    /// </summary>
+    public static async Task<CardModel?> ChooseCard(PlayerChoiceContext context, IReadOnlyList<CardModel> cards, Player player, bool canSkip = false)
+    {
+        uint choiceId = RunManager.Instance.PlayerChoiceSynchronizer.ReserveChoiceId(player);
+        await context.SignalPlayerChoiceBegun(PlayerChoiceOptions.None);
+
+        CardModel? result;
+        if (LocalContext.IsMe(player) && RunManager.Instance.NetService.Type != NetGameType.Replay)
+        {
+            NPlayerHand.Instance?.CancelAllCardPlay();
+
+            if (CardSelectCmd.Selector != null)
+            {
+                result = (await CardSelectCmd.Selector.GetSelectedCards(cards, 0, 1)).FirstOrDefault();
+            }
+            else
+            {
+                var screen = NChooseACardSelectionScreen.ShowScreen(cards, canSkip);
+                if (LocalContext.IsMe(player))
+                {
+                    foreach (var card in cards)
+                    {
+                        SaveManager.Instance.MarkCardAsSeen(card);
+                    }
+                }
+                result = (await screen!.CardsSelected()).FirstOrDefault();
+            }
+
+            int index = cards.IndexOf(result);
+            RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(
+                player, choiceId, PlayerChoiceResult.FromIndex(index));
+        }
+        else
+        {
+            int remoteIndex = (await RunManager.Instance.PlayerChoiceSynchronizer
+                .WaitForRemoteChoice(player, choiceId)).AsIndex();
+            result = remoteIndex < 0 ? null : cards[remoteIndex];
+        }
+
+        await context.SignalPlayerChoiceEnded();
+        return result;
     }
 }

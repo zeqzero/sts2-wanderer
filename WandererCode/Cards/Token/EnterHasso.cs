@@ -9,20 +9,20 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>weak, vulnerable</tags>
+/// <tags>draw</tags>
 [Pool(typeof(TokenCardPool))]
-public class ShiftGedan : WandererCard, IShiftStance
+public class EnterHasso : WandererCard, IEnterStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<GedanPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HassoPower>()];
 
-    public ShiftGedan() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
+    public EnterHasso() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {
     }
 
-    public async Task OnShift(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await WandererCmd.Shift(Owner.Creature, Stance.Gedan);
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Hasso);
     }
 }

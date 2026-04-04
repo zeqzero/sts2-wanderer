@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd0ymmxari61a"
-path="res://.godot/imported/shift_waki.png-87eb961abfbb1518d8e8f1f20bb81488.ctex"
+uid="uid://5ohsbok231hj"
+path="res://.godot/imported/enter_hasso.png-16de01a6048feeb6f9765e595accafbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shift_waki.png"
-dest_files=["res://.godot/imported/shift_waki.png-87eb961abfbb1518d8e8f1f20bb81488.ctex"]
+source_file="res://Wanderer/images/card_portraits/enter_hasso.png"
+dest_files=["res://.godot/imported/enter_hasso.png-16de01a6048feeb6f9765e595accafbb.ctex"]
 
 [params]
 

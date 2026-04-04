@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhgycpexk4c"
-path="res://.godot/imported/shift.png-928c19315fdfcf6ac4bae173c58e87cf.ctex"
+uid="uid://y556x5b7id3"
+path="res://.godot/imported/kamae.png-f32b566fa162b97206a70d8fe9788b50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shift.png"
-dest_files=["res://.godot/imported/shift.png-928c19315fdfcf6ac4bae173c58e87cf.ctex"]
+source_file="res://Wanderer/images/card_portraits/kamae.png"
+dest_files=["res://.godot/imported/kamae.png-f32b566fa162b97206a70d8fe9788b50.ctex"]
 
 [params]
 

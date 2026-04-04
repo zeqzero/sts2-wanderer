@@ -12,21 +12,20 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Jodan : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<JodanPower>()];
 
-    public Jodan() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public Jodan() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await WandererCmd.Shift(Owner.Creature, Stance.Jodan);
+        WandererCmd.JodanEnabled = true;
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan);
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Innate);
     }
 }

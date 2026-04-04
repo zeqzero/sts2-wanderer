@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k86dhofq2o0"
-path="res://.godot/imported/shifting_strike.png-ca5a97fa013edd94020205821655c38f.ctex"
+uid="uid://3nqasmmcutjl"
+path="res://.godot/imported/enter_gedan.png-e21cd430f2c8c611299f8f2bd0524e28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shifting_strike.png"
-dest_files=["res://.godot/imported/shifting_strike.png-ca5a97fa013edd94020205821655c38f.ctex"]
+source_file="res://Wanderer/images/card_portraits/enter_gedan.png"
+dest_files=["res://.godot/imported/enter_gedan.png-e21cd430f2c8c611299f8f2bd0524e28.ctex"]
 
 [params]
 

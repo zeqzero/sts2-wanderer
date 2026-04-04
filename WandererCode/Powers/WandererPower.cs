@@ -37,7 +37,7 @@ public abstract class WandererPower : CustomPowerModel, IWandererEventListener
     {
     }
 
-    public virtual async Task AfterShifted(Creature creature, Stance stance)
+    public virtual async Task AfterStanceEntered(Creature creature, Stance stance)
     {
     }
 }

@@ -9,20 +9,20 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>scale, selfvuln</tags>
+/// <tags>weak, vulnerable</tags>
 [Pool(typeof(TokenCardPool))]
-public class ShiftJodan : WandererCard, IShiftStance
+public class EnterGedan : WandererCard, IEnterStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<JodanPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<GedanPower>()];
 
-    public ShiftJodan() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
+    public EnterGedan() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {
     }
 
-    public async Task OnShift(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await WandererCmd.Shift(Owner.Creature, Stance.Jodan);
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Gedan);
     }
 }

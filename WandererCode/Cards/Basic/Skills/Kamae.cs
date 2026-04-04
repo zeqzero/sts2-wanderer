@@ -1,20 +1,20 @@
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>stance</tags>
 [Pool(typeof(WandererCardPool))]
-public class Shift : WandererCard
+public class Kamae : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
-    public Shift() : base(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+    public Kamae() : base(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
     {
     }
 
@@ -29,25 +29,28 @@ public class Shift : WandererCard
     {
         List<CardModel> cards = [];
 
+        if (!Owner.Creature.Powers.OfType<JodanPower>().Any() && WandererCmd.JodanEnabled)
+            cards.Add(CreateChoiceCard<EnterJodan>());
         if (!Owner.Creature.Powers.OfType<ChudanPower>().Any())
-            cards.Add(CreateChoiceCard<ShiftChudan>());
+            cards.Add(CreateChoiceCard<EnterChudan>());
         if (!Owner.Creature.Powers.OfType<HassoPower>().Any())
-            cards.Add(CreateChoiceCard<ShiftHasso>());
+            cards.Add(CreateChoiceCard<EnterHasso>());
         if (!Owner.Creature.Powers.OfType<GedanPower>().Any())
-            cards.Add(CreateChoiceCard<ShiftGedan>());
+            cards.Add(CreateChoiceCard<EnterGedan>());
+        if (!Owner.Creature.Powers.OfType<WakiPower>().Any() && WandererCmd.WakiEnabled)
+            cards.Add(CreateChoiceCard<EnterWaki>());
 
         if (cards.Count == 0) return;
 
-        CardModel? chosenCard = await CardSelectCmd.FromChooseACardScreen(choiceContext, cards, Owner, canSkip: false);
-        if (chosenCard is IShiftStance shiftStance)
+        CardModel? chosenCard = await WandererCmd.ChooseCard(choiceContext, cards, Owner, canSkip: false);
+        if (chosenCard is IEnterStance enterStance)
         {
-            await shiftStance.OnShift(choiceContext, cardPlay);
+            await enterStance.OnEnter(choiceContext, cardPlay);
         }
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
         AddKeyword(CardKeyword.Retain);
     }
 }

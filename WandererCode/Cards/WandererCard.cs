@@ -32,7 +32,7 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
     {
     }
 
-    public virtual async Task AfterShifted(Creature creature, Stance stance)
+    public virtual async Task AfterStanceEntered(Creature creature, Stance stance)
     {
     }
 }

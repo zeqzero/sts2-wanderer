@@ -12,15 +12,15 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>stance</tags>
 [Pool(typeof(WandererCardPool))]
-public class ShiftingStrike : WandererCard
+public class Press : WandererCard
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9m, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Shift>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Kamae>()];
 
-    public ShiftingStrike() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    public Press() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
     }
 
@@ -32,20 +32,20 @@ public class ShiftingStrike : WandererCard
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
-        // Check if Shift is already in hand
-        if (PileType.Hand.GetPile(Owner).Cards.Any(c => c is Shift))
+        // Check if Kamae is already in hand
+        if (PileType.Hand.GetPile(Owner).Cards.Any(c => c is Kamae))
             return;
 
-        // Search draw, discard, and exhaust for an existing Shift
-        CardModel? shift = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
-            ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift)
-            ?? PileType.Exhaust.GetPile(Owner).Cards.FirstOrDefault(c => c is Shift);
+        // Search draw, discard, and exhaust for an existing Kamae
+        CardModel? kamae = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae)
+            ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae)
+            ?? PileType.Exhaust.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae);
 
-        if (shift == null)
+        if (kamae == null)
         {
-            shift = CombatState.CreateCard<Shift>(Owner);
+            kamae = CombatState.CreateCard<Kamae>(Owner);
         }
-        await CardPileCmd.Add(shift, PileType.Hand);
+        await CardPileCmd.Add(kamae, PileType.Hand);
     }
 
     protected override void OnUpgrade()

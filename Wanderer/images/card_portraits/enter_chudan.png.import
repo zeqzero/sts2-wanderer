@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf3ufa2bde6pd"
-path="res://.godot/imported/shift_jodan.png-07b755a25ea0598bb38f175ce371ebc9.ctex"
+uid="uid://p8yi215kyys7"
+path="res://.godot/imported/enter_chudan.png-5a011320d84a468ad76b3edc3a4ac842.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shift_jodan.png"
-dest_files=["res://.godot/imported/shift_jodan.png-07b755a25ea0598bb38f175ce371ebc9.ctex"]
+source_file="res://Wanderer/images/card_portraits/enter_chudan.png"
+dest_files=["res://.godot/imported/enter_chudan.png-5a011320d84a468ad76b3edc3a4ac842.ctex"]
 
 [params]
 

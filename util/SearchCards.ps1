@@ -25,7 +25,7 @@ function ConvertTo-UpperSnake($name) {
 }
 
 $cards = Get-ChildItem -Path "$scriptRoot/../WandererCode/Cards" -Filter "*.cs" -Recurse |
-    Where-Object { $_.Name -ne "WandererCard.cs" -and $_.Name -ne "IShiftStance.cs" } |
+    Where-Object { $_.Name -ne "WandererCard.cs" -and $_.Name -ne "IEnterStance.cs" } |
     ForEach-Object {
         $content = Get-Content $_.FullName -Raw
         if ($content -match 'base\((\d+),\s*CardType\.(\w+),\s*CardRarity\.(\w+),\s*TargetType\.(\w+)\)') {

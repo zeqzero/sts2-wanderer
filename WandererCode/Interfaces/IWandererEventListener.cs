@@ -7,5 +7,5 @@ public interface IWandererEventListener
 {
     Task BeforeRitualDeath(Creature creature);
     Task AfterEnteredShinigami(Creature creature);
-    Task AfterShifted(Creature creature, Stance stance);
+    Task AfterStanceEntered(Creature creature, Stance stance);
 }

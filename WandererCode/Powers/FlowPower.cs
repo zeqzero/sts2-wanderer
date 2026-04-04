@@ -12,7 +12,7 @@ public class FlowPower : WandererPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterShifted(Creature creature, Stance stance)
+    public override async Task AfterStanceEntered(Creature creature, Stance stance)
     {
         if (creature != Owner)
             return;

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd8uhowxv1arx"
-path="res://.godot/imported/shift_gedan.png-723a8bc93b1cf32f3cee0b99e20cca84.ctex"
+uid="uid://ddfc2lerbfqi6"
+path="res://.godot/imported/press.png-fb1c01998add354fe0c982794dbfd62b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shift_gedan.png"
-dest_files=["res://.godot/imported/shift_gedan.png-723a8bc93b1cf32f3cee0b99e20cca84.ctex"]
+source_file="res://Wanderer/images/card_portraits/press.png"
+dest_files=["res://.godot/imported/press.png-fb1c01998add354fe0c982794dbfd62b.ctex"]
 
 [params]
 

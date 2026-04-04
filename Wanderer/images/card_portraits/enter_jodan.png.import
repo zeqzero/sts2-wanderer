@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8xupaeb7vrxy"
-path="res://.godot/imported/shift_hasso.png-4489c7b59f15f0d68259714afa695f46.ctex"
+uid="uid://bh8pcxbcn7gmu"
+path="res://.godot/imported/enter_jodan.png-fed8edc39d5b2a443725456fd4bd2250.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shift_hasso.png"
-dest_files=["res://.godot/imported/shift_hasso.png-4489c7b59f15f0d68259714afa695f46.ctex"]
+source_file="res://Wanderer/images/card_portraits/enter_jodan.png"
+dest_files=["res://.godot/imported/enter_jodan.png-fed8edc39d5b2a443725456fd4bd2250.ctex"]
 
 [params]
 

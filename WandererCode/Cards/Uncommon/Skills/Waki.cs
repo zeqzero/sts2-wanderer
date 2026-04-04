@@ -12,21 +12,20 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Waki : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WakiPower>()];
 
-    public Waki() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public Waki() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await WandererCmd.Shift(Owner.Creature, Stance.Waki);
+        WandererCmd.WakiEnabled = true;
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Waki);
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Innate);
     }
 }

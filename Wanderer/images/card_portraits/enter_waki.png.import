@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmtp2tc1wpcua"
-path="res://.godot/imported/shift_chudan.png-cfe352633dbec7491bffad9db6eb248b.ctex"
+uid="uid://c0bteqp3xxmp"
+path="res://.godot/imported/enter_waki.png-39ac7c8d9f943a4a64a757eec8158382.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/shift_chudan.png"
-dest_files=["res://.godot/imported/shift_chudan.png-cfe352633dbec7491bffad9db6eb248b.ctex"]
+source_file="res://Wanderer/images/card_portraits/enter_waki.png"
+dest_files=["res://.godot/imported/enter_waki.png-39ac7c8d9f943a4a64a757eec8158382.ctex"]
 
 [params]
 

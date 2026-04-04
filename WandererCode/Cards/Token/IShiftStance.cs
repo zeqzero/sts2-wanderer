@@ -1,7 +1,7 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
-public interface IShiftStance
+public interface IEnterStance
 {
-    public Task OnShift(PlayerChoiceContext choiceContext, CardPlay cardPlay);
+    public Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay);
 }
