@@ -8,11 +8,12 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Keywords;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>enfeeble, transform</tags>
+/// <tags>enfeeble, shift</tags>
 [Pool(typeof(WandererCardPool))]
 public class StolenPeach : WandererCard
 {
@@ -27,7 +28,8 @@ public class StolenPeach : WandererCard
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<StrengthPower>()
+        HoverTipFactory.FromPower<StrengthPower>(),
+        WandererKeywords.ShiftHoverTip
     ];
 
     public StolenPeach() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
@@ -46,7 +48,7 @@ public class StolenPeach : WandererCard
     {
         if (card == this && oldPileType == PileType.Play && card.Owner == Owner)
         {
-            await WandererCmd.TransformToRandomFromPool(this, Owner);
+            await WandererCmd.ShiftCard(this, Owner);
         }
     }
 

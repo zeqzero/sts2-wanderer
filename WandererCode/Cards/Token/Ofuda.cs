@@ -1,11 +1,13 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>transform, exhaust</tags>
+/// <tags>shift, exhaust</tags>
 [Pool(typeof(TokenCardPool))]
 public class Ofuda : WandererCard
 {

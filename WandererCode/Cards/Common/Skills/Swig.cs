@@ -5,15 +5,19 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Wanderer.WandererCode.Character;
+using MegaCrit.Sts2.Core.HoverTips;
 using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>draw, transform</tags>
+/// <tags>draw, shift</tags>
 [Pool(typeof(WandererCardPool))]
 public class Swig : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DynamicVar("Transform", 1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DynamicVar("Shift", 1)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public Swig() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
@@ -23,14 +27,7 @@ public class Swig : WandererCard
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-
-        var prefs = new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1);
-        var card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
-
-        if (card != null)
-        {
-            await WandererCmd.TransformToRandomFromPool(card, Owner);
-        }
+        await WandererCmd.ShiftCardFromHand(choiceContext, 1, Owner, this);
     }
 
     protected override void OnUpgrade()

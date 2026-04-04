@@ -1,6 +1,8 @@
 using Godot;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -17,6 +19,7 @@ using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Interfaces;
+using Wanderer.WandererCode.Keywords;
 using Wanderer.WandererCode.Nodes;
 using Wanderer.WandererCode.Powers;
 
@@ -63,10 +66,10 @@ public static class WandererCmd
 
     /// <summary>
     /// Maps Ofuda → backup clone of the original card it replaced.
-    /// Backups are created via CloneCard before transforming, so they remain
-    /// properly registered in CombatState and can be transformed back cleanly.
+    /// Backups are created via CloneCard before shifting, so they remain
+    /// properly registered in CombatState and can be shifted back cleanly.
     /// </summary>
-    private static readonly Dictionary<CardModel, CardModel> _ofudaTransformedCards = new();
+    private static readonly Dictionary<CardModel, CardModel> _ofudaShiftedCards = new();
 
     /// <summary>
     /// Removes the current stance power and applies a new one.
@@ -131,32 +134,35 @@ public static class WandererCmd
 
     public static CardModel? GetOriginalCard(CardModel ofudaCard)
     {
-        return _ofudaTransformedCards.GetValueOrDefault(ofudaCard);
+        return _ofudaShiftedCards.GetValueOrDefault(ofudaCard);
     }
 
-    public static void RemoveTransformEntry(CardModel ofudaCard)
+    public static void RemoveShiftEntry(CardModel ofudaCard)
     {
-        _ofudaTransformedCards.Remove(ofudaCard);
+        _ofudaShiftedCards.Remove(ofudaCard);
     }
 
     /// <summary>
-    /// Transforms a single card into an Ofuda, storing a backup clone for later restoration.
-    /// Called during EnterShinigamiForm for bulk transforms, and by ShinigamiPower.AfterCardChangedPiles
+    /// Shifts a single card into an Ofuda, storing a backup clone for later restoration.
+    /// Called during EnterShinigamiForm for bulk shifts, and by ShinigamiPower.AfterCardChangedPiles
     /// to catch cards that leave the Play pile after form entry (e.g. Seppuku resolving).
     /// </summary>
-    public static async Task TransformToOfuda(CardModel card)
+    public static async Task ShiftToOfuda(CardModel card)
     {
+        if (card.Keywords.Contains(WandererKeywords.Enshrined))
+            return;
+
         var combatState = card.CombatState;
         var backup = combatState.CloneCard(card);
         var ofuda = combatState.CreateCard<Ofuda>(card.Owner);
-        _ofudaTransformedCards[ofuda] = backup;
+        _ofudaShiftedCards[ofuda] = backup;
         await CardCmd.Transform(card, ofuda);
     }
 
     /// <summary>
     /// Entry point for entering shinigami form. Called from BrokenJuzuRelic.AfterPreventingDeath.
     /// Sets max HP to ShinigamiMaxHp, heals the creature, applies ShinigamiPower,
-    /// transforms all cards to Ofuda, then fires AfterEnteredShinigami on listeners.
+    /// shifts all cards to Ofuda, then fires AfterEnteredShinigami on listeners.
     /// </summary>
     public static async Task EnterShinigami(Player player)
     {
@@ -179,7 +185,7 @@ public static class WandererCmd
 
         await PowerCmd.Apply<ShinigamiPower>(creature, ShinigamiExhaustThreshold, creature, null);
 
-        await TransformAllCards(player);
+        await ShiftAllCards(player);
 
         ApplyShinigamiTint(creature, state);
     }
@@ -210,7 +216,7 @@ public static class WandererCmd
         ResetShinigamiTint(creature, state);
     }
 
-    private static async Task TransformAllCards(Player player)
+    private static async Task ShiftAllCards(Player player)
     {
         var allCards = new List<CardModel>();
         allCards.AddRange(PileType.Hand.GetPile(player).Cards);
@@ -219,7 +225,7 @@ public static class WandererCmd
 
         foreach (var card in allCards)
         {
-            await TransformToOfuda(card);
+            await ShiftToOfuda(card);
         }
     }
 
@@ -227,7 +233,7 @@ public static class WandererCmd
     {
         if (player == null) return;
 
-        var toRestore = _ofudaTransformedCards
+        var toRestore = _ofudaShiftedCards
             .Where(kvp => kvp.Key.Owner == player)
             .ToList();
 
@@ -236,7 +242,7 @@ public static class WandererCmd
         foreach (var (ofuda, backup) in toRestore)
         {
             await CardCmd.Transform(ofuda, backup);
-            _ofudaTransformedCards.Remove(ofuda);
+            _ofudaShiftedCards.Remove(ofuda);
         }
     }
 
@@ -332,7 +338,7 @@ public static class WandererCmd
     public static void Reset()
     {
         _shinigamiStates.Clear();
-        _ofudaTransformedCards.Clear();
+        _ofudaShiftedCards.Clear();
 
         _enteredStanceCounts.Clear();
         JodanEnabled = false;
@@ -340,14 +346,35 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Transforms a card into a random card from the player's card pool.
+    /// "Shift" a card, transforming it into a random card from the player's card pool.
     /// Uses CombatCardGeneration RNG seed.
     /// </summary>
-    public static async Task TransformToRandomFromPool(CardModel card, Player player)
+    public static async Task ShiftCard(CardModel card, Player player)
     {
+        if (card.Keywords.Contains(WandererKeywords.Enshrined))
+            return;
+
         var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
         var transformation = new CardTransformation(card, options);
         await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+    }
+
+    private static readonly LocString ShiftSelectionPrompt = new("card_selection", "WANDERER-TO_SHIFT");
+
+    /// <summary>
+    /// Prompts the player to select a card from hand to Shift (excluding Enshrined cards),
+    /// then shifts the selected card.
+    /// </summary>
+    public static async Task ShiftCardFromHand(PlayerChoiceContext context, int count, Player player, CardModel source)
+    {
+        var prefs = new CardSelectorPrefs(ShiftSelectionPrompt, count);
+        var selected = await CardSelectCmd.FromHand(context, player, prefs,
+            c => !c.Keywords.Contains(WandererKeywords.Enshrined), source);
+
+        foreach (var card in selected)
+        {
+            await ShiftCard(card, player);
+        }
     }
 
     /// <summary>

@@ -6,17 +6,21 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
+using MegaCrit.Sts2.Core.HoverTips;
 using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>transform</tags>
+/// <tags>shift</tags>
 [Pool(typeof(WandererCardPool))]
 public class BarrelRoll : WandererCard
 {
     public override bool GainsBlock => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, ValueProp.Move)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public BarrelRoll() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
@@ -27,21 +31,16 @@ public class BarrelRoll : WandererCard
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         if (IsUpgraded)
         {
-            var prefs = new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1);
-            var card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
-
-            if (card != null)
-            {
-                await WandererCmd.TransformToRandomFromPool(card, Owner);
-            }
+            await WandererCmd.ShiftCardFromHand(choiceContext, 1, Owner, this);
         }
         else
         {
             var pile = PileType.Hand.GetPile(Owner);
-            var card = Owner.RunState.Rng.CombatCardSelection.NextItem(pile.Cards);
+            var candidates = pile.Cards.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined)).ToList();
+            var card = Owner.RunState.Rng.CombatCardSelection.NextItem(candidates);
             if (card != null)
             {
-                await WandererCmd.TransformToRandomFromPool(card, Owner);
+                await WandererCmd.ShiftCard(card, Owner);
             }
         }
     }
