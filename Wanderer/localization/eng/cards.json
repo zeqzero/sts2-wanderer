@@ -62,7 +62,7 @@
     "WANDERER-PLUNGE.title": "Plunge",
     "WANDERER-PLUNGE.description": "Deal {Damage:diff()} damage.\nNext turn, draw {Cards:diff()} cards.",
     "WANDERER-SEPPUKU.title": "Seppuku",
-    "WANDERER-SEPPUKU.description": "You die.",
+    "WANDERER-SEPPUKU.description": "Die.",
     "WANDERER-OFUDA.title": "Ofuda",
     "WANDERER-OFUDA.description": "Transforms back when you lose Shinigami.",
     "WANDERER-SEVER_KI.title": "Sever Ki",
@@ -82,5 +82,7 @@
     "WANDERER-HOLY_SMOKE.title": "Holy Smoke",
     "WANDERER-HOLY_SMOKE.description": "Whenever you Exhaust a card, deal {HolySmokePower:diff()} damage to a random enemy.",
     "WANDERER-LETHAL_EXCHANGE.title": "Lethal Exchange",
-    "WANDERER-LETHAL_EXCHANGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, die."
+    "WANDERER-LETHAL_EXCHANGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, die.",
+    "WANDERER-JUNSHI.title": "Junshi",
+    "WANDERER-JUNSHI.description": "Die.\nReduce this card's cost by {Energy:diff()} Energy whenever ANYONE dies."
 }

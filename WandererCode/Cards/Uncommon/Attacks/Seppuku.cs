@@ -6,10 +6,12 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>death</tags>
+/// <tags>death, exhaust</tags>
 [Pool(typeof(WandererCardPool))]
 public class Seppuku : WandererCard
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
     public Seppuku() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.Self)
     {
     }
