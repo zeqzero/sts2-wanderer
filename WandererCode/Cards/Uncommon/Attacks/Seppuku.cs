@@ -10,7 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Seppuku : WandererCard
 {
-    public Seppuku() : base(0, CardType.Attack, CardRarity.Uncommon, TargetType.Self)
+    public Seppuku() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.Self)
     {
     }
 

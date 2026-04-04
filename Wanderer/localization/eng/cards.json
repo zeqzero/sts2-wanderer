@@ -80,5 +80,7 @@
     "WANDERER-SWIG.title": "Swig",
     "WANDERER-SWIG.description": "Draw {Cards:diff()} card{IfUpgraded:show:s|}.\nTransform {Transform:diff()} card.",
     "WANDERER-HOLY_SMOKE.title": "Holy Smoke",
-    "WANDERER-HOLY_SMOKE.description": "Whenever you Exhaust a card, deal {HolySmokePower:diff()} damage to a random enemy."
+    "WANDERER-HOLY_SMOKE.description": "Whenever you Exhaust a card, deal {HolySmokePower:diff()} damage to a random enemy.",
+    "WANDERER-LETHAL_EXCHANGE.title": "Lethal Exchange",
+    "WANDERER-LETHAL_EXCHANGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, die."
 }

@@ -33,4 +33,9 @@ public class Flourish : WandererCard
             .SpawningHitVfxOnEachCreature()
             .Execute(choiceContext);
     }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(3m);
+    }
 }
