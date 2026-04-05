@@ -31,7 +31,7 @@ public class BarrelRoll : WandererCard
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         if (IsUpgraded)
         {
-            await WandererCmd.ShiftCardFromHand(choiceContext, 1, Owner, this);
+            await WandererCmd.PickAndShiftCardsFromHand(choiceContext, 1, Owner, this);
         }
         else
         {

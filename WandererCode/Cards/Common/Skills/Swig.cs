@@ -27,7 +27,7 @@ public class Swig : WandererCard
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        await WandererCmd.ShiftCardFromHand(choiceContext, 1, Owner, this);
+        await WandererCmd.PickAndShiftCardsFromHand(choiceContext, 1, Owner, this);
     }
 
     protected override void OnUpgrade()

@@ -7,7 +7,7 @@ namespace Wanderer.WandererCode.Powers;
 
 public class StolenPeachPower : TemporaryStrengthPower, ICustomPower, ICustomModel
 {
-    public override AbstractModel OriginModel => ModelDb.Card<StolenPeach>();
+    public override AbstractModel OriginModel => ModelDb.Card<StealPeach>();
 
     protected override bool IsPositive => false;
 }

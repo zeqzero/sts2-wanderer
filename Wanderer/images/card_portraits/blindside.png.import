@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qx0sc3fieb2c"
-path="res://.godot/imported/stolen_peach.png-082089a5acce589e839bad21342c8c2d.ctex"
+uid="uid://bq53chtqytyne"
+path="res://.godot/imported/blindside.png-47dfc1dbe1c6ede72a12798c1b83fb2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/stolen_peach.png"
-dest_files=["res://.godot/imported/stolen_peach.png-082089a5acce589e839bad21342c8c2d.ctex"]
+source_file="res://Wanderer/images/card_portraits/blindside.png"
+dest_files=["res://.godot/imported/blindside.png-47dfc1dbe1c6ede72a12798c1b83fb2b.ctex"]
 
 [params]
 

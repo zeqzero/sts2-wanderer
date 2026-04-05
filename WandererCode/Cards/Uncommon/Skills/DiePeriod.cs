@@ -26,7 +26,7 @@ public class DiePeriod : WandererCard
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         await PowerCmd.Apply<DoubleDamagePower>(Owner.Creature, 1, Owner.Creature, this);
-        await WandererCmd.AddDishonor(Owner);
+        await WandererCmd.AddDishonor(Owner, CombatState);
     }
 
     protected override void OnUpgrade()

@@ -15,7 +15,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>enfeeble, shift</tags>
 [Pool(typeof(WandererCardPool))]
-public class StolenPeach : WandererCard
+public class StealPeach : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
@@ -32,7 +32,7 @@ public class StolenPeach : WandererCard
         WandererKeywords.ShiftHoverTip
     ];
 
-    public StolenPeach() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    public StealPeach() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
     }
 

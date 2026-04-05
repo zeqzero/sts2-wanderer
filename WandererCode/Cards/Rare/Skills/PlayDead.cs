@@ -30,7 +30,7 @@ public class PlayDead : WandererCard
         }
 
         await CardPileCmd.Add(curseCards, PileType.Hand);
-        await WandererCmd.AddDishonor(Owner);
+        await WandererCmd.AddDishonor(Owner, CombatState);
         await WandererCmd.RitualDeath(Owner.Creature);
     }
 

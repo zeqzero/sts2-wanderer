@@ -22,6 +22,7 @@ using Wanderer.WandererCode.Interfaces;
 using Wanderer.WandererCode.Keywords;
 using Wanderer.WandererCode.Nodes;
 using Wanderer.WandererCode.Powers;
+using MegaCrit.Sts2.Core.Combat;
 
 namespace Wanderer.WandererCode.Commands;
 
@@ -359,16 +360,28 @@ public static class WandererCmd
 
     /// <summary>
     /// "Shift" a card, transforming it into a random card from the player's card pool.
-    /// Uses CombatCardGeneration RNG seed.
+    /// Uses CombatCardGeneration RNG seed. If upgrade is true, the resulting card is upgraded.
     /// </summary>
-    public static async Task ShiftCard(CardModel card, Player player)
+    public static async Task ShiftCard(CardModel card, Player player, bool upgrade = false)
     {
         if (card.Keywords.Contains(WandererKeywords.Enshrined))
             return;
 
         var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
         var transformation = new CardTransformation(card, options);
-        await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+        var results = await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+
+        if (upgrade)
+        {
+            foreach (var result in results)
+            {
+                if (result.cardAdded != null && result.cardAdded.IsUpgradable)
+                {
+                    CardCmd.Upgrade(result.cardAdded);
+                }
+            }
+        }
+
         await AfterShifted(card);
     }
 
@@ -376,9 +389,9 @@ public static class WandererCmd
 
     /// <summary>
     /// Prompts the player to select a card from hand to Shift (excluding Enshrined cards),
-    /// then shifts the selected card.
+    /// then shifts the selected card. If upgrade is true, each resulting shifted card is upgraded.
     /// </summary>
-    public static async Task ShiftCardFromHand(PlayerChoiceContext context, int count, Player player, CardModel source)
+    public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, CardModel source, bool upgrade = false)
     {
         var prefs = new CardSelectorPrefs(ShiftSelectionPrompt, count);
         var selected = await CardSelectCmd.FromHand(context, player, prefs,
@@ -386,7 +399,7 @@ public static class WandererCmd
 
         foreach (var card in selected)
         {
-            await ShiftCard(card, player);
+            await ShiftCard(card, player, upgrade);
         }
     }
 
@@ -442,9 +455,19 @@ public static class WandererCmd
     /// for an immediate effect. The deck and hand copies are necessarily distinct CardModels
     /// since the deck lives in RunState and hand cards live in CombatState.
     /// </summary>
-    public static async Task AddDishonor(Player player)
+    public static async Task AddDishonor(Player player, CombatState? combatState)
     {
         await CardPileCmd.AddCurseToDeck<Dishonor>(player);
         await CardPileCmd.AddToCombatAndPreview<Dishonor>(player.Creature, PileType.Hand, 1, addedByPlayer: true);
+
+        if (combatState != null)
+        {
+            foreach (var enemy in combatState.HittableEnemies)
+            {
+                var mostDishonorableString = LocString.GetIfExists("characters", "WANDERER-WANDERER.mostDishonorable");
+                if (mostDishonorableString != null)
+                    TalkCmd.Play(mostDishonorableString, enemy);
+            }
+        }
     }
 }

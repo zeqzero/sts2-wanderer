@@ -22,7 +22,7 @@ public class SecretSauce : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<SecretSaucePower>(Owner.Creature, DynamicVars["SecretSaucePower"].BaseValue, Owner.Creature, this);
-        await WandererCmd.AddDishonor(Owner);
+        await WandererCmd.AddDishonor(Owner, CombatState);
     }
 
     protected override void OnUpgrade()
