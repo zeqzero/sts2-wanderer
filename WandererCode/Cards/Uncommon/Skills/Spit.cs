@@ -15,6 +15,8 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Spit : WandererCard
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<WeakPower>(99), new CardsVar(3) ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [ WandererKeywords.ShiftHoverTip ];
