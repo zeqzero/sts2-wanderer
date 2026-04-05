@@ -41,5 +41,8 @@
     "WANDERER-HOLY_SMOKE_POWER.smartDescription": "Whenever you Exhaust a card, deal {Amount} damage to a random enemy.",
     "WANDERER-IMPROVISE_POWER.title": "Improvise",
     "WANDERER-IMPROVISE_POWER.description": "Whenever you [gold]Shift[/gold], gain {Amount} energy.",
-    "WANDERER-IMPROVISE_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} energy."
+    "WANDERER-IMPROVISE_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} energy.",
+    "WANDERER-SECRET_SAUCE_POWER.title": "Secret Sauce",
+    "WANDERER-SECRET_SAUCE_POWER.description": "Whenever Attacks deal damage, they also apply that much Poison.",
+    "WANDERER-SECRET_SAUCE_POWER.smartDescription": "Whenever Attacks deal damage, they also apply that much Poison."
 }

@@ -1,11 +1,8 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Actions;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models.Enchantments;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -15,7 +12,6 @@ public class RoninFormPower : WandererPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private bool _appliedThisTurn = true;
 
     public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
@@ -24,12 +20,6 @@ public class RoninFormPower : WandererPower
 
         if (Owner.Player == null)
             return;
-
-        // if (_appliedThisTurn)
-        // {
-        //     _appliedThisTurn = false;
-        //     return;
-        // }
 
         CardPlayStartedEntry? cardPlayStartedEntry = CombatManager.Instance.History.CardPlaysStarted.LastOrDefault((CardPlayStartedEntry e) => e.CardPlay.Card.Owner.Creature == Owner && e.HappenedThisTurn(CombatState));
         if (cardPlayStartedEntry != null)

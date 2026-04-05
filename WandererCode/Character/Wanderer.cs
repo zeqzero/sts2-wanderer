@@ -20,16 +20,16 @@ public class Wanderer : PlaceholderCharacterModel
 
     //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Seppuku>());
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<PlayDead>(),
-        ModelDb.Card<PlayDead>(),
-        ModelDb.Card<PlayDead>(),
-        ModelDb.Card<DiePeriod>(),
-        ModelDb.Card<DiePeriod>(),
-        ModelDb.Card<DiePeriod>(),
-        ModelDb.Card<StrikeWanderer>(),
-        ModelDb.Card<DefendWanderer>(),
-        ModelDb.Card<DefendWanderer>(),
-        ModelDb.Card<DefendWanderer>()
+        ModelDb.Card<SecretSauce>(),
+        ModelDb.Card<SecretSauce>(),
+        ModelDb.Card<SecretSauce>(),
+        ModelDb.Card<Thrust>(),
+        ModelDb.Card<Thrust>(),
+        ModelDb.Card<Thrust>(),
+        ModelDb.Card<DualStrike>(),
+        ModelDb.Card<DualStrike>(),
+        ModelDb.Card<DualStrike>(),
+        ModelDb.Card<DualStrike>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

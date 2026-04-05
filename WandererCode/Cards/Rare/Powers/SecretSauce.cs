@@ -4,29 +4,29 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>shift</tags>
+/// <tags>dishonor</tags>
 [Pool(typeof(WandererCardPool))]
-public class Improvise : WandererCard
+public class SecretSauce : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SecretSaucePower>(1m)];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ImprovisePower>(1m)];
-
-    public Improvise() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+    public SecretSauce() : base(1, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<ImprovisePower>(Owner.Creature, DynamicVars["ImprovisePower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<SecretSaucePower>(Owner.Creature, DynamicVars["SecretSaucePower"].BaseValue, Owner.Creature, this);
+        await WandererCmd.AddDishonor(Owner);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Ethereal);
+        EnergyCost.UpgradeBy(-1);
     }
 }
