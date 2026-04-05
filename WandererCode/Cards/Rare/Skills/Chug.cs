@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Keywords;
@@ -13,24 +12,37 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift</tags>
 [Pool(typeof(WandererCardPool))]
-public class Spit : WandererCard
+public class Chug : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<WeakPower>(99), new CardsVar(3) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(3), new EnergyVar(3) ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [ WandererKeywords.ShiftHoverTip, HoverTipFactory.FromCard<Dishonor>() ];
 
-    public Spit() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+    public Chug() : base(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<WeakPower>(cardPlay.Target, DynamicVars["WeakPower"].BaseValue, Owner.Creature, this);
-        await WandererCmd.PickAndShiftCardsFromHand(choiceContext, (int)DynamicVars.Cards.BaseValue, Owner, this, upgrade: IsUpgraded);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
+        
         await WandererCmd.AddDishonor(Owner, CombatState);
+
+        var pile = PileType.Hand.GetPile(Owner);
+        var candidates = pile.Cards.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined)).ToList();
+        foreach (var card in candidates)
+        {
+            await WandererCmd.ShiftCard(card, Owner);
+        }
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Cards.UpgradeValueBy(1m);
+        DynamicVars.Energy.UpgradeValueBy(1m);
     }
 }

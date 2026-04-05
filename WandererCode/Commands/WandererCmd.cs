@@ -394,8 +394,7 @@ public static class WandererCmd
     public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, CardModel source, bool upgrade = false)
     {
         var prefs = new CardSelectorPrefs(ShiftSelectionPrompt, count);
-        var selected = await CardSelectCmd.FromHand(context, player, prefs,
-            c => !c.Keywords.Contains(WandererKeywords.Enshrined), source);
+        var selected = await CardSelectCmd.FromHand(context, player, prefs, c => !c.Keywords.Contains(WandererKeywords.Enshrined), source);
 
         foreach (var card in selected)
         {

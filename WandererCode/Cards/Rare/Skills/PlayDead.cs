@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
@@ -13,6 +14,8 @@ namespace Wanderer.WandererCode.Cards;
 public class PlayDead : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
     public PlayDead() : base(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {

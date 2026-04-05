@@ -98,5 +98,7 @@
     "WANDERER-BLINDSIDE.title": "Blindside",
     "WANDERER-BLINDSIDE.description": "Deal {Damage:diff()} damage.\nAdd [purple]Dishonor[/purple] to your deck.",
     "WANDERER-SPIT.title": "Spit",
-    "WANDERER-SPIT.description": "Apply 99 Weak.\n[gold]Shift[/gold] {IfUpgraded:show:and Upgrade |}{Cards:diff()} cards.\nAdd [purple]Dishonor[/purple] to your deck."
+    "WANDERER-SPIT.description": "Apply 99 Weak.\n[gold]Shift[/gold] {IfUpgraded:show:and Upgrade |}{Cards:diff()} cards.\nAdd [purple]Dishonor[/purple] to your deck.",
+    "WANDERER-CHUG.title": "Chug",
+    "WANDERER-CHUG.description": "Gain {Energy:diff()} energy.\nDraw {Cards:diff()} cards.\nAdd [purple]Dishonor[/purple] to your deck.\n[gold]Shift[/gold] all cards in hand."
 }
