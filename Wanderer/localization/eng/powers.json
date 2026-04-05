@@ -38,5 +38,8 @@
     "WANDERER-WANDERER_NEXT_TURN_RONIN_FORM_POWER.smartDescription": "Next turn, apply {Amount} {Power}.",
     "WANDERER-HOLY_SMOKE_POWER.title": "Holy Smoke",
     "WANDERER-HOLY_SMOKE_POWER.description": "Whenever you Exhaust a card, deal {Amount} damage to a random enemy.",
-    "WANDERER-HOLY_SMOKE_POWER.smartDescription": "Whenever you Exhaust a card, deal {Amount} damage to a random enemy."
+    "WANDERER-HOLY_SMOKE_POWER.smartDescription": "Whenever you Exhaust a card, deal {Amount} damage to a random enemy.",
+    "WANDERER-IMPROVISE_POWER.title": "Improvise",
+    "WANDERER-IMPROVISE_POWER.description": "Whenever you [gold]Shift[/gold], gain {Amount} energy.",
+    "WANDERER-IMPROVISE_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} energy."
 }

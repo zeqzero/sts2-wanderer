@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Models;
 
 namespace Wanderer.WandererCode.Cards;
 
@@ -33,6 +34,10 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
     }
 
     public virtual async Task AfterStanceEntered(Creature creature, Stance stance)
+    {
+    }
+
+    public virtual async Task AfterShifted(CardModel card)
     {
     }
 }

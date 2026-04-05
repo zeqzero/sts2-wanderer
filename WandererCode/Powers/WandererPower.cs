@@ -5,6 +5,7 @@ using Godot;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Models;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -38,6 +39,10 @@ public abstract class WandererPower : CustomPowerModel, IWandererEventListener
     }
 
     public virtual async Task AfterStanceEntered(Creature creature, Stance stance)
+    {
+    }
+
+    public virtual async Task AfterShifted(CardModel card)
     {
     }
 }

@@ -119,6 +119,17 @@ public static class WandererCmd
         }
     }
 
+    private static async Task AfterShifted(CardModel card)
+    {
+        var creature = card.Owner?.Creature;
+        if (creature == null) return;
+
+        foreach (var listener in GetListeners<IWandererEventListener>(creature))
+        {
+            await listener.AfterShifted(card);
+        }
+    }
+
     public static bool InShinigamiForm(Creature creature)
     {
         return _shinigamiStates.TryGetValue(creature, out var state) && state.Active;
@@ -157,6 +168,7 @@ public static class WandererCmd
         var ofuda = combatState.CreateCard<Ofuda>(card.Owner);
         _ofudaShiftedCards[ofuda] = backup;
         await CardCmd.Transform(card, ofuda);
+        await AfterShifted(card);
     }
 
     /// <summary>
@@ -357,6 +369,7 @@ public static class WandererCmd
         var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
         var transformation = new CardTransformation(card, options);
         await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+        await AfterShifted(card);
     }
 
     private static readonly LocString ShiftSelectionPrompt = new("card_selection", "WANDERER-TO_SHIFT");

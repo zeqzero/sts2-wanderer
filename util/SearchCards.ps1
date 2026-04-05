@@ -41,15 +41,23 @@ $cards = Get-ChildItem -Path "$scriptRoot/../WandererCode/Cards" -Filter "*.cs" 
             if ($content -match '/// <tags>(.+?)</tags>') {
                 $cardTags = $Matches[1].Trim()
             }
+            $cardKeywords = ""
+            if ($content -match 'CanonicalKeywords\s*=>\s*\[([^\]]*)\]') {
+                $kwRaw = $Matches[1].Trim()
+                if ($kwRaw) {
+                    $cardKeywords = ($kwRaw -replace 'CardKeyword\.', '' -replace 'WandererKeywords\.', '' -replace '\s+', '' -split ',') -join ', '
+                }
+            }
             [PSCustomObject]@{
-                Title   = if ($cardTitle) { $cardTitle } else { $className }
-                Cost    = $cardCost
-                Type    = $cardType
-                Rarity  = $cardRarity
-                Target  = $cardTarget
-                Tags    = $cardTags
-                Desc    = $cardDesc
-                Source  = $content
+                Title    = if ($cardTitle) { $cardTitle } else { $className }
+                Cost     = $cardCost
+                Type     = $cardType
+                Rarity   = $cardRarity
+                Target   = $cardTarget
+                Keywords = $cardKeywords
+                Tags     = $cardTags
+                Desc     = $cardDesc
+                Source   = $content
             }
         }
     } |
@@ -62,6 +70,7 @@ if ($Filter) {
         $_.Type -match $Filter -or
         $_.Rarity -match $Filter -or
         $_.Target -match $Filter -or
+        $_.Keywords -match $Filter -or
         $_.Desc -match $Filter -or
         $_.Tags -match $Filter -or
         $_.Source -match $Filter
@@ -78,5 +87,5 @@ if ($Tags)    { $cards = $cards | Where-Object { $_.Tags -match $Tags } }
 if ($Desc)    { $cards = $cards | Where-Object { $_.Desc -match $Desc } }
 
 $sorted = @($cards | Sort-Object Rarity, Type, Title)
-$sorted | Format-Table Title, Cost, Type, Rarity, Target, Tags, Desc -AutoSize
+$sorted | Format-Table Title, Cost, Type, Rarity, Target, Keywords, Tags, Desc -AutoSize
 Write-Host "$($sorted.Count) cards"

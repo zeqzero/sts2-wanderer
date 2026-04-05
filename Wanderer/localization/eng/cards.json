@@ -88,5 +88,7 @@
     "WANDERER-COUNT_REGRETS.title": "Count Regrets",
     "WANDERER-COUNT_REGRETS.description": "Draw {Cards:diff()} cards.",
     "WANDERER-FLAUNT_SHAME.title": "Flaunt Shame",
-    "WANDERER-FLAUNT_SHAME.description": "Discard ALL status cards and deal {Damage:diff()} damage to ALL enemies for each."
+    "WANDERER-FLAUNT_SHAME.description": "Discard ALL status cards and deal {Damage:diff()} damage to ALL enemies for each.",
+    "WANDERER-IMPROVISE.title": "Improvise",
+    "WANDERER-IMPROVISE.description": "Whenever you [gold]Shift[/gold], gain {ImprovisePower:diff()} energy."
 }
