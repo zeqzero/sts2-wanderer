@@ -24,7 +24,7 @@
     "WANDERER-DISENGAGE.title": "Disengage",
     "WANDERER-DISENGAGE.description": "Gain {Block:diff()} block.\nNext turn, lose {Energy:diff()} energy.",
     "WANDERER-DIE_PERIOD.title": "Die.",
-    "WANDERER-DIE_PERIOD.description": "This turn, attacks deal double damage.\nDraw {Cards:diff()} cards.\nAdd Dishonor to your deck.",
+    "WANDERER-DIE_PERIOD.description": "This turn, attacks deal double damage.\nDraw {Cards:diff()} cards.\nAdd [purple]Dishonor[/purple] to your deck.",
     "WANDERER-DEATH_POEM.title": "Death Poem",
     "WANDERER-DEATH_POEM.description": "Gain {Energy:diff()} energy.\nDraw {Cards:diff()} cards.\nPlays automatically whenever ANYONE dies.",
     "WANDERER-DISHONOR.title": "Dishonor",
@@ -90,5 +90,7 @@
     "WANDERER-FLAUNT_SHAME.title": "Flaunt Shame",
     "WANDERER-FLAUNT_SHAME.description": "Discard ALL status cards and deal {Damage:diff()} damage to ALL enemies for each.",
     "WANDERER-IMPROVISE.title": "Improvise",
-    "WANDERER-IMPROVISE.description": "Whenever you [gold]Shift[/gold], gain {ImprovisePower:diff()} energy."
+    "WANDERER-IMPROVISE.description": "Whenever you [gold]Shift[/gold], gain {ImprovisePower:diff()} energy.",
+    "WANDERER-PLAY_DEAD.title": "Play Dead",
+    "WANDERER-PLAY_DEAD.description": "Gain {Block:diff()} block.\nApply {IntangiblePower:diff()} [gold]Intangible[/gold].\nAdd [purple]Dishonor[/purple] to your deck."
 }

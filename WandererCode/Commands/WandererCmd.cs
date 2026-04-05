@@ -436,4 +436,15 @@ public static class WandererCmd
         await context.SignalPlayerChoiceEnded();
         return result;
     }
+
+    /// <summary>
+    /// Adds a Dishonor curse to the player's deck (permanent) and a combat copy to their hand
+    /// for an immediate effect. The deck and hand copies are necessarily distinct CardModels
+    /// since the deck lives in RunState and hand cards live in CombatState.
+    /// </summary>
+    public static async Task AddDishonor(Player player)
+    {
+        await CardPileCmd.AddCurseToDeck<Dishonor>(player);
+        await CardPileCmd.AddToCombatAndPreview<Dishonor>(player.Creature, PileType.Hand, 1, addedByPlayer: true);
+    }
 }
