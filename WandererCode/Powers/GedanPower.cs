@@ -1,30 +1,32 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
-// Whenever you fully block an attack, apply 2 weak and 2 vulnerable
 public class GedanPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override PowerStackType StackType => PowerStackType.Single;
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>()];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromPower<VulnerablePower>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("StatGain", 2)];
 
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (target == Owner.Player.Creature && dealer.IsEnemy && result.WasFullyBlocked)
-        {
-            Flash();
-            await PowerCmd.Apply<WeakPower>(dealer, 2, target, null);
-            await PowerCmd.Apply<VulnerablePower>(dealer, 2, target, null);
-        }
+        DynamicVars["StatGain"].BaseValue *= Amount;
+        await PowerCmd.Apply<GedanDexterityPower>(Owner, DynamicVars["StatGain"].BaseValue, Owner, null);
+    }
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        await PowerCmd.Apply<GedanDexterityPower>(Owner, DynamicVars["StatGain"].BaseValue, Owner, null);
     }
 }

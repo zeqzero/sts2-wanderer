@@ -17,24 +17,31 @@ public sealed class WandererNextTurnDrawPower : WandererPower, IWandererNextTurn
 
     public override decimal ModifyHandDraw(Player player, decimal count)
     {
-        if (player != base.Owner.Player)
+        if (player != Owner.Player)
         {
             return count;
         }
 
-        if (base.AmountOnTurnStart == 0)
+        if (AmountOnTurnStart == 0)
         {
             return count;
         }
 
-        return count + (decimal)base.Amount;
+        return count + Amount;
     }
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
-        if (side == base.Owner.Side && base.AmountOnTurnStart != 0)
+        if (side == Owner.Side && AmountOnTurnStart != 0)
         {
-            await PowerCmd.Remove(this);
+            if (Amount == AmountOnTurnStart)
+            {
+                await PowerCmd.Remove(this);
+            }
+            else
+            {
+                await PowerCmd.Apply(this, Owner, -AmountOnTurnStart, Owner, null);
+            }
         }
     }
 

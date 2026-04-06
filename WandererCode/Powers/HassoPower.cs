@@ -1,21 +1,27 @@
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 
 namespace Wanderer.WandererCode.Powers;
 
-// At the start of your turn, draw 1 additional card
 public class HassoPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyHandDraw(Player player, decimal count)
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(1) ];
+
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (player != base.Owner.Player)
-        {
-            return count;
-        }
+        await PowerCmd.Apply<WandererNextTurnDrawPower>(Owner, DynamicVars.Cards.BaseValue * Amount, Owner, null);
+    }
 
-        return count + 1;
+    public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
+    {
+        await PowerCmd.Apply<WandererNextTurnDrawPower>(Owner, DynamicVars.Cards.BaseValue * Amount, Owner, null);
     }
 }

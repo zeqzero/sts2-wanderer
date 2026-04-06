@@ -1,11 +1,9 @@
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using Wanderer.WandererCode.Cards;
 
 namespace Wanderer.WandererCode.Powers;
 
-public class StolenPeachPower : TemporaryStrengthPower, ICustomPower, ICustomModel
+public class StolenPeachPower : WandererTemporaryStrengthPower
 {
     public override AbstractModel OriginModel => ModelDb.Card<StealPeach>();
 

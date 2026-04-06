@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>draw</tags>
+/// <tags>draw, nextturn</tags>
 [Pool(typeof(TokenCardPool))]
 public class EnterHasso : WandererCard, IEnterStance
 {

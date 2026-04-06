@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>weak, vulnerable</tags>
+/// <tags>dexterity</tags>
 [Pool(typeof(TokenCardPool))]
 public class EnterGedan : WandererCard, IEnterStance
 {

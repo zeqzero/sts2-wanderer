@@ -1,49 +1,49 @@
-using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <summary>
-/// Attacks deal double damage. Gain vulnerable at the end of your turn.
-/// </summary>
 public class JodanPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<VigorPower>(10) ];
+
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (dealer != Owner)
+        ArgumentNullException.ThrowIfNull(Owner.Player);
+        var choiceContext = new BlockingPlayerChoiceContext();
+        var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, Amount), context: choiceContext, player: Owner.Player, filter: null, source: this);
+        if (cardsToExhaust != null)
         {
-            return 1m;
+            foreach (var card in cardsToExhaust)
+            {
+                await CardCmd.Exhaust(choiceContext, card);
+                await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
+            }
         }
-
-        if (!props.IsPoweredAttack_())
-        {
-            return 1m;
-        }
-
-        if (cardSource == null)
-        {
-            return 1m;
-        }
-
-        return 2m;
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (side == Owner.Side)
+        ArgumentNullException.ThrowIfNull(Owner.Player);
+        var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, Amount), context: choiceContext, player: Owner.Player, filter: null, source: this);
+        if (cardsToExhaust != null)
         {
-            await PowerCmd.Apply<VulnerablePower>(Owner, 1, Owner, null);
+            foreach (var card in cardsToExhaust)
+            {
+                await CardCmd.Exhaust(choiceContext, card);
+                await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
+            }
         }
     }
 }
