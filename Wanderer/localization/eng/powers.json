@@ -44,5 +44,8 @@
     "WANDERER-IMPROVISE_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} energy.",
     "WANDERER-SECRET_SAUCE_POWER.title": "Secret Sauce",
     "WANDERER-SECRET_SAUCE_POWER.description": "Whenever Attacks deal damage, they also apply that much Poison.",
-    "WANDERER-SECRET_SAUCE_POWER.smartDescription": "Whenever Attacks deal damage, they also apply that much Poison."
+    "WANDERER-SECRET_SAUCE_POWER.smartDescription": "Whenever Attacks deal damage, they also apply that much Poison.",
+    "WANDERER-RIPOSTE_POWER.title": "Riposte",
+    "WANDERER-RIPOSTE_POWER.description": "If you have excess block at end of turn, deal 1 damage.",
+    "WANDERER-RIPOSTE_POWER.smartDescription": "If you have excess block at end of turn, deal {Amount} damage."
 }

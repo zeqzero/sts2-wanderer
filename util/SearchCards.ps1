@@ -19,16 +19,24 @@ if (Test-Path $locFile) {
     }
 }
 
+# Files to exclude from card search (non-card .cs files in the Cards directory)
+$blacklist = @(
+    "WandererCard.cs",
+    "IEnterStance.cs",
+    "Jodan.cs",
+    "Waki.cs"
+)
+
 # Convert PascalCase to UPPER_SNAKE_CASE
 function ConvertTo-UpperSnake($name) {
     ($name -creplace '([a-z])([A-Z])', '$1_$2').ToUpper()
 }
 
 $cards = Get-ChildItem -Path "$scriptRoot/../WandererCode/Cards" -Filter "*.cs" -Recurse |
-    Where-Object { $_.Name -ne "WandererCard.cs" -and $_.Name -ne "IEnterStance.cs" } |
+    Where-Object { $_.Name -notin $blacklist } |
     ForEach-Object {
         $content = Get-Content $_.FullName -Raw
-        if ($content -match 'base\((\d+),\s*CardType\.(\w+),\s*CardRarity\.(\w+),\s*TargetType\.(\w+)\)') {
+        if ($content -match 'base\((\d+),\s*CardType\.(\w+),\s*CardRarity\.(\w+),\s*TargetType\.(\w+)[^)]*\)') {
             $cardCost = $Matches[1]; $cardType = $Matches[2]; $cardRarity = $Matches[3]; $cardTarget = $Matches[4]
             $className = $_.BaseName
             $locKey = "WANDERER-" + (ConvertTo-UpperSnake $className)

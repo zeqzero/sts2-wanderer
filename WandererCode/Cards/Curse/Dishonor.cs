@@ -1,6 +1,4 @@
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -8,7 +6,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>discard, exhaust</tags>
+/// <tags>exhaust</tags>
 [Pool(typeof(CurseCardPool))]
 public class Dishonor : WandererCard
 {
@@ -24,10 +22,5 @@ public class Dishonor : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardModel? cardModel = (await CardSelectCmd.FromHandForDiscard(choiceContext, base.Owner, new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt, 1), null, this)).FirstOrDefault();
-        if (cardModel != null)
-        {
-            await CardCmd.Discard(choiceContext, cardModel);
-        }
     }
 }

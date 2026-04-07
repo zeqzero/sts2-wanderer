@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>discard</tags>
+/// <tags>shift</tags>
 [Pool(typeof(WandererCardPool))]
 public class Waki : WandererCard
 {

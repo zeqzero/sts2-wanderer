@@ -8,15 +8,13 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>discard, flurry</tags>
+/// <tags>flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class DualStrike : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
-
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7m, ValueProp.Move)];
 
     public DualStrike() : base(2, CardType.Attack, CardRarity.Common, TargetType.RandomEnemy)
     {
