@@ -6,8 +6,8 @@
     "WANDERER-HASSO_POWER.description": "On enter and turn start, draw 1 card next turn.",
     "WANDERER-HASSO_POWER.smartDescription": "On enter and turn start, draw {Amount} {Amount:plural:card|cards} next turn.",
     "WANDERER-GEDAN_POWER.title": "Gedan Stance",
-    "WANDERER-GEDAN_POWER.description": "On enter and turn start, gain 3 block.",
-    "WANDERER-GEDAN_POWER.smartDescription": "On enter and turn start, gain {Block} block.",
+    "WANDERER-GEDAN_POWER.description": "On enter and turn start, apply 1 [gold]Counter[/gold].",
+    "WANDERER-GEDAN_POWER.smartDescription": "On enter and turn start, apply {Amount} [gold]Counter[/gold].",
     "WANDERER-WANDERER_NEXT_TURN_ENERGY_POWER.title": "Next Turn Energy",
     "WANDERER-WANDERER_NEXT_TURN_ENERGY_POWER.description": "Next turn, gain 1 energy.",
     "WANDERER-WANDERER_NEXT_TURN_ENERGY_POWER.smartDescription": "Next turn, gain {Amount} energy.",
@@ -15,8 +15,8 @@
     "WANDERER-WANDERER_NEXT_TURN_DRAW_POWER.description": "Next turn, draw 1 card.",
     "WANDERER-WANDERER_NEXT_TURN_DRAW_POWER.smartDescription": "Next turn, draw {Amount} {Amount:plural:card|cards}.",
     "WANDERER-FLOW_POWER.title": "Flow",
-    "WANDERER-FLOW_POWER.description": "Whenever you enter a stance, gain 1 block.",
-    "WANDERER-FLOW_POWER.smartDescription": "Whenever you enter a stance, gain {Amount} block.",
+    "WANDERER-FLOW_POWER.description": "Whenever you enter a stance, gain 1 Block.",
+    "WANDERER-FLOW_POWER.smartDescription": "Whenever you enter a stance, gain {Amount} Block.",
     "WANDERER-TORRENT_POWER.title": "Torrent",
     "WANDERER-TORRENT_POWER.description": "Whenever you enter a stance, deal 1 damage to ALL enemies.",
     "WANDERER-TORRENT_POWER.smartDescription": "Whenever you enter a stance, deal {Amount} damage to ALL enemies.",
@@ -45,7 +45,7 @@
     "WANDERER-SECRET_SAUCE_POWER.title": "Secret Sauce",
     "WANDERER-SECRET_SAUCE_POWER.description": "Whenever Attacks deal damage, they also apply that much Poison.",
     "WANDERER-SECRET_SAUCE_POWER.smartDescription": "Whenever Attacks deal damage, they also apply that much Poison.",
-    "WANDERER-RIPOSTE_POWER.title": "Riposte",
-    "WANDERER-RIPOSTE_POWER.description": "If you have excess block at end of turn, deal 1 damage.",
-    "WANDERER-RIPOSTE_POWER.smartDescription": "If you have excess block at end of turn, deal {Amount} damage."
+    "WANDERER-COUNTER_POWER.title": "Counter",
+    "WANDERER-COUNTER_POWER.description": "If attacked this turn, deal remaining Block to all enemies.",
+    "WANDERER-COUNTER_POWER.smartDescription": "If attacked this turn, deal remaining Block to all enemies {Amount} {Amount:plural:time|times}."
 }

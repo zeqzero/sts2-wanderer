@@ -10,5 +10,5 @@ public static class WandererKeywords
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Enshrined;
 
-    public static IHoverTip ShiftHoverTip => new HoverTip(new LocString("static_hover_tips", "SHIFT.title"), new LocString("static_hover_tips", "SHIFT.description"));
+    public static IHoverTip ShiftHoverTip => new HoverTip(new LocString("keywords", "SHIFT.title"), new LocString("keywords", "SHIFT.description"));
 }
