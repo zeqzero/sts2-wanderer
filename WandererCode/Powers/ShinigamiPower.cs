@@ -20,19 +20,7 @@ public class ShinigamiPower : WandererPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    // --- Cards exhaust on play ---
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
-    {
-        if (card.Owner.Creature != Owner)
-        {
-            return (pileType, position);
-        }
-
-        return (PileType.Exhaust, position);
-    }
-
     // --- Intangible: cap all damage to 1 ---
-
     public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (!CombatManager.Instance.IsInProgress || target != Owner)
@@ -88,9 +76,9 @@ public class ShinigamiPower : WandererPower
 
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        // Catch cards that were in the Play pile during EnterShinigamiForm
-        // (e.g. Seppuku landed in discard after transforms already happened)
-        if (oldPileType == PileType.Play && card.Owner?.Creature == Owner && card is not Ofuda && WandererCmd.GetOriginalCard(card) == null)
+        // Catch cards that were mid-resolution (in Play pile) when Shinigami form started.
+        // e.g. Seppuku triggers Shinigami, then lands in discard after transforms already happened.
+        if (oldPileType == PileType.Play && WandererCmd.ConsumePendingShinigamiShift(card))
         {
             await WandererCmd.ShiftToOfuda(card);
         }

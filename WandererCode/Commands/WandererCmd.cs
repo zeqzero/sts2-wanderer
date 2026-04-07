@@ -73,6 +73,14 @@ public static class WandererCmd
     private static readonly Dictionary<CardModel, CardModel> _ofudaShiftedCards = new();
 
     /// <summary>
+    /// Cards that were in the Play pile when Shinigami form started.
+    /// These couldn't be shifted immediately, so ShinigamiPower.AfterCardChangedPiles
+    /// watches for them to leave Play and shifts them then. Entries are consumed on match.
+    /// </summary>
+    private static readonly HashSet<CardModel> _pendingShinigamiShifts = new();
+    public static bool ConsumePendingShinigamiShift(CardModel card) => _pendingShinigamiShifts.Remove(card);
+
+    /// <summary>
     /// Removes the current stance power and applies a new one.
     /// Fires AfterStanceEntered on all IWandererEventListener cards/powers after the new stance is active.
     /// </summary>
@@ -197,6 +205,9 @@ public static class WandererCmd
         await CreatureCmd.Heal(creature, state.ShinigamiCurrentHp);
 
         await PowerCmd.Apply<ShinigamiPower>(creature, ShinigamiExhaustThreshold, creature, null);
+
+        // Cards in Play can't be shifted yet — track them for ShinigamiPower.AfterCardChangedPiles.
+        _pendingShinigamiShifts.UnionWith(PileType.Play.GetPile(player).Cards);
 
         await ShiftAllCards(player);
 
@@ -352,6 +363,7 @@ public static class WandererCmd
     {
         _shinigamiStates.Clear();
         _ofudaShiftedCards.Clear();
+        _pendingShinigamiShifts.Clear();
 
         _enteredStanceCounts.Clear();
         JodanEnabled = false;
@@ -362,22 +374,41 @@ public static class WandererCmd
     /// "Shift" a card, transforming it into a random card from the player's card pool.
     /// Uses CombatCardGeneration RNG seed. If upgrade is true, the resulting card is upgraded.
     /// </summary>
-    public static async Task ShiftCard(CardModel card, Player player, bool upgrade = false)
+    public static async Task ShiftCard(CardModel card, Player player, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null)
     {
         if (card.Keywords.Contains(WandererKeywords.Enshrined))
             return;
 
-        var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
-        var transformation = new CardTransformation(card, options);
-        var results = await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+        CardModel? resultCard;
 
-        if (upgrade)
+        // If this is an Ofuda with a tracked original, revert instead of random-shifting.
+        var original = GetOriginalCard(card);
+        if (original != null)
         {
-            foreach (var result in results)
+            await CardCmd.Transform(card, original);
+            RemoveShiftEntry(card);
+            resultCard = original;
+        }
+        else
+        {
+            var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
+            var transformation = new CardTransformation(card, options);
+            var results = await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
+            resultCard = results.FirstOrDefault().cardAdded;
+        }
+
+        if (resultCard != null)
+        {
+            if (upgrade && resultCard.IsUpgradable)
             {
-                if (result.cardAdded != null && result.cardAdded.IsUpgradable)
+                CardCmd.Upgrade(resultCard);
+            }
+
+            if (addKeywords != null)
+            {
+                foreach (var keyword in addKeywords)
                 {
-                    CardCmd.Upgrade(result.cardAdded);
+                    resultCard.AddKeyword(keyword);
                 }
             }
         }
@@ -391,14 +422,14 @@ public static class WandererCmd
     /// Prompts the player to select a card from hand to Shift (excluding Enshrined cards),
     /// then shifts the selected card. If upgrade is true, each resulting shifted card is upgraded.
     /// </summary>
-    public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, CardModel source, bool upgrade = false)
+    public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, AbstractModel source, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null)
     {
         var prefs = new CardSelectorPrefs(ShiftSelectionPrompt, count);
         var selected = await CardSelectCmd.FromHand(context, player, prefs, c => !c.Keywords.Contains(WandererKeywords.Enshrined), source);
 
         foreach (var card in selected)
         {
-            await ShiftCard(card, player, upgrade);
+            await ShiftCard(card, player, upgrade, addKeywords);
         }
     }
 

@@ -84,7 +84,7 @@
     "WANDERER-LETHAL_EXCHANGE.title": "Lethal Exchange",
     "WANDERER-LETHAL_EXCHANGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, die.",
     "WANDERER-JUNSHI.title": "Junshi",
-    "WANDERER-JUNSHI.description": "Die.\nReduce this card's cost by {Energy:diff()} Energy whenever ANYONE dies.",
+    "WANDERER-JUNSHI.description": "Die.\nReduce this card's energy cost by {Energy:diff()} whenever ANYONE dies.",
     "WANDERER-COUNT_REGRETS.title": "Count Regrets",
     "WANDERER-COUNT_REGRETS.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.",
     "WANDERER-FLAUNT_SHAME.title": "Flaunt Shame",
