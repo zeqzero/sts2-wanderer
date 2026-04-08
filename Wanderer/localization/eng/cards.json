@@ -47,8 +47,6 @@
     "WANDERER-PREEMPT.description": "Apply all Next Turn powers immediately.",
     "WANDERER-ARRIVE_LATE.title": "Arrive Late",
     "WANDERER-ARRIVE_LATE.description": "Apply {WeakPower:diff()} weak and {VulnerablePower:diff()} vulnerable to ALL enemies.",
-    "WANDERER-DUAL_STRIKE.title": "Dual Strike",
-    "WANDERER-DUAL_STRIKE.description": "Deal {Damage:diff()} damage to a random enemy 2 times.",
     "WANDERER-TSUKI.title": "Tsuki",
     "WANDERER-TSUKI.description": "Deal {Damage:diff()} damage. Hits an additional time for each other time you've attacked this turn.",
     "WANDERER-FLICK.title": "Flick",
@@ -110,5 +108,7 @@
     "WANDERER-WIPE_BROW.title": "Wipe Brow",
     "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy.",
     "WANDERER-LAST_ROUND.title": "Last Round",
-    "WANDERER-LAST_ROUND.description": "Deal {Damage:diff()} damage.\nShift 1 card."
+    "WANDERER-LAST_ROUND.description": "Deal {Damage:diff()} damage.\nShift 1 card.",
+    "WANDERER-FLURRY.title": "Flurry",
+    "WANDERER-FLURRY.description": "Deal {Damage:diff()} damage.\nHits an additional time for each other Flurry in your deck."
 }

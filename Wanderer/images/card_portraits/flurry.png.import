@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4oa8ibxusl3y"
-path="res://.godot/imported/dual_strike.png-7bb9e99ee1fa00e7fd67b12d5f8d342b.ctex"
+uid="uid://d287eusn8tf08"
+path="res://.godot/imported/flurry.png-1b795f22c3cfcc7da08620722351edd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/dual_strike.png"
-dest_files=["res://.godot/imported/dual_strike.png-7bb9e99ee1fa00e7fd67b12d5f8d342b.ctex"]
+source_file="res://Wanderer/images/card_portraits/flurry.png"
+dest_files=["res://.godot/imported/flurry.png-1b795f22c3cfcc7da08620722351edd1.ctex"]
 
 [params]
 

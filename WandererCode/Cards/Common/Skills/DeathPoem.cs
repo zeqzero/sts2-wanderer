@@ -5,12 +5,11 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>death, draw, energy</tags>
+/// <tags>death, draw, energy, aoe</tags>
 [Pool(typeof(WandererCardPool))]
 public class DeathPoem : WandererCard
 {
