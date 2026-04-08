@@ -108,5 +108,7 @@
     "WANDERER-ZANSHIN.title": "Zanshin",
     "WANDERER-ZANSHIN.description": "Gain {Block:diff()} Block.\nApply {CounterPower:diff()} Counter.",
     "WANDERER-WIPE_BROW.title": "Wipe Brow",
-    "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy."
+    "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy.",
+    "WANDERER-BREATHE.title": "Breathe",
+    "WANDERER-BREATHE.description": "Gain {Block:diff()} Block.\nNext turn, gain {BlockNextTurn:diff()} Block."
 }
