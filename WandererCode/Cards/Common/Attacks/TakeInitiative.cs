@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>vuln</tags>
+/// <tags>vuln, flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class TakeInitiative : WandererCard
 {

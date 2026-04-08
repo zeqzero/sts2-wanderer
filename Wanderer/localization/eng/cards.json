@@ -22,7 +22,7 @@
     "WANDERER-WEAVE.title": "Weave",
     "WANDERER-WEAVE.description": "Gain {Block:diff()} block.\nNext turn, draw {Cards:diff()} {Cards:plural:card|cards}.",
     "WANDERER-DISENGAGE.title": "Disengage",
-    "WANDERER-DISENGAGE.description": "Gain {Block:diff()} block.\nNext turn, lose {Energy:diff()} energy.",
+    "WANDERER-DISENGAGE.description": "Gain {Block:diff()} Block.\nNext turn, gain {BlockNextTurn:diff()} Block.",
     "WANDERER-DIE_PERIOD.title": "Die.",
     "WANDERER-DIE_PERIOD.description": "This turn, attacks deal double damage.\nDraw {Cards:diff()} {Cards:plural:card|cards}.\nAdd [purple]Dishonor[/purple] to your deck.",
     "WANDERER-DEATH_POEM.title": "Death Poem",
@@ -108,7 +108,5 @@
     "WANDERER-ZANSHIN.title": "Zanshin",
     "WANDERER-ZANSHIN.description": "Gain {Block:diff()} Block.\nApply {CounterPower:diff()} Counter.",
     "WANDERER-WIPE_BROW.title": "Wipe Brow",
-    "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy.",
-    "WANDERER-BREATHE.title": "Breathe",
-    "WANDERER-BREATHE.description": "Gain {Block:diff()} Block.\nNext turn, gain {BlockNextTurn:diff()} Block."
+    "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy."
 }

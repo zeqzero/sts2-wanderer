@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>cheap</tags>
+/// <tags>flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class Flick : WandererCard
 {
