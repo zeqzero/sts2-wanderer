@@ -108,5 +108,7 @@
     "WANDERER-ZANSHIN.title": "Zanshin",
     "WANDERER-ZANSHIN.description": "Gain {Block:diff()} Block.\nApply {CounterPower:diff()} Counter.",
     "WANDERER-WIPE_BROW.title": "Wipe Brow",
-    "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy."
+    "WANDERER-WIPE_BROW.description": "Next turn, gain {Energy:diff()} Energy.",
+    "WANDERER-LAST_ROUND.title": "Last Round",
+    "WANDERER-LAST_ROUND.description": "Deal {Damage:diff()} damage.\nShift 1 card."
 }
