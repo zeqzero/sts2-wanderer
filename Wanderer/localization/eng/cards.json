@@ -102,5 +102,7 @@
     "WANDERER-CHUG.title": "Chug",
     "WANDERER-CHUG.description": "Gain {Energy:diff()} energy.\nDraw {Cards:diff()} cards.\nAdd [purple]Dishonor[/purple] to your deck.\n[gold]Shift[/gold] all cards in hand.",
     "WANDERER-RIPOSTE.title": "Riposte",
-    "WANDERER-RIPOSTE.description": "Deal {Damage:diff()} damage.\nIf you have Block, hits twice."
+    "WANDERER-RIPOSTE.description": "Deal {Damage:diff()} damage.\nIf you have Block, hits twice.",
+    "WANDERER-AH_TA_TA_TA_TA_TA.title": "AH TATATATATA",
+    "WANDERER-AH_TA_TA_TA_TA_TA.description": "Deal {Damage:diff()} to a random enemy X times.\nAdd Replay X."
 }
