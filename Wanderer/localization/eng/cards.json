@@ -112,5 +112,7 @@
     "WANDERER-FLURRY.title": "Flurry",
     "WANDERER-FLURRY.description": "Deal {Damage:diff()} damage.\nHits an additional time for each other Flurry in your deck.",
     "WANDERER-PLANT.title": "Plant",
-    "WANDERER-PLANT.description": "Reapply your current stance."
+    "WANDERER-PLANT.description": "Reapply your current stance.",
+    "WANDERER-STEADY_SLASH.title": "Steady Slash",
+    "WANDERER-STEADY_SLASH.description": "Deal {Damage:diff()} damage to ALL enemies.\nReduce damage by 3 whenever you leave a stance."
 }

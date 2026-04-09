@@ -1,7 +1,9 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
 
@@ -18,9 +20,9 @@ public class Plant : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var stancePower = WandererCmd.GetCurrentStancePower(Owner.Creature);
-        if (stancePower != null)
+        if (stancePower is PowerModel power)
         {
-            await PowerCmd.Apply(stancePower, Owner.Creature, 1, Owner.Creature, this);
+            await PowerCmd.Apply(power, Owner.Creature, 1, Owner.Creature, this);
         }
     }
 

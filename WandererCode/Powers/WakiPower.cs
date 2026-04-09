@@ -5,11 +5,13 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Interfaces;
 
 namespace Wanderer.WandererCode.Powers;
 
-public class WakiPower : WandererPower
+public class WakiPower : WandererPower, IStancePower
 {
+    public Stance Stance => Stance.Waki;
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;

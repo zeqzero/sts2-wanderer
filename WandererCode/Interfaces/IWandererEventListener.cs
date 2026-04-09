@@ -8,6 +8,7 @@ public interface IWandererEventListener
 {
     Task BeforeRitualDeath(Creature creature);
     Task AfterEnteredShinigami(Creature creature);
+    Task AfterStanceLeft(Creature creature, Stance oldStance);
     Task AfterStanceEntered(Creature creature, Stance stance);
     Task AfterShifted(CardModel card);
 }

@@ -80,23 +80,24 @@ public static class WandererCmd
     private static readonly HashSet<CardModel> _pendingShinigamiShifts = new();
     public static bool ConsumePendingShinigamiShift(CardModel card) => _pendingShinigamiShifts.Remove(card);
 
-    public static PowerModel? GetCurrentStancePower(Creature creature)
+    public static IStancePower? GetCurrentStancePower(Creature creature)
     {
-        return creature.Powers.FirstOrDefault(p =>
-            p is ChudanPower or HassoPower or GedanPower or JodanPower or WakiPower);
+        return creature.Powers.OfType<IStancePower>().FirstOrDefault();
     }
 
     /// <summary>
     /// Removes the current stance power and applies a new one.
-    /// Fires AfterStanceEntered on all IWandererEventListener cards/powers after the new stance is active.
+    /// Fires AfterStanceLeft then AfterStanceEntered on all IWandererEventListener cards/powers.
     /// </summary>
     public static async Task EnterStance(Creature creature, Stance stance)
     {
-        await PowerCmd.Remove<ChudanPower>(creature);
-        await PowerCmd.Remove<HassoPower>(creature);
-        await PowerCmd.Remove<GedanPower>(creature);
-        await PowerCmd.Remove<JodanPower>(creature);
-        await PowerCmd.Remove<WakiPower>(creature);
+        var oldStancePower = GetCurrentStancePower(creature);
+
+        if (oldStancePower != null)
+        {
+            await PowerCmd.Remove((PowerModel)oldStancePower);
+            await AfterStanceLeft(creature, oldStancePower.Stance);
+        }
 
         switch (stance)
         {
@@ -124,6 +125,14 @@ public static class WandererCmd
         WandererVisuals.SetStance(creature, stance.ToString().ToLowerInvariant());
 
         await AfterStanceEntered(creature, stance);
+    }
+
+    private static async Task AfterStanceLeft(Creature creature, Stance oldStance)
+    {
+        foreach (var listener in GetListeners<IWandererEventListener>(creature))
+        {
+            await listener.AfterStanceLeft(creature, oldStance);
+        }
     }
 
     private static async Task AfterStanceEntered(Creature creature, Stance stance)
