@@ -146,5 +146,7 @@
     "WANDERER-NO_PLAN.title": "No Plan",
     "WANDERER-NO_PLAN.description": "Whenever you [gold]Shift[/gold], gain {NoPlanPower:diff()} Block.",
     "WANDERER-BARIKEDO.title": "Barikēdo",
-    "WANDERER-BARIKEDO.description": "Up to {BarikedoPower:diff()} Block persists across turns."
+    "WANDERER-BARIKEDO.description": "Up to {BarikedoPower:diff()} Block persists across turns.",
+    "WANDERER-SURIAGE.title": "Suriage",
+    "WANDERER-SURIAGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, gain {Block:diff()} Block."
 }
