@@ -80,6 +80,12 @@ public static class WandererCmd
     private static readonly HashSet<CardModel> _pendingShinigamiShifts = new();
     public static bool ConsumePendingShinigamiShift(CardModel card) => _pendingShinigamiShifts.Remove(card);
 
+    public static PowerModel? GetCurrentStancePower(Creature creature)
+    {
+        return creature.Powers.FirstOrDefault(p =>
+            p is ChudanPower or HassoPower or GedanPower or JodanPower or WakiPower);
+    }
+
     /// <summary>
     /// Removes the current stance power and applies a new one.
     /// Fires AfterStanceEntered on all IWandererEventListener cards/powers after the new stance is active.

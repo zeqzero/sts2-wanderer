@@ -110,5 +110,7 @@
     "WANDERER-LAST_ROUND.title": "Last Round",
     "WANDERER-LAST_ROUND.description": "Deal {Damage:diff()} damage.\nShift 1 card.",
     "WANDERER-FLURRY.title": "Flurry",
-    "WANDERER-FLURRY.description": "Deal {Damage:diff()} damage.\nHits an additional time for each other Flurry in your deck."
+    "WANDERER-FLURRY.description": "Deal {Damage:diff()} damage.\nHits an additional time for each other Flurry in your deck.",
+    "WANDERER-PLANT.title": "Plant",
+    "WANDERER-PLANT.description": "Reapply your current stance."
 }
