@@ -3,13 +3,12 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>commit</tags>
+/// <tags>commit, exhaust</tags>
 [Pool(typeof(WandererCardPool))]
 public class Fudoshin : WandererCard
 {

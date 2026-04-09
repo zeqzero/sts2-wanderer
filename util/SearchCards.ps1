@@ -13,7 +13,7 @@ $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $locFile = "$scriptRoot/../Wanderer/localization/eng/cards.json"
 $loc = @{}
 if (Test-Path $locFile) {
-    $json = Get-Content $locFile -Raw | ConvertFrom-Json
+    $json = Get-Content $locFile -Raw -Encoding UTF8 | ConvertFrom-Json
     foreach ($prop in $json.PSObject.Properties) {
         $loc[$prop.Name] = $prop.Value
     }
