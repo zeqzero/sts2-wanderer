@@ -144,5 +144,7 @@
     "WANDERER-SEN_NO_SEN.title": "Sen-no-sen",
     "WANDERER-SEN_NO_SEN.description": "Whenever you play an attack, gain {SenNoSenPower:diff()} Block.\nCosts 1 less Energy for each Attack played this turn.",
     "WANDERER-NO_PLAN.title": "No Plan",
-    "WANDERER-NO_PLAN.description": "Whenever you [gold]Shift[/gold], gain {NoPlanPower:diff()} Block."
+    "WANDERER-NO_PLAN.description": "Whenever you [gold]Shift[/gold], gain {NoPlanPower:diff()} Block.",
+    "WANDERER-BARIKEDO.title": "Barikēdo",
+    "WANDERER-BARIKEDO.description": "Up to {BarikedoPower:diff()} Block persists across turns."
 }

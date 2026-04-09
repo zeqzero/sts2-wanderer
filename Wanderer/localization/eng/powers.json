@@ -71,5 +71,8 @@
     "WANDERER-SEN_NO_SEN_POWER.smartDescription": "Whenever you play an attack, gain {Amount} Block.",
     "WANDERER-NO_PLAN_POWER.title": "No Plan",
     "WANDERER-NO_PLAN_POWER.description": "Whenever you Shift, gain 3 Block.",
-    "WANDERER-NO_PLAN_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} Block."
+    "WANDERER-NO_PLAN_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} Block.",
+    "WANDERER-BARIKEDO_POWER.title": "Barikēdo",
+    "WANDERER-BARIKEDO_POWER.description": "Up to 5 Block persists across turns.",
+    "WANDERER-BARIKEDO_POWER.smartDescription": "Up to {Amount} Block persists across turns."
 }
