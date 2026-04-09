@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class SenNoSen : WandererCard
 {

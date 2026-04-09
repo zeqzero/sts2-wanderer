@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>shift</tags>
+/// <tags>shift, counter</tags>
 [Pool(typeof(WandererCardPool))]
 public class NoPlan : WandererCard
 {

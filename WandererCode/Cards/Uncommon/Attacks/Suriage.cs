@@ -8,6 +8,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
+/// <tags>counter</tags>
 [Pool(typeof(WandererCardPool))]
 public class Suriage : WandererCard
 {
