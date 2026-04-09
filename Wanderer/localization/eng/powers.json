@@ -53,5 +53,11 @@
     "WANDERER-COUNTER_POWER.smartDescription": "If attacked this turn, deal remaining Block to all enemies {Amount} {Amount:plural:time|times}.",
     "WANDERER-FUDOSHIN_POWER.title": "Fudōshin",
     "WANDERER-FUDOSHIN_POWER.description": "At the start of your turn, reapply your current stance.",
-    "WANDERER-FUDOSHIN_POWER.smartDescription": "At the start of your turn, reapply your current stance {Amount} {Amount:plural:time|times}."
+    "WANDERER-FUDOSHIN_POWER.smartDescription": "At the start of your turn, reapply your current stance {Amount} {Amount:plural:time|times}.",
+    "WANDERER-TARGET_HEAD_POWER.title": "Target Head",
+    "WANDERER-TARGET_HEAD_POWER.description": "This turn, attacks deal double damage.",
+    "WANDERER-TARGET_HEAD_POWER.smartDescription": "This turn, attacks deal double damage.",
+    "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.title": "Next Turn Target Head",
+    "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.description": "Next turn, attacks deal double damage.",
+    "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.smartDescription": "Next turn, attacks deal double damage."
 }

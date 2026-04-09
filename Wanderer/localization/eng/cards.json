@@ -120,5 +120,7 @@
     "WANDERER-FUDOSHIN.title": "Fudōshin",
     "WANDERER-FUDOSHIN.description": "Exhaust all Kamae.\nAt the start of your turn, reapply your current stance.",
     "WANDERER-IGNORE_SHAME.title": "Ignore Shame",
-    "WANDERER-IGNORE_SHAME.description": "If you Exhausted a card this turn, gain {Block:diff()} Block."
+    "WANDERER-IGNORE_SHAME.description": "If you Exhausted a card this turn, gain {Block:diff()} Block.",
+    "WANDERER-TARGET_HEAD.title": "Target Head",
+    "WANDERER-TARGET_HEAD.description": "Next turn, attacks deal double damage."
 }
