@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>nextturn, draw</tags>
+/// <tags>nextturn, draw, exhaust</tags>
 [Pool(typeof(WandererCardPool))]
 public class Gracious : WandererCard
 {
