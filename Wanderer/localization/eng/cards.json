@@ -128,5 +128,7 @@
     "WANDERER-TARGET_LEGS.title": "Target Legs",
     "WANDERER-TARGET_LEGS.description": "This turn, whenever you play an attack, apply 1 Vulnerable to ALL enemies.",
     "WANDERER-BRAZEN.title": "Brazen",
-    "WANDERER-BRAZEN.description": "Deal {CalculatedDamage} damage.\nDeals {ExtraDamage:diff()} additional damage for each card in your Exhaust pile."
+    "WANDERER-BRAZEN.description": "Deal {CalculatedDamage} damage.\nDeals {ExtraDamage:diff()} additional damage for each card in your Exhaust pile.",
+    "WANDERER-GRACIOUS.title": "Gracious",
+    "WANDERER-GRACIOUS.description": "Gain {Block:diff()} Block.\nNext turn, draw {Cards:diff()} {Cards:plural:card|cards}."
 }
