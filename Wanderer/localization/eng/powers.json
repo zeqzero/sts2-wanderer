@@ -59,5 +59,11 @@
     "WANDERER-TARGET_HEAD_POWER.smartDescription": "This turn, attacks deal double damage.",
     "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.title": "Next Turn Target Head",
     "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.description": "Next turn, attacks deal double damage.",
-    "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.smartDescription": "Next turn, attacks deal double damage."
+    "WANDERER-WANDERER_NEXT_TURN_TARGET_HEAD_POWER.smartDescription": "Next turn, attacks deal double damage.",
+    "WANDERER-TARGET_ARMS_POWER.title": "Target Arms",
+    "WANDERER-TARGET_ARMS_POWER.description": "This turn, whenever you play an attack, apply 1 Weak to ALL enemies.",
+    "WANDERER-TARGET_ARMS_POWER.smartDescription": "This turn, whenever you play an attack, apply {Amount} Weak to ALL enemies.",
+    "WANDERER-TARGET_LEGS_POWER.title": "Target Legs",
+    "WANDERER-TARGET_LEGS_POWER.description": "This turn, whenever you play an attack, apply 1 Vulnerable to ALL enemies.",
+    "WANDERER-TARGET_LEGS_POWER.smartDescription": "This turn, whenever you play an attack, apply {Amount} Vulnerable to ALL enemies."
 }
