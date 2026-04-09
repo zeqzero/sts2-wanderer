@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>aoe</tags>
+/// <tags>counter, aoe</tags>
 [Pool(typeof(WandererCardPool))]
 public class Mushin : WandererCard
 {
