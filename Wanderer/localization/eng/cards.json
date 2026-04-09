@@ -116,5 +116,7 @@
     "WANDERER-STEADY_SLASH.title": "Steady Slash",
     "WANDERER-STEADY_SLASH.description": "Deal {Damage:diff()} damage to ALL enemies.\nReduce damage by 3 whenever you leave a stance.",
     "WANDERER-STEADY_GUARD.title": "Steady Guard",
-    "WANDERER-STEADY_GUARD.description": "Gain {Block:diff()} Block.\nReduce block by 2 whenever you leave a stance."
+    "WANDERER-STEADY_GUARD.description": "Gain {Block:diff()} Block.\nReduce block by 2 whenever you leave a stance.",
+    "WANDERER-FUDOSHIN.title": "Fudōshin",
+    "WANDERER-FUDOSHIN.description": "Exhaust all Kamae.\nAt the start of your turn, reapply your current stance."
 }

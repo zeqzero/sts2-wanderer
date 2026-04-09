@@ -50,5 +50,8 @@
     "WANDERER-SECRET_SAUCE_POWER.smartDescription": "Whenever Attacks deal damage, they also apply that much Poison.",
     "WANDERER-COUNTER_POWER.title": "Counter",
     "WANDERER-COUNTER_POWER.description": "If attacked this turn, deal remaining Block to all enemies.",
-    "WANDERER-COUNTER_POWER.smartDescription": "If attacked this turn, deal remaining Block to all enemies {Amount} {Amount:plural:time|times}."
+    "WANDERER-COUNTER_POWER.smartDescription": "If attacked this turn, deal remaining Block to all enemies {Amount} {Amount:plural:time|times}.",
+    "WANDERER-FUDOSHIN_POWER.title": "Fudōshin",
+    "WANDERER-FUDOSHIN_POWER.description": "At the start of your turn, reapply your current stance.",
+    "WANDERER-FUDOSHIN_POWER.smartDescription": "At the start of your turn, reapply your current stance {Amount} {Amount:plural:time|times}."
 }
