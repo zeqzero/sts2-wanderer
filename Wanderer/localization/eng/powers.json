@@ -65,5 +65,8 @@
     "WANDERER-TARGET_ARMS_POWER.smartDescription": "This turn, whenever you play an attack, apply {Amount} Weak to ALL enemies.",
     "WANDERER-TARGET_LEGS_POWER.title": "Target Legs",
     "WANDERER-TARGET_LEGS_POWER.description": "This turn, whenever you play an attack, apply 1 Vulnerable to ALL enemies.",
-    "WANDERER-TARGET_LEGS_POWER.smartDescription": "This turn, whenever you play an attack, apply {Amount} Vulnerable to ALL enemies."
+    "WANDERER-TARGET_LEGS_POWER.smartDescription": "This turn, whenever you play an attack, apply {Amount} Vulnerable to ALL enemies.",
+    "WANDERER-SEN_NO_SEN_POWER.title": "Sen-no-sen",
+    "WANDERER-SEN_NO_SEN_POWER.description": "Whenever you play an attack, gain 2 Block.",
+    "WANDERER-SEN_NO_SEN_POWER.smartDescription": "Whenever you play an attack, gain {Amount} Block."
 }

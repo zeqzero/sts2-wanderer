@@ -32,7 +32,7 @@ public class StealPeach : WandererCard
         WandererKeywords.ShiftHoverTip
     ];
 
-    public StealPeach() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    public StealPeach() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
     }
 

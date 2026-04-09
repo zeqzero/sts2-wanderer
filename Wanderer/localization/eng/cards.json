@@ -140,5 +140,7 @@
     "WANDERER-SINCERITY.selectionScreenPrompt": "Select a card to put on top of your Draw Pile.",
     "WANDERER-CUNNING.title": "Cunning",
     "WANDERER-CUNNING.description": "Play and Exhaust a card from your Exhaust Pile.",
-    "WANDERER-CUNNING.selectionScreenPrompt": "Select a card to play and Exhaust."
+    "WANDERER-CUNNING.selectionScreenPrompt": "Select a card to play and Exhaust.",
+    "WANDERER-SEN_NO_SEN.title": "Sen-no-sen",
+    "WANDERER-SEN_NO_SEN.description": "Whenever you play an attack, gain {SenNoSenPower:diff()} Block.\nCosts 1 less Energy for each Attack played this turn."
 }
