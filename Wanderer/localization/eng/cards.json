@@ -130,5 +130,7 @@
     "WANDERER-BRAZEN.title": "Brazen",
     "WANDERER-BRAZEN.description": "Deal {CalculatedDamage} damage.\nDeals {ExtraDamage:diff()} additional damage for each card in your Exhaust pile.",
     "WANDERER-GRACIOUS.title": "Gracious",
-    "WANDERER-GRACIOUS.description": "Gain {Block:diff()} Block.\nNext turn, draw {Cards:diff()} {Cards:plural:card|cards}."
+    "WANDERER-GRACIOUS.description": "Gain {Block:diff()} Block.\nNext turn, draw {Cards:diff()} {Cards:plural:card|cards}.",
+    "WANDERER-COURAGE.title": "Courage",
+    "WANDERER-COURAGE.description": "Apply {VulnerablePower:diff()} Vulnerable to yourself and ALL enemies.\nRemove all Weak from yourself."
 }
