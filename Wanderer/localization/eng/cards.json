@@ -126,5 +126,7 @@
     "WANDERER-TARGET_ARMS.title": "Target Arms",
     "WANDERER-TARGET_ARMS.description": "This turn, whenever you play an attack, apply 1 Weak to ALL enemies.",
     "WANDERER-TARGET_LEGS.title": "Target Legs",
-    "WANDERER-TARGET_LEGS.description": "This turn, whenever you play an attack, apply 1 Vulnerable to ALL enemies."
+    "WANDERER-TARGET_LEGS.description": "This turn, whenever you play an attack, apply 1 Vulnerable to ALL enemies.",
+    "WANDERER-BRAZEN.title": "Brazen",
+    "WANDERER-BRAZEN.description": "Deal {CalculatedDamage} damage.\nDeals {ExtraDamage:diff()} additional damage for each card in your Exhaust pile."
 }
