@@ -68,5 +68,8 @@
     "WANDERER-TARGET_LEGS_POWER.smartDescription": "This turn, whenever you play an attack, apply {Amount} Vulnerable to ALL enemies.",
     "WANDERER-SEN_NO_SEN_POWER.title": "Sen-no-sen",
     "WANDERER-SEN_NO_SEN_POWER.description": "Whenever you play an attack, gain 2 Block.",
-    "WANDERER-SEN_NO_SEN_POWER.smartDescription": "Whenever you play an attack, gain {Amount} Block."
+    "WANDERER-SEN_NO_SEN_POWER.smartDescription": "Whenever you play an attack, gain {Amount} Block.",
+    "WANDERER-NO_PLAN_POWER.title": "No Plan",
+    "WANDERER-NO_PLAN_POWER.description": "Whenever you Shift, gain 3 Block.",
+    "WANDERER-NO_PLAN_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} Block."
 }

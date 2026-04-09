@@ -142,5 +142,7 @@
     "WANDERER-CUNNING.description": "Play and Exhaust a card from your Exhaust Pile.",
     "WANDERER-CUNNING.selectionScreenPrompt": "Select a card to play and Exhaust.",
     "WANDERER-SEN_NO_SEN.title": "Sen-no-sen",
-    "WANDERER-SEN_NO_SEN.description": "Whenever you play an attack, gain {SenNoSenPower:diff()} Block.\nCosts 1 less Energy for each Attack played this turn."
+    "WANDERER-SEN_NO_SEN.description": "Whenever you play an attack, gain {SenNoSenPower:diff()} Block.\nCosts 1 less Energy for each Attack played this turn.",
+    "WANDERER-NO_PLAN.title": "No Plan",
+    "WANDERER-NO_PLAN.description": "Whenever you [gold]Shift[/gold], gain {NoPlanPower:diff()} Block."
 }
