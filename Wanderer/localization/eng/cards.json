@@ -148,5 +148,7 @@
     "WANDERER-BARIKEDO.title": "Barikēdo",
     "WANDERER-BARIKEDO.description": "Up to {BarikedoPower:diff()} Block persists across turns.",
     "WANDERER-SURIAGE.title": "Suriage",
-    "WANDERER-SURIAGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, gain {Block:diff()} Block."
+    "WANDERER-SURIAGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, gain {Block:diff()} Block.",
+    "WANDERER-FLAILING.title": "Flailing",
+    "WANDERER-FLAILING.description": "Whenever you [gold]Shift[/gold], deal {FlailingPower:diff()} damage to a random enemy."
 }

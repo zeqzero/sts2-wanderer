@@ -9,7 +9,7 @@ public class NoPlanPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.None;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterShifted(CardModel card)
     {

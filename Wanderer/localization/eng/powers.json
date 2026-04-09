@@ -74,5 +74,8 @@
     "WANDERER-NO_PLAN_POWER.smartDescription": "Whenever you [gold]Shift[/gold], gain {Amount} Block.",
     "WANDERER-BARIKEDO_POWER.title": "Barikēdo",
     "WANDERER-BARIKEDO_POWER.description": "Up to 5 Block persists across turns.",
-    "WANDERER-BARIKEDO_POWER.smartDescription": "Up to {Amount} Block persists across turns."
+    "WANDERER-BARIKEDO_POWER.smartDescription": "Up to {Amount} Block persists across turns.",
+    "WANDERER-FLAILING_POWER.title": "Flailing",
+    "WANDERER-FLAILING_POWER.description": "Whenever you Shift, deal 3 damage to a random enemy.",
+    "WANDERER-FLAILING_POWER.smartDescription": "Whenever you [gold]Shift[/gold], deal {Amount} damage to a random enemy."
 }

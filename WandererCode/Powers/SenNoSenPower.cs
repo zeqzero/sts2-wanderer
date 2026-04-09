@@ -10,7 +10,7 @@ public class SenNoSenPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.None;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
