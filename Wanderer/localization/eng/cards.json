@@ -28,7 +28,7 @@
     "WANDERER-DEATH_POEM.title": "Death Poem",
     "WANDERER-DEATH_POEM.description": "Gain {Energy:diff()} energy.\nDraw {Cards:diff()} {Cards:plural:card|cards}.\nPlays automatically whenever ANYONE dies.",
     "WANDERER-DISHONOR.title": "Dishonor",
-    "WANDERER-DISHONOR.description": "Discard 1 card.",
+    "WANDERER-DISHONOR.description": "",
     "WANDERER-TAKE_INITIATIVE.title": "Take Initiative",
     "WANDERER-TAKE_INITIATIVE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} Vulnerable.",
     "WANDERER-FEINT.title": "Feint",
@@ -118,5 +118,7 @@
     "WANDERER-STEADY_GUARD.title": "Steady Guard",
     "WANDERER-STEADY_GUARD.description": "Gain {Block:diff()} Block.\nReduce block by 2 whenever you leave a stance.",
     "WANDERER-FUDOSHIN.title": "Fudōshin",
-    "WANDERER-FUDOSHIN.description": "Exhaust all Kamae.\nAt the start of your turn, reapply your current stance."
+    "WANDERER-FUDOSHIN.description": "Exhaust all Kamae.\nAt the start of your turn, reapply your current stance.",
+    "WANDERER-IGNORE_SHAME.title": "Ignore Shame",
+    "WANDERER-IGNORE_SHAME.description": "If you Exhausted a card this turn, gain {Block:diff()} Block."
 }
