@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>stance</tags>
+/// <tags>dance</tags>
 [Pool(typeof(WandererCardPool))]
 public class Press : WandererCard
 {

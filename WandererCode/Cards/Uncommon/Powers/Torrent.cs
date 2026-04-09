@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>stance</tags>
+/// <tags>dance</tags>
 [Pool(typeof(WandererCardPool))]
 public class Torrent : WandererCard
 {
