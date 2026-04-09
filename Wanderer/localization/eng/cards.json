@@ -134,5 +134,8 @@
     "WANDERER-COURAGE.title": "Courage",
     "WANDERER-COURAGE.description": "Apply {VulnerablePower:diff()} Vulnerable to yourself and ALL enemies.\nRemove all Weak from yourself.",
     "WANDERER-PRUDENCE.title": "Prudence",
-    "WANDERER-PRUDENCE.description": "Gain {Block:diff()} Block.\nGain {Gold} Gold."
+    "WANDERER-PRUDENCE.description": "Gain {Block:diff()} Block.\nGain {Gold} Gold.",
+    "WANDERER-SINCERITY.title": "Sincerity",
+    "WANDERER-SINCERITY.description": "Put this card and a card from your Discard Pile on top of your Draw Pile.",
+    "WANDERER-SINCERITY.selectionScreenPrompt": "Select a card to put on top of your Draw Pile."
 }
