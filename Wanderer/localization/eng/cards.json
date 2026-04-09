@@ -137,5 +137,8 @@
     "WANDERER-PRUDENCE.description": "Gain {Block:diff()} Block.\nGain {Gold} Gold.",
     "WANDERER-SINCERITY.title": "Sincerity",
     "WANDERER-SINCERITY.description": "Put this card and a card from your Discard Pile on top of your Draw Pile.",
-    "WANDERER-SINCERITY.selectionScreenPrompt": "Select a card to put on top of your Draw Pile."
+    "WANDERER-SINCERITY.selectionScreenPrompt": "Select a card to put on top of your Draw Pile.",
+    "WANDERER-CUNNING.title": "Cunning",
+    "WANDERER-CUNNING.description": "Play and Exhaust a card from your Exhaust Pile.",
+    "WANDERER-CUNNING.selectionScreenPrompt": "Select a card to play and Exhaust."
 }
