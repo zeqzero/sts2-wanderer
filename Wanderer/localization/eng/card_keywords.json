@@ -1,4 +1,6 @@
 {
     "WANDERER-ENSHRINED.title": "Enshrined",
-    "WANDERER-ENSHRINED.description": "Cannot be shifted."
+    "WANDERER-ENSHRINED.description": "Cannot be shifted.",
+    "WANDERER-SHIFT.title": "Shift",
+    "WANDERER-SHIFT.description": "Transform into a Wanderer card."
 }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Keywords;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
@@ -15,7 +16,7 @@ public class Flailing : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlailingPower>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FlailingPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FlailingPower>(), WandererKeywords.ShiftHoverTip];
 
     public Flailing() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
