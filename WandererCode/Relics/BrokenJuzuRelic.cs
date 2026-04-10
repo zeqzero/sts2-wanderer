@@ -1,6 +1,8 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Entities.RestSite;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
@@ -58,4 +60,19 @@ public class BrokenJuzuRelic : WandererRelic
         Flash();
         await WandererCmd.EnterShinigami(Owner);
     }
+
+    public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)
+    {
+        if (player != Owner)
+        {
+            return false;
+        }
+
+        if (!player.Deck.Cards.Any(c => c is Dishonor))
+            return false;
+
+        options.Add(new MisogiRestSiteOption(player));
+        return true;
+    }
+
 }
