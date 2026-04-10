@@ -20,7 +20,7 @@ public class Flurry : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var hitCount = PileType.Deck.GetPile(Owner).Cards.OfType<Flurry>().Count();
+        var hitCount = Owner.PlayerCombatState.AllCards.Count(c => c is Flurry);
 
         ArgumentNullException.ThrowIfNull(CombatState, "CombatState");
         await DamageCmd
