@@ -26,6 +26,14 @@ public class Junshi : WandererCard
         await WandererCmd.RitualDeath(Owner.Creature);
     }
 
+    public override async Task BeforeRitualDeath(Creature creature)
+    {
+        if (Pile == null || !Pile.IsCombatPile)
+            return;
+
+        EnergyCost.AddThisCombat(-DynamicVars.Energy.IntValue);
+    }
+
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
         if (Pile == null || !Pile.IsCombatPile)
