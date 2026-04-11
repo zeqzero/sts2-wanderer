@@ -22,7 +22,7 @@ public class Plant : WandererCard
         var stancePower = WandererCmd.GetCurrentStancePower(Owner.Creature);
         if (stancePower is PowerModel power)
         {
-            await PowerCmd.Apply(power, Owner.Creature, 1, Owner.Creature, this);
+            await WandererCmd.EnterStance(Owner.Creature, stancePower.Stance, 1);
         }
     }
 

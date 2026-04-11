@@ -29,7 +29,7 @@ public class Waki : WandererCard
         }
         else
         {
-            await WandererCmd.EnterStance(Owner.Creature, Stance.Waki);
+            await WandererCmd.EnterStance(Owner.Creature, Stance.Waki, 1);
         }
     }
 

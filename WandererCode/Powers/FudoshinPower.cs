@@ -19,9 +19,9 @@ public class FudoshinPower : WandererPower
             return;
 
         var stancePower = WandererCmd.GetCurrentStancePower(Owner);
-        if (stancePower is PowerModel power)
+        if (stancePower != null)
         {
-            await PowerCmd.Apply(power, Owner, Amount, Owner, null);
+            await WandererCmd.EnterStance(Owner, stancePower.Stance, Amount);
         }
     }
 }

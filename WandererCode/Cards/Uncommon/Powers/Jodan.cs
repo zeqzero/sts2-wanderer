@@ -29,7 +29,7 @@ public class Jodan : WandererCard
         }
         else
         {
-            await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan);
+            await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan, 1);
         }
     }
 

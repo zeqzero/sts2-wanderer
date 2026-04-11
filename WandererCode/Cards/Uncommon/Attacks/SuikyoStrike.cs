@@ -31,7 +31,7 @@ public class SuikyoStrike : WandererCard
         var randomStance = WandererCmd.GetRandomStance(Owner.Creature, true);
         if (randomStance != null)
         {
-            await WandererCmd.EnterStance(Owner.Creature, (Stance)randomStance);
+            await WandererCmd.EnterStance(Owner.Creature, (Stance)randomStance, 1);
         }
     }
 

@@ -23,6 +23,6 @@ public class EnterWaki : WandererCard, IEnterStance
 
     public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await WandererCmd.EnterStance(Owner.Creature, Stance.Waki);
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Waki, 1);
     }
 }

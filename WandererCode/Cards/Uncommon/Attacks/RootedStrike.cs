@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class RootedStrike : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(7m, ValueProp.Move), new DynamicVar("ReapplyAmount", 1) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(7m, ValueProp.Move), new DynamicVar("ReenterAmount", 1) ];
 
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Strike };
 
@@ -32,12 +32,12 @@ public class RootedStrike : WandererCard
         var stancePower = WandererCmd.GetCurrentStancePower(Owner.Creature);
         if (stancePower is PowerModel power)
         {
-            await PowerCmd.Apply(power, Owner.Creature, DynamicVars["ReapplyAmount"].BaseValue, Owner.Creature, this);
+            await WandererCmd.EnterStance(Owner.Creature, stancePower.Stance, (int)DynamicVars["ReenterAmount"].BaseValue);
         }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["ReapplyAmount"].UpgradeValueBy(1);
+        DynamicVars["ReenterAmount"].UpgradeValueBy(1);
     }
 }

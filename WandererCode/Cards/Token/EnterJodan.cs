@@ -23,6 +23,6 @@ public class EnterJodan : WandererCard, IEnterStance
 
     public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan);
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan, 1);
     }
 }

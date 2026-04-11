@@ -107,11 +107,12 @@ public static class WandererCmd
     }
 
     /// <summary>Swap stance power, firing AfterStanceLeft/AfterStanceEntered on listeners.</summary>
-    public static async Task EnterStance(Creature creature, Stance stance)
+    public static async Task EnterStance(Creature creature, Stance stance, int amount)
     {
         var oldStancePower = GetCurrentStancePower(creature);
 
-        if (oldStancePower != null)
+        // if we're entering a new stance, leave the old one
+        if (oldStancePower != null && oldStancePower.Stance != stance)
         {
             await PowerCmd.Remove((PowerModel)oldStancePower);
             await AfterStanceLeft(creature, oldStancePower.Stance);
@@ -120,25 +121,25 @@ public static class WandererCmd
         switch (stance)
         {
             case Stance.Chudan:
-                await PowerCmd.Apply<ChudanPower>(creature, 1, creature, null);
+                await PowerCmd.Apply<ChudanPower>(creature, amount, creature, null);
                 break;
             case Stance.Hasso:
-                await PowerCmd.Apply<HassoPower>(creature, 1, creature, null);
+                await PowerCmd.Apply<HassoPower>(creature, amount, creature, null);
                 break;
             case Stance.Gedan:
-                await PowerCmd.Apply<GedanPower>(creature, 1, creature, null);
+                await PowerCmd.Apply<GedanPower>(creature, amount, creature, null);
                 break;
             case Stance.Jodan:
-                await PowerCmd.Apply<JodanPower>(creature, 1, creature, null);
+                await PowerCmd.Apply<JodanPower>(creature, amount, creature, null);
                 JodanEnabled = true;
                 break;
             case Stance.Waki:
-                await PowerCmd.Apply<WakiPower>(creature, 1, creature, null);
+                await PowerCmd.Apply<WakiPower>(creature, amount, creature, null);
                 WakiEnabled = true;
                 break;
         }
 
-        _enteredStanceCounts[creature] = GetEnteredStanceCounts(creature) + 1;
+        _enteredStanceCounts[creature] = GetEnteredStanceCounts(creature) + amount;
 
         WandererVisuals.SetStance(creature, stance.ToString().ToLowerInvariant());
 
