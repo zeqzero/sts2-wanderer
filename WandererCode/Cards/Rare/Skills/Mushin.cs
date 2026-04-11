@@ -16,7 +16,7 @@ public class Mushin : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7m, ValueProp.Move)];
 
-    public Mushin() : base(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+    public Mushin() : base(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
     }
 
