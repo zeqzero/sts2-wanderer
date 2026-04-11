@@ -10,6 +10,9 @@ public static class WandererKeywords
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Enshrined;
 
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Refill;
+
     public static IHoverTip ShiftHoverTip => new HoverTip(new LocString("card_keywords", "WANDERER-SHIFT.title"), new LocString("card_keywords", "WANDERER-SHIFT.description"));
 
     public static IHoverTip RemoveDishonorHoverTip => new HoverTip(new LocString("card_keywords", "WANDERER-REMOVE_DISHONOR.title"), new LocString("card_keywords", "WANDERER-REMOVE_DISHONOR.description"));

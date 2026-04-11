@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -72,6 +73,13 @@ public class ShinigamiPower : WandererPower
                     {
                         await CardPileCmd.RemoveFromDeck(cardToRemove, true);
                     }
+                }
+
+                // If the original had Refill, exhausting the Ofuda counts as the
+                // "second shift" — fire the refill hook on the restored card.
+                if (backup.Keywords.Contains(WandererKeywords.Refill))
+                {
+                    await WandererCmd.AfterRefilled(backup);
                 }
             }
 

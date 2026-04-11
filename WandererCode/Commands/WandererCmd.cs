@@ -36,9 +36,8 @@ public enum Stance
 }
 
 /// <summary>
-/// Central command hub for Wanderer-specific mechanics: stances, shinigami form, and ritual death.
-/// Fires custom lifecycle hooks via IWandererEventListener, discovered dynamically on cards and powers.
-/// All static state is reset per-combat via Reset(), called from BrokenJuzuRelic.BeforeCombatStart.
+/// Central hub for Wanderer mechanics: stances, shinigami form, shift, ritual death.
+/// Fires IWandererEventListener hooks on cards/powers. Per-combat state cleared via Reset().
 /// </summary>
 public static class WandererCmd
 {
@@ -66,30 +65,22 @@ public static class WandererCmd
 
     private static readonly Dictionary<Creature, ShinigamiState> _shinigamiStates = new();
 
-    /// <summary>
-    /// Maps Ofuda → backup clone of the original card it replaced.
-    /// Backups are created via CloneCard before shifting, so they remain
-    /// properly registered in CombatState and can be shifted back cleanly.
-    /// </summary>
+    // Ofuda → CloneCard backup of the original it replaced, for later revert.
     private static readonly Dictionary<CardModel, CardModel> _ofudaShiftedCards = new();
 
-    /// <summary>
-    /// Cards that were in the Play pile when Shinigami form started.
-    /// These couldn't be shifted immediately, so ShinigamiPower.AfterCardChangedPiles
-    /// watches for them to leave Play and shifts them then. Entries are consumed on match.
-    /// </summary>
+    // Cards in the Play pile when Shinigami form started; shifted on next pile change.
     private static readonly HashSet<CardModel> _pendingShinigamiShifts = new();
     public static bool ConsumePendingShinigamiShift(CardModel card) => _pendingShinigamiShifts.Remove(card);
+
+    // Random-shift result → backup of the Refill source it came from. On next shift, revert and fire AfterRefilled.
+    private static readonly Dictionary<CardModel, CardModel> _refillBackups = new();
 
     public static IStancePower? GetCurrentStancePower(Creature creature)
     {
         return creature.Powers.OfType<IStancePower>().FirstOrDefault();
     }
 
-    /// <summary>
-    /// Removes the current stance power and applies a new one.
-    /// Fires AfterStanceLeft then AfterStanceEntered on all IWandererEventListener cards/powers.
-    /// </summary>
+    /// <summary>Swap stance power, firing AfterStanceLeft/AfterStanceEntered on listeners.</summary>
     public static async Task EnterStance(Creature creature, Stance stance)
     {
         var oldStancePower = GetCurrentStancePower(creature);
@@ -166,10 +157,7 @@ public static class WandererCmd
             && state.ShinigamiCurrentHp < state.ShinigamiMaxHp;
     }
 
-    /// <summary>
-    /// Restores the creature's persisted shinigami HP pool to its max.
-    /// Intended for out-of-combat healing sources (e.g. MisogiRestSiteOption)
-    /// </summary>
+    /// <summary>Restores the persisted shinigami HP pool to max (out-of-combat healing).</summary>
     public static void FullyHealShinigami(Creature creature)
     {
         if (_shinigamiStates.TryGetValue(creature, out var state))
@@ -178,9 +166,6 @@ public static class WandererCmd
         }
     }
 
-    /// <summary>
-    /// Saves the creature's current HP so it can be restored on exit.
-    /// </summary>
     private static void SetStoredHp(Creature creature, decimal hp)
     {
         GetOrCreateState(creature).StoredHp = hp;
@@ -197,9 +182,8 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Shifts a single card into an Ofuda, storing a backup clone for later restoration.
-    /// Called during EnterShinigamiForm for bulk shifts, and by ShinigamiPower.AfterCardChangedPiles
-    /// to catch cards that leave the Play pile after form entry (e.g. Seppuku resolving).
+    /// Shifts a single card into an Ofuda with a backup for later revert. Used by
+    /// EnterShinigamiForm bulk shifts and ShinigamiPower for cards entering Play mid-combat.
     /// </summary>
     public static async Task ShiftToOfuda(CardModel card)
     {
@@ -207,18 +191,25 @@ public static class WandererCmd
             return;
 
         var combatState = card.CombatState;
-        var backup = combatState.CloneCard(card);
+        CardModel backup;
+        // If this card is a pending Refill revert, forward the Refill original as the Ofuda
+        // backup so a later Ofuda revert restores the Refill source and fires AfterRefilled.
+        if (_refillBackups.TryGetValue(card, out var existingRefillBackup))
+        {
+            backup = existingRefillBackup;
+            _refillBackups.Remove(card);
+        }
+        else
+        {
+            backup = combatState.CloneCard(card);
+        }
         var ofuda = combatState.CreateCard<Ofuda>(card.Owner);
         _ofudaShiftedCards[ofuda] = backup;
         await CardCmd.Transform(card, ofuda);
         await AfterShifted(card);
     }
 
-    /// <summary>
-    /// Entry point for entering shinigami form. Called from BrokenJuzuRelic.AfterPreventingDeath.
-    /// Sets max HP to the state's ShinigamiMaxHp, heals the creature, applies ShinigamiPower,
-    /// shifts all cards to Ofuda, then fires AfterEnteredShinigami on listeners.
-    /// </summary>
+    /// <summary>Entry point from BrokenJuzuRelic.AfterPreventingDeath.</summary>
     public static async Task EnterShinigami(Player player)
     {
         await EnterShinigamiForm(player);
@@ -240,25 +231,24 @@ public static class WandererCmd
 
         await PowerCmd.Apply<ShinigamiPower>(creature, ShinigamiExhaustThreshold, creature, null);
 
-        // Cards in Play can't be shifted yet — track them for ShinigamiPower.AfterCardChangedPiles.
+        // Cards mid-resolution in Play can't be shifted now; ShinigamiPower picks them up on pile change.
         _pendingShinigamiShifts.UnionWith(PileType.Play.GetPile(player).Cards);
 
-        await ShiftAllCards(player);
+        await ShiftAllCardsToOfuda(player);
 
         ApplyShinigamiTint(creature, state);
     }
 
     /// <summary>
-    /// Exits shinigami form. Called from ShinigamiPower when the exhaust counter reaches zero.
-    /// Restores all Ofuda back to original cards, resets max HP, sets current HP to the
-    /// value stored before ritual death (or 1 if entered via normal damage), and removes ShinigamiPower.
+    /// Called from ShinigamiPower when the exhaust counter hits zero. Reverts Ofudas,
+    /// restores max HP, sets current HP to the pre-ritual-death value (or 1).
     /// </summary>
     public static async Task ExitShinigamiForm(Creature creature)
     {
         if (!_shinigamiStates.TryGetValue(creature, out var state) || !state.Active) return;
 
         state.Active = false;
-        // Capture any max-hp changes that happened so they will stick to Shinigami Max HP
+        // Persist any in-form max-hp changes onto the Shinigami HP pool.
         state.ShinigamiMaxHp = creature.MaxHp;
         state.ShinigamiCurrentHp = creature.CurrentHp;
 
@@ -276,7 +266,7 @@ public static class WandererCmd
         ResetShinigamiTint(creature, state);
     }
 
-    private static async Task ShiftAllCards(Player player)
+    private static async Task ShiftAllCardsToOfuda(Player player)
     {
         var allCards = new List<CardModel>();
         allCards.AddRange(PileType.Hand.GetPile(player).Cards);
@@ -301,11 +291,16 @@ public static class WandererCmd
 
         foreach (var (ofuda, backup) in toRestore)
         {
-            // Post-combat cleanup can leave Ofuda detached from any pile; Transform would throw.
-            // Nothing to visually restore in that case — just drop the tracking entry.
+            // Post-combat Ofudas may be detached from any pile; Transform would throw.
             if (ofuda.Pile != null)
             {
                 await CardCmd.Transform(ofuda, backup);
+
+                // Bulk revert counts as the "second shift" for Refill originals.
+                if (backup.Keywords.Contains(WandererKeywords.Refill))
+                {
+                    await AfterRefilled(backup);
+                }
             }
             _ofudaShiftedCards.Remove(ofuda);
         }
@@ -343,10 +338,8 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Performs a ritual self-kill (e.g. Seppuku). Stores current HP for shinigami restoration,
-    /// fires BeforeRitualDeath on listeners (allowing cards like DeathPoem to auto-play while
-    /// the creature is still alive), then kills the creature. BrokenJuzuRelic intercepts the
-    /// death via ShouldDieLate and enters shinigami form.
+    /// Ritual self-kill (e.g. Seppuku). Stores HP, fires BeforeRitualDeath so cards like
+    /// DeathPoem can auto-play while alive, then kills. BrokenJuzuRelic enters shinigami form.
     /// </summary>
     public static async Task RitualDeath(Creature creature)
     {
@@ -373,10 +366,8 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Discovers all IWandererEventListener implementations on the creature's cards (in Hand, Draw,
-    /// Discard, Exhaust piles) and powers. Returns a snapshot list so callers can safely iterate
-    /// while the underlying collections change (e.g. cards moving piles during auto-play).
-    /// Note: cards in the Play pile are not included — they are mid-resolution.
+    /// Snapshot of T-listeners across Hand/Draw/Discard/Exhaust piles and powers.
+    /// Play pile is excluded (mid-resolution). Snapshot lets callers iterate safely while piles change.
     /// </summary>
     public static List<T> GetListeners<T>(Creature creature)
     {
@@ -392,18 +383,17 @@ public static class WandererCmd
         }
 
         listeners.AddRange(creature.Powers.OfType<T>());
+        listeners.AddRange(creature.Player.Relics.OfType<T>());
 
         return listeners;
     }
 
-    /// <summary>
-    /// Must be called at the start of each combat to clear per-combat static state.
-    /// Currently called from BrokenJuzuRelic.BeforeCombatStart.
-    /// </summary>
+    /// <summary>Called from BrokenJuzuRelic.BeforeCombatStart to clear per-combat static state.</summary>
     public static void Reset()
     {
         _ofudaShiftedCards.Clear();
         _pendingShinigamiShifts.Clear();
+        _refillBackups.Clear();
 
         _enteredStanceCounts.Clear();
         JodanEnabled = false;
@@ -411,8 +401,8 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// "Shift" a card, transforming it into a random card from the player's card pool.
-    /// Uses CombatCardGeneration RNG seed. If upgrade is true, the resulting card is upgraded.
+    /// Transform a card into a random card from the player's pool (or revert it, if it's
+    /// an Ofuda or a Refill result). Fires AfterShifted and, on refill revert, AfterRefilled.
     /// </summary>
     public static async Task ShiftCard(CardModel card, Player player, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null)
     {
@@ -420,21 +410,48 @@ public static class WandererCmd
             return;
 
         CardModel? resultCard;
+        bool isRevertShift = false;
 
-        // If this is an Ofuda with a tracked original, revert instead of random-shifting.
+        // Ofuda revert path.
         var original = GetOriginalCard(card);
         if (original != null)
         {
             await CardCmd.Transform(card, original);
             RemoveShiftEntry(card);
             resultCard = original;
+            isRevertShift = true;
+        }
+        // Refill revert path: second shift of a card produced from a Refill source.
+        else if (_refillBackups.TryGetValue(card, out var refillBackup))
+        {
+            await CardCmd.Transform(card, refillBackup);
+            _refillBackups.Remove(card);
+            resultCard = refillBackup;
+            isRevertShift = true;
         }
         else
         {
+            // Clone the Refill source before Transform detaches it from its pile.
+            CardModel? pendingRefillBackup = null;
+            if (card.Keywords.Contains(WandererKeywords.Refill))
+            {
+                pendingRefillBackup = card.CombatState.CloneCard(card);
+            }
+
             var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
+            // Landing on Enshrined would trap the refill chain permanently.
+            if (pendingRefillBackup != null)
+            {
+                options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined));
+            }
             var transformation = new CardTransformation(card, options);
             var results = await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
             resultCard = results.FirstOrDefault().cardAdded;
+
+            if (pendingRefillBackup != null && resultCard != null)
+            {
+                _refillBackups[resultCard] = pendingRefillBackup;
+            }
         }
 
         if (resultCard != null)
@@ -454,17 +471,29 @@ public static class WandererCmd
         }
 
         await AfterShifted(card);
+
+        if (isRevertShift && resultCard != null && resultCard.Keywords.Contains(WandererKeywords.Refill))
+        {
+            await AfterRefilled(resultCard);
+        }
     }
 
-    private static readonly LocString ShiftSelectionPrompt = new("card_selection", "WANDERER-TO_SHIFT");
+    /// <summary>Fires AfterRefilled on listeners. Public for ShinigamiPower's exhaust-revert path.</summary>
+    public static async Task AfterRefilled(CardModel card)
+    {
+        var creature = card.Owner?.Creature;
+        if (creature == null) return;
 
-    /// <summary>
-    /// Prompts the player to select a card from hand to Shift (excluding Enshrined cards),
-    /// then shifts the selected card. If upgrade is true, each resulting shifted card is upgraded.
-    /// </summary>
+        foreach (var listener in GetListeners<IWandererEventListener>(creature))
+        {
+            await listener.AfterRefilled(card);
+        }
+    }
+
+    /// <summary>Prompt the player to pick cards from hand (non-Enshrined) and Shift each.</summary>
     public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, AbstractModel source, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null)
     {
-        var prefs = new CardSelectorPrefs(ShiftSelectionPrompt, count);
+        var prefs = new CardSelectorPrefs(new("card_selection", "WANDERER-TO_SHIFT"), count);
         var selected = await CardSelectCmd.FromHand(context, player, prefs, c => !c.Keywords.Contains(WandererKeywords.Enshrined), source);
 
         foreach (var card in selected)
@@ -474,9 +503,7 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Presents cards on the ChooseACard screen and returns the player's selection.
-    /// Equivalent to CardSelectCmd.FromChooseACardScreen but without the 3-card limit.
-    /// Handles multiplayer sync, test selectors, and mark-as-seen bookkeeping.
+    /// ChooseACard screen selection. Like CardSelectCmd.FromChooseACardScreen but with no 3-card limit.
     /// </summary>
     public static async Task<CardModel?> ChooseCard(PlayerChoiceContext context, IReadOnlyList<CardModel> cards, Player player, bool canSkip = false)
     {
@@ -521,9 +548,8 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Adds a Dishonor curse to the player's deck (permanent) and a combat copy to their hand
-    /// for an immediate effect. The deck and hand copies are necessarily distinct CardModels
-    /// since the deck lives in RunState and hand cards live in CombatState.
+    /// Adds a permanent Dishonor to the deck and a separate combat copy to hand
+    /// (deck lives in RunState, hand in CombatState, so they must be distinct CardModels).
     /// </summary>
     public static async Task AddDishonor(Player player, CombatState? combatState)
     {

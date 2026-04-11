@@ -44,4 +44,8 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
     public virtual async Task AfterShifted(CardModel card)
     {
     }
+
+    public virtual async Task AfterRefilled(CardModel card)
+    {
+    }
 }

@@ -11,4 +11,5 @@ public interface IWandererEventListener
     Task AfterStanceLeft(Creature creature, Stance oldStance);
     Task AfterStanceEntered(Creature creature, Stance stance);
     Task AfterShifted(CardModel card);
+    Task AfterRefilled(CardModel card);
 }

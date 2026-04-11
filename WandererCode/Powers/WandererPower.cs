@@ -49,4 +49,8 @@ public abstract class WandererPower : CustomPowerModel, IWandererEventListener
     public virtual async Task AfterShifted(CardModel card)
     {
     }
+
+    public virtual async Task AfterRefilled(CardModel card)
+    {
+    }
 }
