@@ -43,7 +43,7 @@ public enum Stance
 public static class WandererCmd
 {
     // shinigami vars
-    public static int ShinigamiMaxHp { get; private set; } = 5;
+    public static int DefaultShinigamiMaxHp { get; private set; } = 5;
     public static int ShinigamiExhaustThreshold { get; private set; } = 5;
     private static readonly Color ShinigamiTint = new(Colors.White, 0.3f);
 
@@ -58,7 +58,8 @@ public static class WandererCmd
         public bool Active;
         public decimal? StoredHp;
         public int PreShinigamiMaxHp;
-        public decimal ShinigamiCurrentHp = ShinigamiMaxHp;
+        public int ShinigamiMaxHp = DefaultShinigamiMaxHp;
+        public decimal ShinigamiCurrentHp = DefaultShinigamiMaxHp;
         public Color? OriginalModulate;
         public Player? Player;
     }
@@ -159,6 +160,24 @@ public static class WandererCmd
         return _shinigamiStates.TryGetValue(creature, out var state) && state.Active;
     }
 
+    public static bool IsShinigamiHpBelowMax(Creature creature)
+    {
+        return _shinigamiStates.TryGetValue(creature, out var state)
+            && state.ShinigamiCurrentHp < state.ShinigamiMaxHp;
+    }
+
+    /// <summary>
+    /// Restores the creature's persisted shinigami HP pool to its max.
+    /// Intended for out-of-combat healing sources (e.g. MisogiRestSiteOption)
+    /// </summary>
+    public static void FullyHealShinigami(Creature creature)
+    {
+        if (_shinigamiStates.TryGetValue(creature, out var state))
+        {
+            state.ShinigamiCurrentHp = state.ShinigamiMaxHp;
+        }
+    }
+
     /// <summary>
     /// Saves the creature's current HP so it can be restored on exit.
     /// </summary>
@@ -197,7 +216,7 @@ public static class WandererCmd
 
     /// <summary>
     /// Entry point for entering shinigami form. Called from BrokenJuzuRelic.AfterPreventingDeath.
-    /// Sets max HP to ShinigamiMaxHp, heals the creature, applies ShinigamiPower,
+    /// Sets max HP to the state's ShinigamiMaxHp, heals the creature, applies ShinigamiPower,
     /// shifts all cards to Ofuda, then fires AfterEnteredShinigami on listeners.
     /// </summary>
     public static async Task EnterShinigami(Player player)
@@ -216,7 +235,7 @@ public static class WandererCmd
         state.Player = player;
         state.Active = true;
 
-        creature.SetMaxHpInternal(ShinigamiMaxHp);
+        creature.SetMaxHpInternal(state.ShinigamiMaxHp);
         await CreatureCmd.Heal(creature, state.ShinigamiCurrentHp);
 
         await PowerCmd.Apply<ShinigamiPower>(creature, ShinigamiExhaustThreshold, creature, null);
@@ -239,6 +258,8 @@ public static class WandererCmd
         if (!_shinigamiStates.TryGetValue(creature, out var state) || !state.Active) return;
 
         state.Active = false;
+        // Capture any max-hp changes that happened so they will stick to Shinigami Max HP
+        state.ShinigamiMaxHp = creature.MaxHp;
         state.ShinigamiCurrentHp = creature.CurrentHp;
 
         await RestoreAllCards(state.Player);

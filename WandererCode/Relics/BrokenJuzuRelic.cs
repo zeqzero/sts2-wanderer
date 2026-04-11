@@ -68,7 +68,10 @@ public class BrokenJuzuRelic : WandererRelic
             return false;
         }
 
-        if (!player.Deck.Cards.Any(c => c is Dishonor))
+        bool hasDishonor = player.Deck.Cards.Any(c => c is Dishonor);
+        bool needsShinigamiHeal = WandererCmd.IsShinigamiHpBelowMax(player.Creature);
+
+        if (!hasDishonor && !needsShinigamiHeal)
             return false;
 
         options.Add(new MisogiRestSiteOption(player));
