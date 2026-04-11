@@ -77,5 +77,8 @@
     "WANDERER-BARIKEDO_POWER.smartDescription": "Up to {Amount} Block persists across turns.",
     "WANDERER-FLAILING_POWER.title": "Flailing",
     "WANDERER-FLAILING_POWER.description": "Whenever you Shift, deal 3 damage to a random enemy.",
-    "WANDERER-FLAILING_POWER.smartDescription": "Whenever you [gold]Shift[/gold], deal {Amount} damage to a random enemy."
+    "WANDERER-FLAILING_POWER.smartDescription": "Whenever you [gold]Shift[/gold], deal {Amount} damage to a random enemy.",
+    "WANDERER-OVERFLOWING_POWER.title": "Overflowing",
+    "WANDERER-OVERFLOWING_POWER.description": "Whenever you play a card, enter a random stance.",
+    "WANDERER-OVERFLOWING_POWER.smartDescription": "Whenever you play a card, enter {Amount} random {Amount:plural:stance|stances}."
 }
