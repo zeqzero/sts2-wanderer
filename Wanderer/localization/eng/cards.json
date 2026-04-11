@@ -160,5 +160,7 @@
     "WANDERER-STEADY_EXCHANGE.title": "Steady Exchange",
     "WANDERER-STEADY_EXCHANGE.description": "Deal {Damage:diff()} damage. Gain {Block:diff()} Block.\nRepeat if you haven't left a stance this turn.",
     "WANDERER-ROOTED_STRIKE.title": "Rooted Strike",
-    "WANDERER-ROOTED_STRIKE.description": "Deal {Damage:diff()} damage.\nReapply your current stance {ReapplyAmount:diff()} {ReapplyAmount:plural:time|times}."
+    "WANDERER-ROOTED_STRIKE.description": "Deal {Damage:diff()} damage.\nReapply your current stance {ReapplyAmount:diff()} {ReapplyAmount:plural:time|times}.",
+    "WANDERER-ICHIGEKI.title": "Ichigeki",
+    "WANDERER-ICHIGEKI.description": "Deal {Damage:diff()} damage.\nDeals {AdditionalDamage} damage for each turn you've remained in your current stance."
 }
