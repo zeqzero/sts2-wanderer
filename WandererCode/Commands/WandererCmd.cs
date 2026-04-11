@@ -88,6 +88,24 @@ public static class WandererCmd
         return creature.Powers.OfType<IStancePower>().FirstOrDefault();
     }
 
+    public static Stance? GetRandomStance(Creature creature, bool different)
+    {
+        List<Stance> candidates = [Stance.Chudan, Stance.Hasso, Stance.Gedan];
+
+        if (JodanEnabled)
+            candidates.Add(Stance.Jodan);
+        if (WakiEnabled)
+            candidates.Add(Stance.Waki);
+
+        var currentStance = GetCurrentStancePower(creature);
+        if (different && currentStance != null && candidates.Contains(currentStance.Stance))
+        {
+            candidates.Remove(currentStance.Stance);
+        }
+
+        return creature.Player.RunState.Rng.CombatCardSelection.NextItem(candidates);
+    }
+
     /// <summary>Swap stance power, firing AfterStanceLeft/AfterStanceEntered on listeners.</summary>
     public static async Task EnterStance(Creature creature, Stance stance)
     {
