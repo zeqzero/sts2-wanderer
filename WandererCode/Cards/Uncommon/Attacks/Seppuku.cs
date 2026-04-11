@@ -20,4 +20,9 @@ public class Seppuku : WandererCard
     {
         await WandererCmd.RitualDeath(Owner.Creature);
     }
+
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
+    }
 }

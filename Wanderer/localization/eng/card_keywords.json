@@ -2,5 +2,7 @@
     "WANDERER-ENSHRINED.title": "Enshrined",
     "WANDERER-ENSHRINED.description": "Cannot be shifted.",
     "WANDERER-SHIFT.title": "Shift",
-    "WANDERER-SHIFT.description": "Transform into a Wanderer card."
+    "WANDERER-SHIFT.description": "Transform into a Wanderer card.",
+    "WANDERER-REMOVE_DISHONOR.title": "Remove Dishonor",
+    "WANDERER-REMOVE_DISHONOR.description": "An [purple]Ofuda[/purple]-[gold]shifted[/gold] Dishonor is removed when played.\nPerform [gold]Misogi[/gold] at Rest sites to remove all Dishonor."
 }

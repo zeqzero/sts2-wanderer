@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
@@ -62,6 +63,16 @@ public class ShinigamiPower : WandererPower
             {
                 await CardCmd.Transform(card, backup);
                 WandererCmd.RemoveShiftEntry(card);
+
+                // if we just exhausted an Ofuda-transformed Dishonor, remove a Dishonor from your deck
+                if (card is Ofuda && backup is Dishonor)
+                {
+                    var cardToRemove = Owner.Player.Deck.Cards.FirstOrDefault(c => c is Dishonor);
+                    if (cardToRemove != null)
+                    {
+                        await CardPileCmd.RemoveFromDeck(cardToRemove, true);
+                    }
+                }
             }
 
             Amount--;
