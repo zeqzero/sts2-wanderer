@@ -156,5 +156,7 @@
     "WANDERER-BANJAKU.title": "Banjaku",
     "WANDERER-BANJAKU.description": "Gain {PlatingPower:diff()} Plating.\nCosts 1 less Energy for each time you've gained Block this turn.",
     "WANDERER-THE_SPINS.title": "The Spins",
-    "WANDERER-THE_SPINS.description": "Deal {Damage:diff()} damage to ALL enemies.\nDeals {AdditionalDamage:diff()} additional damage for each time you [gold]Shifted[/gold] this combat."
+    "WANDERER-THE_SPINS.description": "Deal {Damage:diff()} damage to ALL enemies.\nDeals {AdditionalDamage:diff()} additional damage for each time you [gold]Shifted[/gold] this combat.",
+    "WANDERER-STEADY_EXCHANGE.title": "Steady Exchange",
+    "WANDERER-STEADY_EXCHANGE.description": "Deal {Damage:diff()} damage. Gain {Block:diff()} Block.\nRepeat if you haven't left a stance this turn."
 }
