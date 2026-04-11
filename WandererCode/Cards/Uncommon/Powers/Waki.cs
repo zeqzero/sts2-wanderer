@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -21,7 +22,15 @@ public class Waki : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         WandererCmd.WakiEnabled = true;
-        await WandererCmd.EnterStance(Owner.Creature, Stance.Waki);
+
+        if (WandererCmd.GetCurrentStancePower(Owner.Creature) is WakiPower)
+        {
+            await PowerCmd.Apply<WakiPower>(Owner.Creature, 1, Owner.Creature, this);
+        }
+        else
+        {
+            await WandererCmd.EnterStance(Owner.Creature, Stance.Waki);
+        }
     }
 
     protected override void OnUpgrade()

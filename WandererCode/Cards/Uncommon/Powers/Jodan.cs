@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -21,7 +22,15 @@ public class Jodan : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         WandererCmd.JodanEnabled = true;
-        await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan);
+        
+        if (WandererCmd.GetCurrentStancePower(Owner.Creature) is JodanPower)
+        {
+            await PowerCmd.Apply<JodanPower>(Owner.Creature, 1, Owner.Creature, this);
+        }
+        else
+        {
+            await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan);
+        }
     }
 
     protected override void OnUpgrade()
