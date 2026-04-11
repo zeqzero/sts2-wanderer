@@ -280,7 +280,12 @@ public static class WandererCmd
 
         foreach (var (ofuda, backup) in toRestore)
         {
-            await CardCmd.Transform(ofuda, backup);
+            // Post-combat cleanup can leave Ofuda detached from any pile; Transform would throw.
+            // Nothing to visually restore in that case — just drop the tracking entry.
+            if (ofuda.Pile != null)
+            {
+                await CardCmd.Transform(ofuda, backup);
+            }
             _ofudaShiftedCards.Remove(ofuda);
         }
     }
@@ -371,12 +376,11 @@ public static class WandererCmd
     }
 
     /// <summary>
-    /// Must be called at the start of each combat to clear all static state.
+    /// Must be called at the start of each combat to clear per-combat static state.
     /// Currently called from BrokenJuzuRelic.BeforeCombatStart.
     /// </summary>
     public static void Reset()
     {
-        _shinigamiStates.Clear();
         _ofudaShiftedCards.Clear();
         _pendingShinigamiShifts.Clear();
 

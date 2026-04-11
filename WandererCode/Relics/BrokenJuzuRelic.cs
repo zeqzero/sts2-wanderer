@@ -44,7 +44,7 @@ public class BrokenJuzuRelic : WandererRelic
         }
     }
 
-    public override bool ShouldDieLate(Creature creature)
+    public override bool ShouldDie(Creature creature)
     {
         if (creature != Owner.Creature)
             return true;
