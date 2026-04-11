@@ -52,6 +52,14 @@ public static class WandererCmd
     private static readonly Dictionary<Creature, int> _enteredStanceCounts = new();
     public static int GetEnteredStanceCounts(Creature creature) => _enteredStanceCounts.TryGetValue(creature, out var count) ? count : 0;
 
+    // shift counter: total shifts per combat (incremented inside AfterShifted).
+    private static readonly Dictionary<Creature, int> _shiftCounts = new();
+    public static int GetShiftCount(Creature creature) => _shiftCounts.TryGetValue(creature, out var count) ? count : 0;
+    private static void IncrementShiftCount(Creature creature)
+    {
+        _shiftCounts[creature] = GetShiftCount(creature) + 1;
+    }
+
     private class ShinigamiState
     {
         public bool Active;
@@ -140,6 +148,8 @@ public static class WandererCmd
         var creature = card.Owner?.Creature;
         if (creature == null) return;
 
+        IncrementShiftCount(creature);
+
         foreach (var listener in GetListeners<IWandererEventListener>(creature))
         {
             await listener.AfterShifted(card);
@@ -171,14 +181,48 @@ public static class WandererCmd
         GetOrCreateState(creature).StoredHp = hp;
     }
 
-    public static CardModel? GetOriginalCard(CardModel ofudaCard)
+    private static CardModel? GetOriginalCard(CardModel ofudaCard)
     {
         return _ofudaShiftedCards.GetValueOrDefault(ofudaCard);
     }
 
-    public static void RemoveShiftEntry(CardModel ofudaCard)
+    /// <summary>
+    /// Revert an Ofuda back to its tracked original, firing AfterShifted and (if applicable)
+    /// AfterRefilled on the restored card. Shared by RestoreAllCards and HandleOfudaExhausted.
+    /// </summary>
+    private static async Task RevertOfuda(CardModel ofuda, CardModel backup)
     {
-        _ofudaShiftedCards.Remove(ofudaCard);
+        await CardCmd.Transform(ofuda, backup);
+        _ofudaShiftedCards.Remove(ofuda);
+        await AfterShifted(backup);
+
+        if (backup.Keywords.Contains(WandererKeywords.Refill))
+        {
+            await AfterRefilled(backup);
+        }
+    }
+
+    /// <summary>
+    /// Called from ShinigamiPower when a card is exhausted. If it's an Ofuda, revert it to
+    /// its original and, if that original was a Dishonor, remove one Dishonor from the deck.
+    /// </summary>
+    public static async Task HandleOfudaExhausted(CardModel card)
+    {
+        if (card is not Ofuda) return;
+
+        var backup = GetOriginalCard(card);
+        if (backup == null) return;
+
+        await RevertOfuda(card, backup);
+
+        if (backup is Dishonor && card.Owner != null)
+        {
+            var cardToRemove = card.Owner.Deck.Cards.FirstOrDefault(c => c is Dishonor);
+            if (cardToRemove != null)
+            {
+                await CardPileCmd.RemoveFromDeck(cardToRemove, true);
+            }
+        }
     }
 
     /// <summary>
@@ -287,22 +331,17 @@ public static class WandererCmd
             .Where(kvp => kvp.Key.Owner == player)
             .ToList();
 
-        if (toRestore.Count == 0) return;
-
         foreach (var (ofuda, backup) in toRestore)
         {
             // Post-combat Ofudas may be detached from any pile; Transform would throw.
             if (ofuda.Pile != null)
             {
-                await CardCmd.Transform(ofuda, backup);
-
-                // Bulk revert counts as the "second shift" for Refill originals.
-                if (backup.Keywords.Contains(WandererKeywords.Refill))
-                {
-                    await AfterRefilled(backup);
-                }
+                await RevertOfuda(ofuda, backup);
             }
-            _ofudaShiftedCards.Remove(ofuda);
+            else
+            {
+                _ofudaShiftedCards.Remove(ofuda);
+            }
         }
     }
 
@@ -394,6 +433,7 @@ public static class WandererCmd
         _ofudaShiftedCards.Clear();
         _pendingShinigamiShifts.Clear();
         _refillBackups.Clear();
+        _shiftCounts.Clear();
 
         _enteredStanceCounts.Clear();
         JodanEnabled = false;
@@ -417,7 +457,7 @@ public static class WandererCmd
         if (original != null)
         {
             await CardCmd.Transform(card, original);
-            RemoveShiftEntry(card);
+            _ofudaShiftedCards.Remove(card);
             resultCard = original;
             isRevertShift = true;
         }

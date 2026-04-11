@@ -1,14 +1,11 @@
 using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Commands;
-using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -55,40 +52,14 @@ public class ShinigamiPower : WandererPower
     // --- Track exhausts and exit shinigami form ---
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
     {
-        if (card.Owner == Owner.Player)
+        if (card.Owner != Owner.Player) return;
+
+        await WandererCmd.HandleOfudaExhausted(card);
+
+        Amount--;
+        if (Amount <= 0)
         {
-            // Unshift ofuda so the original card shows in the exhaust pile.
-            // The backup clone was pre-registered in CombatState during ShiftAllCards.
-            var backup = WandererCmd.GetOriginalCard(card);
-            if (backup != null)
-            {
-                await CardCmd.Transform(card, backup);
-                WandererCmd.RemoveShiftEntry(card);
-
-                // if we just exhausted an Ofuda-transformed Dishonor, remove a Dishonor from your deck
-                if (card is Ofuda && backup is Dishonor)
-                {
-                    var cardToRemove = Owner.Player.Deck.Cards.FirstOrDefault(c => c is Dishonor);
-                    if (cardToRemove != null)
-                    {
-                        await CardPileCmd.RemoveFromDeck(cardToRemove, true);
-                    }
-                }
-
-                // If the original had Refill, exhausting the Ofuda counts as the
-                // "second shift" — fire the refill hook on the restored card.
-                if (backup.Keywords.Contains(WandererKeywords.Refill))
-                {
-                    await WandererCmd.AfterRefilled(backup);
-                }
-            }
-
-            Amount--;
-
-            if (Amount <= 0)
-            {
-                await WandererCmd.ExitShinigamiForm(Owner);
-            }
+            await WandererCmd.ExitShinigamiForm(Owner);
         }
     }
 
