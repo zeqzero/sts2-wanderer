@@ -19,7 +19,7 @@ public class JodanPower : WandererPower, IStancePower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<VigorPower>(10) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<VigorPower>(7) ];
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
