@@ -183,5 +183,7 @@
     "WANDERER-KIAI.title": "Kiai",
     "WANDERER-KIAI.description": "Next turn, draw 1 card and gain 2 Strength for each unique next turn power you have.",
     "WANDERER-JIGOKU_JUNBI.title": "Jigoku Junbi",
-    "WANDERER-JIGOKU_JUNBI.description": "Next Turn powers are not removed after being applied.\nAdd [purple]Dishonor[/purple] to your deck."
+    "WANDERER-JIGOKU_JUNBI.description": "Next Turn powers are not removed after being applied.\nAdd [purple]Dishonor[/purple] to your deck.",
+    "WANDERER-HIP_CHECK.title": "Hip Check",
+    "WANDERER-HIP_CHECK.description": "Deal {Damage:diff()} damage.\nOn [gold]Refill[/gold], increase the damage of ALL Hip Check cards by {Increase:diff()} permanently and [gold]Exhaust[/gold]."
 }
