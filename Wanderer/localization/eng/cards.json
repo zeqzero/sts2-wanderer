@@ -179,5 +179,7 @@
     "WANDERER-HICCUP.title": "Hiccup",
     "WANDERER-HICCUP.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\nOn [gold]Refill[/gold], gain {Energy:diff()} energy.",
     "WANDERER-DEATH_PACT.title": "Death Pact",
-    "WANDERER-DEATH_PACT.description": "Next time you die, give other players 1 Intangible."
+    "WANDERER-DEATH_PACT.description": "Next time you die, give other players 1 Intangible.",
+    "WANDERER-KIAI.title": "Kiai",
+    "WANDERER-KIAI.description": "Next turn, draw 1 card and gain 2 Strength for each unique next turn power you have."
 }

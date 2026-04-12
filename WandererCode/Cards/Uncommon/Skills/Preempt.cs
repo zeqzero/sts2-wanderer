@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
@@ -15,7 +16,16 @@ public class Preempt : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        foreach (var power in Owner.Creature.Powers.ToList())
+        // Process KiaiPower first so it can count other next-turn powers before they remove themselves.
+        var powers = Owner.Creature.Powers.ToList();
+        foreach (var power in powers.Where(p => p is KiaiPower))
+        {
+            if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
+            {
+                await nextTurnPower.ApplyNow(choiceContext, Owner);
+            }
+        }
+        foreach (var power in powers.Where(p => p is not KiaiPower))
         {
             if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
             {
