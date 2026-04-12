@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Kiai : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<KiaiPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WandererNextTurnKiaiPower>(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
@@ -27,7 +27,7 @@ public class Kiai : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<KiaiPower>(Owner.Creature, DynamicVars["KiaiPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<WandererNextTurnKiaiPower>(Owner.Creature, DynamicVars["WandererNextTurnKiaiPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

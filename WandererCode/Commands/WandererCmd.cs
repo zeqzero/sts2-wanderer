@@ -55,6 +55,12 @@ public static class WandererCmd
     // shift counter: total shifts per combat (incremented inside AfterShifted).
     private static readonly Dictionary<Creature, int> _shiftCounts = new();
     public static int GetShiftCount(Creature creature) => _shiftCounts.TryGetValue(creature, out var count) ? count : 0;
+
+    /// <summary>
+    /// Returns true if next-turn powers should NOT remove themselves after activating.
+    /// Checked by all IWandererNextTurnPower implementations during cleanup.
+    /// </summary>
+    public static bool ShouldPreserveNextTurnPowers(Creature creature) => creature.HasPower<JigokuJunbiPower>();
     private static void IncrementShiftCount(Creature creature)
     {
         _shiftCounts[creature] = GetShiftCount(creature) + 1;

@@ -3,10 +3,11 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.Powers;
+using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-public class KiaiPower : WandererPower, IWandererNextTurnPower
+public class WandererNextTurnKiaiPower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -32,7 +33,10 @@ public class KiaiPower : WandererPower, IWandererNextTurnPower
             await PowerCmd.Apply<StrengthPower>(Owner, totalStrength, Owner, null);
         }
 
-        await PowerCmd.Remove(this);
+        if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 
     public async Task ApplyNow(PlayerChoiceContext choiceContext, Player player)
@@ -53,6 +57,9 @@ public class KiaiPower : WandererPower, IWandererNextTurnPower
             await PowerCmd.Apply<StrengthPower>(Owner, totalStrength, Owner, null);
         }
 
-        await PowerCmd.Remove(this);
+        if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 }

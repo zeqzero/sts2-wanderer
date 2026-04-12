@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -34,13 +35,19 @@ public abstract class WandererNextTurnApplyPower<T> : WandererPower, IWandererNe
         if (side == Owner.Side && AmountOnTurnStart != 0)
         {
             await PowerCmd.Apply<T>(Owner, Amount, Owner, null);
-            await PowerCmd.Remove(this);
+            if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
+            {
+                await PowerCmd.Remove(this);
+            }
         }
     }
 
     public async Task ApplyNow(PlayerChoiceContext choiceContext, Player player)
     {
         await PowerCmd.Apply<T>(Owner, Amount, Owner, null);
-        await PowerCmd.Remove(this);
+        if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 }

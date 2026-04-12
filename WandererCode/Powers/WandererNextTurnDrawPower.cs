@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -32,7 +33,7 @@ public sealed class WandererNextTurnDrawPower : WandererPower, IWandererNextTurn
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
-        if (side == Owner.Side && AmountOnTurnStart != 0)
+        if (side == Owner.Side && AmountOnTurnStart != 0 && !WandererCmd.ShouldPreserveNextTurnPowers(Owner))
         {
             if (Amount == AmountOnTurnStart)
             {
@@ -64,6 +65,9 @@ public sealed class WandererNextTurnDrawPower : WandererPower, IWandererNextTurn
             }
         }
 
-        await PowerCmd.Remove(this);
+        if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 }

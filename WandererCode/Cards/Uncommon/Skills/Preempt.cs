@@ -18,14 +18,14 @@ public class Preempt : WandererCard
     {
         // Process KiaiPower first so it can count other next-turn powers before they remove themselves.
         var powers = Owner.Creature.Powers.ToList();
-        foreach (var power in powers.Where(p => p is KiaiPower))
+        foreach (var power in powers.Where(p => p is WandererNextTurnKiaiPower))
         {
             if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
             {
                 await nextTurnPower.ApplyNow(choiceContext, Owner);
             }
         }
-        foreach (var power in powers.Where(p => p is not KiaiPower))
+        foreach (var power in powers.Where(p => p is not WandererNextTurnKiaiPower))
         {
             if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
             {

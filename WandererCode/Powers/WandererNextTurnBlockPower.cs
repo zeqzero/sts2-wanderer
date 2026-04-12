@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.ValueProps;
+using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -28,13 +29,16 @@ public sealed class WandererNextTurnBlockPower : WandererPower, IWandererNextTur
                 await CreatureCmd.LoseBlock(Owner, Amount);
             }
 
-            if (Amount == AmountOnTurnStart)
+            if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
             {
-                await PowerCmd.Remove(this);
-            }
-            else
-            {
-                await PowerCmd.Apply(this, Owner, -AmountOnTurnStart, Owner, null);
+                if (Amount == AmountOnTurnStart)
+                {
+                    await PowerCmd.Remove(this);
+                }
+                else
+                {
+                    await PowerCmd.Apply(this, Owner, -AmountOnTurnStart, Owner, null);
+                }
             }
         }
     }
@@ -50,6 +54,9 @@ public sealed class WandererNextTurnBlockPower : WandererPower, IWandererNextTur
             await CreatureCmd.LoseBlock(Owner, Amount);
         }
 
-        await PowerCmd.Remove(this);
+        if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 }

@@ -181,5 +181,7 @@
     "WANDERER-DEATH_PACT.title": "Death Pact",
     "WANDERER-DEATH_PACT.description": "Next time you die, give other players 1 Intangible.",
     "WANDERER-KIAI.title": "Kiai",
-    "WANDERER-KIAI.description": "Next turn, draw 1 card and gain 2 Strength for each unique next turn power you have."
+    "WANDERER-KIAI.description": "Next turn, draw 1 card and gain 2 Strength for each unique next turn power you have.",
+    "WANDERER-JIGOKU_JUNBI.title": "Jigoku Junbi",
+    "WANDERER-JIGOKU_JUNBI.description": "Next Turn powers are not removed after being applied.\nAdd [purple]Dishonor[/purple] to your deck."
 }
