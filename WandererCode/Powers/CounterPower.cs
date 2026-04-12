@@ -43,7 +43,21 @@ public class CounterPower : WandererPower
 
                 foreach (var _ in Enumerable.Range(0, Amount))
                 {
-                    await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), CombatState.HittableEnemies, Owner.Block, ValueProp.Unpowered, Owner, null);
+                    RetaliatePower? retaliatePower = Owner.GetPower<RetaliatePower>();
+
+                    if (retaliatePower != null && retaliatePower.Amount > 0)
+                    {
+                        await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), CombatState.HittableEnemies, Owner.Block, ValueProp.Unpowered, Owner, null);
+                        await PowerCmd.Decrement(retaliatePower);
+                    }
+                    else
+                    {
+                        var target = Owner.Player.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies);
+                        if (target != null)
+                        {
+                            await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), target, Owner.Block, ValueProp.Unpowered, Owner);
+                        }
+                    }
                 }
             }
 

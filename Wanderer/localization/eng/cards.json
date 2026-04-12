@@ -171,5 +171,7 @@
     "WANDERER-REPEL.description": "Deal {Damage:diff()} damage.\nGain {Block:diff()} [gold]Block[/gold].",
     "WANDERER-OVEREXERT.title": "Overexert",
     "WANDERER-OVEREXERT.description": "Play and exhaust a card from your Discard Pile.",
-    "WANDERER-OVEREXERT.selectionScreenPrompt": "Select a card to play and Exhaust."
+    "WANDERER-OVEREXERT.selectionScreenPrompt": "Select a card to play and Exhaust.",
+    "WANDERER-RETALIATE.title": "Retaliate",
+    "WANDERER-RETALIATE.description": "Next time you counter, it hits ALL enemies."
 }
