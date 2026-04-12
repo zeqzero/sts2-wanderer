@@ -177,5 +177,7 @@
     "WANDERER-WOBBLE.title": "Wobble",
     "WANDERER-WOBBLE.description": "Deal {Damage:diff()} damage.\nOn [gold]Refill[/gold], gain {Block:diff()} [gold]Block[/gold].",
     "WANDERER-HICCUP.title": "Hiccup",
-    "WANDERER-HICCUP.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\nOn [gold]Refill[/gold], gain {Energy:diff()} energy."
+    "WANDERER-HICCUP.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\nOn [gold]Refill[/gold], gain {Energy:diff()} energy.",
+    "WANDERER-DEATH_PACT.title": "Death Pact",
+    "WANDERER-DEATH_PACT.description": "Next time you die, give other players 1 Intangible."
 }

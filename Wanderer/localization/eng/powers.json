@@ -83,5 +83,8 @@
     "WANDERER-OVERFLOWING_POWER.smartDescription": "Whenever you play a card, enter {Amount} random {Amount:plural:stance|stances}.",
     "WANDERER-RETALIATE_POWER.title": "Retaliate",
     "WANDERER-RETALIATE_POWER.description": "Your next Counter hits ALL enemies.",
-    "WANDERER-RETALIATE_POWER.smartDescription": "Your next {Amount} {Amount:plural:Counter hits|Counters hit} ALL enemies."
+    "WANDERER-RETALIATE_POWER.smartDescription": "Your next {Amount} {Amount:plural:Counter hits|Counters hit} ALL enemies.",
+    "WANDERER-DEATH_PACT_POWER.title": "Death Pact",
+    "WANDERER-DEATH_PACT_POWER.description": "When the Wanderer dies, gain 1 Intangible.",
+    "WANDERER-DEATH_PACT_POWER.smartDescription": "When the Wanderer dies, gain {Amount} Intangible."
 }
