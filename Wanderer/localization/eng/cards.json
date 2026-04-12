@@ -163,7 +163,7 @@
     "WANDERER-ROOTED_STRIKE.description": "Deal {Damage:diff()} damage.\nReenter your current stance {ReenterAmount:diff()} {ReenterAmount:plural:time|times}.",
     "WANDERER-ICHIGEKI.title": "Ichigeki",
     "WANDERER-ICHIGEKI.description": "Deal {Damage:diff()} damage.\nDeals {AdditionalDamage} damage for each turn you've remained in your current stance.",
-    "WANDERER-SUIKYO_STRIKE.title": "Suikyo Strike",
+    "WANDERER-SUIKYO_STRIKE.title": "Suikyō Strike",
     "WANDERER-SUIKYO_STRIKE.description": "Deal {Damage:diff()} damage.\nEnter a random stance.",
     "WANDERER-OVERFLOWING.title": "Overflowing",
     "WANDERER-OVERFLOWING.description": "Whenever you play a card, enter a random stance."

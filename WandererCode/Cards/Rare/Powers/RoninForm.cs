@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>nextturn</tags>
+/// <tags>nextturn, exhaust</tags>
 [Pool(typeof(WandererCardPool))]
 public class RoninForm : WandererCard
 {

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>shift</tags>
+/// <tags>shift, energy</tags>
 [Pool(typeof(WandererCardPool))]
 public class Improvise : WandererCard
 {

@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>commit</tags>
+/// <tags>commit, flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class SteadyExchange : WandererCard
 {

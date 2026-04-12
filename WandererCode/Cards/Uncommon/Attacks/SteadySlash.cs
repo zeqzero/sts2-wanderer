@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>commit</tags>
+/// <tags>commit, aoe</tags>
 [Pool(typeof(WandererCardPool))]
 public class SteadySlash : WandererCard
 {

@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>nextturn</tags>
+/// <tags>nextturn, energy</tags>
 [Pool(typeof(WandererCardPool))]
 public class WipeBrow : WandererCard
 {

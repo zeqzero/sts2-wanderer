@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>shift</tags>
+/// <tags>shift, refill, flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class Medicine : WandererCard
 {

@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>vuln</tags>
+/// <tags>aoe, vuln</tags>
 [Pool(typeof(WandererCardPool))]
 public class TargetLegs : WandererCard
 {

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>dishonor, shift</tags>
+/// <tags>dishonor, shift, draw, energy</tags>
 [Pool(typeof(WandererCardPool))]
 public class Chug : WandererCard
 {

@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>death</tags>
+/// <tags>death, aoe, flurry</tags>
 [Pool(typeof(WandererCardPool))]
 public class FlauntShame : WandererCard
 {

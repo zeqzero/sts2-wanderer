@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>exhaust, vigor</tags>
+/// <tags>exhaust</tags>
 [Pool(typeof(WandererCardPool))]
 public class Jodan : WandererCard
 {
