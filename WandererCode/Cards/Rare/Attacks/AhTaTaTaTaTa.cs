@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>flurry</tags>
+/// <tags>flurry, xcost</tags>
 [Pool(typeof(WandererCardPool))]
 public class AhTaTaTaTaTa : WandererCard
 {

@@ -14,7 +14,7 @@ public class WipeBrow : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new EnergyVar(2) ];
 
-    public WipeBrow() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+    public WipeBrow() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
@@ -25,6 +25,6 @@ public class WipeBrow : WandererCard
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

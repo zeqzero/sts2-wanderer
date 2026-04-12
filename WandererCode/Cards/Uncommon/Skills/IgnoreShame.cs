@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>exhaust, counter</tags>
+/// <tags>exhaust, counter, redesign</tags>
 [Pool(typeof(WandererCardPool))]
 public class IgnoreShame : WandererCard
 {
@@ -18,7 +18,7 @@ public class IgnoreShame : WandererCard
 
     protected override bool ShouldGlowGoldInternal => WasCardExhaustedThisTurn;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(18m, ValueProp.Move)];
 
     private bool WasCardExhaustedThisTurn => CombatManager.Instance.History.Entries
         .OfType<CardExhaustedEntry>()
@@ -38,6 +38,6 @@ public class IgnoreShame : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3m);
+        DynamicVars.Block.UpgradeValueBy(6m);
     }
 }

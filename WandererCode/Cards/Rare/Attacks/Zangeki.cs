@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>aoe, nextturn</tags>
+/// <tags>aoe, nextturn, redesign</tags>
 [Pool(typeof(WandererCardPool))]
 public class Zangeki : WandererCard
 {
