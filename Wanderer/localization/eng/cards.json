@@ -189,5 +189,8 @@
     "WANDERER-TAME.title": "Tame",
     "WANDERER-TAME.description": "Put Kamae in hand.\nGain {Energy:diff()} energy.\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
     "WANDERER-SUTEMI.title": "Sutemi",
-    "WANDERER-SUTEMI.description": "Deal {Damage:diff()} damage.\nNext turn, deal {NextTurnDamage:diff()} damage for each card in your Exhaust Pile."
+    "WANDERER-SUTEMI.description": "Deal {Damage:diff()} damage.\nNext turn, deal {NextTurnDamage:diff()} damage for each card in your Exhaust Pile.",
+    "WANDERER-KEKKAI.title": "Kekkai",
+    "WANDERER-KEKKAI.description": "Add [gold]Enshrined[/gold] to a card in your hand.",
+    "WANDERER-KEKKAI.selectionScreenPrompt": "Select a card to Enshrine."
 }
