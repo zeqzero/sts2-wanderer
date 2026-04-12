@@ -16,7 +16,7 @@ public class NoPlan : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<NoPlanPower>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<NoPlanPower>(), WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<NoPlanPower>(), WandererKeywords.ShiftHoverTip];
 
     public NoPlan() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {

@@ -18,7 +18,7 @@ public class Improvise : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ImprovisePower>(1m)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public Improvise() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
     {

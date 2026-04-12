@@ -15,7 +15,7 @@ public class Retaliate : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<RetaliatePower>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<CounterPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<CounterPower>()];
 
     public Retaliate() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

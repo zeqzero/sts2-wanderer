@@ -17,7 +17,7 @@ public class SenNoSen : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SenNoSenPower>(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<SenNoSenPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<SenNoSenPower>()];
 
     public SenNoSen() : base(3, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {

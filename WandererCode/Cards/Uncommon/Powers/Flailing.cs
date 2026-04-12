@@ -16,7 +16,7 @@ public class Flailing : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlailingPower>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FlailingPower>(), WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<FlailingPower>(), WandererKeywords.ShiftHoverTip];
 
     public Flailing() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {

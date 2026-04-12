@@ -12,7 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class TargetHead : WandererCard
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<TargetHeadPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<TargetHeadPower>()];
 
     public TargetHead() : base(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {

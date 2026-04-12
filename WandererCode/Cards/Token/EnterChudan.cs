@@ -15,7 +15,7 @@ public class EnterChudan : WandererCard, IEnterStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ChudanPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<ChudanPower>()];
 
     public EnterChudan() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

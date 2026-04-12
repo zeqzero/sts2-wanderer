@@ -16,7 +16,7 @@ public class Zanshin : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new BlockVar(24, ValueProp.Move), new PowerVar<CounterPower>(1) ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<CounterPower>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromPower<CounterPower>() ];
 
     public Zanshin() : base(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {

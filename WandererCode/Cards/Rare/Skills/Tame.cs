@@ -21,9 +21,9 @@ public class Tame : WandererCard
         new CardsVar(2)
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromCard<Kamae>(),
         WandererKeywords.ShiftHoverTip

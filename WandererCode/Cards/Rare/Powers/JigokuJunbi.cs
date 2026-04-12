@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class JigokuJunbi : WandererCard
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Dishonor>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromCard<Dishonor>()];
 
     public JigokuJunbi() : base(3, CardType.Power, CardRarity.Rare, TargetType.Self)
     {

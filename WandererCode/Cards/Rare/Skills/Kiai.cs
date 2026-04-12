@@ -16,7 +16,7 @@ public class Kiai : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WandererNextTurnKiaiPower>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>()
     ];

@@ -15,7 +15,7 @@ public class Ofuda : WandererCard
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public Ofuda() : base(0, CardType.Status, CardRarity.Token, TargetType.Self)
     {

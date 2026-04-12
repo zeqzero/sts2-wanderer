@@ -15,7 +15,7 @@ public class Kekkai : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
     ];

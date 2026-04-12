@@ -18,7 +18,7 @@ public class Blindside : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(24m, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
     public Blindside() : base(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {

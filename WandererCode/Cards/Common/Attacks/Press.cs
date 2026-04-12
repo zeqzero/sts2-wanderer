@@ -16,7 +16,7 @@ public class Press : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9m, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Kamae>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromCard<Kamae>()];
 
     public Press() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

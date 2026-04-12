@@ -26,7 +26,7 @@ public class StealPeach : WandererCard
         new DynamicVar("StrengthLoss", 8m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>(),
         WandererKeywords.ShiftHoverTip

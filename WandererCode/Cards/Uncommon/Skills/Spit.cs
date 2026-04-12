@@ -19,7 +19,7 @@ public class Spit : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<WeakPower>(99), new CardsVar(3) ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ WandererKeywords.ShiftHoverTip, HoverTipFactory.FromCard<Dishonor>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ WandererKeywords.ShiftHoverTip, HoverTipFactory.FromCard<Dishonor>() ];
 
     public Spit() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
     {

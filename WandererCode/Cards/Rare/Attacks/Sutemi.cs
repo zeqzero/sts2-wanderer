@@ -20,7 +20,7 @@ public class Sutemi : WandererCard
         new DynamicVar("NextTurnDamage", 3)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromPower<WandererNextTurnDamagePower>()
     ];

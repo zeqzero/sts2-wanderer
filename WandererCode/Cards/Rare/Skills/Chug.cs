@@ -18,7 +18,7 @@ public class Chug : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(3), new EnergyVar(3) ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ WandererKeywords.ShiftHoverTip, HoverTipFactory.FromCard<Dishonor>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ WandererKeywords.ShiftHoverTip, HoverTipFactory.FromCard<Dishonor>() ];
 
     public Chug() : base(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {

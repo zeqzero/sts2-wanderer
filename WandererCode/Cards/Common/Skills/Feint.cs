@@ -17,7 +17,7 @@ public class Feint : WandererCard
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
     public Feint() : base(0, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

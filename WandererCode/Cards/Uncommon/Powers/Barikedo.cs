@@ -15,7 +15,7 @@ public class Barikedo : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BarikedoPower>(5)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BarikedoPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<BarikedoPower>()];
 
     public Barikedo() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {

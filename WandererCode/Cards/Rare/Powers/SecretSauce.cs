@@ -16,7 +16,7 @@ public class SecretSauce : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<SecretSaucePower>(1m) ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
     public SecretSauce() : base(1, CardType.Power, CardRarity.Rare, TargetType.Self)
     {

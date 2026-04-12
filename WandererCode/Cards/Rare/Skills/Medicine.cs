@@ -18,9 +18,9 @@ public class Medicine : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1m)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>(),
         WandererKeywords.ShiftHoverTip

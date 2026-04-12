@@ -46,7 +46,7 @@ public class HipCheck : WandererCard
         }
     }
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -54,7 +54,7 @@ public class HipCheck : WandererCard
         new IntVar("Increase", 2m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
         WandererKeywords.ShiftHoverTip

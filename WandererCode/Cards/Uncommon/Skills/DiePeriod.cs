@@ -18,7 +18,7 @@ public class DiePeriod : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
     public DiePeriod() : base(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

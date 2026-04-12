@@ -18,7 +18,7 @@ public class Dishonor : WandererCard
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ WandererKeywords.RemoveDishonorHoverTip ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ WandererKeywords.RemoveDishonorHoverTip ];
 
     public Dishonor() : base(1, CardType.Curse, CardRarity.Curse, TargetType.None, false, false)
     {

@@ -23,6 +23,7 @@ using Wanderer.WandererCode.Keywords;
 using Wanderer.WandererCode.Nodes;
 using Wanderer.WandererCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.HoverTips;
 
 namespace Wanderer.WandererCode.Commands;
 
@@ -221,7 +222,7 @@ public static class WandererCmd
         _ofudaShiftedCards.Remove(ofuda);
         await AfterShifted(backup);
 
-        if (backup.Keywords.Contains(WandererKeywords.Refill))
+        if (backup.Keywords.Contains(WandererKeywords.Refills))
         {
             await AfterRefilled(backup);
         }
@@ -491,6 +492,11 @@ public static class WandererCmd
         {
             await CardCmd.Transform(card, refillBackup);
             _refillBackups.Remove(card);
+            refillBackup.RemoveKeyword(WandererKeywords.Refilling);
+            if (refillBackup is WandererCard wandererRefill)
+            {
+                wandererRefill.ClearRuntimeHoverTips();
+            }
             resultCard = refillBackup;
             isRevertShift = true;
         }
@@ -498,16 +504,16 @@ public static class WandererCmd
         {
             // Clone the Refill source before Transform detaches it from its pile.
             CardModel? pendingRefillBackup = null;
-            if (card.Keywords.Contains(WandererKeywords.Refill))
+            if (card.Keywords.Contains(WandererKeywords.Refills))
             {
                 pendingRefillBackup = card.CombatState.CloneCard(card);
             }
 
             var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
-            // Landing on Enshrined would trap the refill chain permanently.
+            // Landing on Enshrined or Refills would trap the refill chain permanently.
             if (pendingRefillBackup != null)
             {
-                options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined));
+                options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills));
             }
             var transformation = new CardTransformation(card, options);
             var results = await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
@@ -516,6 +522,11 @@ public static class WandererCmd
             if (pendingRefillBackup != null && resultCard != null)
             {
                 _refillBackups[resultCard] = pendingRefillBackup;
+                resultCard.AddKeyword(WandererKeywords.Refilling);
+                if (resultCard is WandererCard wandererResult)
+                {
+                    wandererResult.AddRuntimeHoverTip(HoverTipFactory.FromCard(pendingRefillBackup));
+                }
             }
         }
 
@@ -537,7 +548,7 @@ public static class WandererCmd
 
         await AfterShifted(card);
 
-        if (isRevertShift && resultCard != null && resultCard.Keywords.Contains(WandererKeywords.Refill))
+        if (isRevertShift && resultCard != null && resultCard.Keywords.Contains(WandererKeywords.Refills))
         {
             await AfterRefilled(resultCard);
         }

@@ -15,7 +15,7 @@ public class EnterHasso : WandererCard, IEnterStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<HassoPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<HassoPower>()];
 
     public EnterHasso() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

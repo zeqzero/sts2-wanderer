@@ -17,7 +17,7 @@ public class Swig : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DynamicVar("Shift", 1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public Swig() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

@@ -15,7 +15,7 @@ public class PlayDead : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
     public PlayDead() : base(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {

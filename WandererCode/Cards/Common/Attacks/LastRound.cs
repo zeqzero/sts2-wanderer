@@ -19,7 +19,7 @@ public class LastRound : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(10, ValueProp.Move) ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public LastRound() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

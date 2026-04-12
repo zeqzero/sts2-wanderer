@@ -20,7 +20,7 @@ public class Banjaku : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(10m)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>()];
 
     public Banjaku() : base(4, CardType.Power, CardRarity.Rare, TargetType.Self)
     {

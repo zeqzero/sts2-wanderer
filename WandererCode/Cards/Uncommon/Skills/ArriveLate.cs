@@ -25,7 +25,7 @@ public class ArriveLate : WandererCard
         new PowerVar<VulnerablePower>(1m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.FromPower<WeakPower>(),
         HoverTipFactory.FromPower<VulnerablePower>()

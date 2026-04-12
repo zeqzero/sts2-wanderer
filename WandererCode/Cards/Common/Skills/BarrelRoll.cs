@@ -20,7 +20,7 @@ public class BarrelRoll : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [WandererKeywords.ShiftHoverTip];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 
     public BarrelRoll() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {

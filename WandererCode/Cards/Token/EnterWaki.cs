@@ -15,7 +15,7 @@ public class EnterWaki : WandererCard, IEnterStance
 {
     public override CardPoolModel Pool => ModelDb.CardPool<TokenCardPool>();
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WakiPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<WakiPower>()];
 
     public EnterWaki() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, false, false)
     {

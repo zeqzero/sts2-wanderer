@@ -17,7 +17,7 @@ public class RoninForm : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<RoninFormPower>(1m)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips
     {
         get
         {

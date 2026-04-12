@@ -15,7 +15,7 @@ public class Flow : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlowPower>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
         HoverTipFactory.Static(StaticHoverTip.Block)
     ];

@@ -2,6 +2,7 @@ using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using Wanderer.WandererCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -12,6 +13,15 @@ namespace Wanderer.WandererCode.Cards;
 public abstract class WandererCard(int cost, CardType type, CardRarity rarity, TargetType target, bool showInCardLibrary = true, bool autoAdd = true) :
     CustomCardModel(cost, type, rarity, target, showInCardLibrary, autoAdd), IWandererEventListener
 {
+    private readonly List<IHoverTip> _runtimeHoverTips = [];
+
+    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips =>
+        _runtimeHoverTips.Count > 0
+            ? WandererExtraHoverTips.Concat(_runtimeHoverTips)
+            : WandererExtraHoverTips;
+
+    protected virtual IEnumerable<IHoverTip> WandererExtraHoverTips => [];
+
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
     //Full art: 606x852
@@ -24,6 +34,9 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+
+    public void AddRuntimeHoverTip(IHoverTip hoverTip) => _runtimeHoverTips.Add(hoverTip);
+    public void ClearRuntimeHoverTips() => _runtimeHoverTips.Clear();
 
     public virtual async Task AfterEnteredShinigami(Creature creature)
     {
