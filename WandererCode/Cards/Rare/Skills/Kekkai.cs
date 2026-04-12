@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>shift</tags>
+/// <tags>death</tags>
 [Pool(typeof(WandererCardPool))]
 public class Kekkai : WandererCard
 {
