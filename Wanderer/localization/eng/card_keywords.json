@@ -6,5 +6,5 @@
     "WANDERER-REMOVE_DISHONOR.title": "Remove Dishonor",
     "WANDERER-REMOVE_DISHONOR.description": "An [purple]Ofuda[/purple]-[gold]shifted[/gold] Dishonor is removed when played.\nPerform [gold]Misogi[/gold] at Rest sites to remove all Dishonor.",
     "WANDERER-REFILL.title": "Refill",
-    "WANDERER-REFILL.description": "If this card is [gold]Shifted[/gold] and then [gold]Shifted[/gold] again, it returns to its original form."
+    "WANDERER-REFILL.description": "This card is [gold]Shifted[/gold] after being played. When [gold]Shifted[/gold] again, it returns to its original form."
 }
