@@ -187,5 +187,7 @@
     "WANDERER-HIP_CHECK.title": "Hip Check",
     "WANDERER-HIP_CHECK.description": "Deal {Damage:diff()} damage.\nOn [gold]Refill[/gold], increase the damage of ALL Hip Check cards by {Increase:diff()} permanently and [gold]Exhaust[/gold].",
     "WANDERER-TAME.title": "Tame",
-    "WANDERER-TAME.description": "Put Kamae in hand.\nGain {Energy:diff()} energy.\nDraw {Cards:diff()} {Cards:plural:card|cards}."
+    "WANDERER-TAME.description": "Put Kamae in hand.\nGain {Energy:diff()} energy.\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
+    "WANDERER-SUTEMI.title": "Sutemi",
+    "WANDERER-SUTEMI.description": "Deal {Damage:diff()} damage.\nNext turn, deal {NextTurnDamage:diff()} damage for each card in your Exhaust Pile."
 }

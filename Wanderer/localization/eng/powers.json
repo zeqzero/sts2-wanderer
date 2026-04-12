@@ -92,5 +92,8 @@
     "WANDERER-KIAI_POWER.smartDescription": "Next turn, draw {Amount} and gain {Amount}x2 Strength for each unique next turn power.",
     "WANDERER-JIGOKU_JUNBI_POWER.title": "Jigoku Junbi",
     "WANDERER-JIGOKU_JUNBI_POWER.description": "Next Turn powers are not removed after being applied.",
-    "WANDERER-JIGOKU_JUNBI_POWER.smartDescription": "Next Turn powers are not removed after being applied."
+    "WANDERER-JIGOKU_JUNBI_POWER.smartDescription": "Next Turn powers are not removed after being applied.",
+    "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.title": "Next Turn Damage",
+    "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.description": "Next turn, deal 1 damage to a random enemy.",
+    "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.smartDescription": "Next turn, deal {Amount} damage to a random enemy."
 }
