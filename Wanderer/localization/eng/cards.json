@@ -173,5 +173,9 @@
     "WANDERER-OVEREXERT.description": "Play and exhaust a card from your Discard Pile.",
     "WANDERER-OVEREXERT.selectionScreenPrompt": "Select a card to play and Exhaust.",
     "WANDERER-RETALIATE.title": "Retaliate",
-    "WANDERER-RETALIATE.description": "Next time you counter, it hits ALL enemies."
+    "WANDERER-RETALIATE.description": "Next time you counter, it hits ALL enemies.",
+    "WANDERER-WOBBLE.title": "Wobble",
+    "WANDERER-WOBBLE.description": "Deal {Damage:diff()} damage.\nOn [gold]Refill[/gold], gain {Block:diff()} [gold]Block[/gold].",
+    "WANDERER-HICCUP.title": "Hiccup",
+    "WANDERER-HICCUP.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\nOn [gold]Refill[/gold], gain {Energy:diff()} energy."
 }
