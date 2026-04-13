@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Interfaces;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class JodanPower : WandererPower, IStancePower
 {
     public Stance Stance => Stance.Jodan;

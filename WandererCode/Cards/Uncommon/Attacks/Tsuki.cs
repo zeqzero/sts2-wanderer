@@ -13,6 +13,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Tsuki : WandererCard
 {

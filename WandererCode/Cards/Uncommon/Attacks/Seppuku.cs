@@ -7,6 +7,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, exhaust</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Seppuku : WandererCard
 {

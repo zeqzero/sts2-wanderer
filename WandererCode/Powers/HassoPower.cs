@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Interfaces;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class HassoPower : WandererPower, IStancePower
 {
     public Stance Stance => Stance.Hasso;

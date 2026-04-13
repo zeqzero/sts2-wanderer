@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public abstract class WandererPower : CustomPowerModel, IWandererEventListener
 {
     //Loads from Wanderer/images/powers/your_power.png

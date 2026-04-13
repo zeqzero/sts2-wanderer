@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, counter, redesign</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class IgnoreShame : WandererCard
 {

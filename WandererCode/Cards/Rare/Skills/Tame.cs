@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>energy, draw, shift, refill, dance</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Tame : WandererCard
 {

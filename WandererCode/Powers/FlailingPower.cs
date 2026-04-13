@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class FlailingPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

@@ -9,6 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags></tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class DefendWanderer : WandererCard
 {

@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, death, exhaust</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class PlayDead : WandererCard
 {

@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public abstract class WandererNextTurnApplyPower<T> : WandererPower, IWandererNextTurnPower where T : PowerModel
 {
     public override PowerType Type => PowerType.Buff;

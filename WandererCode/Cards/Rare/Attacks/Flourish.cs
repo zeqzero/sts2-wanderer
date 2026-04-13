@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, flurry, dance</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Flourish : WandererCard
 {

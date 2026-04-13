@@ -8,6 +8,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Plant : WandererCard
 {

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class TargetArmsPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

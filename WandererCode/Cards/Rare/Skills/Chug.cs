@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift, draw, energy</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Chug : WandererCard
 {

@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class SecretSaucePower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

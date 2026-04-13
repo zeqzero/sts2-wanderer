@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, draw, energy, aoe</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class DeathPoem : WandererCard
 {

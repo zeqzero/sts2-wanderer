@@ -7,9 +7,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <summary>
-/// Gain/lose energy next turn
-/// </summary>
+/// <art></art>
 public sealed class WandererNextTurnEnergyPower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;

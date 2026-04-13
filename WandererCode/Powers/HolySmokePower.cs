@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Wanderer.WandererCode.Powers;
 
 
+/// <art></art>
 public class HolySmokePower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

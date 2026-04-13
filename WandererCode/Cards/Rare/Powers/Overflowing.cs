@@ -8,6 +8,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Overflowing : WandererCard
 {

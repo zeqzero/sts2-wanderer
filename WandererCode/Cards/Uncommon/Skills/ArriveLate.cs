@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, weak, vuln</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class ArriveLate : WandererCard
 {

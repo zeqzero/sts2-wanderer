@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, aoe</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class TheSpins : WandererCard
 {

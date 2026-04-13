@@ -8,6 +8,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class WandererNextTurnDamagePower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;

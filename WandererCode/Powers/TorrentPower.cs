@@ -7,6 +7,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
+/// <art></art>
 public class TorrentPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

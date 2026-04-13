@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
+/// <art></art>
 [Pool(typeof(TokenCardPool))]
 public class EnterJodan : WandererCard, IEnterStance
 {

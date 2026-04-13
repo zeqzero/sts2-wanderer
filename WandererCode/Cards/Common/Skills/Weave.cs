@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, draw</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Weave : WandererCard
 {

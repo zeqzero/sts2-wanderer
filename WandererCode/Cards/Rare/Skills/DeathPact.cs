@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, multiplayer</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class DeathPact : WandererCard
 {

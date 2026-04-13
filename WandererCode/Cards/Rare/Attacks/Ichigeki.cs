@@ -14,6 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 // Ichigeki - Rare Attack - 3 Energy - Deal 20 damage.\nDeals 7 additional damage for each turn you've remained in your current stance. - Upgrade +3 additional damage
 
 /// <tags>commit</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Ichigeki : WandererCard
 {

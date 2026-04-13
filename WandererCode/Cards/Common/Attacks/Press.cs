@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Press : WandererCard
 {

@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Blindside : WandererCard
 {

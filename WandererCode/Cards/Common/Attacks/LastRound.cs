@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, exhaust</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class LastRound : WandererCard
 {

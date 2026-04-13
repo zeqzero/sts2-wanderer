@@ -10,6 +10,7 @@ using System;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags></tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class StrikeWanderer : WandererCard
 {

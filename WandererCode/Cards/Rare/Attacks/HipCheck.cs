@@ -14,6 +14,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill, grows</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class HipCheck : WandererCard
 {

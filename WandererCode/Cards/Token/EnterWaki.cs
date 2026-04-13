@@ -10,6 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
+/// <art></art>
 [Pool(typeof(TokenCardPool))]
 public class EnterWaki : WandererCard, IEnterStance
 {

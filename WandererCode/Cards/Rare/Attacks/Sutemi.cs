@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, nextturn</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Sutemi : WandererCard
 {

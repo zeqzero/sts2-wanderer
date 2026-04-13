@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, counter</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Feint : WandererCard
 {

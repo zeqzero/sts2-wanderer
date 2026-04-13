@@ -9,6 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Slash : WandererCard
 {

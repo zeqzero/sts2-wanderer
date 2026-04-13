@@ -8,6 +8,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class JigokuJunbi : WandererCard
 {

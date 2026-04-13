@@ -13,6 +13,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class BarrelRoll : WandererCard
 {

@@ -9,6 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>gold, exhaust</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Prudence : WandererCard
 {

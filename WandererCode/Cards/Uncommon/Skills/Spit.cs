@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Spit : WandererCard
 {

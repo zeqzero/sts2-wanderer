@@ -15,6 +15,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
+/// <art></art>
 [Pool(typeof(WandererCardPool))]
 public class Banjaku : WandererCard
 {
