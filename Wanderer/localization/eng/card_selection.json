@@ -1,3 +1,4 @@
 {
-  "WANDERER-TO_SHIFT": "Shift"
+  "WANDERER-TO_SHIFT": "Select up to {MaxCount} {MaxCount:plural:card|cards} to Shift.",
+  "WANDERER-TO_SHIFT_AND_RETAIN": "Select up to {MaxCount} {MaxCount:plural:card|cards} to Shift and Retain."
 }

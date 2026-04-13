@@ -567,9 +567,11 @@ public static class WandererCmd
     }
 
     /// <summary>Prompt the player to pick cards from hand (non-Enshrined) and Shift each.</summary>
-    public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, AbstractModel source, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null)
+    private static readonly LocString DefaultShiftPrompt = new("card_selection", "WANDERER-TO_SHIFT");
+
+    public static async Task PickAndShiftCardsFromHand(PlayerChoiceContext context, int count, Player player, AbstractModel source, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null, LocString? prompt = null)
     {
-        var prefs = new CardSelectorPrefs(new("card_selection", "WANDERER-TO_SHIFT"), count);
+        var prefs = new CardSelectorPrefs(prompt ?? DefaultShiftPrompt, 0, count);
         var selected = await CardSelectCmd.FromHand(context, player, prefs, c => !c.Keywords.Contains(WandererKeywords.Enshrined), source);
 
         foreach (var card in selected)

@@ -89,7 +89,7 @@
     "WANDERER-DEATH_PACT_POWER.smartDescription": "When the Wanderer dies, gain {Amount} Intangible.",
     "WANDERER-WANDERER_NEXT_TURN_KIAI_POWER.title": "Next Turn Kiai",
     "WANDERER-WANDERER_NEXT_TURN_KIAI_POWER.description": "Next turn, draw 1 card and gain 2 Strength for each unique next turn power.",
-    "WANDERER-KIAI_POWER.smartDescription": "Next turn, draw {Amount} and gain {Amount}x2 Strength for each unique next turn power.",
+    "WANDERER-WANDERER_NEXT_TURN_KIAI_POWER.smartDescription": "Next turn, draw {Amount} and gain {Amount}x2 Strength for each unique next turn power.",
     "WANDERER-JIGOKU_JUNBI_POWER.title": "Jigoku Junbi",
     "WANDERER-JIGOKU_JUNBI_POWER.description": "Next Turn powers are not removed after being applied.",
     "WANDERER-JIGOKU_JUNBI_POWER.smartDescription": "Next Turn powers are not removed after being applied.",

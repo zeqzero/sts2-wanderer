@@ -18,9 +18,12 @@ public class GedanPower : WandererPower, IStancePower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [ HoverTipFactory.FromPower<CounterPower>() ];
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        await PowerCmd.Apply<CounterPower>(Owner, Amount, Owner, null);
+        if (power == this)
+        {
+            await PowerCmd.Apply<CounterPower>(Owner, amount, Owner, null);
+        }
     }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)

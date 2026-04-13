@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
@@ -11,19 +12,24 @@ namespace Wanderer.WandererCode.Powers;
 
 public class WakiPower : WandererPower, IStancePower
 {
+    private static readonly LocString ShiftAndRetainPrompt = new("card_selection", "WANDERER-TO_SHIFT_AND_RETAIN");
+
     public Stance Stance => Stance.Waki;
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        ArgumentNullException.ThrowIfNull(Owner.Player);
-        await WandererCmd.PickAndShiftCardsFromHand(new BlockingPlayerChoiceContext(), 1, Owner.Player, this, addKeywords: [ CardKeyword.Retain ]);
-
-        foreach (var card in PileType.Hand.GetPile(Owner.Player).Cards.Where(c => c.Keywords.Contains(CardKeyword.Retain)))
+        if (power == this)
         {
-            card.EnergyCost.AddUntilPlayed(-1);
+            ArgumentNullException.ThrowIfNull(Owner.Player);
+            await WandererCmd.PickAndShiftCardsFromHand(new BlockingPlayerChoiceContext(), (int)amount, Owner.Player, this, addKeywords: [ CardKeyword.Retain ], prompt: ShiftAndRetainPrompt);
+
+            foreach (var card in PileType.Hand.GetPile(Owner.Player).Cards.Where(c => c.Keywords.Contains(CardKeyword.Retain)))
+            {
+                card.EnergyCost.AddUntilPlayed(-1);
+            }
         }
     }
 
@@ -31,7 +37,7 @@ public class WakiPower : WandererPower, IStancePower
     {
         if (player == Owner.Player)
         {
-            await WandererCmd.PickAndShiftCardsFromHand(new BlockingPlayerChoiceContext(), Amount, Owner.Player, this, addKeywords: [ CardKeyword.Retain ]);
+            await WandererCmd.PickAndShiftCardsFromHand(new BlockingPlayerChoiceContext(), Amount, Owner.Player, this, addKeywords: [ CardKeyword.Retain ], prompt: ShiftAndRetainPrompt);
 
             foreach (var card in PileType.Hand.GetPile(Owner.Player).Cards.Where(c => c.Keywords.Contains(CardKeyword.Retain)))
             {

@@ -21,8 +21,8 @@ public class EnterHasso : WandererCard, IEnterStance
     {
     }
 
-    public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay, int amount)
     {
-        await WandererCmd.EnterStance(Owner.Creature, Stance.Hasso, 1);
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Hasso, amount);
     }
 }

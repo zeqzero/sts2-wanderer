@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>exhaust, vigor</tags>
+/// <tags>exhaust</tags>
 [Pool(typeof(TokenCardPool))]
 public class EnterJodan : WandererCard, IEnterStance
 {
@@ -21,8 +21,8 @@ public class EnterJodan : WandererCard, IEnterStance
     {
     }
 
-    public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public async Task OnEnter(PlayerChoiceContext choiceContext, CardPlay cardPlay, int amount)
     {
-        await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan, 1);
+        await WandererCmd.EnterStance(Owner.Creature, Stance.Jodan, amount);
     }
 }

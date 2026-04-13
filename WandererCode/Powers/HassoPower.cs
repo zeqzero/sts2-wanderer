@@ -18,9 +18,12 @@ public class HassoPower : WandererPower, IStancePower
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new CardsVar(1) ];
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        await PowerCmd.Apply<WandererNextTurnDrawPower>(Owner, DynamicVars.Cards.BaseValue * Amount, Owner, null);
+        if (power == this)
+        {
+            await PowerCmd.Apply<WandererNextTurnDrawPower>(Owner, DynamicVars.Cards.BaseValue * amount, Owner, null);
+        }
     }
 
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)

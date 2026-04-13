@@ -20,18 +20,21 @@ public class JodanPower : WandererPower, IStancePower
     public override PowerStackType StackType => PowerStackType.Counter;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<VigorPower>(7) ];
-
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    
+    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        ArgumentNullException.ThrowIfNull(Owner.Player);
-        var choiceContext = new BlockingPlayerChoiceContext();
-        var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, Amount), context: choiceContext, player: Owner.Player, filter: null, source: this);
-        if (cardsToExhaust != null)
+        if (power == this)
         {
-            foreach (var card in cardsToExhaust)
+            ArgumentNullException.ThrowIfNull(Owner.Player);
+            var choiceContext = new BlockingPlayerChoiceContext();
+            var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, (int)amount), context: choiceContext, player: Owner.Player, filter: null, source: this);
+            if (cardsToExhaust != null)
             {
-                await CardCmd.Exhaust(choiceContext, card);
-                await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
+                foreach (var card in cardsToExhaust)
+                {
+                    await CardCmd.Exhaust(choiceContext, card);
+                    await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
+                }
             }
         }
     }

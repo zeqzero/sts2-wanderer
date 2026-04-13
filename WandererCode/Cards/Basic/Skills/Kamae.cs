@@ -45,7 +45,7 @@ public class Kamae : WandererCard
         CardModel? chosenCard = await WandererCmd.ChooseCard(choiceContext, cards, Owner, canSkip: false);
         if (chosenCard is IEnterStance enterStance)
         {
-            await enterStance.OnEnter(choiceContext, cardPlay);
+            await enterStance.OnEnter(choiceContext, cardPlay, 1);
         }
     }
 

@@ -21,9 +21,12 @@ public class ChudanPower : WandererPower, IStancePower
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ChudanStrengthPower>(2)];
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        await PowerCmd.Apply<ChudanStrengthPower>(Owner, DynamicVars["ChudanStrengthPower"].BaseValue * Amount, Owner, null);
+        if (power == this)
+        {
+            await PowerCmd.Apply<ChudanStrengthPower>(Owner, DynamicVars["ChudanStrengthPower"].BaseValue * amount, Owner, null);
+        }
     }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
