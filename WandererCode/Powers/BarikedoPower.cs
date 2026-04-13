@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>icon, copy Barridae</art>
 public class BarikedoPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

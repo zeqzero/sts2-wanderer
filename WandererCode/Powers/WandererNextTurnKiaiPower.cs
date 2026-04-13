@@ -7,7 +7,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>hourglass with curly backward pointing arrow overlayed... copy Block Next Turn and Countdown</art>
 public class WandererNextTurnKiaiPower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;

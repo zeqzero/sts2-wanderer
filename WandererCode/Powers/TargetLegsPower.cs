@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>leg with reticle overlay... copy Vicious and Accuracy</art>
 public class TargetLegsPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

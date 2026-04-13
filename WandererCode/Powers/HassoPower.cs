@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Interfaces;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>sword at 12 o'clock</art>
 public class HassoPower : WandererPower, IStancePower
 {
     public Stance Stance => Stance.Hasso;

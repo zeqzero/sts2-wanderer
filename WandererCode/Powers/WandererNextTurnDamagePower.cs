@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>bomb with curly backward pointing arrow overlayed... copy Block Next Turn and The Bomb</art>
 public class WandererNextTurnDamagePower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;

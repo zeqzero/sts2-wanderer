@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>head with reticle overlay... copy Tank and Accuracy</art>
 public class TargetHeadPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

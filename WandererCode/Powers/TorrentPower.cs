@@ -7,7 +7,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>Waterfall with sword overlay</art>
 public class TorrentPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

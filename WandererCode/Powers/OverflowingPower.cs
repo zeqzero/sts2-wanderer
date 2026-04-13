@@ -5,7 +5,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>copy Slippery</art>
 public class OverflowingPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

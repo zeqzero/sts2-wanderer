@@ -6,7 +6,7 @@ using Wanderer.WandererCode.Extensions;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>copy Temporary Dexterity</art>
 public abstract class WandererTemporaryDexterityPower : TemporaryDexterityPower, ICustomPower, ICustomModel
 {
     string? ICustomPower.CustomPackedIconPath

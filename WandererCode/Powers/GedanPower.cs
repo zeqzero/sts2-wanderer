@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Interfaces;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>sword at 4 o'clock</art>
 public class GedanPower : WandererPower, IStancePower
 {
     public Stance Stance => Stance.Gedan;

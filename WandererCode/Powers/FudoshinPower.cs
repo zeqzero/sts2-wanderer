@@ -5,7 +5,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>copy Corruption</art>
 public class FudoshinPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

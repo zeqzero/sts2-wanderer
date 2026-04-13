@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>armor with sword overlay... copy Plating and Painful stabs</art>
 public class SenNoSenPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

@@ -3,7 +3,7 @@ using Wanderer.WandererCode.Cards;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>copy Demise</art>
 public class StolenPeachPower : WandererTemporaryStrengthPower
 {
     public override AbstractModel OriginModel => ModelDb.Card<StealPeach>();

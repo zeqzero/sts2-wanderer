@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Powers;
 /// While in shinigami form: all cards cost 0 energy and exhaust when played.
 /// Intangible (all damage reduced to 1). After exhausting enough cards, exit shinigami form.
 /// </summary>
-/// <art></art>
+/// <art>copy Haunt</art>
 public class ShinigamiPower : WandererPower
 {
     public override PowerType Type => PowerType.Buff;

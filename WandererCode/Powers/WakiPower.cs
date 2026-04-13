@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Interfaces;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>sword at 7 o'clock</art>
 public class WakiPower : WandererPower, IStancePower
 {
     private static readonly LocString ShiftAndRetainPrompt = new("card_selection", "WANDERER-TO_SHIFT_AND_RETAIN");

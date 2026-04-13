@@ -7,7 +7,7 @@ using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
 
-/// <art></art>
+/// <art>lightning bolt with curly backward pointing arrow overlayed... copy Block Next Turn and Energy Next Turn</art>
 public sealed class WandererNextTurnEnergyPower : WandererPower, IWandererNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;
