@@ -35,17 +35,7 @@ public class Tame : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // Put Kamae in hand
-        if (!PileType.Hand.GetPile(Owner).Cards.Any(c => c is Kamae))
-        {
-            CardModel? kamae = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae)
-                ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae);
-
-            if (kamae != null)
-            {
-                await CardPileCmd.Add(kamae, PileType.Hand);
-            }
-        }
+        await WandererCmd.PutKamaeInHand(Owner);
 
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);

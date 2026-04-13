@@ -3,9 +3,9 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Cards;
 
@@ -25,18 +25,7 @@ public class Yield : WandererCard
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
-        // Check if Kamae is already in hand
-        if (PileType.Hand.GetPile(Owner).Cards.Any(c => c is Kamae))
-            return;
-
-        // Search draw, discard, and exhaust for an existing Kamae
-        CardModel? kamae = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae)
-            ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c is Kamae);
-
-        if (kamae != null)
-        {
-            await CardPileCmd.Add(kamae, PileType.Hand);
-        }
+        await WandererCmd.PutKamaeInHand(Owner);
     }
 
     protected override void OnUpgrade()

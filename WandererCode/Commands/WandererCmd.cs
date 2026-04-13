@@ -566,6 +566,23 @@ public static class WandererCmd
         }
     }
 
+    /// <summary>Find Kamae or Mu-gamae in draw/discard/exhaust and put it in hand. Prioritizes Mu-gamae.</summary>
+    public static async Task PutKamaeInHand(Player player)
+    {
+        if (PileType.Hand.GetPile(player).Cards.Any(c => c is MuGamae or Kamae))
+            return;
+
+        static CardModel? FindInPile(Player p, PileType pileType) =>
+            pileType.GetPile(p).Cards.FirstOrDefault(c => c is MuGamae)
+            ?? pileType.GetPile(p).Cards.FirstOrDefault(c => c is Kamae);
+
+        CardModel? card = FindInPile(player, PileType.Draw) ?? FindInPile(player, PileType.Discard) ?? FindInPile(player, PileType.Exhaust);
+        if (card != null)
+        {
+            await CardPileCmd.Add(card, PileType.Hand);
+        }
+    }
+
     /// <summary>Prompt the player to pick cards from hand (non-Enshrined) and Shift each.</summary>
     private static readonly LocString DefaultShiftPrompt = new("card_selection", "WANDERER-TO_SHIFT");
 
