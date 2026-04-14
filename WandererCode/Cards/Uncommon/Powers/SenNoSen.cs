@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
-/// <art></art>
+/// <art>wanderer in chudan stance, action lines indicating parries, viewed from unique angle</art>
 [Pool(typeof(WandererCardPool))]
 public class SenNoSen : WandererCard
 {

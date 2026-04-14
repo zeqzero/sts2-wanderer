@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, energy</tags>
-/// <art></art>
+/// <art>drunk wanderer swinging a stool, action lines</art>
 [Pool(typeof(WandererCardPool))]
 public class Improvise : WandererCard
 {

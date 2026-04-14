@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, exhaust</tags>
-/// <art></art>
+/// <art>rectangular paper a red circular symbol on top and gibberish characters beneath, portait aspect</art>
 [Pool(typeof(StatusCardPool))]
 public class Ofuda : WandererCard
 {

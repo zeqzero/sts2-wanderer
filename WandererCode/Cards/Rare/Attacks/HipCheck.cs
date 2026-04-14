@@ -14,7 +14,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill, grows</tags>
-/// <art></art>
+/// <art>wanderer slamming in to an enemy ass-first, feminine hand sign (peace, heart, or see drunken miss ho)</art>
 [Pool(typeof(WandererCardPool))]
 public class HipCheck : WandererCard
 {

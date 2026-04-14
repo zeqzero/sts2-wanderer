@@ -13,7 +13,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
-/// <art></art>
+/// <art>wanderer in chudan stance stepping while attacking, action lines indicating this is the end of a combo of attacks</art>
 [Pool(typeof(WandererCardPool))]
 public class Tsuki : WandererCard
 {

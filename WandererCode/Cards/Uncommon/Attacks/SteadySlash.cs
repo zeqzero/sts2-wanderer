@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit, aoe</tags>
-/// <art></art>
+/// <art>wanderer in partial squat, finishing a two-part wide slash attack, blade visible, two wide arc action lines</art>
 [Pool(typeof(WandererCardPool))]
 public class SteadySlash : WandererCard
 {

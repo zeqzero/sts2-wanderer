@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>vuln</tags>
-/// <art></art>
+/// <art>wanderer walking forward holding katana in one hand, arms held out, think Bane vs. PInk Guy meme</art>
 [Pool(typeof(WandererCardPool))]
 public class Courage : WandererCard
 {

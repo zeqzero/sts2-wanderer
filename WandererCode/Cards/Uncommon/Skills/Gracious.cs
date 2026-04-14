@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, draw, exhaust</tags>
-/// <art></art>
+/// <art>Wanderer waving warmly at a foe, who looks sheepish</art>
 [Pool(typeof(WandererCardPool))]
 public class Gracious : WandererCard
 {

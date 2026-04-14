@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
-/// <art></art>
+/// <art>wanderer walking menacingly toward viewer, katana held in one hand, other hand held in a tight fist</art>
 [Pool(typeof(WandererCardPool))]
 public class Brazen : WandererCard
 {

@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, nextturn</tags>
-/// <art></art>
+/// <art>wanderer after completing an attack, cut up enemy with blood just beginning to spray from the wounds</art>
 [Pool(typeof(WandererCardPool))]
 public class Sutemi : WandererCard
 {

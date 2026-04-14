@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, energy</tags>
-/// <art></art>
+/// <art>wander running their hand along the forehead, wiping sweat away, visible exhale</art>
 [Pool(typeof(WandererCardPool))]
 public class WipeBrow : WandererCard
 {

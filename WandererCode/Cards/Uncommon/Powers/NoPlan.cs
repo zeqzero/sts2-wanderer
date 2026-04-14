@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
-/// <art></art>
+/// <art>wanderer accidentally deflecting an attack while pourding from gourd in to a small cup, oblivious</art>
 [Pool(typeof(WandererCardPool))]
 public class NoPlan : WandererCard
 {

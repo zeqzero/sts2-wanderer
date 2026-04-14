@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter, aoe</tags>
-/// <art></art>
+/// <art>wanderer in gedan stance facing diagonally toward viewer, dust rising around them in a circle on the ground, laser eye hype effect from beneath straw hat</art>
 [Pool(typeof(WandererCardPool))]
 public class Mushin : WandererCard
 {

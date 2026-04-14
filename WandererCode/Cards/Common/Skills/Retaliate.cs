@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
-/// <art></art>
+/// <art>wanderer in gedan, confident posture, perhaps taunting with one hand</art>
 [Pool(typeof(WandererCardPool))]
 public class Retaliate : WandererCard
 {

@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
-/// <art></art>
+/// <art>wanderer dual-wielding katana and gourd, action lines indicating attacks with both</art>
 [Pool(typeof(WandererCardPool))]
 public class Flailing : WandererCard
 {

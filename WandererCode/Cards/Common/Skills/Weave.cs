@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, draw</tags>
-/// <art></art>
+/// <art>wanderer turning their shoulders/torse while standing in place, matrix dodge style, action lines indicating dodged attack</art>
 [Pool(typeof(WandererCardPool))]
 public class Weave : WandererCard
 {

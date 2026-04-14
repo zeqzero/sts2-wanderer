@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill, draw, energy</tags>
-/// <art></art>
+/// <art>tight zoom of head/straw hat, bubbles rising all around, gourd visible</art>
 [Pool(typeof(WandererCardPool))]
 public class Hiccup : WandererCard
 {

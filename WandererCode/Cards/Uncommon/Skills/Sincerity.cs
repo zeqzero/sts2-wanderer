@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>draw</tags>
-/// <art></art>
+/// <art>wander standing at a tree repeatedly striking it with a bokken</art>
 [Pool(typeof(WandererCardPool))]
 public class Sincerity : WandererCard
 {

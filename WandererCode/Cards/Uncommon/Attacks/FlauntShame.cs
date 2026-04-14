@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, aoe, flurry</tags>
-/// <art></art>
+/// <art>wanderer doing a rude gesture, see Bras d'honneur, ideally with an offended foe nearby</art>
 [Pool(typeof(WandererCardPool))]
 public class FlauntShame : WandererCard
 {

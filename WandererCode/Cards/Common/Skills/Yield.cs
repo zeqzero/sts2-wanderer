@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
-/// <art></art>
+/// <art>wanderer in chudan stance moving to Hasso while taking 1 step backward, drawing sword back toward body</art>
 [Pool(typeof(WandererCardPool))]
 public class Yield : WandererCard
 {

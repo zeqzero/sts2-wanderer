@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry, xcost</tags>
-/// <art></art>
+/// <art>wanderer making dozens of attacks simultaneous, multiple katanas visible through a cloud of action lines</art>
 [Pool(typeof(WandererCardPool))]
 public class AhTaTaTaTaTa : WandererCard
 {

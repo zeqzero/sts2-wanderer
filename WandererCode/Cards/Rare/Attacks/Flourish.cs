@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, flurry, dance</tags>
-/// <art></art>
+/// <art>wanderer twirling their blade, posture is fruity and dancer-y</art>
 [Pool(typeof(WandererCardPool))]
 public class Flourish : WandererCard
 {

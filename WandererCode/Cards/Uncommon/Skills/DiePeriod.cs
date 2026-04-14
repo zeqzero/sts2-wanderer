@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, draw</tags>
-/// <art></art>
+/// <art>Wanderer casually slitting the throat of an innocent character, maybe shopkeeper</art>
 [Pool(typeof(WandererCardPool))]
 public class DiePeriod : WandererCard
 {

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
-/// <art></art>
+/// <art>kendo vitruvian man, only jodan visible</art>
 [Pool(typeof(WandererCardPool))]
 public class Jodan : WandererCard
 {

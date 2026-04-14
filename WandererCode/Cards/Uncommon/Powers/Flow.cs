@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
-/// <art></art>
+/// <art>wanderer holding a pose, water background</art>
 [Pool(typeof(WandererCardPool))]
 public class Flow : WandererCard
 {

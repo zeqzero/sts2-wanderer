@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
-/// <art></art>
+/// <art>katana with action swoosh indicating speed, quick circular movement, zoomed-in closeup on katana</art>
 [Pool(typeof(WandererCardPool))]
 public class Flick : WandererCard
 {

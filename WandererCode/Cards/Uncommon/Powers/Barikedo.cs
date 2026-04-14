@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
-/// <art></art>
+/// <art>pile of shields with medieval japanese banners poking out</art>
 [Pool(typeof(WandererCardPool))]
 public class Barikedo : WandererCard
 {

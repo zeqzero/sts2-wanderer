@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe</tags>
-/// <art></art>
+/// <art>wide arc action line with multiple enemies being hit (see astral pulse)</art>
 [Pool(typeof(WandererCardPool))]
 public class Slash : WandererCard
 {

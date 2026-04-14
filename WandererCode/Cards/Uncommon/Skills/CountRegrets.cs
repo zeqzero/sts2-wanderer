@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death</tags>
-/// <art></art>
+/// <art>wanderer face palming, tight zoom on head</art>
 [Pool(typeof(WandererCardPool))]
 public class CountRegrets : WandererCard
 {

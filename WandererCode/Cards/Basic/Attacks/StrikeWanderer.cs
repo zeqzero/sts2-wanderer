@@ -10,7 +10,7 @@ using System;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags></tags>
-/// <art></art>
+/// <art>katana mid swing, zoomed-in on hilt</art>
 [Pool(typeof(WandererCardPool))]
 public class StrikeWanderer : WandererCard
 {

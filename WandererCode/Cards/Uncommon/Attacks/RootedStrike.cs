@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit</tags>
-/// <art></art>
+/// <art>wanderer in gedan stance, pipe in mouth, swinging sword upward, action lines</art>
 [Pool(typeof(WandererCardPool))]
 public class RootedStrike : WandererCard
 {

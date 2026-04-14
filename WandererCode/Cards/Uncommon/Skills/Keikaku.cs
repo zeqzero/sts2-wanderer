@@ -7,7 +7,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
-/// <art></art>
+/// <art>wanderer sitting at a desk writing, think "I'll take a potato chip AND EAT IT", arm held out with ink brush in hand</art>
 [Pool(typeof(WandererCardPool))]
 public class Keikaku : WandererCard
 {

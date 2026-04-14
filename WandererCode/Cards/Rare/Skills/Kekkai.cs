@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death</tags>
-/// <art></art>
+/// <art>wanderer pouring water over hand from a bamboo ladle, shinto purification, zoomed in on hand and ladle</art>
 [Pool(typeof(WandererCardPool))]
 public class Kekkai : WandererCard
 {
@@ -28,7 +28,7 @@ public class Kekkai : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var selected = await CardSelectCmd.FromHand(choiceContext, Owner, new CardSelectorPrefs(SelectionScreenPrompt, 1),
-            c => !c.Keywords.Contains(WandererKeywords.Enshrined), this);
+            c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills), this);
 
         foreach (var card in selected)
         {

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, aoe</tags>
-/// <art></art>
+/// <art>drunken wanderer spinning wildly, concerned enemy(s) look on, action lines indicating chaotic spinning</art>
 [Pool(typeof(WandererCardPool))]
 public class TheSpins : WandererCard
 {

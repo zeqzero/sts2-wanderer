@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance, commit</tags>
-/// <art></art>
+/// <art>kendo vitruvian man, all five Kamae shown overlayed atop eachother, Hasso highlighted, halo around head</art>
 [Pool(typeof(WandererCardPool))]
 public class MuGamae : WandererCard
 {

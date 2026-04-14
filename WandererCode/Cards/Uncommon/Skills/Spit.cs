@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift</tags>
-/// <art></art>
+/// <art>wanderer spitting a stream of liquid (booze?) from underneath the straw hat in to a disgusted foe's eyes</art>
 [Pool(typeof(WandererCardPool))]
 public class Spit : WandererCard
 {

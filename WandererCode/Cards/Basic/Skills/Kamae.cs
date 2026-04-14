@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance, commit</tags>
-/// <art></art>
+/// <art>kendo vitruvian man, chudan hasso and gedan shown, chudan highlighted</art>
 [Pool(typeof(WandererCardPool))]
 public class Kamae : WandererCard
 {

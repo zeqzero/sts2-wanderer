@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
-/// <art></art>
+/// <art>wanderer holding one-handed tora sign (first with index and middle finger raised) in front of face, zoomed in on hand</art>
 [Pool(typeof(WandererCardPool))]
 public class Zanshin : WandererCard
 {

@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, exhaust</tags>
-/// <art></art>
+/// <art>wanderer leaning forward, holding the edge of straw hat, single glowing eye visible through straw hat gaps, tight zoom on hat and hand</art>
 [Pool(typeof(WandererCardPool))]
 public class RoninForm : WandererCard
 {

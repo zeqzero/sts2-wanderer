@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, exhaust</tags>
-/// <art></art>
+/// <art>wanderer bent over facing viewer, covered in blood, blurred in the distance is a fallen foe, action lines indicating wanderer just stopped after a dash</art>
 [Pool(typeof(WandererCardPool))]
 public class LethalExchange : WandererCard
 {

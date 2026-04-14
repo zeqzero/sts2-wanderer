@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, energy</tags>
-/// <art></art>
+/// <art>wanderer mid-thrust with sword pointing toward viewer, zoomed in on blade with blurred straw hat in the background</art>
 [Pool(typeof(WandererCardPool))]
 public class Thrust : WandererCard
 {

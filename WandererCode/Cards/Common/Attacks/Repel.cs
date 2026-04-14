@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
-/// <art></art>
+/// <art>wanderer viewed from the front mid-clap, shinto hakusho clap, zoomed in on hands</art>
 [Pool(typeof(WandererCardPool))]
 public class Repel : WandererCard
 {

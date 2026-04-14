@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
-/// <art></art>
+/// <art>kendo vitruvian man, only chudan visible</art>
 [Pool(typeof(TokenCardPool))]
 public class EnterChudan : WandererCard, IEnterStance
 {

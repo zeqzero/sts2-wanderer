@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, counter, redesign</tags>
-/// <art></art>
+/// <art>wanderer in seiza posture meditating, all around them is blood, gore, and maybe something burning</art>
 [Pool(typeof(WandererCardPool))]
 public class IgnoreShame : WandererCard
 {

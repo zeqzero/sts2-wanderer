@@ -13,7 +13,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>enfeeble, flurry, xcost</tags>
-/// <art></art>
+/// <art>wanderer plunging sword in to enemy at a ki spot, enemy ki lines and spots are visible like internal anatomy</art>
 [Pool(typeof(WandererCardPool))]
 public class SeverKi : WandererCard
 {

@@ -8,7 +8,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
-/// <art></art>
+/// <art>wanderer in kabuki dance pose, partial squat with one foot on the opposing knee, hands held out with fingers spread</art>
 [Pool(typeof(WandererCardPool))]
 public class Overflowing : WandererCard
 {

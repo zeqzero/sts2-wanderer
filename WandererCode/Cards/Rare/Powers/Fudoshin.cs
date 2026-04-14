@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit, exhaust</tags>
-/// <art></art>
+/// <art>wanderer exhaling smoke from a long thin pipe, zoomed-in on face</art>
 [Pool(typeof(WandererCardPool))]
 public class Fudoshin : WandererCard
 {

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, nextturn, redesign</tags>
-/// <art></art>
+/// <art>wanderer sheathing sword, several action lines through slain enemies indicating many instantaneous high power attacks</art>
 [Pool(typeof(WandererCardPool))]
 public class Zangeki : WandererCard
 {

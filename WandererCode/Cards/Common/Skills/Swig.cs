@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,7 +11,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>draw, shift</tags>
-/// <art></art>
+/// <art>wanderer drinking from a small cup, one hand raising cup to face (hidden beneath hat), gourd visible</art>
 [Pool(typeof(WandererCardPool))]
 public class Swig : WandererCard
 {

@@ -13,7 +13,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill</tags>
-/// <art></art>
+/// <art>wanderer swinging a slung gourd up in order to pour from it, foe accidentally hit in the process falling backward, action lines</art>
 [Pool(typeof(WandererCardPool))]
 public class Wobble : WandererCard
 {

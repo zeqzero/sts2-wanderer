@@ -14,7 +14,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>enfeeble, shift</tags>
-/// <art></art>
+/// <art>wander tugs violently downward on the plump scrotum of an unfortunate foe, tight zoom on scrotum</art>
 [Pool(typeof(WandererCardPool))]
 public class StealPeach : WandererCard
 {

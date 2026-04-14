@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags></tags>
-/// <art></art>
+/// <art>matched katanas indicating a parry,  zoomed-in on point of contact</art>
 [Pool(typeof(WandererCardPool))]
 public class DefendWanderer : WandererCard
 {

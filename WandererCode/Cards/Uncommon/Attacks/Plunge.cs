@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, draw</tags>
-/// <art></art>
+/// <art>wanderer after sticking their katana all the way through an enemy, only the hilt is seen, the end of the katana visible on the other side of the foe</art>
 [Pool(typeof(WandererCardPool))]
 public class Plunge : WandererCard
 {

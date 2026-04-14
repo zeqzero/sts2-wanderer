@@ -12,7 +12,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter, nextturn</tags>
-/// <art></art>
+/// <art>wanderer dashing backward, chudan stance, action lines</art>
 [Pool(typeof(WandererCardPool))]
 public class Disengage : WandererCard
 {

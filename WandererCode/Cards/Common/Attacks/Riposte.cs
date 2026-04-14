@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Character;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry, counter</tags>
-/// <art></art>
+/// <art>wanderer cutting in to and enemy who is mid-attack, action lines indicating their attack was deflected</art>
 [Pool(typeof(WandererCardPool))]
 public class Riposte : WandererCard
 {

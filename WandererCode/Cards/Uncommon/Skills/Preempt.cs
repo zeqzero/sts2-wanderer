@@ -7,7 +7,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
-/// <art></art>
+/// <art>wanderer flipping a desk over like an angry mtg player</art>
 [Pool(typeof(WandererCardPool))]
 public class Preempt : WandererCard
 {
@@ -17,16 +17,16 @@ public class Preempt : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // Process KiaiPower first so it can count other next-turn powers before they remove themselves.
+        // Process KimePower first so it can count other next-turn powers before they remove themselves.
         var powers = Owner.Creature.Powers.ToList();
-        foreach (var power in powers.Where(p => p is WandererNextTurnKiaiPower))
+        foreach (var power in powers.Where(p => p is WandererNextTurnKimePower))
         {
             if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
             {
                 await nextTurnPower.ApplyNow(choiceContext, Owner);
             }
         }
-        foreach (var power in powers.Where(p => p is not WandererNextTurnKiaiPower))
+        foreach (var power in powers.Where(p => p is not WandererNextTurnKimePower))
         {
             if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
             {

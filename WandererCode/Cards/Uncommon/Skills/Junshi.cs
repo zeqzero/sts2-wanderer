@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death</tags>
-/// <art></art>
+/// <art>wanderer kneeling in preparation for seppuku, there's a trail of silhouettes leading away representing others who came before</art>
 [Pool(typeof(WandererCardPool))]
 public class Junshi : WandererCard
 {

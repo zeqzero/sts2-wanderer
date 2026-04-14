@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,7 +12,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
-/// <art></art>
+/// <art>wanderer mid-air about to land seemingly after a fuckin barrel roll</art>
 [Pool(typeof(WandererCardPool))]
 public class BarrelRoll : WandererCard
 {

@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor</tags>
-/// <art></art>
+/// <art>wanderer pommel striking an unaware foe on the side of the head, spit flying out of foe's mouth</art>
 [Pool(typeof(WandererCardPool))]
 public class Blindside : WandererCard
 {

@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor</tags>
-/// <art></art>
+/// <art>wanderer pouring toxic liquid from a slung gourd on to their katana</art>
 [Pool(typeof(WandererCardPool))]
 public class SecretSauce : WandererCard
 {

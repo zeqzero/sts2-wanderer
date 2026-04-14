@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
-/// <art></art>
+/// <art>wanderer in dogeza, kneeling with hands and head touching the ground, mega apology</art>
 [Pool(typeof(CurseCardPool))]
 public class Dishonor : WandererCard
 {

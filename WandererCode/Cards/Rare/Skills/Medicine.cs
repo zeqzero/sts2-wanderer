@@ -13,7 +13,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill, flurry</tags>
-/// <art></art>
+/// <art>wanderer holding a slung gourd toward the viewer, as if offering to pour some</art>
 [Pool(typeof(WandererCardPool))]
 public class Medicine : WandererCard
 {

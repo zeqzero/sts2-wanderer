@@ -11,7 +11,7 @@ using Wanderer.WandererCode.Keywords;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift, draw, energy</tags>
-/// <art></art>
+/// <art>wanderer drinking from gourd greedily, holding gourd with both hands, sword visible on ground, liquid pouring down face and on clothes and ground</art>
 [Pool(typeof(WandererCardPool))]
 public class Chug : WandererCard
 {

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Commands;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
-/// <art></art>
+/// <art>wanderer thrusting katana with one hand, other hand is holding a cup which they are drinking from</art>
 [Pool(typeof(WandererCardPool))]
 public class SuikyoStrike : WandererCard
 {
