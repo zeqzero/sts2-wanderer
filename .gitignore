@@ -12,3 +12,4 @@ packages/
 *.user
 media/
 decompiled/
+util/test-results/
