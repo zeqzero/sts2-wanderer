@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
 /// <art>wanderer in chudan stance moving to Hasso while taking 1 step backward, drawing sword back toward body</art>
+/// <kanji>譲</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Yield : WandererCard
 {

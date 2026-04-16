@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter, nextturn</tags>
 /// <art>wanderer dashing backward, chudan stance, action lines</art>
+/// <kanji>離</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Disengage : WandererCard
 {

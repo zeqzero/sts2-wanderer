@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit</tags>
 /// <art>wanderer sheathing sword, single big action line indicating instantaneous high power attack</art>
+/// <kanji>一撃</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Ichigeki : WandererCard
 {

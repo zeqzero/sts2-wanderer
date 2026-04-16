@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, weak, vuln</tags>
 /// <art>wanderer sauntering in, angry foe is looking at their watch</art>
+/// <kanji>遅参</kanji>
 [Pool(typeof(WandererCardPool))]
 public class ArriveLate : WandererCard
 {

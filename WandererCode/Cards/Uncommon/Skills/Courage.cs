@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>vuln</tags>
 /// <art>wanderer walking forward holding katana in one hand, arms held out, think Bane vs. PInk Guy meme</art>
+/// <kanji>勇</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Courage : WandererCard
 {

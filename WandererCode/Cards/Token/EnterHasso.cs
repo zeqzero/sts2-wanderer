@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>draw, nextturn</tags>
 /// <art>kendo vitruvian man, only hasso visible</art>
+/// <kanji>八相</kanji>
 [Pool(typeof(TokenCardPool))]
 public class EnterHasso : WandererCard, IEnterStance
 {

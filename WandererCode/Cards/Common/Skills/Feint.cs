@@ -1,6 +1,6 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;sports
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, counter</tags>
 /// <art>wanderer starting an attack, a foe looks alarmed</art>
+/// <kanji>虚</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Feint : WandererCard
 {

@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift</tags>
 /// <art>wanderer spitting a stream of liquid (booze?) from underneath the straw hat in to a disgusted foe's eyes</art>
+/// <kanji>唾</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Spit : WandererCard
 {

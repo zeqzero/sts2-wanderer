@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>gold, exhaust</tags>
 /// <art>wanderer accepts a bride from a sheepish foe to leave them in peace</art>
+/// <kanji>慎</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Prudence : WandererCard
 {

@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
 /// <art>wanderer thrusting katana with one hand, other hand is holding a cup which they are drinking from</art>
+/// <kanji>酔狂</kanji>
 [Pool(typeof(WandererCardPool))]
 public class SuikyoStrike : WandererCard
 {

@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags></tags>
 /// <art>matched katanas indicating a parry,  zoomed-in on point of contact</art>
+/// <kanji>守</kanji>
 [Pool(typeof(WandererCardPool))]
 public class DefendWanderer : WandererCard
 {

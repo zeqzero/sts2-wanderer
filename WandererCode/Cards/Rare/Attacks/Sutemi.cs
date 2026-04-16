@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust, nextturn</tags>
 /// <art>wanderer after completing an attack, cut up enemy with blood just beginning to spray from the wounds</art>
+/// <kanji>捨身</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Sutemi : WandererCard
 {

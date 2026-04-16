@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
 /// <art>wanderer in hasso stance, crashing water background, tight zoom upper body</art>
+/// <kanji>激</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Torrent : WandererCard
 {

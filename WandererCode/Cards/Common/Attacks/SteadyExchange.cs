@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit, flurry</tags>
 /// <art>wanderer performing drill with others, training camp scene</art>
+/// <kanji>練</kanji>
 [Pool(typeof(WandererCardPool))]
 public class SteadyExchange : WandererCard
 {

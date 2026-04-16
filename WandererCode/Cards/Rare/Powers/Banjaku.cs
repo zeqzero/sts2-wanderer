@@ -16,6 +16,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
 /// <art>wanderer as a sumo, facing viewer, mid-squat with one leg raised, hands pulling up hakama bottoms (skirt) to reveal xxl thighs</art>
+/// <kanji>磐石</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Banjaku : WandererCard
 {

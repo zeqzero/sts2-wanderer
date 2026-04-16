@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
 /// <art>katana with action swoosh indicating speed, quick circular movement, zoomed-in closeup on katana</art>
+/// <kanji>弾</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Flick : WandererCard
 {

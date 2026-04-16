@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit</tags>
 /// <art>wanderer in gedan stance, pipe in mouth, swinging sword upward, action lines</art>
+/// <kanji>根打</kanji>
 [Pool(typeof(WandererCardPool))]
 public class RootedStrike : WandererCard
 {

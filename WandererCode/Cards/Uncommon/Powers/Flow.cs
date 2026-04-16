@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
 /// <art>wanderer holding a pose, water background</art>
+/// <kanji>流</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Flow : WandererCard
 {

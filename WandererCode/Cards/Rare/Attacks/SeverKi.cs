@@ -14,6 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>enfeeble, flurry, xcost</tags>
 /// <art>wanderer plunging sword in to enemy at a ki spot, enemy ki lines and spots are visible like internal anatomy</art>
+/// <kanji>断気</kanji>
 [Pool(typeof(WandererCardPool))]
 public class SeverKi : WandererCard
 {

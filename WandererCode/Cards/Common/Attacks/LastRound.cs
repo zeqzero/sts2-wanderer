@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, exhaust</tags>
 /// <art>wanderer swinging katana with one hand while drinking from a small cup with the other</art>
+/// <kanji>終杯</kanji>
 [Pool(typeof(WandererCardPool))]
 public class LastRound : WandererCard
 {

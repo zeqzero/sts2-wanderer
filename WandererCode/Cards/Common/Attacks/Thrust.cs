@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, energy</tags>
 /// <art>wanderer mid-thrust with sword pointing toward viewer, zoomed in on blade with blurred straw hat in the background</art>
+/// <kanji>突</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Thrust : WandererCard
 {

@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
 /// <art>kendo vitruvian man, only waki visible</art>
+/// <kanji>脇</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Waki : WandererCard
 {

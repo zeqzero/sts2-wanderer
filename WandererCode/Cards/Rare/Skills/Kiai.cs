@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>energy, draw, shift, refill, dance</tags>
 /// <art>wanderer shouting something, speech bubble, tight zoom on head and speech bubble</art>
+/// <kanji>気合</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Kiai : WandererCard
 {

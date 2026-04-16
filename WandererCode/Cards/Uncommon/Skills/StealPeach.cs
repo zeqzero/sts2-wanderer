@@ -15,6 +15,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>enfeeble, shift</tags>
 /// <art>wander tugs violently downward on the plump scrotum of an unfortunate foe, tight zoom on scrotum</art>
+/// <kanji>桃取</kanji>
 [Pool(typeof(WandererCardPool))]
 public class StealPeach : WandererCard
 {

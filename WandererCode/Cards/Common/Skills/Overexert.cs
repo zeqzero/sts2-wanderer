@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
 /// <art>wanderer holding katana with one injured hand, katana pointed downward, blood drips down, tight zoom on hand and hilt</art>
+/// <kanji>無理</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Overexert : WandererCard
 {

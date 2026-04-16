@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death</tags>
 /// <art>wanderer pouring water over hand from a bamboo ladle, shinto purification, zoomed in on hand and ladle</art>
+/// <kanji>結界</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Kekkai : WandererCard
 {

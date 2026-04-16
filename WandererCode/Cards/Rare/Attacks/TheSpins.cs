@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, aoe</tags>
 /// <art>drunken wanderer spinning wildly, concerned enemy(s) look on, action lines indicating chaotic spinning</art>
+/// <kanji>旋</kanji>
 [Pool(typeof(WandererCardPool))]
 public class TheSpins : WandererCard
 {

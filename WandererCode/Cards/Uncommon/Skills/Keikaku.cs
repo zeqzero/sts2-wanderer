@@ -8,6 +8,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
 /// <art>wanderer sitting at a desk writing, think "I'll take a potato chip AND EAT IT", arm held out with ink brush in hand</art>
+/// <kanji>計</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Keikaku : WandererCard
 {

@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags></tags>
 /// <art>katana mid swing, zoomed-in on hilt</art>
+/// <kanji>打</kanji>
 [Pool(typeof(WandererCardPool))]
 public class StrikeWanderer : WandererCard
 {

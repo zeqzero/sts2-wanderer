@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, multiplayer</tags>
 /// <art>wanderer doing a pinky swear with another character, tight zoom on hands</art>
+/// <kanji>死約</kanji>
 [Pool(typeof(WandererCardPool))]
 public class DeathPact : WandererCard
 {

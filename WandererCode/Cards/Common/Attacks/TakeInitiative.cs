@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>vuln</tags>
 /// <art>wanderer mid dash and attack with action lines indicating quick forward movement of the body</art>
+/// <kanji>先手</kanji>
 [Pool(typeof(WandererCardPool))]
 public class TakeInitiative : WandererCard
 {

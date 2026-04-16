@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
 /// <art>kendo vitruvian man, only gedan visible</art>
+/// <kanji>下段</kanji>
 [Pool(typeof(TokenCardPool))]
 public class EnterGedan : WandererCard, IEnterStance
 {

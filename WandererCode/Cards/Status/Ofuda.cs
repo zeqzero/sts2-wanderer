@@ -9,6 +9,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, exhaust</tags>
 /// <art>rectangular paper a red circular symbol on top and gibberish characters beneath, portait aspect</art>
+/// <kanji>札</kanji>
 [Pool(typeof(StatusCardPool))]
 public class Ofuda : WandererCard
 {

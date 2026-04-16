@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
 /// <art>wanderer in chudan stance, enemy shown staggering backward, action lines indicating a parry just happened</art>
+/// <kanji>摺上</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Suriage : WandererCard
 {

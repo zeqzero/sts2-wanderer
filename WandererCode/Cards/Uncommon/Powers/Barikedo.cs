@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
 /// <art>pile of shields with medieval japanese banners poking out</art>
+/// <kanji>壁</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Barikedo : WandererCard
 {

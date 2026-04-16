@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit, aoe</tags>
 /// <art>wanderer in partial squat, finishing a two-part wide slash attack, blade visible, two wide arc action lines</art>
+/// <kanji>定斬</kanji>
 [Pool(typeof(WandererCardPool))]
 public class SteadySlash : WandererCard
 {

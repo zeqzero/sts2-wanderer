@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, energy</tags>
 /// <art>wander running their hand along the forehead, wiping sweat away, visible exhale</art>
+/// <kanji>拭</kanji>
 [Pool(typeof(WandererCardPool))]
 public class WipeBrow : WandererCard
 {

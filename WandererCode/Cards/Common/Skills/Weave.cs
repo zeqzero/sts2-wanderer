@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, draw</tags>
 /// <art>wanderer turning their shoulders/torse while standing in place, matrix dodge style, action lines indicating dodged attack</art>
+/// <kanji>躱</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Weave : WandererCard
 {

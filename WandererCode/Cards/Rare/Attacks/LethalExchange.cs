@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, exhaust</tags>
 /// <art>wanderer bent over facing viewer, covered in blood, blurred in the distance is a fallen foe, action lines indicating wanderer just stopped after a dash</art>
+/// <kanji>相打</kanji>
 [Pool(typeof(WandererCardPool))]
 public class LethalExchange : WandererCard
 {

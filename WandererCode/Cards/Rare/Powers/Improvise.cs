@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, energy</tags>
 /// <art>drunk wanderer swinging a stool, action lines</art>
+/// <kanji>即興</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Improvise : WandererCard
 {

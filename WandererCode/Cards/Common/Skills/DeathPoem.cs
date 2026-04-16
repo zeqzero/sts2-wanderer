@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, draw, energy, aoe</tags>
 /// <art>wanderer writing with an ink brush on parchment, parchment shows a skull, tight zoom on brush and parchment</art>
+/// <kanji>辞世</kanji>
 [Pool(typeof(WandererCardPool))]
 public class DeathPoem : WandererCard
 {

@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry, counter</tags>
 /// <art>wanderer cutting in to and enemy who is mid-attack, action lines indicating their attack was deflected</art>
+/// <kanji>返</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Riposte : WandererCard
 {

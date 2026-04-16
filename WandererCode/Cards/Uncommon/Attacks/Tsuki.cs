@@ -14,6 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
 /// <art>wanderer in chudan stance stepping while attacking, action lines indicating this is the end of a combo of attacks</art>
+/// <kanji>刺</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Tsuki : WandererCard
 {

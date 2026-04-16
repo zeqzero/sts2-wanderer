@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
 /// <art>a burning, smoking Ofuda, wanderer blowing smoke toward foes</art>
+/// <kanji>聖煙</kanji>
 [Pool(typeof(WandererCardPool))]
 public class HolySmoke : WandererCard
 {

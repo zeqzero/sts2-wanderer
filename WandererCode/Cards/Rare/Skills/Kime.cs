@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
 /// <art>wanderer mid squat, facing viewer, power surging around, Ki points and lines visible as internal anatomy, dbz powerup vibes</art>
+/// <kanji>極</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Kime : WandererCard
 {

@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, shift, draw, energy</tags>
 /// <art>wanderer drinking from gourd greedily, holding gourd with both hands, sword visible on ground, liquid pouring down face and on clothes and ground</art>
+/// <kanji>痛飲</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Chug : WandererCard
 {

@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill, draw, energy</tags>
 /// <art>tight zoom of head/straw hat, bubbles rising all around, gourd visible</art>
+/// <kanji>吃</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Hiccup : WandererCard
 {

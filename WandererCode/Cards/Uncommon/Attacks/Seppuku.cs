@@ -8,6 +8,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, exhaust</tags>
 /// <art>wanderer unsheathing tanto at waist, only an inch of blade shown, tight zoom on tanto/waist</art>
+/// <kanji>切腹</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Seppuku : WandererCard
 {

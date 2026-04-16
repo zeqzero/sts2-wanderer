@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe</tags>
 /// <art>wide arc action line with multiple enemies being hit (see astral pulse)</art>
+/// <kanji>斬</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Slash : WandererCard
 {

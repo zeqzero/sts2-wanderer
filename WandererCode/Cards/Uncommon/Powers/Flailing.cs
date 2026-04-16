@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
 /// <art>wanderer dual-wielding katana and gourd, action lines indicating attacks with both</art>
+/// <kanji>乱舞</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Flailing : WandererCard
 {

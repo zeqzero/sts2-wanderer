@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>counter</tags>
 /// <art>wanderer in gedan, confident posture, perhaps taunting with one hand</art>
+/// <kanji>反</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Retaliate : WandererCard
 {

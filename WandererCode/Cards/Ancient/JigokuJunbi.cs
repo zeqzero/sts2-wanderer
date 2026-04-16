@@ -8,7 +8,8 @@ using Wanderer.WandererCode.Powers;
 namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
-/// <art>wanderer turning in to a demon, facing forward, face concealed by straw hat, glowing smile visible through crack(s) in hat</art>
+/// <art>wanderer turning in to a demon, facing forward, face concealed by straw hat, glowing eyes visible through crack(s) in hat</art>
+/// <kanji>獄備</kanji>
 [Pool(typeof(WandererCardPool))]
 public class JigokuJunbi : WandererCard
 {

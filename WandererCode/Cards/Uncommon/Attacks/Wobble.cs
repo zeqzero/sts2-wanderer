@@ -14,6 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill</tags>
 /// <art>wanderer swinging a slung gourd up in order to pour from it, foe accidentally hit in the process falling backward, action lines</art>
+/// <kanji>揺</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Wobble : WandererCard
 {

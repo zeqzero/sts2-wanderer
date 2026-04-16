@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor</tags>
 /// <art>wanderer pommel striking an unaware foe on the side of the head, spit flying out of foe's mouth</art>
+/// <kanji>不意</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Blindside : WandererCard
 {

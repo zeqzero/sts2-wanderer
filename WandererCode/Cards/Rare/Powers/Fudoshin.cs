@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit, exhaust</tags>
 /// <art>wanderer exhaling smoke from a long thin pipe, zoomed-in on face</art>
+/// <kanji>不動心</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Fudoshin : WandererCard
 {

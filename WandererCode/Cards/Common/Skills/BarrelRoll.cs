@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
 /// <art>wanderer mid-air about to land seemingly after a fuckin barrel roll</art>
+/// <kanji>横転</kanji>
 [Pool(typeof(WandererCardPool))]
 public class BarrelRoll : WandererCard
 {

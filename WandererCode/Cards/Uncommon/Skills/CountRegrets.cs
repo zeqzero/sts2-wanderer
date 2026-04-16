@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death</tags>
 /// <art>wanderer face palming, tight zoom on head</art>
+/// <kanji>悔</kanji>
 [Pool(typeof(WandererCardPool))]
 public class CountRegrets : WandererCard
 {

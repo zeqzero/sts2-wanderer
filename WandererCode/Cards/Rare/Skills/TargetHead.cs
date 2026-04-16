@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
 /// <art>Enemy with targeting reticles shown on head, arms, and legs, head reticle is highlighted, retro hand icon (ala old final fantasy) pointing at head reticle as if it's a menu combat gui</art>
+/// <kanji>頭</kanji>
 [Pool(typeof(WandererCardPool))]
 public class TargetHead : WandererCard
 {

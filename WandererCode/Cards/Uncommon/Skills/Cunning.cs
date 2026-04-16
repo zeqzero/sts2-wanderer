@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
 /// <art>wanderer pulling a scroll out of a pile of ash, tight zoom on hand, ash pile, and tip of scroll being pulled out</art>
+/// <kanji>狡</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Cunning : WandererCard
 {

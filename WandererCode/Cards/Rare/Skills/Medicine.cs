@@ -14,6 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift, refill, flurry</tags>
 /// <art>wanderer holding a slung gourd toward the viewer, as if offering to pour some</art>
+/// <kanji>薬</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Medicine : WandererCard
 {

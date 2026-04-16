@@ -8,6 +8,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn</tags>
 /// <art>wanderer flipping a desk over like an angry mtg player</art>
+/// <kanji>先制</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Preempt : WandererCard
 {

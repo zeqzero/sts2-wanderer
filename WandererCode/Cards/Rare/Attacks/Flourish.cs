@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, flurry, dance</tags>
 /// <art>wanderer twirling their blade, posture is fruity and dancer-y</art>
+/// <kanji>華</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Flourish : WandererCard
 {

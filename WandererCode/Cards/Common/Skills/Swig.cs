@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>draw, shift</tags>
 /// <art>wanderer drinking from a small cup, one hand raising cup to face (hidden beneath hat), gourd visible</art>
+/// <kanji>酌</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Swig : WandererCard
 {

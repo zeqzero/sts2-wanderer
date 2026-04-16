@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, draw, exhaust</tags>
 /// <art>Wanderer waving warmly at a foe, who looks sheepish</art>
+/// <kanji>礼</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Gracious : WandererCard
 {

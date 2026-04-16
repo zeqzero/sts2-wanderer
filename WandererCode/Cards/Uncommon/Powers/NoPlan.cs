@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>shift</tags>
 /// <art>wanderer accidentally deflecting an attack while pourding from gourd in to a small cup, oblivious</art>
+/// <kanji>無策</kanji>
 [Pool(typeof(WandererCardPool))]
 public class NoPlan : WandererCard
 {

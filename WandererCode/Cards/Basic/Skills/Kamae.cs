@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance, commit</tags>
 /// <art>kendo vitruvian man, chudan hasso and gedan shown, chudan highlighted</art>
+/// <kanji>構</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Kamae : WandererCard
 {

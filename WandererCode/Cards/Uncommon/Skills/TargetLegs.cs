@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, vuln</tags>
 /// <art>Enemy with targeting reticles shown on head, arms, and legs, legs reticle is highlighted, retro hand icon (ala old final fantasy) pointing at legs reticle as if it's a menu combat gui</art>
+/// <kanji>脚</kanji>
 [Pool(typeof(WandererCardPool))]
 public class TargetLegs : WandererCard
 {

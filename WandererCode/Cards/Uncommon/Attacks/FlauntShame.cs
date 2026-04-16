@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death, aoe, flurry</tags>
 /// <art>wanderer doing a rude gesture, see Bras d'honneur, ideally with an offended foe nearby</art>
+/// <kanji>曝恥</kanji>
 [Pool(typeof(WandererCardPool))]
 public class FlauntShame : WandererCard
 {

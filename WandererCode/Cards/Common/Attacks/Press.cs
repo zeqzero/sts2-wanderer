@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dance</tags>
 /// <art>wanderer in gedan with action line indicating a katana swing from chudan</art>
+/// <kanji>攻</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Press : WandererCard
 {

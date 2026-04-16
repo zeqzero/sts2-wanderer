@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>death</tags>
 /// <art>wanderer kneeling in preparation for seppuku, there's a trail of silhouettes leading away representing others who came before</art>
+/// <kanji>殉死</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Junshi : WandererCard
 {

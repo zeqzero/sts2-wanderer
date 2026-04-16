@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>aoe, nextturn, redesign</tags>
 /// <art>wanderer sheathing sword, several action lines through slain enemies indicating many instantaneous high power attacks</art>
+/// <kanji>斬撃</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Zangeki : WandererCard
 {

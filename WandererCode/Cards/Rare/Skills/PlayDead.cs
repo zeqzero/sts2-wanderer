@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, death, exhaust</tags>
 /// <art>wanderer laying on the ground, straw hat sitting atop their face, hand can be seen grasping katana hilt</art>
+/// <kanji>仮死</kanji>
 [Pool(typeof(WandererCardPool))]
 public class PlayDead : WandererCard
 {

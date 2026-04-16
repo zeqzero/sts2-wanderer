@@ -11,6 +11,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry</tags>
 /// <art>wanderer walking menacingly toward viewer, katana held in one hand, other hand held in a tight fist</art>
+/// <kanji>豪</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Brazen : WandererCard
 {

@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor, draw</tags>
 /// <art>Wanderer casually slitting the throat of an innocent character, maybe shopkeeper</art>
+/// <kanji>死</kanji>
 [Pool(typeof(WandererCardPool))]
 public class DiePeriod : WandererCard
 {

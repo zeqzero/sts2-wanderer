@@ -9,6 +9,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>draw</tags>
 /// <art>wander standing at a tree repeatedly striking it with a bokken</art>
+/// <kanji>誠</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Sincerity : WandererCard
 {

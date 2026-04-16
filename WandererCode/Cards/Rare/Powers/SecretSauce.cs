@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>dishonor</tags>
 /// <art>wanderer pouring toxic liquid from a slung gourd on to their katana</art>
+/// <kanji>秘薬</kanji>
 [Pool(typeof(WandererCardPool))]
 public class SecretSauce : WandererCard
 {

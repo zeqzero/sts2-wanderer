@@ -13,6 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>nextturn, exhaust</tags>
 /// <art>wanderer leaning forward, holding the edge of straw hat, single glowing eye visible through straw hat gaps, tight zoom on hat and hand</art>
+/// <kanji>浪人</kanji>
 [Pool(typeof(WandererCardPool))]
 public class RoninForm : WandererCard
 {

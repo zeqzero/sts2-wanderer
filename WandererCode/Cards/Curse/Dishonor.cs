@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>exhaust</tags>
 /// <art>wanderer in dogeza, kneeling with hands and head touching the ground, mega apology</art>
+/// <kanji>恥</kanji>
 [Pool(typeof(CurseCardPool))]
 public class Dishonor : WandererCard
 {

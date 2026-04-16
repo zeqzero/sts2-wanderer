@@ -12,6 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>commit</tags>
 /// <art>wanderer in partial squat, gedan position with sword pointed down, several foes lurk nearby</art>
+/// <kanji>定守</kanji>
 [Pool(typeof(WandererCardPool))]
 public class SteadyGuard : WandererCard
 {

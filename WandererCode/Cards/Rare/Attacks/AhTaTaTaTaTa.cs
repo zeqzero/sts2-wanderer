@@ -10,6 +10,7 @@ namespace Wanderer.WandererCode.Cards;
 
 /// <tags>flurry, xcost</tags>
 /// <art>wanderer making dozens of attacks simultaneous, multiple katanas visible through a cloud of action lines</art>
+/// <kanji>乱打</kanji>
 [Pool(typeof(WandererCardPool))]
 public class AhTaTaTaTaTa : WandererCard
 {
