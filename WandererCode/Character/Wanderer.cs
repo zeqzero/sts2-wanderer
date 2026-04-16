@@ -12,11 +12,11 @@ public class Wanderer : PlaceholderCharacterModel
 {
     public const string CharacterId = "Wanderer";
 
-    public static readonly Color Color = new("ffffff");
+    public static readonly Color Color = new("0F3548");
 
     public override Color NameColor => Color;
-    public override CharacterGender Gender => CharacterGender.Neutral;
-    public override int StartingHp => 70;
+    public override CharacterGender Gender => CharacterGender.Masculine;
+    public override int StartingHp => 50;
 
     //public override IEnumerable<CardModel> StartingDeck => Enumerable.Range(0, 10).Select(_ => ModelDb.Card<Seppuku>());
     public override IEnumerable<CardModel> StartingDeck => [
