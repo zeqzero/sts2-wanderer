@@ -57,7 +57,7 @@ public class ShinigamiPower : WandererPower
 
         await WandererCmd.HandleOfudaExhausted(card);
 
-        Amount--;
+        SetAmount(Amount - 1);
         if (Amount <= 0)
         {
             await WandererCmd.ExitShinigamiForm(Owner);

@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Powers;
@@ -28,7 +29,7 @@ public class Gracious : WandererCard
 
     private async Task Talk()
     {
-        TalkCmd.Play(LocString.GetRandomWithPrefix("characters", "WANDERER-WANDERER-GRACIOUS"), Owner.Creature);
+        TalkCmd.Play(LocString.GetRandomWithPrefix("characters", "WANDERER-WANDERER-GRACIOUS"), Owner.Creature, vfxColor: VfxColor.White);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

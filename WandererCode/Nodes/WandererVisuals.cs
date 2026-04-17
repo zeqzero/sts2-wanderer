@@ -27,7 +27,7 @@ public static class WandererVisuals
     private static Sprite2D? GetSprite(Creature creature)
     {
         var creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);
-        var body = creatureNode?.Visuals?.Body;
+        var body = creatureNode?.Visuals?.GetCurrentBody();
         return body?.GetNodeOrNull<Sprite2D>("Sprite");
     }
 

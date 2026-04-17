@@ -24,6 +24,7 @@ using Wanderer.WandererCode.Nodes;
 using Wanderer.WandererCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace Wanderer.WandererCode.Commands;
 
@@ -657,7 +658,7 @@ public static class WandererCmd
             {
                 var mostDishonorableString = LocString.GetIfExists("characters", "WANDERER-WANDERER.mostDishonorable");
                 if (mostDishonorableString != null)
-                    TalkCmd.Play(mostDishonorableString, enemy);
+                    TalkCmd.Play(mostDishonorableString, enemy, vfxColor: VfxColor.White);
             }
         }
     }

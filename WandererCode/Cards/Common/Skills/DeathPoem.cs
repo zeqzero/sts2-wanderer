@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
@@ -36,7 +37,7 @@ public class DeathPoem : WandererCard
 
     private async Task Talk()
     {
-        TalkCmd.Play(LocString.GetRandomWithPrefix("characters", "WANDERER-WANDERER-POEM"), Owner.Creature);
+        TalkCmd.Play(LocString.GetRandomWithPrefix("characters", "WANDERER-WANDERER-POEM"), Owner.Creature, vfxColor: VfxColor.White);
     }
 
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
