@@ -13,6 +13,7 @@ public class Wanderer : PlaceholderCharacterModel
     public const string CharacterId = "Wanderer";
 
     public static readonly Color Color = new("0F3548");
+    public override Color MapDrawingColor => Color;
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;
@@ -49,9 +50,15 @@ public class Wanderer : PlaceholderCharacterModel
     public override string CustomRestSiteAnimPath => "res://Wanderer/scenes/wanderer/wanderer_rest_site.tscn";
     public override string CustomMerchantAnimPath => "res://Wanderer/scenes/wanderer/wanderer_merchant.tscn";
     public override string CustomCharacterSelectBg => "res://Wanderer/scenes/wanderer/char_select_bg_wanderer.tscn";
+    public override string CustomIconPath => "res://Wanderer/scenes/wanderer/wanderer_icon.tscn";
 
-    public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
-    public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
-    public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
-    public override string CustomMapMarkerPath => "map_marker_char_name.png".CharacterUiPath();
+    public override string CustomIconTexturePath => "res://Wanderer/images/wanderer/character_icon_wanderer.png";
+    public override string CustomCharacterSelectIconPath => "res://Wanderer/images/wanderer/char_select_wanderer.png";
+    public override string CustomCharacterSelectLockedIconPath => "res://Wanderer/images/wanderer/char_select_wanderer_locked.png";
+    public override string CustomMapMarkerPath => "res://Wanderer/images/wanderer/map_marker_wanderer.png";
+
+    public override CustomEnergyCounter? CustomEnergyCounter => new CustomEnergyCounter(
+        i => "res://Wanderer/images/ui/combat/energy_counters/wanderer_orb_layer_" + i + ".png", 
+        new Color("2B4954"), 
+        new Color("2B4954"));
 }
