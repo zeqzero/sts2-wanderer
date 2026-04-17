@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dml0ltk1ur2da"
-path="res://.godot/imported/waki.png-79b93bf30579dcec46f8e71af76251a7.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Wanderer/images/wanderer/waki.png"
-dest_files=["res://.godot/imported/waki.png-79b93bf30579dcec46f8e71af76251a7.ctex"]
 
 [params]
 

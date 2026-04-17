@@ -46,6 +46,9 @@ public class Wanderer : PlaceholderCharacterModel
         These are just some of the simplest assets, given some placeholders to differentiate your character with. 
         You don't have to, but you're suggested to rename these images. */
     public override string CustomVisualPath => "res://Wanderer/scenes/wanderer/wanderer.tscn";
+    public override string CustomRestSiteAnimPath => "res://Wanderer/scenes/wanderer/wanderer_rest_site.tscn";
+    public override string CustomMerchantAnimPath => "res://Wanderer/scenes/wanderer/wanderer_merchant.tscn";
+    public override string CustomCharacterSelectBg => "res://Wanderer/scenes/wanderer/char_select_bg_wanderer.tscn";
 
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
