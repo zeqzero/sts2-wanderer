@@ -1,33 +1,33 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Wanderer.WandererCode.Powers;
 
 /// <art>leg with reticle overlay... copy Vicious and Accuracy</art>
 public class TargetLegsPower : WandererPower
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (cardPlay.Card.Owner == Owner.Player && cardPlay.Card.Type == CardType.Attack)
+        if (target == Owner && result.UnblockedDamage > 0)
         {
-            foreach (var enemy in CombatState.HittableEnemies)
-            {
-                await PowerCmd.Apply<VulnerablePower>(enemy, Amount, Owner, null);
-            }
+            await PowerCmd.Apply<VulnerablePower>(Owner, 1, Applier ?? Owner, null);
         }
     }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
-        if (side == CombatSide.Player)
+        if (side == Owner.Side)
         {
             await PowerCmd.TickDownDuration(this);
         }

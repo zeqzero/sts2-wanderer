@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models.Powers;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Powers;
 
@@ -14,15 +15,22 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class TargetLegs : WandererCard
 {
-    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<TargetLegsPower>()];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<TargetLegsPower>(),
+        HoverTipFactory.FromPower<VulnerablePower>()
+    ];
 
-    public TargetLegs() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public TargetLegs() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<TargetLegsPower>(Owner.Creature, 1, Owner.Creature, this);
+        foreach (var enemy in CombatState.HittableEnemies)
+        {
+            await PowerCmd.Apply<TargetLegsPower>(enemy, 1, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()

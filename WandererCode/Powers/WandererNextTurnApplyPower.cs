@@ -30,11 +30,16 @@ public abstract class WandererNextTurnApplyPower<T> : WandererPower, IWandererNe
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Power", ModelDb.Power<T>().Title.GetFormattedText())];
 
+    protected virtual async Task ApplyEffect()
+    {
+        await PowerCmd.Apply<T>(Owner, Amount, Owner, null);
+    }
+
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side == Owner.Side && AmountOnTurnStart != 0)
         {
-            await PowerCmd.Apply<T>(Owner, Amount, Owner, null);
+            await ApplyEffect();
             if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
             {
                 await PowerCmd.Remove(this);
@@ -44,7 +49,7 @@ public abstract class WandererNextTurnApplyPower<T> : WandererPower, IWandererNe
 
     public async Task ApplyNow(PlayerChoiceContext choiceContext, Player player)
     {
-        await PowerCmd.Apply<T>(Owner, Amount, Owner, null);
+        await ApplyEffect();
         if (!WandererCmd.ShouldPreserveNextTurnPowers(Owner))
         {
             await PowerCmd.Remove(this);

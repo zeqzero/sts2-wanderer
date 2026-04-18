@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -12,24 +11,22 @@ namespace Wanderer.WandererCode.Powers;
 /// <art>head with reticle overlay... copy Tank and Accuracy</art>
 public class TargetHeadPower : WandererPower
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (dealer != Owner && !Owner.Pets.Contains(dealer))
+        if (target != Owner)
             return 1m;
-        if (!props.IsPoweredAttack_())
-            return 1m;
-        if (cardSource == null)
+        if (!props.IsPoweredAttack())
             return 1m;
         return 2m;
     }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
-        if (side == CombatSide.Player)
+        if (side == Owner.Side)
         {
             await PowerCmd.TickDownDuration(this);
         }
