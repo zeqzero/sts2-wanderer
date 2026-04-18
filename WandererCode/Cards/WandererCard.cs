@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 public abstract class WandererCard(int cost, CardType type, CardRarity rarity, TargetType target, bool showInCardLibrary = true, bool autoAdd = true) :
     CustomCardModel(cost, type, rarity, target, showInCardLibrary, autoAdd), IWandererEventListener
 {
-    private readonly List<IHoverTip> _runtimeHoverTips = [];
+    private List<IHoverTip> _runtimeHoverTips = [];
 
     protected sealed override IEnumerable<IHoverTip> ExtraHoverTips =>
         _runtimeHoverTips.Count > 0
@@ -21,6 +21,14 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
             : WandererExtraHoverTips;
 
     protected virtual IEnumerable<IHoverTip> WandererExtraHoverTips => [];
+
+    // MemberwiseClone would otherwise share this list with the canonical, so hover tips
+    // added at runtime would leak onto every instance of the class.
+    protected override void DeepCloneFields()
+    {
+        base.DeepCloneFields();
+        _runtimeHoverTips = [.. _runtimeHoverTips];
+    }
 
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
