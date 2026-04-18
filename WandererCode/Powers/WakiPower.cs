@@ -25,12 +25,7 @@ public class WakiPower : WandererPower, IStancePower
         if (power == this)
         {
             ArgumentNullException.ThrowIfNull(Owner.Player);
-            await WandererCmd.PickAndShiftCardsFromHand(new BlockingPlayerChoiceContext(), (int)amount, Owner.Player, this, addKeywords: [ CardKeyword.Retain ], prompt: ShiftAndRetainPrompt);
-
-            foreach (var card in PileType.Hand.GetPile(Owner.Player).Cards.Where(c => c.Keywords.Contains(CardKeyword.Retain)))
-            {
-                card.EnergyCost.AddUntilPlayed(-1);
-            }
+            await RunWithChoiceContext(ctx => ShiftAndRetain(ctx, (int)amount));
         }
     }
 
@@ -38,12 +33,17 @@ public class WakiPower : WandererPower, IStancePower
     {
         if (player == Owner.Player)
         {
-            await WandererCmd.PickAndShiftCardsFromHand(new BlockingPlayerChoiceContext(), Amount, Owner.Player, this, addKeywords: [ CardKeyword.Retain ], prompt: ShiftAndRetainPrompt);
+            await ShiftAndRetain(choiceContext, Amount);
+        }
+    }
 
-            foreach (var card in PileType.Hand.GetPile(Owner.Player).Cards.Where(c => c.Keywords.Contains(CardKeyword.Retain)))
-            {
-                card.EnergyCost.AddUntilPlayed(-1);
-            }
+    private async Task ShiftAndRetain(PlayerChoiceContext choiceContext, int count)
+    {
+        await WandererCmd.PickAndShiftCardsFromHand(choiceContext, count, Owner.Player!, this, addKeywords: [ CardKeyword.Retain ], prompt: ShiftAndRetainPrompt);
+
+        foreach (var card in PileType.Hand.GetPile(Owner.Player!).Cards.Where(c => c.Keywords.Contains(CardKeyword.Retain)))
+        {
+            card.EnergyCost.AddUntilPlayed(-1);
         }
     }
 }

@@ -18,7 +18,7 @@ public class HolySmokePower : WandererPower
     {
         if (card.Owner == Owner.Player)
         {
-            await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null);
+            await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null);
         }
     }
 }

@@ -5,7 +5,9 @@ using Godot;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -53,5 +55,17 @@ public abstract class WandererPower : CustomPowerModel, IWandererEventListener
 
     public virtual async Task AfterRefilled(CardModel card)
     {
+    }
+
+    // For hooks that don't plumb a PlayerChoiceContext (AfterPowerAmountChanged, etc.).
+    // Piggybacks on the currently-running action so remote clients pause for the choice
+    // via the same mechanism PlayCardAction uses for its own OnPlay choices.
+    protected async Task RunWithChoiceContext(Func<PlayerChoiceContext, Task> work)
+    {
+        var action = RunManager.Instance.ActionExecutor.CurrentlyRunningAction;
+        PlayerChoiceContext context = action != null
+            ? new GameActionPlayerChoiceContext(action)
+            : new BlockingPlayerChoiceContext();
+        await work(context);
     }
 }

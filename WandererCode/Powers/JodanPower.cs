@@ -27,23 +27,19 @@ public class JodanPower : WandererPower, IStancePower
         if (power == this)
         {
             ArgumentNullException.ThrowIfNull(Owner.Player);
-            var choiceContext = new BlockingPlayerChoiceContext();
-            var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, (int)amount), context: choiceContext, player: Owner.Player, filter: null, source: this);
-            if (cardsToExhaust != null)
-            {
-                foreach (var card in cardsToExhaust)
-                {
-                    await CardCmd.Exhaust(choiceContext, card);
-                    await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
-                }
-            }
+            await RunWithChoiceContext(ctx => ExhaustForVigor(ctx, (int)amount));
         }
     }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         ArgumentNullException.ThrowIfNull(Owner.Player);
-        var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, Amount), context: choiceContext, player: Owner.Player, filter: null, source: this);
+        await ExhaustForVigor(choiceContext, Amount);
+    }
+
+    private async Task ExhaustForVigor(PlayerChoiceContext choiceContext, int amount)
+    {
+        var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, amount), context: choiceContext, player: Owner.Player!, filter: null, source: this);
         if (cardsToExhaust != null)
         {
             foreach (var card in cardsToExhaust)
