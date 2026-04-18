@@ -18,7 +18,7 @@ public class Improvise : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ImprovisePower>(1m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ImprovisePower>(1m), new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [WandererKeywords.ShiftHoverTip];
 

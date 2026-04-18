@@ -20,7 +20,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Banjaku : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(10m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(10m), new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>()];
 
