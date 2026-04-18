@@ -12,7 +12,7 @@ public class Wanderer : PlaceholderCharacterModel
 {
     public const string CharacterId = "Wanderer";
 
-    public static readonly Color Color = new("0F3548");
+    public static readonly Color Color = new("3E5158");
     public override Color MapDrawingColor => Color;
 
     public override Color NameColor => Color;
@@ -59,6 +59,6 @@ public class Wanderer : PlaceholderCharacterModel
 
     public override CustomEnergyCounter? CustomEnergyCounter => new CustomEnergyCounter(
         i => "res://Wanderer/images/ui/combat/energy_counters/wanderer_orb_layer_" + i + ".png", 
-        new Color("2B4954"), 
-        new Color("2B4954"));
+        new Color("8BB5C4"), 
+        new Color("8BB5C4"));
 }

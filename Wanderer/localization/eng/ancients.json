@@ -1,6 +1,11 @@
 {
-  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-0r.char": "I am angry at the architect",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-0r.char": "Pandemonium... I've come to put an end to it.",
   "THE_ARCHITECT.talk.WANDERER-WANDERER.0-0r.next": "Continue",
-  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-1r.ancient": "You die",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-1r.ancient": "An end? Surely you don't mean...",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-1r.next": "Continue",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-2r.char": "Die.",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-2r.next": "Continue",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-3r.ancient": "[jitter]MOST DISHONORABLE[/jitter]... ahem.",
+  "THE_ARCHITECT.talk.WANDERER-WANDERER.0-3r.next": "Continue",
   "THE_ARCHITECT.talk.WANDERER-WANDERER.0-attack": "Both"
 }
