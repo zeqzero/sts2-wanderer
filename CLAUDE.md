@@ -15,7 +15,7 @@ These sibling directories contain useful reference material:
 
 - `../WatcherMod/` - Example character mod (WatcherMod) for implementation patterns
 - `../ModTemplate-StS2/` - Mod template project
-- `../sts2/` - Additional base game reference
+- `../sts2/` - Unpacked Slay the Spire 2 pck, includes art, localization files, and others
 
 ## Key Conventions
 

@@ -30,6 +30,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Screens.CharacterSelect;
+using MegaCrit.Sts2.Core.Saves;
 
 namespace Wanderer.WandererCode.Patches;
 
@@ -67,22 +68,58 @@ internal class AutoSlay_Patches
         }
     }
 
+    // Ascension 10 adds a second boss at the end of act 3 (DoubleBoss level,
+    // see AscensionLevel.cs + StandardActMap.SecondBossMapPoint). After beating
+    // boss 1, AutoSlayer.PlayRunAsync waits 10s for RoomType to change away
+    // from Boss (AutoSlayer.cs:193-202) but the second boss room is also
+    // RoomType.Boss, so the run fails with "Act transition did not start after
+    // boss". Cap the preferred ascension at 9 when AutoSlay is active — we
+    // still exercise every other ascension modifier, just not the double-boss.
+    [HarmonyPatch(typeof(CharacterStats), nameof(CharacterStats.PreferredAscension), MethodType.Getter)]
+    private static class PreferredAscensionPatch
+    {
+        private const int MaxAutoSlayAscension = 9;
+
+        private static void Postfix(ref int __result)
+        {
+            if (!AutoSlayer.IsActive) return;
+            if (__result > MaxAutoSlayAscension) __result = MaxAutoSlayAscension;
+        }
+    }
+
     // Wanderer mechanics (Waki stance, exhaust-on-play, etc.) can legitimately
     // exhaust the entire deck mid-combat. In real play you die a turn or two
     // later; in AutoSlay the player is immortal (PlatingPower/RegenPower 999
     // applied by CombatRoomHandler) so the combat would otherwise spin out
     // until the 100-turn cap + 30s "Combat did not end" timeout. Detect the
     // soft-lock at EndTurn time and abort fast.
+    //
+    // Also caps combat at 50 turns to abort stalemates where Enshrined or
+    // curse cards keep cycling without any possibility of ending the fight.
     [HarmonyPatch(typeof(PlayerCmd), nameof(PlayerCmd.EndTurn))]
     private static class DeckExhaustionPatch
     {
+        private const int TurnCap = 50;
+
+        private static PlayerCombatState? _activeCombatState;
+        private static int _combatTurnCount;
+
         private static void Prefix(Player player)
         {
             if (!AutoSlayer.IsActive) return;
             if (CombatManager.Instance == null || !CombatManager.Instance.IsInProgress) return;
 
-            PlayerCombatState state = player.PlayerCombatState;
+            PlayerCombatState? state = player.PlayerCombatState;
             if (state == null) return;
+
+            // Reset counter when a new combat begins (PlayerCombatState is a new object each combat).
+            if (state != _activeCombatState)
+            {
+                _activeCombatState = state;
+                _combatTurnCount = 0;
+            }
+
+            _combatTurnCount++;
 
             if (state.Hand.Cards.Count == 0
                 && state.DrawPile.Cards.Count == 0
@@ -90,6 +127,12 @@ internal class AutoSlay_Patches
             {
                 throw new InvalidOperationException(
                     $"AutoSlay: deck exhausted (hand+draw+discard=0, exhaust={state.ExhaustPile.Cards.Count}). Aborting run.");
+            }
+
+            if (_combatTurnCount >= TurnCap)
+            {
+                throw new InvalidOperationException(
+                    $"AutoSlay: turn cap reached ({_combatTurnCount} turns). Aborting run.");
             }
         }
     }

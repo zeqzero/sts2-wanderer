@@ -14,7 +14,7 @@ public class Seppuku : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    public Seppuku() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.Self)
+    public Seppuku() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
     }
 

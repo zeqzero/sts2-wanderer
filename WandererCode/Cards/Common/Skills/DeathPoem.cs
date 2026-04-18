@@ -42,7 +42,11 @@ public class DeathPoem : WandererCard
 
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
-        if (Owner.Creature.IsDead)
+        if (wasRemovalPrevented || Owner.Creature.IsDead)
+            return;
+
+        CardPile? pile = Pile;
+        if (pile == null || !pile.IsCombatPile)
             return;
 
         await CardCmd.AutoPlay(choiceContext, this, null);
@@ -53,7 +57,10 @@ public class DeathPoem : WandererCard
         if (creature != Owner.Creature)
             return;
 
-        await CardPileCmd.AddDuringManualCardPlay(this);
+        CardPile? pile = Pile;
+        if (pile == null || !pile.IsCombatPile)
+            return;
+
         await CardCmd.AutoPlay(new BlockingPlayerChoiceContext(), this, null);
     }
 }
