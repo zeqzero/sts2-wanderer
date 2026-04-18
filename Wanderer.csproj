@@ -64,6 +64,15 @@
         <NoWarn>$(NoWarn);MSB3270</NoWarn>
     </PropertyGroup>
 
+    <!-- Release packaging: when /p:Package=true, redirect the existing copy targets
+         into a staging folder instead of the live Steam mods dir, then zip it for sharing.
+         Invoke with: dotnet publish /p:Package=true -->
+    <PropertyGroup Condition="'$(Package)' == 'true'">
+        <PackageStagingDir>$(MSBuildProjectDirectory)/publish/package-staging/</PackageStagingDir>
+        <PackageOutputDir>$(MSBuildProjectDirectory)/publish/</PackageOutputDir>
+        <ModsPath>$(PackageStagingDir)mods/</ModsPath>
+    </PropertyGroup>
+
     <ItemGroup Condition="Exists('$(Sts2DataDir)')" >
         <Reference Include="0Harmony">
             <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
@@ -138,6 +147,52 @@
     </Target>
 
     <Target Name="GodotPublishSkipped" AfterTargets="Publish" Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')">
+        <Error Text="Release packaging requires a working Godot export. GodotPath is not configured or does not exist: '$(GodotPath)'" Condition="'$(Package)' == 'true'" />
         <Message Text="Skipping Godot .pck export because GodotPath is not configured." Importance="high"/>
+    </Target>
+
+    <Target Name="CleanPackageStaging" BeforeTargets="CopyToModsFolderOnBuild" Condition="'$(Package)' == 'true'">
+        <Message Text="Cleaning release staging dir: $(PackageStagingDir)" Importance="high" />
+        <RemoveDir Directories="$(PackageStagingDir)" />
+    </Target>
+
+    <Target Name="PackageRelease" AfterTargets="GodotPublish" Condition="'$(Package)' == 'true'">
+        <PropertyGroup>
+            <_ManifestText>$([System.IO.File]::ReadAllText('$(MSBuildProjectDirectory)/Wanderer.json'))</_ManifestText>
+            <ModVersion>$([System.Text.RegularExpressions.Regex]::Match($(_ManifestText), '"version"\s*:\s*"([^"]+)"').Groups[1].Value)</ModVersion>
+            <ZipPath>$(PackageOutputDir)Wanderer-$(ModVersion).zip</ZipPath>
+            <_ReadmeText>Wanderer - a Slay the Spire 2 character mod
+Version: $(ModVersion)
+
+Installation
+------------
+1. Locate your Slay the Spire 2 install directory.
+   - Steam: right-click the game, Manage -&gt; Browse local files.
+   - On Windows it is typically:
+     C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2
+2. Copy the 'mods' folder from this zip into that directory.
+   If a 'mods' folder is already there, merge the contents -
+   you should end up with both 'mods/Wanderer' and 'mods/BaseLib'.
+3. Launch the game. The Wanderer should appear in character select.
+
+What is in this zip
+-------------------
+mods/Wanderer/   - the Wanderer mod (dll, pck, manifest)
+mods/BaseLib/    - the BaseLib modding framework that Wanderer depends on
+
+Uninstall
+---------
+Delete the 'mods/Wanderer' folder. You can leave BaseLib in place if
+you have other mods that use it, otherwise delete 'mods/BaseLib' too.
+</_ReadmeText>
+        </PropertyGroup>
+
+        <WriteLinesToFile File="$(PackageStagingDir)readme.txt" Lines="$(_ReadmeText)" Overwrite="true" />
+
+        <MakeDir Directories="$(PackageOutputDir)" />
+        <Delete Files="$(ZipPath)" />
+        <ZipDirectory SourceDirectory="$(PackageStagingDir)" DestinationFile="$(ZipPath)" Overwrite="true" />
+
+        <Message Text="Release package written to: $(ZipPath)" Importance="high" />
     </Target>
 </Project>
