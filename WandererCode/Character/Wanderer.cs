@@ -42,10 +42,6 @@ public class Wanderer : PlaceholderCharacterModel
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<WandererRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<WandererPotionPool>();
 
-    /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
-        override all the other methods that define those assets. 
-        These are just some of the simplest assets, given some placeholders to differentiate your character with. 
-        You don't have to, but you're suggested to rename these images. */
     public override string CustomVisualPath => "res://Wanderer/scenes/wanderer/wanderer.tscn";
     public override string CustomRestSiteAnimPath => "res://Wanderer/scenes/wanderer/wanderer_rest_site.tscn";
     public override string CustomMerchantAnimPath => "res://Wanderer/scenes/wanderer/wanderer_merchant.tscn";
@@ -56,6 +52,11 @@ public class Wanderer : PlaceholderCharacterModel
     public override string CustomCharacterSelectIconPath => "res://Wanderer/images/wanderer/char_select_wanderer.png";
     public override string CustomCharacterSelectLockedIconPath => "res://Wanderer/images/wanderer/char_select_wanderer_locked.png";
     public override string CustomMapMarkerPath => "res://Wanderer/images/wanderer/map_marker_wanderer.png";
+
+    public override string CustomArmPointingTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_point.png";
+    public override string CustomArmRockTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_rock.png";
+    public override string CustomArmPaperTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_paper.png";
+    public override string CustomArmScissorsTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_scissors.png";
 
     public override CustomEnergyCounter? CustomEnergyCounter => new CustomEnergyCounter(
         i => "res://Wanderer/images/ui/combat/energy_counters/wanderer_orb_layer_" + i + ".png", 
