@@ -37,12 +37,12 @@ public class MuGamae : WandererCard
         List<CardModel> cards = [];
 
         // Include all stances, even current one
-        if (WandererCmd.JodanEnabled)
+        if (WandererCmd.IsJodanEnabled(Owner.Creature))
             cards.Add(CreateChoiceCard<EnterJodan>());
         cards.Add(CreateChoiceCard<EnterChudan>());
         cards.Add(CreateChoiceCard<EnterHasso>());
         cards.Add(CreateChoiceCard<EnterGedan>());
-        if (WandererCmd.WakiEnabled)
+        if (WandererCmd.IsWakiEnabled(Owner.Creature))
             cards.Add(CreateChoiceCard<EnterWaki>());
 
         if (cards.Count == 0) return;

@@ -23,8 +23,8 @@ public class Jodan : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        WandererCmd.JodanEnabled = true;
-        
+        WandererCmd.EnableJodan(Owner.Creature);
+
         if (WandererCmd.GetCurrentStancePower(Owner.Creature) is JodanPower)
         {
             await PowerCmd.Apply<JodanPower>(Owner.Creature, 1, Owner.Creature, this);

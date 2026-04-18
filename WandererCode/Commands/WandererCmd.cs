@@ -49,8 +49,12 @@ public static class WandererCmd
     private static readonly Color ShinigamiTint = new(Colors.White, 0.3f);
 
     // stance vars
-    public static bool JodanEnabled = false;
-    public static bool WakiEnabled = false;
+    private static readonly HashSet<Creature> _jodanEnabled = new();
+    private static readonly HashSet<Creature> _wakiEnabled = new();
+    public static bool IsJodanEnabled(Creature creature) => _jodanEnabled.Contains(creature);
+    public static bool IsWakiEnabled(Creature creature) => _wakiEnabled.Contains(creature);
+    public static void EnableJodan(Creature creature) => _jodanEnabled.Add(creature);
+    public static void EnableWaki(Creature creature) => _wakiEnabled.Add(creature);
     private static readonly Dictionary<Creature, int> _enteredStanceCounts = new();
     public static int GetEnteredStanceCounts(Creature creature) => _enteredStanceCounts.TryGetValue(creature, out var count) ? count : 0;
 
@@ -100,9 +104,9 @@ public static class WandererCmd
     {
         List<Stance> candidates = [Stance.Chudan, Stance.Hasso, Stance.Gedan];
 
-        if (JodanEnabled)
+        if (IsJodanEnabled(creature))
             candidates.Add(Stance.Jodan);
-        if (WakiEnabled)
+        if (IsWakiEnabled(creature))
             candidates.Add(Stance.Waki);
 
         var currentStance = GetCurrentStancePower(creature);
@@ -139,11 +143,11 @@ public static class WandererCmd
                 break;
             case Stance.Jodan:
                 await PowerCmd.Apply<JodanPower>(creature, amount, creature, null);
-                JodanEnabled = true;
+                EnableJodan(creature);
                 break;
             case Stance.Waki:
                 await PowerCmd.Apply<WakiPower>(creature, amount, creature, null);
-                WakiEnabled = true;
+                EnableWaki(creature);
                 break;
         }
 
@@ -463,8 +467,8 @@ public static class WandererCmd
         _shiftCounts.Clear();
 
         _enteredStanceCounts.Clear();
-        JodanEnabled = false;
-        WakiEnabled = false;
+        _jodanEnabled.Clear();
+        _wakiEnabled.Clear();
     }
 
     /// <summary>

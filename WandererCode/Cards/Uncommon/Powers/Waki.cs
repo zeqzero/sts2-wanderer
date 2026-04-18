@@ -23,7 +23,7 @@ public class Waki : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        WandererCmd.WakiEnabled = true;
+        WandererCmd.EnableWaki(Owner.Creature);
 
         if (WandererCmd.GetCurrentStancePower(Owner.Creature) is WakiPower)
         {

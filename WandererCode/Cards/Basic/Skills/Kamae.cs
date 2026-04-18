@@ -31,7 +31,7 @@ public class Kamae : WandererCard
     {
         List<CardModel> cards = [];
 
-        if (!Owner.Creature.Powers.OfType<JodanPower>().Any() && WandererCmd.JodanEnabled)
+        if (!Owner.Creature.Powers.OfType<JodanPower>().Any() && WandererCmd.IsJodanEnabled(Owner.Creature))
             cards.Add(CreateChoiceCard<EnterJodan>());
         if (!Owner.Creature.Powers.OfType<ChudanPower>().Any())
             cards.Add(CreateChoiceCard<EnterChudan>());
@@ -39,7 +39,7 @@ public class Kamae : WandererCard
             cards.Add(CreateChoiceCard<EnterHasso>());
         if (!Owner.Creature.Powers.OfType<GedanPower>().Any())
             cards.Add(CreateChoiceCard<EnterGedan>());
-        if (!Owner.Creature.Powers.OfType<WakiPower>().Any() && WandererCmd.WakiEnabled)
+        if (!Owner.Creature.Powers.OfType<WakiPower>().Any() && WandererCmd.IsWakiEnabled(Owner.Creature))
             cards.Add(CreateChoiceCard<EnterWaki>());
 
         if (cards.Count == 0) return;
