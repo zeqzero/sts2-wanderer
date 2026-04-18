@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
@@ -17,7 +18,13 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Ichigeki : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(20m, ValueProp.Move), new DynamicVar("AdditionalDamage", 7) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CalculationBaseVar(20m),
+        new ExtraDamageVar(7m),
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier(static (CardModel card, Creature? _) =>
+            ((Ichigeki)card)._turnsInCurrentStance)
+    ];
 
     private int _turnsInCurrentStance = 0;
 
@@ -56,8 +63,7 @@ public class Ichigeki : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        var damage = DynamicVars.Damage.BaseValue + DynamicVars["AdditionalDamage"].BaseValue * _turnsInCurrentStance;
-        await DamageCmd.Attack(damage)
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage)
             .FromCard(this)
             .Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash")
@@ -66,6 +72,6 @@ public class Ichigeki : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["AdditionalDamage"].UpgradeValueBy(3);
+        DynamicVars.ExtraDamage.UpgradeValueBy(3m);
     }
 }

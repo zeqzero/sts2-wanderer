@@ -1,8 +1,10 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Keywords;
@@ -17,7 +19,14 @@ public class FlauntShame : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ WandererKeywords.Enshrined ];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(5m, ValueProp.Move),
+        new CalculationBaseVar(0m),
+        new CalculationExtraVar(1m),
+        new CalculatedVar("CalculatedHits").WithMultiplier(static (CardModel card, Creature? _) =>
+            PileType.Hand.GetPile(card.Owner).Cards.Count(c => c.Type == CardType.Status))
+    ];
 
     public FlauntShame() : base(3, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
     {

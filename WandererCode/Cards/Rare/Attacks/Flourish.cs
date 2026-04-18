@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
@@ -19,7 +20,11 @@ public class Flourish : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(5m, ValueProp.Move)
+        new DamageVar(5m, ValueProp.Move),
+        new CalculationBaseVar(0m),
+        new CalculationExtraVar(1m),
+        new CalculatedVar("CalculatedHits").WithMultiplier(static (CardModel card, Creature? _) =>
+            WandererCmd.GetEnteredStanceCounts(card.Owner.Creature))
     ];
 
     public Flourish() : base(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
@@ -29,7 +34,8 @@ public class Flourish : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(CombatState);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(WandererCmd.GetEnteredStanceCounts(Owner.Creature)).FromCard(this)
+        int hitCount = (int)((CalculatedVar)DynamicVars["CalculatedHits"]).Calculate(null);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hitCount).FromCard(this)
             .TargetingAllOpponents(CombatState)
             .WithHitVfxNode((Creature t) => NStabVfx.Create(t, facingEnemies: true, VfxColor.Gold))
             .SpawningHitVfxOnEachCreature()
