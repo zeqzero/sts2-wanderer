@@ -53,10 +53,10 @@ public class Wanderer : PlaceholderCharacterModel
     public override string CustomCharacterSelectLockedIconPath => "res://Wanderer/images/wanderer/char_select_wanderer_locked.png";
     public override string CustomMapMarkerPath => "res://Wanderer/images/wanderer/map_marker_wanderer.png";
 
-    public override string CustomArmPointingTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_point.png";
-    public override string CustomArmRockTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_rock.png";
-    public override string CustomArmPaperTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_paper.png";
-    public override string CustomArmScissorsTexturePath => "res://Wanderer/images/wanderer/hands/multiplayer_hand_wanderer_scissors.png";
+    public override string CustomArmPointingTexturePath => "res://Wanderer/images/ui/hands/multiplayer_hand_wanderer_point.png";
+    public override string CustomArmRockTexturePath => "res://Wanderer/images/ui/hands/multiplayer_hand_wanderer_rock.png";
+    public override string CustomArmPaperTexturePath => "res://Wanderer/images/ui/hands/multiplayer_hand_wanderer_paper.png";
+    public override string CustomArmScissorsTexturePath => "res://Wanderer/images/ui/hands/multiplayer_hand_wanderer_scissors.png";
 
     public override CustomEnergyCounter? CustomEnergyCounter => new CustomEnergyCounter(
         i => "res://Wanderer/images/ui/combat/energy_counters/wanderer_orb_layer_" + i + ".png", 
