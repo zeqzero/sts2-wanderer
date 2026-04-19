@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
+using MegaCrit.Sts2.Core.Localization;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Extensions;
@@ -16,6 +17,18 @@ public class MisogiRestSiteOption : RestSiteOption
     public override string OptionId => "MISOGI";
 
     public override IEnumerable<string> AssetPaths => [IconResPath];
+
+    public override LocString Description
+    {
+        get
+        {
+            var description = base.Description;
+            description.Add("DishonorCount", Owner.Deck.Cards.OfType<Dishonor>().Count());
+            description.Add("ShinigamiCurrentHp", WandererCmd.GetShinigamiCurrentHp(Owner.Creature));
+            description.Add("ShinigamiMaxHp", WandererCmd.GetShinigamiMaxHp(Owner.Creature));
+            return description;
+        }
+    }
 
     public override async Task<bool> OnSelect()
     {

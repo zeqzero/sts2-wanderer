@@ -198,6 +198,20 @@ public static class WandererCmd
             && state.ShinigamiCurrentHp < state.ShinigamiMaxHp;
     }
 
+    public static decimal GetShinigamiCurrentHp(Creature creature)
+    {
+        return _shinigamiStates.TryGetValue(creature, out var state)
+            ? state.ShinigamiCurrentHp
+            : DefaultShinigamiMaxHp;
+    }
+
+    public static int GetShinigamiMaxHp(Creature creature)
+    {
+        return _shinigamiStates.TryGetValue(creature, out var state)
+            ? state.ShinigamiMaxHp
+            : DefaultShinigamiMaxHp;
+    }
+
     /// <summary>Restores the persisted shinigami HP pool to max (out-of-combat healing).</summary>
     public static void FullyHealShinigami(Creature creature)
     {

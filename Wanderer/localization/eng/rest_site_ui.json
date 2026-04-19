@@ -1,4 +1,4 @@
 {
     "OPTION_MISOGI.name": "Misogi",
-    "OPTION_MISOGI.description": "Remove all [purple]Dishonor[/purple] cards from your deck and fully restore your Shinigami HP."
+    "OPTION_MISOGI.description": "Remove [purple]{DishonorCount:plural:1 Dishonor card|{} Dishonor cards}[/purple] from your deck and fully restore your [gold]Shinigami HP[/gold] ([green]{ShinigamiCurrentHp}[/green]/[green]{ShinigamiMaxHp}[/green])."
 }
