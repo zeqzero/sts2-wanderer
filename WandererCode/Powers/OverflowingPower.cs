@@ -14,7 +14,7 @@ public class OverflowingPower : WandererPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner == Owner.Player && cardPlay.Card.Type == CardType.Attack)
+        if (cardPlay.Card.Owner == Owner.Player)
         {
             foreach (var _ in Enumerable.Range(0, Amount))
             {

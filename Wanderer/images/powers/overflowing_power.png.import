@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8nxxhx3610hf"
-path="res://.godot/imported/overflowing.png-bb4f2620fcc1d3cd615c5e57865a2774.ctex"
+uid="uid://ch1te3rfraht6"
+path="res://.godot/imported/overflowing_power.png-3730342e996cbe582ca123cb604e1a2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/powers/overflowing.png"
-dest_files=["res://.godot/imported/overflowing.png-bb4f2620fcc1d3cd615c5e57865a2774.ctex"]
+source_file="res://Wanderer/images/powers/overflowing_power.png"
+dest_files=["res://.godot/imported/overflowing_power.png-3730342e996cbe582ca123cb604e1a2c.ctex"]
 
 [params]
 
