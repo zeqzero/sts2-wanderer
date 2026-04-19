@@ -32,6 +32,9 @@ public class ChudanPower : WandererPower, IStancePower
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
+        if (player != Owner.Player)
+            return;
+
         await PowerCmd.Apply<ChudanStrengthPower>(Owner, DynamicVars["ChudanStrengthPower"].BaseValue * Amount, Owner, null);
     }
 }

@@ -33,7 +33,9 @@ public class JodanPower : WandererPower, IStancePower
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        ArgumentNullException.ThrowIfNull(Owner.Player);
+        if (player != Owner.Player)
+            return;
+
         await ExhaustForVigor(choiceContext, Amount);
     }
 
