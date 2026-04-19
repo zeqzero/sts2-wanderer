@@ -43,13 +43,9 @@ public class Kiai : WandererCard
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
-    // Shift self after it lands in a post-play pile
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        if (card == this && oldPileType == PileType.Play && card.Owner == Owner)
-        {
-            await WandererCmd.ShiftCard(this, Owner);
-        }
+        await ShiftSelfAfterPlay(card, oldPileType);
     }
 
     protected override void OnUpgrade()

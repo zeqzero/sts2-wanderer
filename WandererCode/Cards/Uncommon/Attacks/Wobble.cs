@@ -46,13 +46,9 @@ public class Wobble : WandererCard
             .Execute(choiceContext);
     }
 
-    // Shift self after it lands in a post-play pile
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        if (card == this && oldPileType == PileType.Play && card.Owner == Owner)
-        {
-            await WandererCmd.ShiftCard(this, Owner);
-        }
+        await ShiftSelfAfterPlay(card, oldPileType);
     }
 
     // Fires on the restored Wobble instance after the second shift reverts it via Refill.

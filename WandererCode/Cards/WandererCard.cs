@@ -69,4 +69,20 @@ public abstract class WandererCard(int cost, CardType type, CardRarity rarity, T
     public virtual async Task AfterRefilled(CardModel card)
     {
     }
+
+    // Shift self after the card lands in its post-play result pile. Gated on the card
+    // having actually left Play: AutoPlay (Mayhem, DistilledChaos, Cascade, etc.) re-Adds
+    // the card Play→Play before OnPlay runs, which fires AfterCardChangedPiles(old=Play)
+    // prematurely — shifting then would orphan the replacement in the Play pile.
+    protected async Task ShiftSelfAfterPlay(CardModel card, PileType oldPileType)
+    {
+        if (card == this
+            && oldPileType == PileType.Play
+            && card.Owner == Owner
+            && card.Pile != null
+            && card.Pile.Type != PileType.Play)
+        {
+            await WandererCmd.ShiftCard(this, Owner);
+        }
+    }
 }

@@ -45,13 +45,9 @@ public class StealPeach : WandererCard
         await PowerCmd.Apply<StolenPeachPower>(cardPlay.Target, DynamicVars["StrengthLoss"].BaseValue, Owner.Creature, this);
     }
 
-    // after card hits a pile after being played
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
-        if (card == this && oldPileType == PileType.Play && card.Owner == Owner)
-        {
-            await WandererCmd.ShiftCard(this, Owner);
-        }
+        await ShiftSelfAfterPlay(card, oldPileType);
     }
 
     protected override void OnUpgrade()
