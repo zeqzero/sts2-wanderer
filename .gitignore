@@ -13,3 +13,4 @@ packages/
 media/
 decompiled/
 util/test-results/
+/docs/logs
