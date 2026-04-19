@@ -35,4 +35,10 @@ public class Spit : WandererCard
         await WandererCmd.PickAndShiftCardsFromHand(choiceContext, (int)DynamicVars.Cards.BaseValue, Owner, this, upgrade: IsUpgraded);
         await WandererCmd.AddDishonor(Owner, CombatState);
     }
+
+    protected override void OnUpgrade()
+    {
+        // nothing- the upgrade causes the shifted cards to be upgraded
+    }
+
 }
