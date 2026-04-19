@@ -46,4 +46,10 @@ public class Tsuki : WandererCard
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(2);
+    }
+
 }
