@@ -17,9 +17,9 @@ public class SecretSaucePower : WandererPower
 
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
-        if (dealer != null && (dealer == Owner || dealer.PetOwner?.Creature == Owner) && result.TotalDamage > 0)
+        if (dealer != null && (dealer == Owner || dealer.PetOwner?.Creature == Owner) && props.IsPoweredAttack() && result.UnblockedDamage > 0)
         {
-            await PowerCmd.Apply<PoisonPower>(target, result.TotalDamage * Amount, Owner, null);
+            await PowerCmd.Apply<PoisonPower>(target, result.UnblockedDamage * Amount, Owner, null);
         }
     }
 }
