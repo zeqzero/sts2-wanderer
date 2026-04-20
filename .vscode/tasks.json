@@ -5,7 +5,7 @@
             "label": "publish-mod",
             "type": "process",
             "command": "dotnet",
-            "args": ["publish"],
+            "args": ["publish", "-c", "Debug"],
             "group": "build",
             "problemMatcher": "$msCompile"
         }

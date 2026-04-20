@@ -64,6 +64,14 @@
         <NoWarn>$(NoWarn);MSB3270</NoWarn>
     </PropertyGroup>
 
+    <!-- Godot.NET.Sdk does not define DEBUG automatically. Opt in for the Debug
+         configuration so #if DEBUG-gated code (AutoSlay patches, multiplayer
+         test-scene patches) compiles into local builds. Release builds
+         (`dotnet build -c Release`) still exclude it. -->
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+        <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    </PropertyGroup>
+
     <!-- Release packaging: when /p:Package=true, redirect the existing copy targets
          into a staging folder instead of the live Steam mods dir, then zip it for sharing.
          Invoke with: dotnet publish /p:Package=true -->
