@@ -18,7 +18,11 @@ public class HolySmokePower : WandererPower
     {
         if (card.Owner == Owner.Player)
         {
-            await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null);
+            var target = Owner.Player.RunState.Rng.CombatTargets.NextItem(CombatState.HittableEnemies);
+            if (target != null)
+            {
+                await CreatureCmd.Damage(choiceContext, target, Amount, ValueProp.Unpowered, Owner);
+            }
         }
     }
 }
