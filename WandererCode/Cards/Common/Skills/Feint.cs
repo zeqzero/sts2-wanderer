@@ -2,7 +2,9 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -30,13 +32,55 @@ public class Feint : WandererCard
         CardModel? cardModel = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1), context: choiceContext, player: base.Owner, filter: c => c.Type == CardType.Attack, source: this)).FirstOrDefault();
         if (cardModel != null)
         {
-            var cardDamage = cardModel.DynamicVars.Damage.BaseValue;
-            if (cardDamage > 0)
+            decimal cardDamage = EstimateDamage(cardModel);
+            if (cardDamage > 0m)
             {
                 await CreatureCmd.GainBlock(Owner.Creature, new BlockVar(cardDamage, ValueProp.Move), cardPlay);
             }
             await CardCmd.Exhaust(choiceContext, cardModel);
         }
+    }
+
+    // Mirror the card's damage preview: pick out whichever damage var the card uses,
+    // then run it through the damage hook pipeline (Strength, Vulnerable, enchantments, etc.)
+    // against a representative enemy so Feint's block reflects the damage that card would deal.
+    private static decimal EstimateDamage(CardModel card)
+    {
+        var vars = card.DynamicVars;
+        Creature? target = card.CombatState?.HittableEnemies.FirstOrDefault();
+
+        decimal baseDamage;
+        ValueProp props;
+        if (vars.TryGetValue("Damage", out var dv) && dv is DamageVar damageVar)
+        {
+            baseDamage = damageVar.BaseValue;
+            props = damageVar.Props;
+        }
+        else if (vars.TryGetValue("CalculatedDamage", out var cv) && cv is CalculatedDamageVar calcVar)
+        {
+            baseDamage = calcVar.Calculate(target);
+            props = calcVar.Props;
+        }
+        else
+        {
+            return 0m;
+        }
+
+        if (baseDamage <= 0m || card.Owner == null) return 0m;
+
+        decimal modified = Hook.ModifyDamage(
+            card.Owner.RunState,
+            card.CombatState,
+            target,
+            card.Owner.Creature,
+            baseDamage,
+            props,
+            card,
+            ModifyDamageHookType.All,
+            CardPreviewMode.Normal,
+            out _);
+
+        return Math.Max(0m, modified);
     }
 
     protected override void OnUpgrade()
