@@ -8,7 +8,6 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
-using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
@@ -62,7 +61,7 @@ public class HipCheck : WandererCard
         WandererKeywords.ShiftHoverTip
     ];
 
-    public HipCheck() : base(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+    public HipCheck() : base(0, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
     }
 
