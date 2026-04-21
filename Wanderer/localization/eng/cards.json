@@ -52,7 +52,7 @@
     "WANDERER-FLICK.title": "Flick",
     "WANDERER-FLICK.description": "Deal {Damage:diff()} damage.",
     "WANDERER-ZANGEKI.title": "Zangeki",
-    "WANDERER-ZANGEKI.description": "Deal {Damage:diff()} damage to ALL enemies.\nNext turn, lose {Energy:energyIcons(1)}.",
+    "WANDERER-ZANGEKI.description": "Deal {Damage:diff()} damage to ALL enemies.",
     "WANDERER-JODAN.title": "Jodan Stance",
     "WANDERER-JODAN.description": "Enter Jodan and unlock it for the rest of combat.",
     "WANDERER-WAKI.title": "Waki Stance",

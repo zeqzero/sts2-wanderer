@@ -5,11 +5,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
-using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>aoe, nextturn, redesign</tags>
+/// <tags>aoe</tags>
 /// <art>wanderer sheathing sword, several action lines through slain enemies indicating many instantaneous high power attacks</art>
 /// <kanji>斬撃</kanji>
 [Pool(typeof(WandererCardPool))]
@@ -17,8 +16,7 @@ public class Zangeki : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(24m, ValueProp.Move),
-        new EnergyVar(1)
+        new DamageVar(24m, ValueProp.Move)
     ];
 
     public Zangeki() : base(3, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
@@ -32,8 +30,6 @@ public class Zangeki : WandererCard
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
             .Execute(choiceContext);
-
-        await PowerCmd.Apply<WandererNextTurnEnergyPower>(Owner.Creature, -DynamicVars.Energy.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
