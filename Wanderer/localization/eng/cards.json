@@ -120,7 +120,7 @@
     "WANDERER-STEADY_GUARD.title": "Steady Guard",
     "WANDERER-STEADY_GUARD.description": "Gain {Block:diff()} Block.\nReduce this card's block by 2 whenever you leave a stance.",
     "WANDERER-FUDOSHIN.title": "Fudōshin",
-    "WANDERER-FUDOSHIN.description": "Exhaust all Kamae.\nAt the start of your turn, reenter your current stance.",
+    "WANDERER-FUDOSHIN.description": "You cannot change stances.\nAt the start of your turn, reenter your current stance.",
     "WANDERER-IGNORE_SHAME.title": "Ignore Shame",
     "WANDERER-IGNORE_SHAME.description": "If you Exhausted a card this turn, gain {Block:diff()} Block.",
     "WANDERER-TARGET_HEAD.title": "Target Head",

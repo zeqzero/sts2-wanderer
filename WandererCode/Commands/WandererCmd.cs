@@ -126,6 +126,10 @@ public static class WandererCmd
         // if we're entering a new stance, leave the old one
         if (oldStancePower != null && oldStancePower.Stance != stance)
         {
+            // if we have Fudoshin, cancel leaving and entering
+            if (creature.Powers.OfType<FudoshinPower>().Any())
+                return;
+
             await PowerCmd.Remove((PowerModel)oldStancePower);
             await AfterStanceLeft(creature, oldStancePower.Stance);
         }

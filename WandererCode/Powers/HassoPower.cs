@@ -27,7 +27,7 @@ public class HassoPower : WandererPower, IStancePower
         }
     }
 
-    public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != Owner.Player)
             return;
