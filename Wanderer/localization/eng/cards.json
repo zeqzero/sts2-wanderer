@@ -58,7 +58,7 @@
     "WANDERER-WAKI.title": "Waki Stance",
     "WANDERER-WAKI.description": "Enter Waki and unlock it for the rest of combat.",
     "WANDERER-PLUNGE.title": "Plunge",
-    "WANDERER-PLUNGE.description": "Deal {Damage:diff()} damage.\nNext turn, draw {Cards:diff()} {Cards:plural:card|cards}.",
+    "WANDERER-PLUNGE.description": "Deal {Damage:diff()} damage.\nDraw cards until you draw a non-skill card.",
     "WANDERER-SEPPUKU.title": "Seppuku",
     "WANDERER-SEPPUKU.description": "Die.",
     "WANDERER-OFUDA.title": "Ofuda",
