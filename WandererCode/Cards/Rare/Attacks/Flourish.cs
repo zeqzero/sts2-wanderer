@@ -18,6 +18,9 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Flourish : WandererCard
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(5m, ValueProp.Move),
@@ -27,7 +30,7 @@ public class Flourish : WandererCard
             WandererCmd.GetEnteredStanceCounts(card.Owner.Creature))
     ];
 
-    public Flourish() : base(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
+    public Flourish() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
     {
     }
 
@@ -44,6 +47,6 @@ public class Flourish : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }
