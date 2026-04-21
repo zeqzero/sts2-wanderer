@@ -78,7 +78,7 @@
     "WANDERER-MEDICINE.title": "Medicine",
     "WANDERER-MEDICINE.description": "Gain {StrengthPower:diff()} Strength.\n[gold]Shift[/gold] this card.\nStrength gain is doubled on [gold]Refill[/gold].",
     "WANDERER-SWIG.title": "Swig",
-    "WANDERER-SWIG.description": "Draw {Cards:diff()} card{IfUpgraded:show:s|}.\n[gold]Shift[/gold] {Shift:diff()} card.",
+    "WANDERER-SWIG.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.\n[gold]Shift[/gold] up to {Shift:diff()} {Shift:plural:card|cards} in your Discard pile.",
     "WANDERER-HOLY_SMOKE.title": "Holy Smoke",
     "WANDERER-HOLY_SMOKE.description": "Whenever you Exhaust a card, deal {HolySmokePower:diff()} damage to a random enemy.",
     "WANDERER-LETHAL_EXCHANGE.title": "Lethal Exchange",

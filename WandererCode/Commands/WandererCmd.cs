@@ -620,6 +620,18 @@ public static class WandererCmd
         }
     }
 
+    public static async Task PickAndShiftCardsFromPile(PlayerChoiceContext context, CardPile pile, int min, int max, Player player, bool upgrade = false, IEnumerable<CardKeyword>? addKeywords = null, LocString? prompt = null)
+    {
+        var prefs = new CardSelectorPrefs(prompt ?? DefaultShiftPrompt, min, max);
+        var cards = pile.Cards.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined)).ToList();
+        var selected = await CardSelectCmd.FromSimpleGrid(context, cards, player, prefs);
+
+        foreach (var card in selected)
+        {
+            await ShiftCard(card, player, upgrade, addKeywords);
+        }
+    }
+
     /// <summary>
     /// ChooseACard screen selection. Like CardSelectCmd.FromChooseACardScreen but with no 3-card limit.
     /// </summary>
