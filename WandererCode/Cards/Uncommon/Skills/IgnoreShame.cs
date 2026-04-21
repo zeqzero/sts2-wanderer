@@ -20,7 +20,10 @@ public class IgnoreShame : WandererCard
 
     protected override bool ShouldGlowGoldInternal => WasCardExhaustedThisTurn;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(18m, ValueProp.Move)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Retain ];
+
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12m, ValueProp.Move)];
 
     private bool WasCardExhaustedThisTurn => CombatManager.Instance.History.Entries
         .OfType<CardExhaustedEntry>()
@@ -40,6 +43,6 @@ public class IgnoreShame : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(6m);
+        DynamicVars.Block.UpgradeValueBy(3m);
     }
 }
