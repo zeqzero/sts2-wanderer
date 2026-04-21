@@ -21,8 +21,8 @@ public class SteadyExchange : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(4m, ValueProp.Move),
-        new BlockVar(4m, ValueProp.Move)
+        new DamageVar(3m, ValueProp.Move),
+        new BlockVar(3m, ValueProp.Move)
     ];
 
     private bool _stanceLeftThisTurn;
@@ -63,7 +63,7 @@ public class SteadyExchange : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
-        DynamicVars.Block.UpgradeValueBy(2m);
+        DynamicVars.Damage.UpgradeValueBy(1m);
+        DynamicVars.Block.UpgradeValueBy(1m);
     }
 }
