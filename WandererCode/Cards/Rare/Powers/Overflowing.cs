@@ -13,7 +13,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Overflowing : WandererCard
 {
-    public Overflowing() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+    public Overflowing() : base(3, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
     }
 
