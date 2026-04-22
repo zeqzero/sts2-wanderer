@@ -4,10 +4,11 @@ using Wanderer.WandererCode.Extensions;
 using Godot;
 using Wanderer.WandererCode.Commands;
 using Wanderer.WandererCode.Interfaces;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Runs;
 
 namespace Wanderer.WandererCode.Powers;
 
@@ -58,14 +59,15 @@ public abstract class WandererPower : CustomPowerModel, IWandererEventListener
     }
 
     // For hooks that don't plumb a PlayerChoiceContext (AfterPowerAmountChanged, etc.).
-    // Piggybacks on the currently-running action so remote clients pause for the choice
-    // via the same mechanism PlayCardAction uses for its own OnPlay choices.
-    protected async Task RunWithChoiceContext(Func<PlayerChoiceContext, Task> work)
+    // Defers the choice to its own GenericHookGameAction so the triggering action —
+    // typically a PlayCardAction for a Power card, whose NCard is on a fly-VFX kill-timer —
+    // can finish cleanly before the choice UI opens.
+    protected async Task RunAsHookAction(Func<PlayerChoiceContext, Task> work)
     {
-        var action = RunManager.Instance.ActionExecutor.CurrentlyRunningAction;
-        PlayerChoiceContext context = action != null
-            ? new GameActionPlayerChoiceContext(action)
-            : new BlockingPlayerChoiceContext();
-        await work(context);
+        if (!LocalContext.NetId.HasValue)
+            return;
+
+        var hookContext = new HookPlayerChoiceContext(this, LocalContext.NetId.Value, CombatState, GameActionType.Combat);
+        await hookContext.AssignTaskAndWaitForPauseOrCompletion(work(hookContext));
     }
 }

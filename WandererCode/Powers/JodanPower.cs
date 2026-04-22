@@ -27,7 +27,7 @@ public class JodanPower : WandererPower, IStancePower
         if (power == this)
         {
             ArgumentNullException.ThrowIfNull(Owner.Player);
-            await RunWithChoiceContext(ctx => ExhaustForVigor(ctx, (int)amount));
+            await RunAsHookAction(ctx => ExhaustForVigor(ctx, (int)amount));
         }
     }
 

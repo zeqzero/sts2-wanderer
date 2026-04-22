@@ -25,7 +25,7 @@ public class WakiPower : WandererPower, IStancePower
         if (power == this)
         {
             ArgumentNullException.ThrowIfNull(Owner.Player);
-            await RunWithChoiceContext(ctx => ShiftAndRetain(ctx, (int)amount));
+            await RunAsHookAction(ctx => ShiftAndRetain(ctx, (int)amount));
         }
     }
 
