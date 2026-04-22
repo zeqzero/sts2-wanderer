@@ -19,6 +19,7 @@ public class Kekkai : WandererCard
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
+        HoverTipFactory.FromKeyword(WandererKeywords.Enshrined),
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
     ];
 
