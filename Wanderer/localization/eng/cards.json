@@ -4,7 +4,7 @@
     "WANDERER-DEFEND_WANDERER.title": "Defend",
     "WANDERER-DEFEND_WANDERER.description": "Gain {Block:diff()} [gold]Block[/gold].",
     "WANDERER-KAMAE.title": "Kamae",
-    "WANDERER-KAMAE.description": "Enter a different stance.",
+    "WANDERER-KAMAE.description": "Enter a different stance.{IfUpgraded:show:\nDraw 1 card.|}",
     "WANDERER-ENTER_JODAN.title": "Jodan",
     "WANDERER-ENTER_JODAN.description": "Enter Jodan stance.",
     "WANDERER-ENTER_CHUDAN.title": "Chudan",

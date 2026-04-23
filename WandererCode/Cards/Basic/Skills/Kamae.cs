@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -49,10 +50,15 @@ public class Kamae : WandererCard
         {
             await enterStance.OnEnter(choiceContext, cardPlay, 1);
         }
+
+        if (IsUpgraded)
+        {
+            await CardPileCmd.Draw(choiceContext, 1, Owner);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        // do nothing
     }
 }
