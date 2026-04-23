@@ -90,7 +90,7 @@
     "WANDERER-FLAUNT_SHAME.title": "Flaunt Shame",
     "WANDERER-FLAUNT_SHAME.description": "Discard ALL status cards and deal {Damage:diff()} damage to ALL enemies for each.{InCombat:\n(Hits {CalculatedHits:diff()} {CalculatedHits:plural:time|times})|}",
     "WANDERER-IMPROVISE.title": "Improvise",
-    "WANDERER-IMPROVISE.description": "Whenever you [gold]Shift[/gold], gain {ImprovisePower:diff()} {Energy:energyIcons(1)}.",
+    "WANDERER-IMPROVISE.description": "Whenever you [gold]Shift[/gold], gain {Energy:energyIcons(1)}.",
     "WANDERER-PLAY_DEAD.title": "Play Dead",
     "WANDERER-PLAY_DEAD.description": "Put all curse cards {IfUpgraded:show:|from your Draw Pile }into your Hand.\nDie.\nAdd [purple]Dishonor[/purple] to your deck.",
     "WANDERER-SECRET_SAUCE.title": "Secret Sauce",
