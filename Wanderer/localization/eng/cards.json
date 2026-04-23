@@ -52,7 +52,7 @@
     "WANDERER-KI_STRIKE.title": "Ki Strike",
     "WANDERER-KI_STRIKE.description": "Deal {Damage:diff()} damage.\nNext turn, gain {WandererNextTurnVigorPower:diff()} [gold]Vigor[/gold].",
     "WANDERER-ZANGEKI.title": "Zangeki",
-    "WANDERER-ZANGEKI.description": "Deal {Damage:diff()} damage to ALL enemies.",
+    "WANDERER-ZANGEKI.description": "Deal {Damage:diff()} damage to ALL enemies X times.\nGain [gold]Block[/gold] equal to damage dealt.",
     "WANDERER-JODAN.title": "Jodan Stance",
     "WANDERER-JODAN.description": "Enter Jodan and unlock it for the rest of combat.",
     "WANDERER-WAKI.title": "Waki Stance",
