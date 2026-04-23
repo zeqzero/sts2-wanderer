@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>counter</tags>
+/// <tags>death, counter</tags>
 /// <art>wanderer viewed from the front mid-clap, shinto hakusho clap, zoomed in on hands</art>
 /// <kanji>払</kanji>
 [Pool(typeof(WandererCardPool))]

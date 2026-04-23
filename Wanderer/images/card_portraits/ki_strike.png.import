@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://twe1b7cmygeq"
-path="res://.godot/imported/flick.png-be2e6671ea3164ee20b2f77eee58b4ff.ctex"
+uid="uid://bb37pimh05ews"
+path="res://.godot/imported/ki_strike.png-6cbfbb05f2065d2f485fd1023147f322.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/flick.png"
-dest_files=["res://.godot/imported/flick.png-be2e6671ea3164ee20b2f77eee58b4ff.ctex"]
+source_file="res://Wanderer/images/card_portraits/ki_strike.png"
+dest_files=["res://.godot/imported/ki_strike.png-6cbfbb05f2065d2f485fd1023147f322.ctex"]
 
 [params]
 

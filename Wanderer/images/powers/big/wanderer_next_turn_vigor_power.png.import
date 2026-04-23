@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qtkiok3vr4nk"
-path="res://.godot/imported/flick.png-fa0bd5269ed423307cfdc446cc7bd518.ctex"
+uid="uid://bqi02q01llaxo"
+path="res://.godot/imported/wanderer_next_turn_vigor_power.png-6515fcf13d165270f91924c1f076cc3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/big/flick.png"
-dest_files=["res://.godot/imported/flick.png-fa0bd5269ed423307cfdc446cc7bd518.ctex"]
+source_file="res://Wanderer/images/powers/big/wanderer_next_turn_vigor_power.png"
+dest_files=["res://.godot/imported/wanderer_next_turn_vigor_power.png-6515fcf13d165270f91924c1f076cc3d.ctex"]
 
 [params]
 

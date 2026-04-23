@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>vuln</tags>
+/// <tags>flurry, draw</tags>
 /// <art>wanderer mid dash and attack with action lines indicating quick forward movement of the body</art>
 /// <kanji>先手</kanji>
 [Pool(typeof(WandererCardPool))]

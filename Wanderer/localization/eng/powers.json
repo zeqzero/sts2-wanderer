@@ -27,8 +27,8 @@
     "WANDERER-TORRENT_POWER.description": "Whenever you enter a stance, deal 1 damage to ALL enemies.",
     "WANDERER-TORRENT_POWER.smartDescription": "Whenever you enter a stance, deal {Amount} damage to ALL enemies.",
     "WANDERER-JODAN_POWER.title": "Jodan",
-    "WANDERER-JODAN_POWER.description": "On enter and turn start, Exhaust 1 card to gain 7 vigor.",
-    "WANDERER-JODAN_POWER.smartDescription": "On enter and turn start, Exhaust {Amount} {Amount:plural:card|cards} to gain {VigorPower} vigor for each.",
+    "WANDERER-JODAN_POWER.description": "On enter and turn start, Exhaust 1 card to gain 7 [gold]Vigor[/gold].",
+    "WANDERER-JODAN_POWER.smartDescription": "On enter and turn start, Exhaust {Amount} {Amount:plural:card|cards} to gain {VigorPower} [gold]Vigor[/gold] for each.",
     "WANDERER-WAKI_POWER.title": "Waki",
     "WANDERER-WAKI_POWER.description": "On enter and turn start, Shift and Retain up to 1 card and reduce the energy costs of all Retained cards by 1.",
     "WANDERER-WAKI_POWER.smartDescription": "On enter and turn start, Shift and Retain up to {Amount} {Amount:plural:card|cards} and reduce the energy costs of all Retained cards by 1.",
@@ -95,5 +95,8 @@
     "WANDERER-JIGOKU_JUNBI_POWER.smartDescription": "Next Turn powers are not removed after being applied.",
     "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.title": "Next Turn Damage",
     "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.description": "Next turn, deal 1 damage to a random enemy.",
-    "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.smartDescription": "Next turn, deal {Amount} damage to a random enemy."
+    "WANDERER-WANDERER_NEXT_TURN_DAMAGE_POWER.smartDescription": "Next turn, deal {Amount} damage to a random enemy.",
+    "WANDERER-WANDERER_NEXT_TURN_VIGOR_POWER.title": "Next Turn Vigor",
+    "WANDERER-WANDERER_NEXT_TURN_VIGOR_POWER.description": "Next turn, gain [gold]Vigor[/gold].",
+    "WANDERER-WANDERER_NEXT_TURN_VIGOR_POWER.smartDescription": "Next turn, gain {Amount} [gold]Vigor[/gold]."
 }
