@@ -194,5 +194,5 @@
     "WANDERER-JIGOKU_JUNBI.title": "Jigoku Junbi",
     "WANDERER-JIGOKU_JUNBI.description": "Next Turn powers are not removed after being applied.",
     "WANDERER-MU_GAMAE.title": "Mu-gamae",
-    "WANDERER-MU_GAMAE.description": "Enter a stance {Times:diff()} {Times:plural:time|times}.\nAt the start of your turn, put this card into your hand."
+    "WANDERER-MU_GAMAE.description": "Enter a stance {Times:diff()} {Times:plural:time|times}.{IfUpgraded:show:\nAt the start of your turn, put this card into your hand.|}"
 }

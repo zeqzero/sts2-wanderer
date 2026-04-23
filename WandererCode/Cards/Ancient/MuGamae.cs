@@ -21,6 +21,9 @@ public class MuGamae : WandererCard
         new IntVar("Times", 2m)
     ];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Innate ];
+
+
     public MuGamae() : base(0, CardType.Skill, CardRarity.Ancient, TargetType.Self)
     {
     }
@@ -59,6 +62,8 @@ public class MuGamae : WandererCard
     {
         if (player != Owner) return;
 
+        if (!IsUpgraded) return;
+
         var pile = PileType.Draw.GetPile(Owner).Cards.FirstOrDefault(c => c == this)
             ?? PileType.Discard.GetPile(Owner).Cards.FirstOrDefault(c => c == this);
 
@@ -70,6 +75,6 @@ public class MuGamae : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Times"].UpgradeValueBy(1m);
+        // do nothing
     }
 }
