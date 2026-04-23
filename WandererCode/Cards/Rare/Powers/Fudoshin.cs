@@ -16,7 +16,7 @@ public class Fudoshin : WandererCard
 {
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<FudoshinPower>()];
 
-    public Fudoshin() : base(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+    public Fudoshin() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
     }
 
