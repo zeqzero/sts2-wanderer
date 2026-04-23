@@ -14,11 +14,9 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class AhTaTaTaTaTa : WandererCard
 {
-    protected override bool HasEnergyCostX => true;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(1m, ValueProp.Move), new DynamicVar("Hits", 5), new DynamicVar("Replay", 1) ];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1m, ValueProp.Move)];
-
-    public AhTaTaTaTaTa() : base(0, CardType.Attack, CardRarity.Rare, TargetType.RandomEnemy)
+    public AhTaTaTaTaTa() : base(3, CardType.Attack, CardRarity.Rare, TargetType.RandomEnemy)
     {
     }
 
@@ -26,21 +24,19 @@ public class AhTaTaTaTaTa : WandererCard
     {
         ArgumentNullException.ThrowIfNull(CombatState, "CombatState");
 
-        int hitCount = ResolveEnergyXValue();
-
         await DamageCmd
             .Attack(DynamicVars.Damage.BaseValue)
-            .WithHitCount(hitCount)
+            .WithHitCount(DynamicVars["Hits"].IntValue)
             .FromCard(this)
             .TargetingRandomOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
-        BaseReplayCount += hitCount;
+        BaseReplayCount += DynamicVars["Replay"].IntValue;
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars["Replay"].UpgradeValueBy(1);
     }
 }

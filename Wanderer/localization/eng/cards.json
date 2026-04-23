@@ -104,7 +104,7 @@
     "WANDERER-RIPOSTE.title": "Riposte",
     "WANDERER-RIPOSTE.description": "Deal {Damage:diff()} damage.\nIf you have Block, hits twice.",
     "WANDERER-AH_TA_TA_TA_TA_TA.title": "AH TATATATATA",
-    "WANDERER-AH_TA_TA_TA_TA_TA.description": "Deal {Damage:diff()} to a random enemy X times.\nAdd Replay X.",
+    "WANDERER-AH_TA_TA_TA_TA_TA.description": "Deal {Damage:diff()} to a random enemy {Hits:diff()} times.\nAdd Replay {Replay:diff()}.",
     "WANDERER-ZANSHIN.title": "Zanshin",
     "WANDERER-ZANSHIN.description": "Gain {Block:diff()} Block.\nApply {CounterPower:diff()} Counter.",
     "WANDERER-WIPE_BROW.title": "Wipe Brow",
