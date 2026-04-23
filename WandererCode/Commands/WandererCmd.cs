@@ -73,8 +73,7 @@ public static class WandererCmd
         _shiftCounts[creature] = GetShiftCount(creature) + 1;
     }
 
-    // Transient per-combat Shinigami state. Persistent max/current HP live on
-    // BrokenJuzuRelic as [SavedProperty] so they survive save/reload.
+    // Transient per-combat Shinigami state.
     private class ShinigamiState
     {
         public bool Active;
@@ -210,11 +209,15 @@ public static class WandererCmd
 
     public static int GetShinigamiCurrentHp(Creature creature)
     {
+        if (InShinigamiForm(creature))
+            return creature.CurrentHp;
         return GetJuzuRelic(creature)?.ShinigamiCurrentHp ?? DefaultShinigamiMaxHp;
     }
 
     public static int GetShinigamiMaxHp(Creature creature)
     {
+        if (InShinigamiForm(creature))
+            return creature.MaxHp;
         return GetJuzuRelic(creature)?.ShinigamiMaxHp ?? DefaultShinigamiMaxHp;
     }
 
