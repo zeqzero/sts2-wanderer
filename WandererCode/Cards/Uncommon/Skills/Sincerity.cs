@@ -19,7 +19,10 @@ public class Sincerity : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CardPileCmd.Add(this, PileType.Draw, CardPilePosition.Top);
+        if (!Keywords.Contains(CardKeyword.Exhaust) && !ExhaustOnNextPlay)
+        {
+            await CardPileCmd.Add(this, PileType.Draw, CardPilePosition.Top);
+        }
 
         var pile = PileType.Discard.GetPile(Owner);
         var selected = (await CardSelectCmd.FromSimpleGrid(choiceContext, pile.Cards, Owner, new CardSelectorPrefs(SelectionScreenPrompt, 1))).FirstOrDefault();
