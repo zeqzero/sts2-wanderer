@@ -20,7 +20,7 @@
     "WANDERER-SLASH.title": "Slash",
     "WANDERER-SLASH.description": "Deal {Damage:diff()} damage to ALL enemies.",
     "WANDERER-WEAVE.title": "Weave",
-    "WANDERER-WEAVE.description": "Gain {Block:diff()} block.\nNext turn, draw {Cards:diff()} {Cards:plural:card|cards}.",
+    "WANDERER-WEAVE.description": "Gain {Block:diff()} block.\nNext turn, deal {Damage:diff()} to a random enemy.",
     "WANDERER-DISENGAGE.title": "Disengage",
     "WANDERER-DISENGAGE.description": "Gain {Block:diff()} Block.\nNext turn, gain {BlockNextTurn:diff()} Block.",
     "WANDERER-DIE_PERIOD.title": "Die.",

@@ -17,7 +17,7 @@ public class Weave : WandererCard
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8m, ValueProp.Move), new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7m, ValueProp.Move), new DamageVar(7, ValueProp.Move)];
 
     public Weave() : base(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
@@ -26,11 +26,12 @@ public class Weave : WandererCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<WandererNextTurnDrawPower>(Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<WandererNextTurnDamagePower>(Owner.Creature, DynamicVars.Damage.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(1m);
+        DynamicVars.Block.UpgradeValueBy(2m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
     }
 }
