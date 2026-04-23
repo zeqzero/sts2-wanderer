@@ -16,7 +16,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class TakeInitiative : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7m, ValueProp.Move), new PowerVar<VulnerablePower>(1m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5m, ValueProp.Move), new PowerVar<VulnerablePower>(1m), new CardsVar(1)];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
 
@@ -33,11 +33,12 @@ public class TakeInitiative : WandererCard
             .Execute(choiceContext);
 
         await PowerCmd.Apply<VulnerablePower>(cardPlay.Target, DynamicVars.Vulnerable.BaseValue, Owner.Creature, this);
+
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1m);
-        DynamicVars.Vulnerable.UpgradeValueBy(1m);
+        DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

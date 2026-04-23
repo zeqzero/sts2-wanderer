@@ -30,7 +30,7 @@
     "WANDERER-DISHONOR.title": "Dishonor",
     "WANDERER-DISHONOR.description": "",
     "WANDERER-TAKE_INITIATIVE.title": "Take Initiative",
-    "WANDERER-TAKE_INITIATIVE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} Vulnerable.",
+    "WANDERER-TAKE_INITIATIVE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} Vulnerable.\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
     "WANDERER-FEINT.title": "Feint",
     "WANDERER-FEINT.description": "Exhaust an attack and gain block equal to its damage.",
     "WANDERER-PRESS.title": "Press",
