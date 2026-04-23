@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>nextturn, draw</tags>
+/// <tags>nextturn</tags>
 /// <art>wanderer turning their shoulders/torse while standing in place, matrix dodge style, action lines indicating dodged attack</art>
 /// <kanji>躱</kanji>
 [Pool(typeof(WandererCardPool))]
