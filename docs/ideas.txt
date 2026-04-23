@@ -1,9 +1,6 @@
 playtest notes:
-    card selection screen on kamae putting cards in weird locations
-    kekkai missing enshrined tooltip
     next turn stuff doesn't work on base game (Relax card in particular is a bummer)
     aoe options across archtypes? nextturn doesn't have one I think
-    overflowing + flourish is 1000% OP
 
 general balance thoughts:
     draw is over-represented in Shift and Nextturn
