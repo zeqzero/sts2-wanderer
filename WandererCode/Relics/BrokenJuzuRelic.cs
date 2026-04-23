@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using Wanderer.WandererCode.Cards;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Commands;
@@ -19,6 +20,33 @@ public class BrokenJuzuRelic : WandererRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
+    // Persistent Shinigami HP pool. Survives save/reload; transient in-form state
+    // (Active flag, stored ritual-death HP, tint) stays in WandererCmd's static dict.
+    private int _shinigamiMaxHp = WandererCmd.DefaultShinigamiMaxHp;
+    private int _shinigamiCurrentHp = WandererCmd.DefaultShinigamiMaxHp;
+
+    [SavedProperty]
+    public int ShinigamiMaxHp
+    {
+        get => _shinigamiMaxHp;
+        set
+        {
+            AssertMutable();
+            _shinigamiMaxHp = value;
+        }
+    }
+
+    [SavedProperty]
+    public int ShinigamiCurrentHp
+    {
+        get => _shinigamiCurrentHp;
+        set
+        {
+            AssertMutable();
+            _shinigamiCurrentHp = value;
+        }
+    }
+
     public static HoverTip ShinigamiPowerCanonicalHoverTip
     {
         get
@@ -30,6 +58,8 @@ public class BrokenJuzuRelic : WandererRelic
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), ShinigamiPowerCanonicalHoverTip];
+
+    public override RelicModel? GetUpgradeReplacement() => ModelDb.Relic<UnstrungJuzuRelic>();
 
     public override async Task BeforeCombatStart()
     {

@@ -22,6 +22,7 @@ using Wanderer.WandererCode.Interfaces;
 using Wanderer.WandererCode.Keywords;
 using Wanderer.WandererCode.Nodes;
 using Wanderer.WandererCode.Powers;
+using Wanderer.WandererCode.Relics;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -72,13 +73,13 @@ public static class WandererCmd
         _shiftCounts[creature] = GetShiftCount(creature) + 1;
     }
 
+    // Transient per-combat Shinigami state. Persistent max/current HP live on
+    // BrokenJuzuRelic as [SavedProperty] so they survive save/reload.
     private class ShinigamiState
     {
         public bool Active;
         public decimal? StoredHp;
         public int PreShinigamiMaxHp;
-        public int ShinigamiMaxHp = DefaultShinigamiMaxHp;
-        public decimal ShinigamiCurrentHp = DefaultShinigamiMaxHp;
         public Color? OriginalModulate;
         public Player? Player;
     }
@@ -196,32 +197,56 @@ public static class WandererCmd
         return _shinigamiStates.TryGetValue(creature, out var state) && state.Active;
     }
 
-    public static bool IsShinigamiHpBelowMax(Creature creature)
+    private static BrokenJuzuRelic? GetJuzuRelic(Creature creature)
     {
-        return _shinigamiStates.TryGetValue(creature, out var state)
-            && state.ShinigamiCurrentHp < state.ShinigamiMaxHp;
+        return creature.Player?.Relics.OfType<BrokenJuzuRelic>().FirstOrDefault();
     }
 
-    public static decimal GetShinigamiCurrentHp(Creature creature)
+    public static bool IsShinigamiHpBelowMax(Creature creature)
     {
-        return _shinigamiStates.TryGetValue(creature, out var state)
-            ? state.ShinigamiCurrentHp
-            : DefaultShinigamiMaxHp;
+        var relic = GetJuzuRelic(creature);
+        return relic != null && relic.ShinigamiCurrentHp < relic.ShinigamiMaxHp;
+    }
+
+    public static int GetShinigamiCurrentHp(Creature creature)
+    {
+        return GetJuzuRelic(creature)?.ShinigamiCurrentHp ?? DefaultShinigamiMaxHp;
     }
 
     public static int GetShinigamiMaxHp(Creature creature)
     {
-        return _shinigamiStates.TryGetValue(creature, out var state)
-            ? state.ShinigamiMaxHp
-            : DefaultShinigamiMaxHp;
+        return GetJuzuRelic(creature)?.ShinigamiMaxHp ?? DefaultShinigamiMaxHp;
+    }
+
+    private static int GetShinigamiMaxHpBonus(Player player)
+    {
+        return player.Relics.OfType<UnstrungJuzuRelic>().Any() ? UnstrungJuzuRelic.ShinigamiMaxHpBonus : 0;
+    }
+
+    /// <summary>
+    /// Raises the persistent Shinigami max HP pool to its target for the player's current
+    /// relics, healing current HP by the same delta. Called from UnstrungJuzuRelic.AfterObtained.
+    /// </summary>
+    public static void EnsureShinigamiMaxHpBonus(Player player)
+    {
+        var relic = GetJuzuRelic(player.Creature);
+        if (relic == null) return;
+
+        int targetMaxHp = DefaultShinigamiMaxHp + GetShinigamiMaxHpBonus(player);
+        if (relic.ShinigamiMaxHp >= targetMaxHp) return;
+
+        int delta = targetMaxHp - relic.ShinigamiMaxHp;
+        relic.ShinigamiMaxHp = targetMaxHp;
+        relic.ShinigamiCurrentHp += delta;
     }
 
     /// <summary>Restores the persisted shinigami HP pool to max (out-of-combat healing).</summary>
     public static void FullyHealShinigami(Creature creature)
     {
-        if (_shinigamiStates.TryGetValue(creature, out var state))
+        var relic = GetJuzuRelic(creature);
+        if (relic != null)
         {
-            state.ShinigamiCurrentHp = state.ShinigamiMaxHp;
+            relic.ShinigamiCurrentHp = relic.ShinigamiMaxHp;
         }
     }
 
@@ -315,12 +340,18 @@ public static class WandererCmd
         var state = GetOrCreateState(creature);
         if (state.Active) return;
 
+        var relic = GetJuzuRelic(creature);
+        if (relic == null) return;
+
+        // Covers saves made before Unstrung Juzu's bonus was applied (e.g. mod upgrade).
+        EnsureShinigamiMaxHpBonus(player);
+
         state.PreShinigamiMaxHp = creature.MaxHp;
         state.Player = player;
         state.Active = true;
 
-        creature.SetMaxHpInternal(state.ShinigamiMaxHp);
-        await CreatureCmd.Heal(creature, state.ShinigamiCurrentHp);
+        creature.SetMaxHpInternal(relic.ShinigamiMaxHp);
+        await CreatureCmd.Heal(creature, relic.ShinigamiCurrentHp);
 
         await PowerCmd.Apply<ShinigamiPower>(creature, ShinigamiExhaustThreshold, creature, null);
 
@@ -342,8 +373,12 @@ public static class WandererCmd
 
         state.Active = false;
         // Persist any in-form max-hp changes onto the Shinigami HP pool.
-        state.ShinigamiMaxHp = creature.MaxHp;
-        state.ShinigamiCurrentHp = creature.CurrentHp;
+        var relic = GetJuzuRelic(creature);
+        if (relic != null)
+        {
+            relic.ShinigamiMaxHp = creature.MaxHp;
+            relic.ShinigamiCurrentHp = creature.CurrentHp;
+        }
 
         await RestoreAllCards(state.Player);
 
