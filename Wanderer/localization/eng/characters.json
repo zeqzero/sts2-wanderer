@@ -1,11 +1,11 @@
 {
   "WANDERER-WANDERER.aromaPrinciple": "Lore",
-  "WANDERER-WANDERER.banter.alive.endTurnPing": "Co-op hurry up end turn ping message",
+  "WANDERER-WANDERER.banter.alive.endTurnPing": "The cards do not bloom\nHeld in your frozen fingers\nSpring becomes winter.",
   "WANDERER-WANDERER.banter.dead.endTurnPing": "...",
   "WANDERER-WANDERER.cardsModifierDescription": "__ cards will now appear in rewards and shops.",
   "WANDERER-WANDERER.cardsModifierTitle": "__ Cards",
   "WANDERER-WANDERER.description": "A wandering warrior poet.\nHe carries a heavy curse and a heavier gourd.",
-  "WANDERER-WANDERER.eventDeathPrevention": "Co-op survival line",
+  "WANDERER-WANDERER.eventDeathPrevention": "Must live on...",
   "WANDERER-WANDERER.goldMonologue": "Line spoken when obtaining a large amount of gold",
   "WANDERER-WANDERER.possessiveAdjective": "his/her/its",
   "WANDERER-WANDERER.pronounObject": "him/her/it",
