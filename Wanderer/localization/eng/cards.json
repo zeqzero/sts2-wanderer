@@ -86,7 +86,7 @@
     "WANDERER-JUNSHI.title": "Junshi",
     "WANDERER-JUNSHI.description": "Die.\nReduce this card's cost by {Energy:energyIcons(1)} whenever ANYONE dies.",
     "WANDERER-COUNT_REGRETS.title": "Count Regrets",
-    "WANDERER-COUNT_REGRETS.description": "Draw {Cards:diff()} {Cards:plural:card|cards}.",
+    "WANDERER-COUNT_REGRETS.description": "Fill your Hand with [gold]Ofuda[/gold].",
     "WANDERER-FLAUNT_SHAME.title": "Flaunt Shame",
     "WANDERER-FLAUNT_SHAME.description": "Discard ALL status cards and deal {Damage:diff()} damage to ALL enemies for each.{InCombat:\n(Hits {CalculatedHits:diff()} {CalculatedHits:plural:time|times})|}",
     "WANDERER-IMPROVISE.title": "Improvise",
