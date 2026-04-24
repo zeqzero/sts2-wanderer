@@ -4,5 +4,8 @@
   "WANDERER-BROKEN_JUZU_RELIC.flavor": "Broken, and with it, so too is your release...",
   "WANDERER-KINTSUGI_JUZU_RELIC.title": "Kintsugi Juzu",
   "WANDERER-KINTSUGI_JUZU_RELIC.description": "On death, [gold]Shift[/gold] ALL cards to [purple]Ofuda[/purple] and apply 6 [gold]Shinigami[/gold]. Reveal what each [purple]Ofuda[/purple] was [gold]Shifted[/gold] from.",
-  "WANDERER-KINTSUGI_JUZU_RELIC.flavor": "Mended, and with it, your return is no longer a question, but a command."
+  "WANDERER-KINTSUGI_JUZU_RELIC.flavor": "Mended, and with it, your return is no longer a question, but a command.",
+  "WANDERER-SHINKYO_RELIC.title": "Shinkyō",
+  "WANDERER-SHINKYO_RELIC.description": "Increase your max [gold]Shinigami[/gold] HP by 5.",
+  "WANDERER-SHINKYO_RELIC.flavor": "The mirror reflects what was, and what is..."
 }
