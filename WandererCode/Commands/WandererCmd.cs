@@ -46,7 +46,7 @@ public static class WandererCmd
 {
     // shinigami vars
     public static int DefaultShinigamiMaxHp { get; private set; } = 5;
-    public static int ShinigamiExhaustThreshold { get; private set; } = 5;
+    public static int ShinigamiExhaustThreshold { get; private set; } = 6;
     private static readonly Color ShinigamiTint = new(Colors.White, 0.3f);
 
     // stance vars
@@ -348,6 +348,13 @@ public static class WandererCmd
 
         // Covers saves made before Unstrung Juzu's bonus was applied (e.g. mod upgrade).
         EnsureShinigamiMaxHpBonus(player);
+
+        // HP-to-0 entry pays 1 Shinigami HP so the transition isn't a freebie soaked hit.
+        // RitualDeath sets StoredHp before Kill, so StoredHp==null identifies the HP-to-0 path.
+        if (state.StoredHp == null && relic.ShinigamiCurrentHp > 0)
+        {
+            relic.ShinigamiCurrentHp--;
+        }
 
         state.PreShinigamiMaxHp = creature.MaxHp;
         state.Player = player;
