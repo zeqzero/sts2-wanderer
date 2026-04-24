@@ -20,7 +20,7 @@ public class Flailing : WandererCard
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<FlailingPower>(), WandererKeywords.ShiftHoverTip];
 
-    public Flailing() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    public Flailing() : base(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
@@ -31,6 +31,6 @@ public class Flailing : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Energy.UpgradeValueBy(1m);
+        EnergyCost.UpgradeBy(-1);
     }
 }
