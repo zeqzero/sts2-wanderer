@@ -15,9 +15,11 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class LethalExchange : WandererCard
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(18m, ValueProp.Move)
+        new DamageVar(24m, ValueProp.Move)
     ];
 
     public LethalExchange() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)

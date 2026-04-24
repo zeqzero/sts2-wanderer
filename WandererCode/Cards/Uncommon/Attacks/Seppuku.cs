@@ -12,7 +12,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Seppuku : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
 
     public Seppuku() : base(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {

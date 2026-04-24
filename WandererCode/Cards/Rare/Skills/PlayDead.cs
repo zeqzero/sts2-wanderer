@@ -15,7 +15,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class PlayDead : WandererCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
