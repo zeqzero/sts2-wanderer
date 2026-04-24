@@ -14,7 +14,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Riposte : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(5, ValueProp.Move) ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new DamageVar(7, ValueProp.Move) ];
 
     public Riposte() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
