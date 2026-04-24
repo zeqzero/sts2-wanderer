@@ -16,7 +16,7 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Flailing : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlailingPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<FlailingPower>(), WandererKeywords.ShiftHoverTip];
 
@@ -26,11 +26,11 @@ public class Flailing : WandererCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FlailingPower>(Owner.Creature, DynamicVars["FlailingPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<FlailingPower>(Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["FlailingPower"].UpgradeValueBy(2m);
+        DynamicVars.Energy.UpgradeValueBy(1m);
     }
 }

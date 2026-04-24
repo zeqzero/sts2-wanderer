@@ -152,7 +152,7 @@
     "WANDERER-SURIAGE.title": "Suriage",
     "WANDERER-SURIAGE.description": "Deal {Damage:diff()} damage.\nIf the enemy intends to attack, gain {Block:diff()} Block.",
     "WANDERER-FLAILING.title": "Flailing",
-    "WANDERER-FLAILING.description": "Whenever you [gold]Shift[/gold], deal {FlailingPower:diff()} damage to a random enemy.",
+    "WANDERER-FLAILING.description": "Whenever you [gold]Shift[/gold], reduce the cost of Attacks by {Energy:energyIcons(1)} this turn.",
     "WANDERER-BANJAKU.title": "Banjaku",
     "WANDERER-BANJAKU.description": "Gain {PlatingPower:diff()} Plating.\nCosts 1 {Energy:energyIcons(1)} less for each time you've gained Block this turn.",
     "WANDERER-THE_SPINS.title": "The Spins",
