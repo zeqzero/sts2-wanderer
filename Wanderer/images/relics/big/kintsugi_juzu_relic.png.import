@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31g465fye4yi"
-path="res://.godot/imported/unstrung_juzu_relic.png-323d60f7bdf5e44a2acf92708f763b4a.ctex"
+uid="uid://cjckymjl8yr3w"
+path="res://.godot/imported/kintsugi_juzu_relic.png-9544680dcb087c88ef4de7b977b007ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/relics/unstrung_juzu_relic.png"
-dest_files=["res://.godot/imported/unstrung_juzu_relic.png-323d60f7bdf5e44a2acf92708f763b4a.ctex"]
+source_file="res://Wanderer/images/relics/big/kintsugi_juzu_relic.png"
+dest_files=["res://.godot/imported/kintsugi_juzu_relic.png-9544680dcb087c88ef4de7b977b007ac.ctex"]
 
 [params]
 

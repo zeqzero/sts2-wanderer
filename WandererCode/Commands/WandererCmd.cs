@@ -221,28 +221,6 @@ public static class WandererCmd
         return GetJuzuRelic(creature)?.ShinigamiMaxHp ?? DefaultShinigamiMaxHp;
     }
 
-    private static int GetShinigamiMaxHpBonus(Player player)
-    {
-        return player.Relics.OfType<UnstrungJuzuRelic>().Any() ? UnstrungJuzuRelic.ShinigamiMaxHpBonus : 0;
-    }
-
-    /// <summary>
-    /// Raises the persistent Shinigami max HP pool to its target for the player's current
-    /// relics, healing current HP by the same delta. Called from UnstrungJuzuRelic.AfterObtained.
-    /// </summary>
-    public static void EnsureShinigamiMaxHpBonus(Player player)
-    {
-        var relic = GetJuzuRelic(player.Creature);
-        if (relic == null) return;
-
-        int targetMaxHp = DefaultShinigamiMaxHp + GetShinigamiMaxHpBonus(player);
-        if (relic.ShinigamiMaxHp >= targetMaxHp) return;
-
-        int delta = targetMaxHp - relic.ShinigamiMaxHp;
-        relic.ShinigamiMaxHp = targetMaxHp;
-        relic.ShinigamiCurrentHp += delta;
-    }
-
     /// <summary>Restores the persisted shinigami HP pool to max (out-of-combat healing).</summary>
     public static void FullyHealShinigami(Creature creature)
     {
@@ -326,6 +304,13 @@ public static class WandererCmd
         }
         var ofuda = combatState.CreateCard<Ofuda>(card.Owner);
         _ofudaShiftedCards[ofuda] = backup;
+
+        // Kintsugi Juzu lets the player see what each Ofuda transformed from.
+        if (card.Owner?.Relics.OfType<KintsugiJuzuRelic>().Any() == true)
+        {
+            ofuda.AddRuntimeHoverTip(HoverTipFactory.FromCard(backup));
+        }
+
         await CardCmd.Transform(card, ofuda);
         await AfterShifted(card);
     }
@@ -345,9 +330,6 @@ public static class WandererCmd
 
         var relic = GetJuzuRelic(creature);
         if (relic == null) return;
-
-        // Covers saves made before Unstrung Juzu's bonus was applied (e.g. mod upgrade).
-        EnsureShinigamiMaxHpBonus(player);
 
         // HP-to-0 entry pays 1 Shinigami HP so the transition isn't a freebie soaked hit.
         // RitualDeath sets StoredHp before Kill, so StoredHp==null identifies the HP-to-0 path.

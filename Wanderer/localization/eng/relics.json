@@ -1,8 +1,8 @@
 {
   "WANDERER-BROKEN_JUZU_RELIC.title": "Broken Juzu",
-  "WANDERER-BROKEN_JUZU_RELIC.description": "On death, [gold]Shift[/gold] ALL cards to [purple]Ofuda[/purple] and apply 5 [gold]Shinigami[/gold].",
+  "WANDERER-BROKEN_JUZU_RELIC.description": "On death, [gold]Shift[/gold] ALL cards to [purple]Ofuda[/purple] and apply 6 [gold]Shinigami[/gold].",
   "WANDERER-BROKEN_JUZU_RELIC.flavor": "Broken, and with it, so too is your release...",
-  "WANDERER-UNSTRUNG_JUZU_RELIC.title": "Unstrung Juzu",
-  "WANDERER-UNSTRUNG_JUZU_RELIC.description": "Replaces [gold]Broken Juzu[/gold]. On death, [gold]Shift[/gold] ALL cards to [purple]Ofuda[/purple] and apply 5 [gold]Shinigami[/gold]. Your [gold]Shinigami[/gold] Max HP is increased by 5.",
-  "WANDERER-UNSTRUNG_JUZU_RELIC.flavor": "The string has come apart. What was bound now drifts."
+  "WANDERER-KINTSUGI_JUZU_RELIC.title": "Kintsugi Juzu",
+  "WANDERER-KINTSUGI_JUZU_RELIC.description": "On death, [gold]Shift[/gold] ALL cards to [purple]Ofuda[/purple] and apply 6 [gold]Shinigami[/gold]. Reveal what each [purple]Ofuda[/purple] was [gold]Shifted[/gold] from.",
+  "WANDERER-KINTSUGI_JUZU_RELIC.flavor": "Mended, and with it, your return is no longer a question, but a command."
 }

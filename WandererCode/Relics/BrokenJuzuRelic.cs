@@ -59,7 +59,7 @@ public class BrokenJuzuRelic : WandererRelic
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Ofuda>(), ShinigamiPowerCanonicalHoverTip];
 
-    public override RelicModel? GetUpgradeReplacement() => ModelDb.Relic<UnstrungJuzuRelic>();
+    public override RelicModel? GetUpgradeReplacement() => ModelDb.Relic<KintsugiJuzuRelic>();
 
     public override async Task BeforeCombatStart()
     {
