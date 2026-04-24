@@ -7,5 +7,8 @@
   "WANDERER-KINTSUGI_JUZU_RELIC.flavor": "Mended, and with it, your return is no longer a question, but a command.",
   "WANDERER-SHINKYO_RELIC.title": "Shinkyō",
   "WANDERER-SHINKYO_RELIC.description": "Increase your max [gold]Shinigami[/gold] HP by 5.",
-  "WANDERER-SHINKYO_RELIC.flavor": "The mirror reflects what was, and what is..."
+  "WANDERER-SHINKYO_RELIC.flavor": "The mirror reflects what was, and what is...",
+  "WANDERER-MENPO_RELIC.title": "Menpo",
+  "WANDERER-MENPO_RELIC.description": "If no enemy attacks you this turn, retain up to 10 [gold]Block[/gold].",
+  "WANDERER-MENPO_RELIC.flavor": "An iron scowl of impatience..."
 }
