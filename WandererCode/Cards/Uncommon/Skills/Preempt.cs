@@ -22,16 +22,16 @@ public class Preempt : WandererCard
         var powers = Owner.Creature.Powers.ToList();
         foreach (var power in powers.Where(p => p is WandererNextTurnKimePower))
         {
-            if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
+            if (NextTurnPowers.Is(power) && power.Amount != 0)
             {
-                await nextTurnPower.ApplyNow(choiceContext, Owner);
+                await NextTurnPowers.ApplyNow(power, choiceContext, Owner);
             }
         }
         foreach (var power in powers.Where(p => p is not WandererNextTurnKimePower))
         {
-            if (power is IWandererNextTurnPower nextTurnPower && power.Amount != 0)
+            if (NextTurnPowers.Is(power) && power.Amount != 0)
             {
-                await nextTurnPower.ApplyNow(choiceContext, Owner);
+                await NextTurnPowers.ApplyNow(power, choiceContext, Owner);
             }
         }
     }

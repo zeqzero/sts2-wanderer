@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Wanderer.WandererCode.Character;
+using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
@@ -22,7 +23,7 @@ public class Keikaku : WandererCard
     {
         foreach (var power in Owner.Creature.Powers)
         {
-            if (power is IWandererNextTurnPower && power.Amount != 0)
+            if (NextTurnPowers.Is(power) && power.Amount != 0)
             {
                 await PowerCmd.Apply(power, Owner.Creature, power.Amount, Owner.Creature, this);
             }

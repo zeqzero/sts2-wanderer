@@ -1,14 +1,16 @@
 playtest notes:
-    next turn stuff doesn't work on base game (Relax card in particular is a bummer)
     aoe options across archtypes? nextturn doesn't have one I think
 
 general balance thoughts:
-    draw is over-represented in Shift and Nextturn
-    draw is under-represented in Flurry and Counter
     energy is over-represented in Shift and Nextturn
-    Refills is very hard to do and the UX is bad. Shift and play from discard at common would help a lot.
     Shinigami form feels weird. It scales harder on Shift than Exhaust, which leads to no viable "stay in Shinigami" path. Maybe good maybe bad.
         Add an Enshrined Counter card that is easier to play in Shinigami
         Shinigami/Stance overlap - design a card that does something with stance buffs and Shinigami form
             Flurry in particular will need some support- design a "damage per status in hand" card with Enshrined
     
+specific cards that need work:
+    counting regrets
+    zangeki
+    junshi
+    all of the on Shift cards... either they don't apply to shinigami or something?
+        Shinigami scales too hard on Shift synergies

@@ -19,7 +19,7 @@ public class WandererNextTurnKimePower : WandererPower, IWandererNextTurnPower
         if (player != Owner.Player) return;
 
         int uniqueNextTurnPowers = Owner.Powers
-            .Where(p => p is IWandererNextTurnPower && p.Amount != 0)
+            .Where(p => NextTurnPowers.Is(p) && p.Amount != 0)
             .Select(p => p.GetType())
             .Distinct()
             .Count();
@@ -43,7 +43,7 @@ public class WandererNextTurnKimePower : WandererPower, IWandererNextTurnPower
     public async Task ApplyNow(PlayerChoiceContext choiceContext, Player player)
     {
         int uniqueNextTurnPowers = Owner.Powers
-            .Where(p => p is IWandererNextTurnPower && p.Amount != 0)
+            .Where(p => NextTurnPowers.Is(p) && p.Amount != 0)
             .Select(p => p.GetType())
             .Distinct()
             .Count();
