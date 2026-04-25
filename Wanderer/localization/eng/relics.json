@@ -10,5 +10,8 @@
   "WANDERER-SHINKYO_RELIC.flavor": "The mirror reflects what was, and what is...",
   "WANDERER-MENPO_RELIC.title": "Menpo",
   "WANDERER-MENPO_RELIC.description": "If no enemy attacks you this turn, retain up to 10 [gold]Block[/gold].",
-  "WANDERER-MENPO_RELIC.flavor": "An iron scowl of impatience..."
+  "WANDERER-MENPO_RELIC.flavor": "An iron scowl of impatience...",
+  "WANDERER-SHIMENAWA_RELIC.title": "Shimenawa",
+  "WANDERER-SHIMENAWA_RELIC.description": "At the end of your turn, if you have 3 unique [gold]Next Turn[/gold] powers, deal 10 damage to ALL enemies.",
+  "WANDERER-SHIMENAWA_RELIC.flavor": "The barrier between now and then is fragile..."
 }
