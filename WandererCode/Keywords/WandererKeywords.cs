@@ -11,7 +11,7 @@ public static class WandererKeywords
     public static CardKeyword Enshrined;
 
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
-    public static CardKeyword Refills;
+    public static CardKeyword Refill;
 
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword Refilling;

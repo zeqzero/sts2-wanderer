@@ -21,6 +21,7 @@ public class StealPeach : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
+        WandererKeywords.Refill
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

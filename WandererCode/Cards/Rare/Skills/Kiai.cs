@@ -23,7 +23,7 @@ public class Kiai : WandererCard
         new CardsVar(2)
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [

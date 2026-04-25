@@ -95,6 +95,9 @@ public static class WandererCmd
     // Random-shift result → backup of the Refill source it came from. On next shift, revert and fire AfterRefilled.
     private static readonly Dictionary<CardModel, CardModel> _refillBackups = new();
 
+    // Ofuda → clone of the Refilling card it replaced, used to re-bond the chain on revert when Omiki is present.
+    private static readonly Dictionary<CardModel, CardModel> _ofudaRefillContinuations = new();
+
     public static IStancePower? GetCurrentStancePower(Creature creature)
     {
         return creature.Powers.OfType<IStancePower>().FirstOrDefault();
@@ -247,13 +250,24 @@ public static class WandererCmd
     /// </summary>
     private static async Task RevertOfuda(CardModel ofuda, CardModel backup)
     {
+        _ofudaRefillContinuations.Remove(ofuda, out var continuation);
+
         await CardCmd.Transform(ofuda, backup);
         _ofudaShiftedCards.Remove(ofuda);
         await AfterShifted(backup);
 
-        if (backup.Keywords.Contains(WandererKeywords.Refills))
+        if (backup.Keywords.Contains(WandererKeywords.Refill))
         {
             await AfterRefilled(backup);
+        }
+
+        // With Omiki, restore the ping-pong bond that was active before the Ofuda detour.
+        if (continuation != null
+            && backup.Owner?.Relics.OfType<OmikiRelic>().Any() == true
+            && backup.Keywords.Contains(WandererKeywords.Refill)
+            && continuation.Keywords.Contains(WandererKeywords.Refill))
+        {
+            EstablishRefillBond(backup, continuation);
         }
     }
 
@@ -291,12 +305,15 @@ public static class WandererCmd
 
         var combatState = card.CombatState;
         CardModel backup;
+        CardModel? continuation = null;
         // If this card is a pending Refill revert, forward the Refill original as the Ofuda
         // backup so a later Ofuda revert restores the Refill source and fires AfterRefilled.
+        // Also stash a clone of the played card so Omiki can re-bond the chain on revert.
         if (_refillBackups.TryGetValue(card, out var existingRefillBackup))
         {
             backup = existingRefillBackup;
             _refillBackups.Remove(card);
+            continuation = combatState.CloneCard(card);
         }
         else
         {
@@ -304,6 +321,10 @@ public static class WandererCmd
         }
         var ofuda = combatState.CreateCard<Ofuda>(card.Owner);
         _ofudaShiftedCards[ofuda] = backup;
+        if (continuation != null)
+        {
+            _ofudaRefillContinuations[ofuda] = continuation;
+        }
 
         // Kintsugi Juzu lets the player see what each Ofuda transformed from.
         if (card.Owner?.Relics.OfType<KintsugiJuzuRelic>().Any() == true)
@@ -417,6 +438,7 @@ public static class WandererCmd
             else
             {
                 _ofudaShiftedCards.Remove(ofuda);
+                _ofudaRefillContinuations.Remove(ofuda);
             }
         }
     }
@@ -507,6 +529,7 @@ public static class WandererCmd
     public static void Reset()
     {
         _ofudaShiftedCards.Clear();
+        _ofudaRefillContinuations.Clear();
         _pendingShinigamiShifts.Clear();
         _refillBackups.Clear();
         _shiftCounts.Clear();
@@ -540,6 +563,14 @@ public static class WandererCmd
         // Refill revert path: second shift of a card produced from a Refill source.
         else if (_refillBackups.TryGetValue(card, out var refillBackup))
         {
+            // Omiki: re-bond the reverted card to keep the ping-pong alive.
+            var omiki = player.Relics.OfType<OmikiRelic>().FirstOrDefault();
+            CardModel? omikiBackup = null;
+            if (omiki != null && refillBackup.Keywords.Contains(WandererKeywords.Refill) && card.Keywords.Contains(WandererKeywords.Refill))
+            {
+                omikiBackup = card.CombatState.CloneCard(card);
+            }
+
             await CardCmd.Transform(card, refillBackup);
             _refillBackups.Remove(card);
             refillBackup.RemoveKeyword(WandererKeywords.Refilling);
@@ -547,6 +578,13 @@ public static class WandererCmd
             {
                 wandererRefill.ClearRuntimeHoverTips();
             }
+
+            if (omikiBackup != null)
+            {
+                omiki!.Flash();
+                EstablishRefillBond(refillBackup, omikiBackup);
+            }
+
             resultCard = refillBackup;
             isRevertShift = true;
         }
@@ -554,7 +592,7 @@ public static class WandererCmd
         {
             // Clone the Refill source before Transform detaches it from its pile.
             CardModel? pendingRefillBackup = null;
-            if (card.Keywords.Contains(WandererKeywords.Refills))
+            if (card.Keywords.Contains(WandererKeywords.Refill))
             {
                 pendingRefillBackup = card.CombatState.CloneCard(card);
             }
@@ -566,7 +604,7 @@ public static class WandererCmd
                 if (omiki != null)
                 {
                     // Omiki: refill chain ping-pongs between Refills cards instead of escaping the keyword.
-                    var refillOptions = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && c.Keywords.Contains(WandererKeywords.Refills) && c.GetType() != card.GetType()).ToList();
+                    var refillOptions = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && c.Keywords.Contains(WandererKeywords.Refill) && c.GetType() != card.GetType()).ToList();
                     if (refillOptions.Count > 0)
                     {
                         omiki.Flash();
@@ -574,13 +612,13 @@ public static class WandererCmd
                     }
                     else
                     {
-                        options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills));
+                        options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refill));
                     }
                 }
                 else
                 {
                     // Landing on Enshrined or Refills would trap the refill chain permanently.
-                    options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills));
+                    options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refill));
                 }
             }
             var transformation = new CardTransformation(card, options);
@@ -589,12 +627,7 @@ public static class WandererCmd
 
             if (pendingRefillBackup != null && resultCard != null)
             {
-                _refillBackups[resultCard] = pendingRefillBackup;
-                resultCard.AddKeyword(WandererKeywords.Refilling);
-                if (resultCard is WandererCard wandererResult)
-                {
-                    wandererResult.AddRuntimeHoverTip(HoverTipFactory.FromCard(pendingRefillBackup));
-                }
+                EstablishRefillBond(resultCard, pendingRefillBackup);
             }
         }
 
@@ -616,9 +649,19 @@ public static class WandererCmd
 
         await AfterShifted(card);
 
-        if (isRevertShift && resultCard != null && resultCard.Keywords.Contains(WandererKeywords.Refills))
+        if (isRevertShift && resultCard != null && resultCard.Keywords.Contains(WandererKeywords.Refill))
         {
             await AfterRefilled(resultCard);
+        }
+    }
+
+    private static void EstablishRefillBond(CardModel resultCard, CardModel backup)
+    {
+        _refillBackups[resultCard] = backup;
+        resultCard.AddKeyword(WandererKeywords.Refilling);
+        if (resultCard is WandererCard wandererResult)
+        {
+            wandererResult.AddRuntimeHoverTip(HoverTipFactory.FromCard(backup));
         }
     }
 

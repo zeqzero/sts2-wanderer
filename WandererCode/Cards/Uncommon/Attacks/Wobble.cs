@@ -25,7 +25,7 @@ public class Wobble : WandererCard
         new BlockVar(12m, ValueProp.Move)
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [

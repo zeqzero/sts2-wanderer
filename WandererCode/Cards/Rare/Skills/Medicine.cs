@@ -20,7 +20,7 @@ public class Medicine : WandererCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1m)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [

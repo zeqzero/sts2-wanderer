@@ -23,7 +23,7 @@ public class Hiccup : WandererCard
         new EnergyVar(1)
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [

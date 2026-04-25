@@ -14,7 +14,7 @@ public class OmikiRelic : WandererRelic
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(WandererKeywords.Refills),
+        HoverTipFactory.FromKeyword(WandererKeywords.Refill),
         WandererKeywords.ShiftHoverTip
     ];
 }

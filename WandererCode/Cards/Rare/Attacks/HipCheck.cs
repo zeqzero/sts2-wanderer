@@ -47,7 +47,7 @@ public class HipCheck : WandererCard
         }
     }
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refills];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [WandererKeywords.Refill];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
