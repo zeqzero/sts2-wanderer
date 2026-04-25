@@ -19,5 +19,8 @@
   "WANDERER-INCENSE_RELIC.flavor": "A whisper of smoke, a moment of stillness...",
   "WANDERER-SAGEO_RELIC.title": "Sageo",
   "WANDERER-SAGEO_RELIC.description": "Every time you play 3 [gold]Attacks[/gold] in a single turn, heal 1 HP.",
-  "WANDERER-SAGEO_RELIC.flavor": "The cord that binds the blade also binds the spirit..."
+  "WANDERER-SAGEO_RELIC.flavor": "The cord that binds the blade also binds the spirit...",
+  "WANDERER-OMIKI_RELIC.title": "Omiki",
+  "WANDERER-OMIKI_RELIC.description": "Cards with [gold]Refills[/gold] always [gold]Shift[/gold] into another card with [gold]Refills[/gold].",
+  "WANDERER-OMIKI_RELIC.flavor": "One for the gods, one for me..."
 }

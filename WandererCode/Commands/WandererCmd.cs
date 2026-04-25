@@ -560,10 +560,28 @@ public static class WandererCmd
             }
 
             var options = player.Character.CardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
-            // Landing on Enshrined or Refills would trap the refill chain permanently.
             if (pendingRefillBackup != null)
             {
-                options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills));
+                var omiki = player.Relics.OfType<OmikiRelic>().FirstOrDefault();
+                if (omiki != null)
+                {
+                    // Omiki: refill chain ping-pongs between Refills cards instead of escaping the keyword.
+                    var refillOptions = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && c.Keywords.Contains(WandererKeywords.Refills) && c.GetType() != card.GetType()).ToList();
+                    if (refillOptions.Count > 0)
+                    {
+                        omiki.Flash();
+                        options = refillOptions;
+                    }
+                    else
+                    {
+                        options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills));
+                    }
+                }
+                else
+                {
+                    // Landing on Enshrined or Refills would trap the refill chain permanently.
+                    options = options.Where(c => !c.Keywords.Contains(WandererKeywords.Enshrined) && !c.Keywords.Contains(WandererKeywords.Refills));
+                }
             }
             var transformation = new CardTransformation(card, options);
             var results = await CardCmd.Transform(transformation.Yield(), player.RunState.Rng.CombatCardGeneration);
