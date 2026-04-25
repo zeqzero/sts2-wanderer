@@ -13,5 +13,8 @@
   "WANDERER-MENPO_RELIC.flavor": "An iron scowl of impatience...",
   "WANDERER-SHIMENAWA_RELIC.title": "Shimenawa",
   "WANDERER-SHIMENAWA_RELIC.description": "At the end of your turn, if you have 3 unique [gold]Next Turn[/gold] powers, deal 10 damage to ALL enemies.",
-  "WANDERER-SHIMENAWA_RELIC.flavor": "The barrier between now and then is fragile..."
+  "WANDERER-SHIMENAWA_RELIC.flavor": "The barrier between now and then is fragile...",
+  "WANDERER-INCENSE_RELIC.title": "Incense",
+  "WANDERER-INCENSE_RELIC.description": "The first time each combat you [gold]Exhaust[/gold] a card, gain 8 [gold]Block[/gold].",
+  "WANDERER-INCENSE_RELIC.flavor": "A whisper of smoke, a moment of stillness..."
 }
