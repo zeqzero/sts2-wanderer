@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coprupn5jsup8"
-path="res://.godot/imported/sageo_relic.png-4e40a6bd6ece23d01c5915a2d3ee0123.ctex"
+uid="uid://cgmhae423msbf"
+path="res://.godot/imported/kote_relic.png-09e6ff426a3ef826c86095a2c85a9d18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/relics/sageo_relic.png"
-dest_files=["res://.godot/imported/sageo_relic.png-4e40a6bd6ece23d01c5915a2d3ee0123.ctex"]
+source_file="res://Wanderer/images/relics/kote_relic.png"
+dest_files=["res://.godot/imported/kote_relic.png-09e6ff426a3ef826c86095a2c85a9d18.ctex"]
 
 [params]
 

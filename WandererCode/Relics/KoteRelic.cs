@@ -9,9 +9,9 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
-/// <art>blue cord with a knot</art>
+/// <art>samurai arm guard</art>
 [Pool(typeof(WandererRelicPool))]
-public class SageoRelic : WandererRelic
+public class KoteRelic : WandererRelic
 {
     private const int Threshold = 3;
     private const int HealAmount = 1;
