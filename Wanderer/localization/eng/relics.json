@@ -16,5 +16,8 @@
   "WANDERER-SHIMENAWA_RELIC.flavor": "The barrier between now and then is fragile...",
   "WANDERER-INCENSE_RELIC.title": "Incense",
   "WANDERER-INCENSE_RELIC.description": "The first time each combat you [gold]Exhaust[/gold] a card, gain 8 [gold]Block[/gold].",
-  "WANDERER-INCENSE_RELIC.flavor": "A whisper of smoke, a moment of stillness..."
+  "WANDERER-INCENSE_RELIC.flavor": "A whisper of smoke, a moment of stillness...",
+  "WANDERER-SAGEO_RELIC.title": "Sageo",
+  "WANDERER-SAGEO_RELIC.description": "Every time you play 3 [gold]Attacks[/gold] in a single turn, heal 1 HP.",
+  "WANDERER-SAGEO_RELIC.flavor": "The cord that binds the blade also binds the spirit..."
 }
