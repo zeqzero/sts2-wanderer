@@ -9,6 +9,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>blue cord with a knot</art>
 [Pool(typeof(WandererRelicPool))]
 public class SageoRelic : WandererRelic
 {

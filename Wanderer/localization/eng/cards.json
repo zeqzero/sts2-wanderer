@@ -42,9 +42,9 @@
     "WANDERER-TORRENT.title": "Torrent",
     "WANDERER-TORRENT.description": "Whenever you leave a stance, deal {TorrentPower:diff()} damage to ALL enemies.",
     "WANDERER-KEIKAKU.title": "Keikaku",
-    "WANDERER-KEIKAKU.description": "Double all Next Turn powers.",
+    "WANDERER-KEIKAKU.description": "Double all [gold]Next Turn[/gold] powers.",
     "WANDERER-PREEMPT.title": "Preempt",
-    "WANDERER-PREEMPT.description": "Apply all Next Turn powers immediately.",
+    "WANDERER-PREEMPT.description": "Trigger all [gold]Next Turn[/gold] powers immediately.",
     "WANDERER-ARRIVE_LATE.title": "Arrive Late",
     "WANDERER-ARRIVE_LATE.description": "Apply {WeakPower:diff()} weak and {VulnerablePower:diff()} vulnerable to ALL enemies.",
     "WANDERER-TSUKI.title": "Tsuki",
@@ -192,7 +192,7 @@
     "WANDERER-KEKKAI.description": "Add [gold]Enshrined[/gold] to a card in your hand.",
     "WANDERER-KEKKAI.selectionScreenPrompt": "Select a card to Enshrine.",
     "WANDERER-JIGOKU_JUNBI.title": "Jigoku Junbi",
-    "WANDERER-JIGOKU_JUNBI.description": "Next Turn powers are not removed after being applied.",
+    "WANDERER-JIGOKU_JUNBI.description": "[gold]Next Turn[/gold] powers are not removed after being triggered.",
     "WANDERER-MU_GAMAE.title": "Mu-gamae",
     "WANDERER-MU_GAMAE.description": "Enter a stance {Times:diff()} {Times:plural:time|times}.{IfUpgraded:show:\nAt the start of your turn, put this card into your hand.|}"
 }

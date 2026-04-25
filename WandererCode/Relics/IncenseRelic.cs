@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>incense poking out of ash</art>
 [Pool(typeof(WandererRelicPool))]
 public class IncenseRelic : WandererRelic
 {

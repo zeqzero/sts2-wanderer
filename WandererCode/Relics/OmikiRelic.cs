@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
 using Wanderer.WandererCode.Character;
@@ -7,6 +6,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>sake jar on pedestal</art>
 [Pool(typeof(WandererRelicPool))]
 public class OmikiRelic : WandererRelic
 {

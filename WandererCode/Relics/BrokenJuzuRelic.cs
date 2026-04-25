@@ -15,6 +15,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>juzu with cracks</art>
 [Pool(typeof(WandererRelicPool))]
 public class BrokenJuzuRelic : WandererRelic
 {

@@ -11,6 +11,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>thick woven rope</art>
 [Pool(typeof(WandererRelicPool))]
 public class ShimenawaRelic : WandererRelic
 {

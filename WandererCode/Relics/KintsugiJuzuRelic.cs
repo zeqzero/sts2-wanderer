@@ -4,6 +4,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>cracked juzu repaired with gold</art>
 [Pool(typeof(WandererRelicPool))]
 public class KintsugiJuzuRelic : BrokenJuzuRelic
 {

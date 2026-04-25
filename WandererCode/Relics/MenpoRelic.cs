@@ -12,6 +12,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>samurai metal face</art>
 [Pool(typeof(WandererRelicPool))]
 public class MenpoRelic : WandererRelic
 {

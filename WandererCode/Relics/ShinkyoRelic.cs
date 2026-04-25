@@ -5,6 +5,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>mirror</art>
 [Pool(typeof(WandererRelicPool))]
 public class ShinkyoRelic : WandererRelic
 {

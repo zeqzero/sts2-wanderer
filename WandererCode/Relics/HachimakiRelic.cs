@@ -7,6 +7,7 @@ using Wanderer.WandererCode.Character;
 
 namespace Wanderer.WandererCode.Relics;
 
+/// <art>headband</art>
 [Pool(typeof(WandererRelicPool))]
 public class HachimakiRelic : WandererRelic
 {
