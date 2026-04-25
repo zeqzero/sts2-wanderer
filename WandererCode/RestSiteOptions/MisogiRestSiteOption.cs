@@ -8,13 +8,14 @@ using Wanderer.WandererCode.Extensions;
 
 public class MisogiRestSiteOption : RestSiteOption
 {
+    public const string Id = "MISOGI";
     public static readonly string IconResPath = "ui/rest_site/option_misogi.png".ImagePath();
 
     public MisogiRestSiteOption(Player owner) : base(owner)
     {
     }
 
-    public override string OptionId => "MISOGI";
+    public override string OptionId => Id;
 
     public override IEnumerable<string> AssetPaths => [IconResPath];
 

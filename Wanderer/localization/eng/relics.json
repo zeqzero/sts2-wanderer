@@ -22,5 +22,8 @@
   "WANDERER-SAGEO_RELIC.flavor": "The cord that binds the blade also binds the spirit...",
   "WANDERER-OMIKI_RELIC.title": "Omiki",
   "WANDERER-OMIKI_RELIC.description": "Cards with [gold]Refills[/gold] always [gold]Shift[/gold] into another card with [gold]Refills[/gold].",
-  "WANDERER-OMIKI_RELIC.flavor": "One for the gods, one for me..."
+  "WANDERER-OMIKI_RELIC.flavor": "One for the gods, one for me...",
+  "WANDERER-HACHIMAKI_RELIC.title": "Hachimaki",
+  "WANDERER-HACHIMAKI_RELIC.description": "Choosing [gold]Misogi[/gold] does not consume your rest site choice.",
+  "WANDERER-HACHIMAKI_RELIC.flavor": "When the mind is centered, the work of the soul and of the steel become one..."
 }
