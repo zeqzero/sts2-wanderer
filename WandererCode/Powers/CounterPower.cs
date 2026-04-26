@@ -42,14 +42,14 @@ public class CounterPower : WandererPower
             {
                 Flash();
 
+                RetaliatePower? retaliatePower = Owner.GetPower<RetaliatePower>();
+                bool aoe = retaliatePower != null && retaliatePower.Amount > 0;
+
                 foreach (var _ in Enumerable.Range(0, Amount))
                 {
-                    RetaliatePower? retaliatePower = Owner.GetPower<RetaliatePower>();
-
-                    if (retaliatePower != null && retaliatePower.Amount > 0)
+                    if (aoe)
                     {
                         await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Owner.Block, ValueProp.Unpowered, Owner, null);
-                        await PowerCmd.Decrement(retaliatePower);
                     }
                     else
                     {

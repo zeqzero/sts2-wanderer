@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Keywords;
@@ -15,6 +16,8 @@ namespace Wanderer.WandererCode.Cards;
 public class CountRegrets : WandererCard
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ WandererKeywords.Enshrined ];
+
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Ofuda>() ];
 
     public CountRegrets() : base(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
