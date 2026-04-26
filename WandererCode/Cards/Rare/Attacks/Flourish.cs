@@ -27,7 +27,7 @@ public class Flourish : WandererCard
         new CalculationBaseVar(0m),
         new CalculationExtraVar(1m),
         new CalculatedVar("CalculatedHits").WithMultiplier(static (CardModel card, Creature? _) =>
-            WandererCmd.GetEnteredStanceCounts(card.Owner.Creature))
+            WandererCmd.GetLeftStanceCounts(card.Owner.Creature))
     ];
 
     public Flourish() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)

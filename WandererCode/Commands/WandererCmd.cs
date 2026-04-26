@@ -56,8 +56,8 @@ public static class WandererCmd
     public static bool IsWakiEnabled(Creature creature) => _wakiEnabled.Contains(creature);
     public static void EnableJodan(Creature creature) => _jodanEnabled.Add(creature);
     public static void EnableWaki(Creature creature) => _wakiEnabled.Add(creature);
-    private static readonly Dictionary<Creature, int> _enteredStanceCounts = new();
-    public static int GetEnteredStanceCounts(Creature creature) => _enteredStanceCounts.TryGetValue(creature, out var count) ? count : 0;
+    private static readonly Dictionary<Creature, int> _leftStanceCounts = new();
+    public static int GetLeftStanceCounts(Creature creature) => _leftStanceCounts.TryGetValue(creature, out var count) ? count : 0;
 
     // shift counter: total shifts per combat (incremented inside AfterShifted).
     private static readonly Dictionary<Creature, int> _shiftCounts = new();
@@ -134,6 +134,7 @@ public static class WandererCmd
                 return;
 
             await PowerCmd.Remove((PowerModel)oldStancePower);
+            _leftStanceCounts[creature] = GetLeftStanceCounts(creature) + 1;
             await AfterStanceLeft(creature, oldStancePower.Stance);
         }
 
@@ -157,8 +158,6 @@ public static class WandererCmd
                 EnableWaki(creature);
                 break;
         }
-
-        _enteredStanceCounts[creature] = GetEnteredStanceCounts(creature) + amount;
 
         WandererVisuals.SetStance(creature, stance.ToString().ToLowerInvariant());
 
@@ -534,7 +533,7 @@ public static class WandererCmd
         _refillBackups.Clear();
         _shiftCounts.Clear();
 
-        _enteredStanceCounts.Clear();
+        _leftStanceCounts.Clear();
         _jodanEnabled.Clear();
         _wakiEnabled.Clear();
     }
