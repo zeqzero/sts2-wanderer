@@ -21,7 +21,7 @@ public class Zangeki : WandererCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(5m, ValueProp.Move)
+        new DamageVar(3m, ValueProp.Move)
     ];
 
     public Zangeki() : base(0, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
@@ -47,6 +47,6 @@ public class Zangeki : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
     }
 }
