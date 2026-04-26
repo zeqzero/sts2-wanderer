@@ -23,6 +23,7 @@ public class GedanPower : WandererPower, IStancePower
     {
         if (power == this)
         {
+            await PowerCmd.Apply<GedanDexterityPower>(Owner, amount, Owner, null);
             await PowerCmd.Apply<CounterPower>(Owner, amount, Owner, null);
         }
     }
@@ -32,6 +33,7 @@ public class GedanPower : WandererPower, IStancePower
         if (player != Owner.Player)
             return;
 
+        await PowerCmd.Apply<GedanDexterityPower>(Owner, Amount, Owner, null);
         await PowerCmd.Apply<CounterPower>(Owner, Amount, Owner, null);
     }
 }
