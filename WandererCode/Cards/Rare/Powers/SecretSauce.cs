@@ -20,7 +20,7 @@ public class SecretSauce : WandererCard
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromCard<Dishonor>() ];
 
-    public SecretSauce() : base(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+    public SecretSauce() : base(3, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
     }
 
