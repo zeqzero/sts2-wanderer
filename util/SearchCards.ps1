@@ -95,5 +95,5 @@ if ($Tags)    { $cards = $cards | Where-Object { $_.Tags -match $Tags } }
 if ($Desc)    { $cards = $cards | Where-Object { $_.Desc -match $Desc } }
 
 $sorted = @($cards | Sort-Object Rarity, Type, Title)
-$sorted | Format-Table Title, Cost, Type, Rarity, Target, Keywords, Tags, Desc -AutoSize
+$sorted | Format-Table Title, Cost, Type, Rarity, Target, Keywords, Tags, Desc -AutoSize -Wrap
 Write-Host "$($sorted.Count) cards"
