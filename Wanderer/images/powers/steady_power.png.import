@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://culnn06xsg7f5"
-path="res://.godot/imported/rooted_strike.png-57e2ccf0f0c655217a205e7fa4f3c598.ctex"
+uid="uid://b8iwusshbj88k"
+path="res://.godot/imported/steady_power.png-19682c099033b3ca634cbf9a7fb0fb21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/rooted_strike.png"
-dest_files=["res://.godot/imported/rooted_strike.png-57e2ccf0f0c655217a205e7fa4f3c598.ctex"]
+source_file="res://Wanderer/images/powers/steady_power.png"
+dest_files=["res://.godot/imported/steady_power.png-19682c099033b3ca634cbf9a7fb0fb21.ctex"]
 
 [params]
 

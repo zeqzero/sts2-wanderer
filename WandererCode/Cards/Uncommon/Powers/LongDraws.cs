@@ -9,31 +9,31 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>steady</tags>
-/// <art>wanderer exhaling smoke from a long thin pipe, zoomed-in on face</art>
-/// <kanji>不動心</kanji>
+/// <tags>steady, draw</tags>
+/// <art>wanderer in partial squat, gedan position with sword pointed down, drawing in a long deep breath, plumes of smoke</art>
+/// <kanji>長息</kanji>
 [Pool(typeof(WandererCardPool))]
-public class Fudoshin : WandererCard
+public class LongDraws : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FudoshinPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<LongDrawsPower>(1)];
 
     protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<FudoshinPower>(),
+        HoverTipFactory.FromPower<LongDrawsPower>(),
         HoverTipFactory.FromPower<SteadyPower>(),
     ];
 
-    public Fudoshin() : base(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+    public LongDraws() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FudoshinPower>(Owner.Creature, DynamicVars["FudoshinPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<LongDrawsPower>(Owner.Creature, DynamicVars["LongDrawsPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars["LongDrawsPower"].UpgradeValueBy(1);
     }
 }

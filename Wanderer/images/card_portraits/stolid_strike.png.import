@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6j5gl2lmecpn"
-path="res://.godot/imported/steady_exchange.png-7d8c32ff47fb2ccae5d5b1bd0823dd9c.ctex"
+uid="uid://culnn06xsg7f5"
+path="res://.godot/imported/stolid_strike.png-c040b66a67434c82a81eb75b12ae399f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/big/steady_exchange.png"
-dest_files=["res://.godot/imported/steady_exchange.png-7d8c32ff47fb2ccae5d5b1bd0823dd9c.ctex"]
+source_file="res://Wanderer/images/card_portraits/stolid_strike.png"
+dest_files=["res://.godot/imported/stolid_strike.png-c040b66a67434c82a81eb75b12ae399f.ctex"]
 
 [params]
 

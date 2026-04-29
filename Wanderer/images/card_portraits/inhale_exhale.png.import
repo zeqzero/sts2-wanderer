@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3djgribvgb6w"
-path="res://.godot/imported/steady_slash.png-6e5288babec2a05d39fd2ba4ae6451fc.ctex"
+uid="uid://dhdei8pqeynn4"
+path="res://.godot/imported/inhale_exhale.png-60777ca99c886809e35b9c3271f2800a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/big/steady_slash.png"
-dest_files=["res://.godot/imported/steady_slash.png-6e5288babec2a05d39fd2ba4ae6451fc.ctex"]
+source_file="res://Wanderer/images/card_portraits/inhale_exhale.png"
+dest_files=["res://.godot/imported/inhale_exhale.png-60777ca99c886809e35b9c3271f2800a.ctex"]
 
 [params]
 

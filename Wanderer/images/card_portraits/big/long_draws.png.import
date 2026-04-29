@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://64s5soo7yeih"
-path="res://.godot/imported/plant.png-fac551b2695edc2f2ad377e31a77bf2c.ctex"
+uid="uid://cnytjo3jy5lc5"
+path="res://.godot/imported/long_draws.png-0f8992260ade1416333dd20a793622b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/plant.png"
-dest_files=["res://.godot/imported/plant.png-fac551b2695edc2f2ad377e31a77bf2c.ctex"]
+source_file="res://Wanderer/images/card_portraits/big/long_draws.png"
+dest_files=["res://.godot/imported/long_draws.png-0f8992260ade1416333dd20a793622b1.ctex"]
 
 [params]
 

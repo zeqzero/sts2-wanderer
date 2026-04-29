@@ -129,8 +129,8 @@ public static class WandererCmd
         // if we're entering a new stance, leave the old one
         if (oldStancePower != null && oldStancePower.Stance != stance)
         {
-            // if we have Fudoshin, cancel leaving and entering
-            if (creature.Powers.OfType<FudoshinPower>().Any())
+            // Steady locks the current stance; cancel leaving and entering
+            if (creature.Powers.OfType<SteadyPower>().Any(p => p.Amount > 0))
                 return;
 
             await PowerCmd.Remove((PowerModel)oldStancePower);

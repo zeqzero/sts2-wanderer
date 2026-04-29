@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q1jvcqfyhlj4"
-path="res://.godot/imported/plant.png-0e49f605e9868de2be94021fb0fd225d.ctex"
+uid="uid://b12qja44einxw"
+path="res://.godot/imported/kakugo.png-4d7d3441f21800c1693d8d77866e190e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/big/plant.png"
-dest_files=["res://.godot/imported/plant.png-0e49f605e9868de2be94021fb0fd225d.ctex"]
+source_file="res://Wanderer/images/card_portraits/big/kakugo.png"
+dest_files=["res://.godot/imported/kakugo.png-4d7d3441f21800c1693d8d77866e190e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhdei8pqeynn4"
-path="res://.godot/imported/steady_exchange.png-2bf1d545e42bdf0f75feba69ab4e104f.ctex"
+uid="uid://dsjmm54o345e3"
+path="res://.godot/imported/long_draws.png-e9a79eb8654e9ce1334a327dc9a781e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/steady_exchange.png"
-dest_files=["res://.godot/imported/steady_exchange.png-2bf1d545e42bdf0f75feba69ab4e104f.ctex"]
+source_file="res://Wanderer/images/card_portraits/long_draws.png"
+dest_files=["res://.godot/imported/long_draws.png-e9a79eb8654e9ce1334a327dc9a781e1.ctex"]
 
 [params]
 

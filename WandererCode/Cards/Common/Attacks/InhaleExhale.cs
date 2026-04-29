@@ -1,21 +1,20 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
-using Wanderer.WandererCode.Commands;
+using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>commit, flurry</tags>
-/// <art>wanderer performing drill with others, training camp scene</art>
-/// <kanji>練</kanji>
+/// <tags>steady</tags>
+/// <art>training camp scene, several figured performing a drill, wanderer is smoking a pipe while leaning up against a tree</art>
+/// <kanji>呼吸</kanji>
 [Pool(typeof(WandererCardPool))]
-public class SteadyExchange : WandererCard
+public class InhaleExhale : WandererCard
 {
     public override bool GainsBlock => true;
 
@@ -25,9 +24,9 @@ public class SteadyExchange : WandererCard
         new BlockVar(3m, ValueProp.Move)
     ];
 
-    private bool _stanceLeftThisTurn;
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<SteadyPower>()];
 
-    public SteadyExchange() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    public InhaleExhale() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
     }
 
@@ -35,30 +34,15 @@ public class SteadyExchange : WandererCard
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
 
-        int repeats = _stanceLeftThisTurn ? 1 : 2;
-        for (int i = 0; i < repeats; i++)
+        for (int i = 0; i < 2; i++)
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
                 .WithHitFx("vfx/vfx_attack_slash", null, "slash_attack.mp3")
                 .Execute(choiceContext);
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }
-    }
 
-    public override async Task AfterStanceLeft(Creature creature, Stance oldStance)
-    {
-        if (creature == Owner.Creature)
-        {
-            _stanceLeftThisTurn = true;
-        }
-    }
-
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (player == Owner)
-        {
-            _stanceLeftThisTurn = false;
-        }
+        await PowerCmd.Apply<SteadyPower>(Owner.Creature, 2, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

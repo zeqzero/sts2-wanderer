@@ -1,5 +1,6 @@
 playtest notes:
     aoe options across archtypes? nextturn doesn't have one I think
+    promote 1 uncommon to rare - probably skill -> rare power
 
 general balance thoughts:
     energy is over-represented in Shift and Nextturn
@@ -14,4 +15,4 @@ general balance thoughts:
         Probably redesign Last Round at a minimum
     
 specific cards that need work:
-    zangeki
+    courage

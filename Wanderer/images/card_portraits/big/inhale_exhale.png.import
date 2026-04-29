@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsjmm54o345e3"
-path="res://.godot/imported/steady_guard.png-21c0eeb3da9fbb17e784ccb287dbc2a4.ctex"
+uid="uid://b6j5gl2lmecpn"
+path="res://.godot/imported/inhale_exhale.png-ad9bca1f0716d228dbebc29b135e43fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/steady_guard.png"
-dest_files=["res://.godot/imported/steady_guard.png-21c0eeb3da9fbb17e784ccb287dbc2a4.ctex"]
+source_file="res://Wanderer/images/card_portraits/big/inhale_exhale.png"
+dest_files=["res://.godot/imported/inhale_exhale.png-ad9bca1f0716d228dbebc29b135e43fd.ctex"]
 
 [params]
 

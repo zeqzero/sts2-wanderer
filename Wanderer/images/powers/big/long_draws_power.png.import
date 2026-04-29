@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b12qja44einxw"
-path="res://.godot/imported/junshi.png-e697e603f606015c70ed14c45e324857.ctex"
+uid="uid://b7ewtrgigk81m"
+path="res://.godot/imported/long_draws_power.png-00981997df6001578b8732311d5fb996.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/big/junshi.png"
-dest_files=["res://.godot/imported/junshi.png-e697e603f606015c70ed14c45e324857.ctex"]
+source_file="res://Wanderer/images/powers/big/long_draws_power.png"
+dest_files=["res://.godot/imported/long_draws_power.png-00981997df6001578b8732311d5fb996.ctex"]
 
 [params]
 

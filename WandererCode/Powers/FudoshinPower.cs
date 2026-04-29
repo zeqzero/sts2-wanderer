@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,6 +17,8 @@ public class FudoshinPower : WandererPower
     {
         if (player != Owner.Player)
             return;
+
+        await PowerCmd.Apply<SteadyPower>(Owner, Amount, Owner, null);
 
         var stancePower = WandererCmd.GetCurrentStancePower(Owner);
         if (stancePower != null)
