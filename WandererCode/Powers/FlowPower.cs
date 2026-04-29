@@ -1,7 +1,7 @@
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Commands;
 
 namespace Wanderer.WandererCode.Powers;
@@ -15,9 +15,20 @@ public class FlowPower : WandererPower
 
     public override async Task AfterStanceLeft(Creature creature, Stance stance)
     {
-        if (creature != Owner)
+        if (creature != Owner || Owner.Player == null)
             return;
 
-        await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null);
+        var player = Owner.Player;
+        var costReduction = (int)Amount;
+
+        await RunAsHookAction(async ctx =>
+        {
+            var candidates = PileType.Hand.GetPile(player).Cards.Where(c => c.EnergyCost.GetResolved() > 0).ToList();
+            if (candidates.Count == 0)
+                return;
+
+            var target = player.RunState.Rng.CombatCardSelection.NextItem(candidates);
+            target.EnergyCost.AddThisTurnOrUntilPlayed(-costReduction);
+        });
     }
 }

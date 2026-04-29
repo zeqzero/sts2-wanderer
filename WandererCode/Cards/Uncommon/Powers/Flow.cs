@@ -15,14 +15,11 @@ namespace Wanderer.WandererCode.Cards;
 [Pool(typeof(WandererCardPool))]
 public class Flow : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlowPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlowPower>(1), new EnergyVar(1)];
 
-    protected override IEnumerable<IHoverTip> WandererExtraHoverTips =>
-    [
-        HoverTipFactory.Static(StaticHoverTip.Block)
-    ];
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [HoverTipFactory.FromPower<FlowPower>()];
 
-    public Flow() : base(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    public Flow() : base(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
     }
 
@@ -34,6 +31,6 @@ public class Flow : WandererCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["FlowPower"].UpgradeValueBy(2m);
+        DynamicVars["FlowPower"].UpgradeValueBy(1m);
     }
 }

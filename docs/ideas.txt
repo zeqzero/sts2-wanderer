@@ -1,16 +1,11 @@
 playtest notes:
     aoe options across archtypes? nextturn doesn't have one I think
-    promote 1 uncommon to rare - probably skill -> rare power
 
 general balance thoughts:
     energy is over-represented in Shift and Nextturn
     Shinigami form feels weird. It scales harder on Shift than Exhaust, which leads to no viable "stay in Shinigami" path. Maybe good maybe bad.
-        Add an Enshrined Counter card that is easier to play in Shinigami
-        Shinigami/Stance overlap - design a card that does something with stance buffs and Shinigami form
-            Flurry in particular will need some support- design a "damage per status in hand" card with Enshrined
         I ended up nerfing it a bit... you always take 1 damage when entering via 0hp now, and it takes 6 exhausts to leave
-        Considering making Ofuda Ethereal. That would force people to leave but changes things significantly. Would maybe need to add other mechanisms to leave.
-            I also changed Count Regrets so it's kind of a "leave for free" card now- it generates Ofudas
+        need to playtest more and re-evaluate
     There's too many Shift cards. Newbies are often getting stuck in a shift build that's confusing and makes the mod look lol random.
         Probably redesign Last Round at a minimum
     
