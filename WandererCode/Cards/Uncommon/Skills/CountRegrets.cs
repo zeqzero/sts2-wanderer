@@ -9,7 +9,7 @@ using Wanderer.WandererCode.Keywords;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>ofuda, enshrined</tags>
+/// <tags>death, exhaust</tags>
 /// <art>wanderer face palming, tight zoom on head</art>
 /// <kanji>悔</kanji>
 [Pool(typeof(WandererCardPool))]

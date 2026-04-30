@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8jg6pscdopv3"
-path="res://.godot/imported/holy_smoke_power.png-cb777e1f6206f74cb6b1b9e4f4384674.ctex"
+uid="uid://82qfw2wlotqa"
+path="res://.godot/imported/yomi_draft_power.png-e09e7a1ebf46d9257c23d46395bf4e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/powers/holy_smoke_power.png"
-dest_files=["res://.godot/imported/holy_smoke_power.png-cb777e1f6206f74cb6b1b9e4f4384674.ctex"]
+source_file="res://Wanderer/images/powers/big/yomi_draft_power.png"
+dest_files=["res://.godot/imported/yomi_draft_power.png-e09e7a1ebf46d9257c23d46395bf4e64.ctex"]
 
 [params]
 

@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>steady</tags>
+/// <tags>steady, flurry, counter</tags>
 /// <art>training camp scene, several figured performing a drill, wanderer is smoking a pipe while leaning up against a tree</art>
 /// <kanji>呼吸</kanji>
 [Pool(typeof(WandererCardPool))]

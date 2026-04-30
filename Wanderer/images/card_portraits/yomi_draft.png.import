@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b67knd3y7yxqv"
-path="res://.godot/imported/holy_smoke.png-ccbe2b58e04cade2c3f7017967af262b.ctex"
+uid="uid://cvw6ydmxb64sv"
+path="res://.godot/imported/yomi_draft.png-f79af417043caaa1f87a194024df6a5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wanderer/images/card_portraits/big/holy_smoke.png"
-dest_files=["res://.godot/imported/holy_smoke.png-ccbe2b58e04cade2c3f7017967af262b.ctex"]
+source_file="res://Wanderer/images/card_portraits/yomi_draft.png"
+dest_files=["res://.godot/imported/yomi_draft.png-f79af417043caaa1f87a194024df6a5b.ctex"]
 
 [params]
 

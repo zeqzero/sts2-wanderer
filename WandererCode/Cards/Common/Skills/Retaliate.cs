@@ -10,7 +10,7 @@ using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>counter</tags>
+/// <tags>counter, aoe</tags>
 /// <art>wanderer in gedan, confident posture, perhaps taunting with one hand</art>
 /// <kanji>反</kanji>
 [Pool(typeof(WandererCardPool))]

@@ -20,14 +20,14 @@ public class JodanPower : WandererPower, IStancePower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<VigorPower>(7) ];
-    
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new PowerVar<VigorPower>(3) ];
+
     public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power == this)
         {
             ArgumentNullException.ThrowIfNull(Owner.Player);
-            await RunAsHookAction(ctx => ExhaustForVigor(ctx, (int)amount));
+            await RunAsHookAction(ctx => ExhaustCards(ctx, (int)amount));
         }
     }
 
@@ -36,10 +36,18 @@ public class JodanPower : WandererPower, IStancePower
         if (player != Owner.Player)
             return;
 
-        await ExhaustForVigor(choiceContext, Amount);
+        await ExhaustCards(choiceContext, Amount);
     }
 
-    private async Task ExhaustForVigor(PlayerChoiceContext choiceContext, int amount)
+    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
+    {
+        if (card.Owner == Owner.Player)
+        {
+            await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
+        }
+    }
+
+    private async Task ExhaustCards(PlayerChoiceContext choiceContext, int amount)
     {
         var cardsToExhaust = await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, amount), context: choiceContext, player: Owner.Player!, filter: null, source: this);
         if (cardsToExhaust != null)
@@ -47,7 +55,6 @@ public class JodanPower : WandererPower, IStancePower
             foreach (var card in cardsToExhaust)
             {
                 await CardCmd.Exhaust(choiceContext, card);
-                await PowerCmd.Apply<VigorPower>(Owner, DynamicVars["VigorPower"].BaseValue, Owner, null);
             }
         }
     }

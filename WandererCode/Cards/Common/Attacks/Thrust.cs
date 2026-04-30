@@ -2,20 +2,28 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
 using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>nextturn, energy</tags>
+/// <tags>nextturn, vigor</tags>
 /// <art>wanderer mid-thrust with sword pointing toward viewer, zoomed in on blade with blurred straw hat in the background</art>
 /// <kanji>突</kanji>
 [Pool(typeof(WandererCardPool))]
 public class Thrust : WandererCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6m, ValueProp.Move), new EnergyVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(6m, ValueProp.Move),
+        new PowerVar<WandererNextTurnVigorPower>(5)
+    ];
+
+    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromPower<VigorPower>() ];
 
     public Thrust() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
@@ -28,7 +36,7 @@ public class Thrust : WandererCard
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<WandererNextTurnEnergyPower>(Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<WandererNextTurnVigorPower>(Owner.Creature, DynamicVars["WandererNextTurnVigorPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

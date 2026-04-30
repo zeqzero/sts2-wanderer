@@ -2,16 +2,14 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Wanderer.WandererCode.Character;
-using Wanderer.WandererCode.Powers;
 
 namespace Wanderer.WandererCode.Cards;
 
-/// <tags>flurry</tags>
+/// <tags>weak</tags>
 /// <art>katana with action swoosh indicating speed, quick circular movement, zoomed-in closeup on katana</art>
 /// <kanji>弾</kanji>
 [Pool(typeof(WandererCardPool))]
@@ -22,10 +20,8 @@ public class KiStrike : WandererCard
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(5m, ValueProp.Move),
-        new PowerVar<WandererNextTurnVigorPower>(5)
+        new PowerVar<WeakPower>(1)
     ];
-
-    protected override IEnumerable<IHoverTip> WandererExtraHoverTips => [ HoverTipFactory.FromPower<VigorPower>() ];
 
     public KiStrike() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
@@ -39,7 +35,7 @@ public class KiStrike : WandererCard
             .WithHitFx("vfx/vfx_attack_slash", null, "slash_attack.mp3")
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<WandererNextTurnVigorPower>(Owner.Creature, DynamicVars["WandererNextTurnVigorPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<WeakPower>(cardPlay.Target, DynamicVars["WeakPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
